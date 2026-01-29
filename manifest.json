@@ -1,0 +1,20 @@
+{
+  "Group": "Dackoro",
+  "Name": "Adventure time",
+  "Version": "1.0.0",
+  "Description": "Add new Swords from Adventure Time",
+  "Authors": [
+    {
+      "Name": "Dackoro",
+      "Email": "",
+      "Url": ""
+    }
+  ],
+  "Website": "",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "LoadBefore": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": false,
+  "SubPlugins": []
+}

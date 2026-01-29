@@ -1,0 +1,12 @@
+{
+  "Type": "Simple",
+  "RunTime": 0.433,
+  "Effects": {
+    "ItemAnimationId": "SwingDownStrong",
+    "WorldSoundEventId": "SFX_Light_Melee_T2_Swing",
+    "LocalSoundEventId": "SFX_Sword_T2_Swing_Down_Local"
+  },
+  "Next": {
+    "Type": "Simple"
+  }
+}

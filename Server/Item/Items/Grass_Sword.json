@@ -34,11 +34,12 @@
       {
         "Type": "Crafting",
         "Categories": [
-          "Weapon_Sword"
+          "Arcane_Misc"
         ],
-        "Id": "Weapon_Bench"
+        "Id": "Arcanebench"
       }
-    ]
+    ],
+    "RequiredMemoriesLevel": 2
   },
   "InteractionVars": {
     "Swing_Left_Damage": {
@@ -167,8 +168,8 @@
       0
     ],
     "Translation": [
-      -25,
-      -30
+      -30,
+      -31
     ]
   },
   "Categories": [

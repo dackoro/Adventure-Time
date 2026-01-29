@@ -1,12 +1,12 @@
 {
   "Parent": "Template_Weapon_Sword",
   "TranslationProperties": {
-    "Name": "Tree Sword"
+    "Name": "Scarlet Sword"
   },
-  "Model": "Resources/Tree_Sword/tree-sword.blockymodel",
-  "Texture": "Resources/Tree_Sword/texture.png",
-  "Quality": "Common",
-  "Icon": "Icons/ItemsGenerated/Sword_Tree.png",
+  "Model": "Resources/Night_Sword/Night_Sword.blockymodel",
+  "Texture": "Resources/Night_Sword/Night_Sword.png",
+  "Quality": "Epic",
+  "Icon": "Icons/ItemsGenerated/Night_Sword.png",
   "ItemLevel": 20,
   "Recipe": {
     "TimeSeconds": 3.5,
@@ -17,8 +17,17 @@
         "Quantity": 6
       },
       {
-        "Quantity": 6,
-        "ResourceTypeId": "Wood_Trunk"
+        "Quantity": 1,
+        "ResourceTypeId": "",
+        "ItemId": "Ingredient_Voidheart"
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "Ingredient_Void_Essence",
+        "Quantity": 20
       }
     ],
     "BenchRequirement": [
@@ -29,7 +38,8 @@
         ],
         "Id": "Weapon_Bench"
       }
-    ]
+    ],
+    "RequiredMemoriesLevel": 3
   },
   "InteractionVars": {
     "Swing_Left_Damage": {
@@ -38,7 +48,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Left_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 9
+              "Physical": 22
             }
           },
           "DamageEffects": {
@@ -54,7 +64,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Right_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 10
+              "Physical": 24
             }
           },
           "DamageEffects": {
@@ -70,7 +80,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Down_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 18
+              "Physical": 33
             }
           },
           "DamageEffects": {
@@ -86,7 +96,7 @@
           "Parent": "Weapon_Sword_Primary_Thrust_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 26
+              "Physical": 35
             }
           },
           "EntityStatsOnHit": [
@@ -108,7 +118,7 @@
           "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 19
+              "Physical": 22
             }
           },
           "EntityStatsOnHit": [],
@@ -125,7 +135,7 @@
           "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 56
+              "Physical": 64
             }
           },
           "EntityStatsOnHit": [],
@@ -153,13 +163,13 @@
   "IconProperties": {
     "Scale": 0.36,
     "Rotation": [
-      42,
-      95,
+      315,
+      275,
       0
     ],
     "Translation": [
-      -25,
-      -30
+      -32,
+      -33
     ]
   },
   "Categories": [
@@ -167,5 +177,7 @@
   ],
   "Light": {
     "Radius": 0
-  }
+  },
+  "Animation": "Resources/Night_Sword/look_around.blockyanim",
+  "DroppedItemAnimation": "Resources/Night_Sword/look_around.blockyanim"
 }

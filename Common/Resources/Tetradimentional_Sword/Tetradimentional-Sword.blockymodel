@@ -60,7 +60,7 @@
                 {
                   "id": "4",
                   "name": "cube--C1",
-                  "position": {"x": 0, "y": 0, "z": 0},
+                  "position": {"x": 2, "y": 0, "z": 0},
                   "orientation": {"x": -0.13795, "y": -0.69352, "z": 0.13795, "w": 0.69352},
                   "shape": {
                     "type": "quad",
@@ -158,7 +158,7 @@
                 {
                   "id": "8",
                   "name": "cube--C1",
-                  "position": {"x": 0, "y": 0, "z": 0},
+                  "position": {"x": 2, "y": 0, "z": 0},
                   "orientation": {"x": 0.13795, "y": -0.69352, "z": -0.13795, "w": 0.69352},
                   "shape": {
                     "type": "quad",
@@ -207,7 +207,7 @@
                 {
                   "id": "10",
                   "name": "cube--C1",
-                  "position": {"x": -0.75, "y": 0, "z": 0},
+                  "position": {"x": 0.25, "y": 0, "z": 0},
                   "orientation": {"x": 0.18599, "y": -0.68221, "z": -0.18599, "w": 0.68221},
                   "shape": {
                     "type": "quad",
@@ -844,7 +844,7 @@
                 {
                   "id": "36",
                   "name": "cube--C1",
-                  "position": {"x": 0, "y": 0, "z": 0},
+                  "position": {"x": 2, "y": 0, "z": 0},
                   "orientation": {"x": -0.13795, "y": -0.69352, "z": 0.13795, "w": 0.69352},
                   "shape": {
                     "type": "quad",

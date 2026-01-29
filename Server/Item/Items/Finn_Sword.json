@@ -1,33 +1,24 @@
 {
   "Parent": "Template_Weapon_Sword",
   "TranslationProperties": {
-    "Name": "Grass Sword"
+    "Name": "Tree Sword"
   },
-  "Model": "Resources/Grass_Sword/grass-sword.blockymodel",
-  "Texture": "Resources/Grass_Sword/grass-sword.png",
-  "Quality": "Legendary",
-  "Icon": "Icons/ItemsGenerated/Grass_Sword.png",
+  "Model": "Resources/Finn_Sword/finn-sword.blockymodel",
+  "Texture": "Resources/Finn_Sword/finn_sword.png",
+  "Quality": "Epic",
+  "Icon": "Icons/ItemsGenerated/Finn_Sword.png",
   "ItemLevel": 20,
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,
     "Input": [
       {
-        "ItemId": "Ingredient_Fibre",
-        "Quantity": 20
-      },
-      {
-        "Quantity": 2,
-        "ResourceTypeId": "",
-        "ItemId": "Ingredient_Life_Essence_Concentrated"
-      },
-      {
-        "ItemId": "Potion_Antidote",
+        "ItemId": "Ingredient_Bar_Cobalt",
         "Quantity": 1
       },
       {
-        "ItemId": "Plant_Grass_Sharp",
-        "Quantity": 50
+        "Quantity": 10,
+        "ItemId": "Ingredient_Bar_Mithril"
       }
     ],
     "BenchRequirement": [
@@ -38,16 +29,17 @@
         ],
         "Id": "Weapon_Bench"
       }
-    ]
+    ],
+    "RequiredMemoriesLevel": 2
   },
   "InteractionVars": {
     "Swing_Left_Damage": {
       "Interactions": [
         {
-          "Parent": "Grass_Sword_Attack",
+          "Parent": "Weapon_Sword_Primary_Swing_Left_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 9
+              "Physical": 19
             }
           },
           "DamageEffects": {
@@ -63,7 +55,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Right_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 10
+              "Physical": 22
             }
           },
           "DamageEffects": {
@@ -79,7 +71,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Down_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 18
+              "Physical": 29
             }
           },
           "DamageEffects": {
@@ -95,7 +87,7 @@
           "Parent": "Weapon_Sword_Primary_Thrust_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 26
+              "Physical": 32
             }
           },
           "EntityStatsOnHit": [
@@ -134,7 +126,7 @@
           "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 56
+              "Physical": 60
             }
           },
           "EntityStatsOnHit": [],
@@ -160,15 +152,15 @@
   "MaxDurability": 120,
   "DurabilityLossOnHit": 0.21,
   "IconProperties": {
-    "Scale": 0.36,
+    "Scale": 0.4,
     "Rotation": [
-      42,
-      95,
+      45,
+      100,
       0
     ],
     "Translation": [
-      -25,
-      -30
+      -30,
+      -33
     ]
   },
   "Categories": [

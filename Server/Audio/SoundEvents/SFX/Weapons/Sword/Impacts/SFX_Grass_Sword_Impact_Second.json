@@ -4,7 +4,7 @@
       "Files": [
         "Sounds/Weapons/Grass_Sword/Grass_Sword_VFX_Attack_Second.ogg"
       ],
-      "Volume": 6.48,
+      "Volume": 10,
       "RandomSettings": {
         "MinVolume": -1,
         "MinPitch": -2,

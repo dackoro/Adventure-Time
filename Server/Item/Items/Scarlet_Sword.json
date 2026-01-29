@@ -1,24 +1,29 @@
 {
   "Parent": "Template_Weapon_Sword",
   "TranslationProperties": {
-    "Name": "Tree Sword"
+    "Name": "Scarlet Sword"
   },
-  "Model": "Resources/Tree_Sword/tree-sword.blockymodel",
-  "Texture": "Resources/Tree_Sword/texture.png",
+  "Model": "Resources/Scarlet_Sword/scarlet-sword.blockymodel",
+  "Texture": "Resources/Scarlet_Sword/scarlet.png",
   "Quality": "Common",
-  "Icon": "Icons/ItemsGenerated/Sword_Tree.png",
+  "Icon": "Icons/ItemsGenerated/Scarlet_Sword.png",
   "ItemLevel": 20,
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
+        "ItemId": "Ingredient_Bar_Gold",
         "Quantity": 6
       },
       {
-        "Quantity": 6,
-        "ResourceTypeId": "Wood_Trunk"
+        "Quantity": 3,
+        "ResourceTypeId": "",
+        "ItemId": "Ingredient_Bar_Iron"
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 3
       }
     ],
     "BenchRequirement": [
@@ -153,13 +158,13 @@
   "IconProperties": {
     "Scale": 0.36,
     "Rotation": [
-      42,
-      95,
+      45,
+      90,
       0
     ],
     "Translation": [
-      -25,
-      -30
+      -32,
+      -33
     ]
   },
   "Categories": [

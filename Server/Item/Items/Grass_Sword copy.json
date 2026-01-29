@@ -44,15 +44,15 @@
     "Swing_Left_Damage": {
       "Interactions": [
         {
-          "Parent": "Weapon_Sword_Primary_Swing_Left_Damage",
+          "Parent": "Grass_Sword_Attack",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 17
+              "Physical": 9
             }
           },
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Grass_Sword_Impact",
-            "LocalSoundEventId": "SFX_Grass_Sword_Impact"
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact"
           }
         }
       ]
@@ -63,12 +63,28 @@
           "Parent": "Weapon_Sword_Primary_Swing_Right_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 20
+              "Physical": 10
             }
           },
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Grass_Sword_Impact_Second",
-            "LocalSoundEventId": "SFX_Grass_Sword_Impact_Second"
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+          }
+        }
+      ]
+    },
+    "Swing_Down_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Down_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 18
+            }
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact"
           }
         }
       ]
@@ -89,8 +105,8 @@
             }
           ],
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Grass_Sword_Impact_Second",
-            "LocalSoundEventId": "SFX_Grass_Sword_Impact_Second"
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact"
           }
         }
       ]
@@ -101,13 +117,13 @@
           "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 25
+              "Physical": 19
             }
           },
           "EntityStatsOnHit": [],
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Grass_Sword_Ultimate",
-            "LocalSoundEventId": "SFX_Grass_Sword_Ultimate"
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact"
           }
         }
       ]
@@ -118,13 +134,13 @@
           "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 75
+              "Physical": 56
             }
           },
           "EntityStatsOnHit": [],
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Grass_Sword_Charge",
-            "LocalSoundEventId": "SFX_Grass_Sword_Charge"
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact"
           }
         }
       ]
@@ -136,22 +152,6 @@
           "StaminaCost": {
             "Value": 10,
             "CostType": "Damage"
-          }
-        }
-      ]
-    },
-    "Swing_Down_Damage": {
-      "Interactions": [
-        {
-          "Parent": "Weapon_Sword_Primary_Swing_Down_Damage",
-          "DamageCalculator": {
-            "BaseDamage": {
-              "Physical": 25
-            }
-          },
-          "DamageEffects": {
-            "WorldSoundEventId": "SFX_Grass_Sword_Impact",
-            "LocalSoundEventId": "SFX_Grass_Sword_Impact"
           }
         }
       ]
@@ -176,13 +176,5 @@
   ],
   "Light": {
     "Radius": 0
-  },
-  "SoundEventId": "SXF_Grass_Sword_Equip",
-  "Particles": [
-    {
-      "SystemId": "Block_Break_Grass",
-      "Color": "#91ae35",
-      "Scale": 0.4
-    }
-  ]
+  }
 }

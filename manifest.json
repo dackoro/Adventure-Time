@@ -1,8 +1,8 @@
 {
   "Group": "Dackoro",
   "Name": "Adventure time",
-  "Version": "1.0.0",
-  "Description": "Add new Swords from Adventure Time",
+  "Version": "0.0.1",
+  "Description": "Add new weapons from Adventure Time (WIP)",
   "Authors": [
     {
       "Name": "Dackoro",
@@ -10,7 +10,7 @@
       "Url": ""
     }
   ],
-  "Website": "",
+  "Website": "https://x.com/dackoro",
   "Dependencies": {},
   "OptionalDependencies": {},
   "LoadBefore": {},

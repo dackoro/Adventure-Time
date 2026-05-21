@@ -43,14 +43,28 @@ $serverVersion = $manifest.ServerVersion
 $tag = "v$version"
 Write-Host "Publishing $($manifest.Name) $tag (Hytale build: $serverVersion)" -ForegroundColor Cyan
 
-# Resolve changelog
+# Resolve changelog. Priority:
+#   1. -ChangelogFile param
+#   2. CHANGELOG.md section [<version>] at repo root
+#   3. git tag message
+#   4. fallback string
 $changelog = ''
 if ($ChangelogFile -and (Test-Path $ChangelogFile)) {
   $changelog = Get-Content $ChangelogFile -Raw
 } else {
-  $changelog = (git tag -l --format='%(contents)' $tag) -join "`n"
+  $clPath = Join-Path $repoRoot 'CHANGELOG.md'
+  if (Test-Path $clPath) {
+    $clText = Get-Content $clPath -Raw
+    # Extract everything from "## [version]" until next "## [" or "---" or EOF.
+    $pattern = "(?ms)^## \[$([regex]::Escape($version))\][^\n]*\n(.*?)(?=^## \[|^---\s*$|\z)"
+    $m = [regex]::Match($clText, $pattern)
+    if ($m.Success) { $changelog = $m.Groups[1].Value.Trim() }
+  }
+  if (-not $changelog) { $changelog = (git tag -l --format='%(contents)' $tag) -join "`n" }
   if (-not $changelog) { $changelog = "Release $tag" }
 }
+Write-Host "==> Changelog ($($changelog.Length) chars):" -ForegroundColor DarkGray
+Write-Host ($changelog -split "`n" | ForEach-Object { "    $_" } | Out-String).Trim()
 
 # Build zip
 Write-Host "==> Building zip..." -ForegroundColor Cyan

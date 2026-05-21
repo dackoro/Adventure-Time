@@ -63,6 +63,14 @@ Requires:
 
 `build-zip.ps1` is invoked by `publish.ps1` but can also be run standalone to just produce `dist/<Name>-<Version>.zip`.
 
+## Mod icon
+
+Hytale auto-discovers a `icon-256.png` at the **mod root** (same level as `manifest.json`) and shows it in the in-game mod list. No manifest field references it.
+
+- File: `icon-256.png` at repo root. 256×256 PNG.
+- The original source art lives in `Assets/icon.webp` (kept for reference, excluded from published zip via `build-zip.ps1`).
+- To regenerate after updating the source: `ffmpeg -y -i Assets/icon.webp -vf "scale=256:256:flags=lanczos" icon-256.png`
+
 ## ServerVersion compatibility
 
 Hytale validates `manifest.json` `ServerVersion` by exact string equality (since Update 3). Every Hytale build update breaks the mod unless `ServerVersion` is updated. Workflow:

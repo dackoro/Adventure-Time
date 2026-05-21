@@ -1,5 +1,6 @@
 {
   "ProjectId": 0,
-  "ApiBaseUrl": "https://hytale.curseforge.com/api",
-  "_comment": "Copy to .cf-config.json (gitignored) and fill in your CurseForge project numeric ID. ApiBaseUrl may need verification — check https://support.curseforge.com/support/solutions/articles/9000197321 if uploads fail."
+  "ApiBaseUrl": "https://eternal.curseforge.com/api",
+  "GameVersionId": 6952,
+  "_comment": "Copy to .cf-config.json (gitignored) and fill in your CurseForge ProjectId (from 'About Project' panel). GameVersionId 6952 = Hytale '1.0' — Hytale uses a single gameVersion for all builds; ServerVersion in manifest.json controls per-build compatibility."
 }

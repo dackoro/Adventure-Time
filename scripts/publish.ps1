@@ -61,7 +61,7 @@ if (-not (Test-Path $zipPath)) { throw "Zip build failed." }
 if (-not $SkipCurseForge) {
   $cfgPath = Join-Path $repoRoot '.cf-config.json'
   if (-not (Test-Path $cfgPath)) {
-    throw ".cf-config.json missing. Create it with: { `"ProjectId`": <id>, `"ApiBaseUrl`": `"https://hytale.curseforge.com/api`" }"
+    throw ".cf-config.json missing. Copy from .cf-config.example.json and fill in ProjectId."
   }
   $cfg = Get-Content $cfgPath -Raw | ConvertFrom-Json
   $token = $env:CURSEFORGE_API_TOKEN
@@ -71,16 +71,8 @@ if (-not $SkipCurseForge) {
   }
   if (-not $token) { throw "Set CURSEFORGE_API_TOKEN env var or create .cf-token file." }
 
-  Write-Host "==> Resolving Hytale gameVersion id for '$serverVersion'..." -ForegroundColor Cyan
-  $versions = Invoke-RestMethod -Uri "$($cfg.ApiBaseUrl)/game/versions" -Headers @{ 'X-Api-Token' = $token }
-  $match = $versions | Where-Object { $_.name -eq $serverVersion -or $_.slug -eq ($serverVersion -replace '\.','-') }
-  if (-not $match) {
-    Write-Warning "No exact match for '$serverVersion'. Available recent versions:"
-    $versions | Select-Object -First 10 | ForEach-Object { Write-Host ("  id={0}  name={1}" -f $_.id, $_.name) }
-    throw "Pick the right id manually and rerun with -GameVersionId, or update ServerVersion in manifest."
-  }
-  $gameVersionId = $match.id
-  Write-Host "    gameVersionId=$gameVersionId"
+  $gameVersionId = if ($cfg.GameVersionId) { $cfg.GameVersionId } else { 6952 }
+  Write-Host "    gameVersionId=$gameVersionId (Hytale uses a single version; ServerVersion in manifest controls per-build compat)"
 
   Write-Host "==> Uploading to CurseForge project $($cfg.ProjectId)..." -ForegroundColor Cyan
   $metadata = @{

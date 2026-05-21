@@ -68,8 +68,7 @@ Requires:
 Hytale auto-discovers a `icon-256.png` at the **mod root** (same level as `manifest.json`) and shows it in the in-game mod list. No manifest field references it.
 
 - File: `icon-256.png` at repo root. 256×256 PNG.
-- The original source art lives in `Assets/icon.webp` (kept for reference, excluded from published zip via `build-zip.ps1`).
-- To regenerate after updating the source: `ffmpeg -y -i Assets/icon.webp -vf "scale=256:256:flags=lanczos" icon-256.png`
+- To replace: drop a new 256×256 PNG at the repo root with the same name.
 
 ## ServerVersion compatibility
 

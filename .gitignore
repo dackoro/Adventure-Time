@@ -6,6 +6,7 @@ dist/
 !.env.example
 .cf-token
 .cf-config.json
+IA DOCS/
 .vscode/
 .idea/
 Thumbs.db

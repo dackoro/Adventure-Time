@@ -1,0 +1,5 @@
+{
+  "ProjectId": 0,
+  "ApiBaseUrl": "https://hytale.curseforge.com/api",
+  "_comment": "Copy to .cf-config.json (gitignored) and fill in your CurseForge project numeric ID. ApiBaseUrl may need verification — check https://support.curseforge.com/support/solutions/articles/9000197321 if uploads fail."
+}

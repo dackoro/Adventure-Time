@@ -71,26 +71,35 @@ if (-not $SkipCurseForge) {
   }
   if (-not $token) { throw "Set CURSEFORGE_API_TOKEN env var or create .cf-token file." }
 
-  $gameVersionId = if ($cfg.GameVersionId) { $cfg.GameVersionId } else { 6952 }
-  Write-Host "    gameVersionId=$gameVersionId (Hytale uses a single version; ServerVersion in manifest controls per-build compat)"
-
   Write-Host "==> Uploading to CurseForge project $($cfg.ProjectId)..." -ForegroundColor Cyan
+  # NOTE: Hytale uploads must OMIT gameVersions entirely. The legacy API doc
+  # marks it required, but the Hytale backend rejects every gameVersion ID with
+  # "belongs to an invalid game". Compat is controlled by ServerVersion in manifest.json.
   $metadata = @{
     changelog     = $changelog
     changelogType = 'markdown'
     displayName   = "$($manifest.Name) $tag"
-    gameVersions  = @($gameVersionId)
     releaseType   = $ReleaseType
   } | ConvertTo-Json -Depth 5 -Compress
 
-  $form = @{
-    metadata = $metadata
-    file     = Get-Item $zipPath
-  }
-  $resp = Invoke-RestMethod -Method Post `
-    -Uri "$($cfg.ApiBaseUrl)/projects/$($cfg.ProjectId)/upload-file" `
-    -Headers @{ 'X-Api-Token' = $token } `
-    -Form $form
+  # PS 5.1 has no Invoke-RestMethod -Form; build multipart/form-data manually.
+  $boundary = "----PSBoundary$([guid]::NewGuid().ToString('N'))"
+  $LF = "`r`n"
+  $enc = [System.Text.Encoding]::UTF8
+  $ms = New-Object System.IO.MemoryStream
+  function Add-Bytes([System.IO.Stream]$s, [byte[]]$b) { $s.Write($b, 0, $b.Length) }
+  Add-Bytes $ms $enc.GetBytes("--$boundary$LF")
+  Add-Bytes $ms $enc.GetBytes("Content-Disposition: form-data; name=`"metadata`"$LF$LF$metadata$LF")
+  Add-Bytes $ms $enc.GetBytes("--$boundary$LF")
+  $fileName = [System.IO.Path]::GetFileName($zipPath)
+  Add-Bytes $ms $enc.GetBytes("Content-Disposition: form-data; name=`"file`"; filename=`"$fileName`"$LF")
+  Add-Bytes $ms $enc.GetBytes("Content-Type: application/zip$LF$LF")
+  Add-Bytes $ms ([System.IO.File]::ReadAllBytes($zipPath))
+  Add-Bytes $ms $enc.GetBytes("$LF--$boundary--$LF")
+  $body = $ms.ToArray(); $ms.Dispose()
+
+  $uploadUri = "$($cfg.ApiBaseUrl)/projects/$($cfg.ProjectId)/upload-file"
+  $resp = Invoke-RestMethod -Method Post -Uri $uploadUri -Headers @{ 'X-Api-Token' = $token } -ContentType "multipart/form-data; boundary=$boundary" -Body $body
   Write-Host "    CurseForge fileId: $($resp.id)" -ForegroundColor Green
 }
 
@@ -98,7 +107,7 @@ if (-not $SkipCurseForge) {
 if (-not $SkipGitHub) {
   $gh = Get-Command gh -ErrorAction SilentlyContinue
   if (-not $gh) {
-    Write-Warning "gh CLI not installed — skipping GitHub release. Install: winget install --id GitHub.cli"
+    Write-Warning "gh CLI not installed - skipping GitHub release. Install: winget install --id GitHub.cli"
   } else {
     Write-Host "==> Creating GitHub release $tag..." -ForegroundColor Cyan
     $notesFile = New-TemporaryFile

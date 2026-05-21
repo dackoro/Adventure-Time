@@ -70,6 +70,14 @@ Hytale auto-discovers a `icon-256.png` at the **mod root** (same level as `manif
 - File: `icon-256.png` at repo root. 256×256 PNG.
 - To replace: drop a new 256×256 PNG at the repo root with the same name.
 
+## CurseForge upload quirks (Hytale-specific)
+
+The legacy CurseForge Upload API docs say `gameVersions` is required, but the Hytale backend rejects every game version ID with `"belongs to an invalid game"`. **Hytale uploads must OMIT `gameVersions` entirely** — `publish.ps1` does this. Per-build compat is controlled by `ServerVersion` in `manifest.json`, not by CurseForge gameVersions.
+
+Working endpoint: `POST https://authors-old.curseforge.com/api/projects/<ProjectId>/upload-file` with `X-Api-Token` header. `eternal.curseforge.com/api` and `hypixel.curseforge.com/api` also work; `hytale.curseforge.com/api` does NOT (404).
+
+PowerShell 5.1 has no `Invoke-RestMethod -Form` — `publish.ps1` builds multipart/form-data manually.
+
 ## ServerVersion compatibility
 
 Hytale validates `manifest.json` `ServerVersion` by exact string equality (since Update 3). Every Hytale build update breaks the mod unless `ServerVersion` is updated. Workflow:

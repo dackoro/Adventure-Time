@@ -1,0 +1,32 @@
+{
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/Weapons/Grass_Sword/Grass_Sword_VFX_Attack.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -2,
+        "MaxPitch": 0.1,
+        "MinVolume": -3
+      },
+      "StartDelay": 0,
+      "Volume": 1.0
+    },
+    {
+      "Files": [
+        "Sounds/Weapons/Grass_Sword/Grass_Sword_VFX_Attack_Second.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -4,
+        "MaxPitch": 0,
+        "MinVolume": -2
+      },
+      "StartDelay": 0,
+      "Volume": 1.0
+    }
+  ],
+  "Volume": 0,
+  "PreventSoundInterruption": true,
+  "AudioCategory": "AudioCat_Sword",
+  "Parent": "SFX_Attn_Moderate"
+}

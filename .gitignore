@@ -1,0 +1,10 @@
+dist/
+*.zip
+.env
+.env.*
+!.env.example
+.cf-token
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

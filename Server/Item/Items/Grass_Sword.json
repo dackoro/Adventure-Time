@@ -1,0 +1,189 @@
+{
+  "Parent": "Template_Weapon_Sword",
+  "TranslationProperties": {
+    "Name": "Grass Sword"
+  },
+  "Model": "Resources/Grass_Sword/grass-sword.blockymodel",
+  "Texture": "Resources/Grass_Sword/grass-sword.png",
+  "Quality": "Legendary",
+  "Icon": "Icons/ItemsGenerated/Grass_Sword.png",
+  "ItemLevel": 20,
+  "Recipe": {
+    "TimeSeconds": 3.5,
+    "KnowledgeRequired": false,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Fibre",
+        "Quantity": 20
+      },
+      {
+        "Quantity": 2,
+        "ResourceTypeId": "",
+        "ItemId": "Ingredient_Life_Essence_Concentrated"
+      },
+      {
+        "ItemId": "Potion_Antidote",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Plant_Grass_Sharp",
+        "Quantity": 50
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Arcane_Misc"
+        ],
+        "Id": "Arcanebench"
+      }
+    ],
+    "RequiredMemoriesLevel": 2
+  },
+  "InteractionVars": {
+    "Swing_Left_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Left_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 17
+            }
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Grass_Sword_Impact",
+            "LocalSoundEventId": "SFX_Grass_Sword_Impact"
+          }
+        }
+      ]
+    },
+    "Swing_Right_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Right_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 20
+            }
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Grass_Sword_Impact_Second",
+            "LocalSoundEventId": "SFX_Grass_Sword_Impact_Second"
+          }
+        }
+      ]
+    },
+    "Thrust_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Thrust_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 26
+            }
+          },
+          "EntityStatsOnHit": [
+            {
+              "EntityStatId": "SignatureEnergy",
+              "Amount": 3
+            }
+          ],
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Grass_Sword_Impact_Second",
+            "LocalSoundEventId": "SFX_Grass_Sword_Impact_Second"
+          }
+        }
+      ]
+    },
+    "Vortexstrike_Spin_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 25
+            }
+          },
+          "EntityStatsOnHit": [],
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Grass_Sword_Ultimate",
+            "LocalSoundEventId": "SFX_Grass_Sword_Ultimate"
+          }
+        }
+      ]
+    },
+    "Vortexstrike_Stab_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 75
+            }
+          },
+          "EntityStatsOnHit": [],
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Grass_Sword_Charge",
+            "LocalSoundEventId": "SFX_Grass_Sword_Charge"
+          }
+        }
+      ]
+    },
+    "Guard_Wield": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Secondary_Guard_Wield",
+          "StaminaCost": {
+            "Value": 10,
+            "CostType": "Damage"
+          }
+        }
+      ]
+    },
+    "Swing_Down_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Down_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 25
+            }
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Grass_Sword_Impact",
+            "LocalSoundEventId": "SFX_Grass_Sword_Impact"
+          }
+        }
+      ]
+    }
+  },
+  "MaxDurability": 120,
+  "DurabilityLossOnHit": 0.21,
+  "IconProperties": {
+    "Scale": 0.36,
+    "Rotation": [
+      42,
+      95,
+      0
+    ],
+    "Translation": [
+      -30,
+      -31
+    ]
+  },
+  "Categories": [
+    "Items.Weapons"
+  ],
+  "Light": {
+    "Radius": 0
+  },
+  "SoundEventId": "SXF_Grass_Sword_Equip",
+  "Particles": [
+    {
+      "SystemId": "Block_Break_Grass",
+      "Color": "#91ae35",
+      "Scale": 0.4
+    }
+  ]
+}

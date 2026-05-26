@@ -80,13 +80,19 @@ PowerShell 5.1 has no `Invoke-RestMethod -Form` — `publish.ps1` builds multipa
 
 ## ServerVersion compatibility
 
-Hytale validates `manifest.json` `ServerVersion` by exact string equality (since Update 3). Every Hytale build update breaks the mod unless `ServerVersion` is updated. Workflow:
+**Update 5 (2026-05-25) changed the format.** `ServerVersion` now uses semver ranges instead of exact dated build strings. The old `YYYY.MM.DD-<sha>` format still loads (with a log warning, treated as wildcard) but is deprecated.
 
-1. Note the new build string from Hytale's start screen (e.g. `2026.03.26-89796e57b`).
-2. On `dev` branch: update `ServerVersion` in `manifest.json`, smoke-test in game.
-3. `promote.ps1` + `publish.ps1` with patch-version bump.
+Current value: `">=0.5.0"` — matches Hytale Update 5 and all future releases. For a content-only mod, a wide range is safe and avoids needing a manifest edit on every Hytale patch.
 
-Alternative: declare a semver range like `"2026.*"` in `ServerVersion` IF users install [ModsVersionRange](https://www.curseforge.com/hytale/mods/mods-version-range-fix) (+ MixinTale). Not the default — adds dependencies for end users.
+Range syntax options:
+- `">=0.5.0"` — works with Update 5 and anything newer (current choice)
+- `"^0.5.0"` or `">=0.5.0 <0.6.0"` — restricts to 0.5.x only; tighten if a future update breaks the mod
+
+**Note:** `>=0.5.0` does NOT match pre-release builds like `0.5.0-pre.3`.
+
+Workflow when a Hytale update breaks the mod:
+1. On `dev` branch: update `ServerVersion` range in `manifest.json`, smoke-test in game.
+2. `promote.ps1` + `publish.ps1` with patch-version bump.
 
 ## What not to do
 

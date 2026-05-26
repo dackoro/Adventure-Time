@@ -1,7 +1,7 @@
 {
   "Parent": "Template_Weapon_Sword",
   "TranslationProperties": {
-    "Name": "Tree Sword"
+    "Name": "Finn Sword"
   },
   "Model": "Resources/Finn_Sword/finn-sword.blockymodel",
   "Texture": "Resources/Finn_Sword/finn_sword.png",

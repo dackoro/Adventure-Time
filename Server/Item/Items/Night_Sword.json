@@ -1,7 +1,7 @@
 {
   "Parent": "Template_Weapon_Sword",
   "TranslationProperties": {
-    "Name": "Scarlet Sword"
+    "Name": "Night Sword"
   },
   "Model": "Resources/Night_Sword/Night_Sword.blockymodel",
   "Texture": "Resources/Night_Sword/Night_Sword.png",

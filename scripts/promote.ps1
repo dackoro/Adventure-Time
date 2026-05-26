@@ -65,7 +65,7 @@ if (-not $NoPush) {
     git push origin main
     git push origin $tag
   } else {
-    Write-Warning "No 'origin' remote configured — skipping push. Add one with: git remote add origin <url>"
+    Write-Warning "No 'origin' remote configured - skipping push. Add one with: git remote add origin URL"
   }
 }
 

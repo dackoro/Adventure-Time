@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.0.5] - 2026-05-26
+
+### Fixed
+- Mod is now compatible with **Hytale Update 5**. Hytale changed the `ServerVersion` format from an exact build string to a semver range — the old format loaded with a warning and may stop working in a future update. The mod now declares `>=0.5.0`, which covers Update 5 and future patch releases without needing a new upload every Hytale build.
+
+### Notes
+- All Adventure Time swords (Finn, Grass, Night, Scarlet, Tree) remain craftable and functional as before. Stats and recipes unchanged.
+
+---
+
 ## [0.0.4] - 2026-05-21
 
 ### Fixed

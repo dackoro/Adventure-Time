@@ -1,7 +1,7 @@
 {
   "Group": "Dackoro",
   "Name": "Adventure time",
-  "Version": "0.0.4",
+  "Version": "0.0.5",
   "ServerVersion": ">=0.5.0",
   "Description": "Add new weapons from Adventure Time (WIP)",
   "Authors": [

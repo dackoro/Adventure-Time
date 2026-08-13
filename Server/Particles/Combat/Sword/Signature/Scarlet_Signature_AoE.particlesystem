@@ -1,0 +1,9 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "Scarlet_Signature_Ring"
+    }
+  ],
+  "BoundingRadius": 10,
+  "IsImportant": false
+}

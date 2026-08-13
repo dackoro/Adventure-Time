@@ -7,7 +7,7 @@
   "Texture": "Resources/Tree_Sword/texture.png",
   "Quality": "Common",
   "Icon": "Icons/ItemsGenerated/Sword_Tree.png",
-  "ItemLevel": 20,
+  "ItemLevel": 10,
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,
@@ -32,6 +32,225 @@
     ]
   },
   "InteractionVars": {
+    "Swing_Left_Selector": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Left_Selector",
+          "Effects": {
+            "CameraEffect": "Sword_Swing_Diagonal_Right",
+            "Trails": [
+              {
+                "PositionOffset": {
+                  "X": 1.3,
+                  "Y": 0,
+                  "Z": 0
+                },
+                "TargetNodeName": "Handle",
+                "TrailId": "Tree_Sword_Trail",
+                "RotationOffset": {
+                  "Roll": 90.0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Swing_Right_Selector": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Right_Selector",
+          "Effects": {
+            "CameraEffect": "Sword_Swing_Diagonal_Right",
+            "Trails": [
+              {
+                "PositionOffset": {
+                  "X": 1.3,
+                  "Y": 0,
+                  "Z": 0
+                },
+                "TargetNodeName": "Handle",
+                "TrailId": "Tree_Sword_Trail",
+                "RotationOffset": {
+                  "Roll": 90.0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Swing_Down_Selector": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Down_Selector",
+          "Effects": {
+            "CameraEffect": "Sword_Swing_Vertical",
+            "Trails": [
+              {
+                "PositionOffset": {
+                  "X": 1.3,
+                  "Y": 0,
+                  "Z": 0
+                },
+                "TargetNodeName": "Handle",
+                "TrailId": "Tree_Sword_Trail",
+                "RotationOffset": {
+                  "Roll": 90.0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Vortexstrike_Spin_Selector": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Selector",
+          "Effects": {
+            "ItemAnimationId": "SpinRightCharged",
+            "Trails": [
+              {
+                "PositionOffset": {
+                  "X": 1.3,
+                  "Y": 0,
+                  "Z": 0
+                },
+                "TargetNodeName": "Handle",
+                "TrailId": "Tree_Sword_Trail_Signature",
+                "RotationOffset": {
+                  "Roll": 90.0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Vortexstrike_Stab_Selector": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Selector",
+          "Effects": {
+            "ItemAnimationId": "SpinRightStabDashCharged",
+            "Trails": [
+              {
+                "PositionOffset": {
+                  "X": 1.3,
+                  "Y": 0,
+                  "Z": 0
+                },
+                "TargetNodeName": "Handle",
+                "TrailId": "Tree_Sword_Trail_Signature",
+                "RotationOffset": {
+                  "Roll": 90.0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Vortexstrike_Spin_Effect": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Effect",
+          "Effects": {
+            "Trails": [
+              {
+                "PositionOffset": {
+                  "X": 0.8,
+                  "Y": 0,
+                  "Z": 0
+                },
+                "RotationOffset": {
+                  "Pitch": 0,
+                  "Roll": 90,
+                  "Yaw": 0
+                },
+                "TargetNodeName": "Handle",
+                "TrailId": "Tree_Sword_Trail_Signature"
+              }
+            ],
+            "WorldSoundEventId": "SFX_Sword_T2_Signature_Part_1",
+            "LocalSoundEventId": "SFX_Sword_T2_Signature_Part_1_Local",
+            "WaitForAnimationToFinish": false,
+            "Particles": [
+              {
+                "SystemId": "Tree_Signature_AoE",
+                "Scale": 1,
+                "TargetNodeName": "Hip",
+                "TargetEntityPart": "Entity",
+                "PositionOffset": {
+                  "Y": 1.0
+                }
+              }
+            ],
+            "CameraEffect": "Sword_Spin"
+          }
+        }
+      ]
+    },
+    "Vortexstrike_Spin_Effect2": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Effect2",
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "Tree_Signature_AoE",
+                "TargetNodeName": "Hip",
+                "TargetEntityPart": "Entity",
+                "PositionOffset": {
+                  "Y": 1.0
+                }
+              }
+            ],
+            "CameraEffect": "Sword_Spin"
+          }
+        }
+      ]
+    },
+    "Vortexstrike_Stab_Effect": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Effect",
+          "Effects": {
+            "Particles": [
+              {
+                "PositionOffset": {
+                  "X": -1.0,
+                  "Y": 0
+                },
+                "RotationOffset": {
+                  "Pitch": 0,
+                  "Roll": 0,
+                  "Yaw": 0
+                },
+                "TargetNodeName": "Handle",
+                "SystemId": "Tree_Signature_AoE"
+              },
+              {
+                "SystemId": "Tree_Signature_AoE",
+                "TargetEntityPart": "Entity",
+                "PositionOffset": {
+                  "Y": 0.5,
+                  "Z": 0.5
+                },
+                "TargetNodeName": "Hip",
+                "RotationOffset": {
+                  "Yaw": -90.0
+                }
+              }
+            ],
+            "WorldSoundEventId": "SFX_Sword_T2_Signature_Part_2",
+            "LocalSoundEventId": "SFX_Sword_T2_Signature_Part_2_Local",
+            "CameraEffect": "Sword_Stab"
+          }
+        }
+      ]
+    },
     "Swing_Left_Damage": {
       "Interactions": [
         {
@@ -42,8 +261,8 @@
             }
           },
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Light_Melee_T1_Impact",
+            "LocalSoundEventId": "SFX_Light_Melee_T1_Impact"
           }
         }
       ]
@@ -58,8 +277,8 @@
             }
           },
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Light_Melee_T1_Impact",
+            "LocalSoundEventId": "SFX_Light_Melee_T1_Impact"
           }
         }
       ]
@@ -74,8 +293,8 @@
             }
           },
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Light_Melee_T1_Impact",
+            "LocalSoundEventId": "SFX_Light_Melee_T1_Impact"
           }
         }
       ]
@@ -96,8 +315,8 @@
             }
           ],
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Light_Melee_T1_Impact",
+            "LocalSoundEventId": "SFX_Light_Melee_T1_Impact"
           }
         }
       ]
@@ -113,8 +332,8 @@
           },
           "EntityStatsOnHit": [],
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Light_Melee_T1_Impact",
+            "LocalSoundEventId": "SFX_Light_Melee_T1_Impact"
           }
         }
       ]
@@ -130,8 +349,8 @@
           },
           "EntityStatsOnHit": [],
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Light_Melee_T1_Impact",
+            "LocalSoundEventId": "SFX_Light_Melee_T1_Impact"
           }
         }
       ]
@@ -148,8 +367,8 @@
       ]
     }
   },
-  "MaxDurability": 120,
-  "DurabilityLossOnHit": 0.21,
+  "MaxDurability": 80,
+  "DurabilityLossOnHit": 0.3,
   "IconProperties": {
     "Scale": 0.36,
     "Rotation": [
@@ -165,6 +384,77 @@
   "Categories": [
     "Items.Weapons"
   ],
+  "ItemAppearanceConditions": {
+    "SignatureEnergy": [
+      {
+        "Condition": [
+          100,
+          100
+        ],
+        "ConditionValueType": "Percent",
+        "Particles": [
+          {
+            "SystemId": "Sword_Signature_Ready",
+            "Color": "#e8f4ff",
+            "TargetNodeName": "Handle",
+            "PositionOffset": {
+              "X": 0.8
+            },
+            "TargetEntityPart": "PrimaryItem"
+          },
+          {
+            "SystemId": "Sword_Signature_Status_Spawn",
+            "Color": "#e8f4ff",
+            "TargetNodeName": "Handle",
+            "PositionOffset": {
+              "X": 0.5
+            },
+            "TargetEntityPart": "PrimaryItem"
+          },
+          {
+            "SystemId": "Sword_Signature_Status",
+            "Color": "#e8f4ff",
+            "TargetNodeName": "Handle",
+            "PositionOffset": {
+              "X": 0.55
+            },
+            "TargetEntityPart": "PrimaryItem",
+            "Scale": 1.3
+          }
+        ],
+        "FirstPersonParticles": [
+          {
+            "SystemId": "Sword_Signature_Ready",
+            "Color": "#e8f4ff",
+            "TargetNodeName": "Handle",
+            "PositionOffset": {
+              "X": 0.8
+            },
+            "TargetEntityPart": "PrimaryItem"
+          },
+          {
+            "SystemId": "Sword_Signature_Status_Spawn",
+            "Color": "#e8f4ff",
+            "TargetNodeName": "Handle",
+            "TargetEntityPart": "PrimaryItem",
+            "PositionOffset": {
+              "Y": -100
+            }
+          },
+          {
+            "SystemId": "Sword_Signature_Status",
+            "Color": "#e8f4ff",
+            "TargetNodeName": "Handle",
+            "PositionOffset": {
+              "X": 0.5
+            },
+            "TargetEntityPart": "PrimaryItem"
+          }
+        ],
+        "ModelVFXId": "Tree_Signature_Status"
+      }
+    ]
+  },
   "Light": {
     "Radius": 0
   }

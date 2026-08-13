@@ -29,7 +29,7 @@ if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
 $staging = Join-Path $env:TEMP "hytale-mod-build-$([guid]::NewGuid().ToString('N'))"
 New-Item -ItemType Directory -Path $staging | Out-Null
 try {
-  $exclude = @('.git', 'scripts', 'dist', '.gitignore', '.gitattributes', '.claude', 'CLAUDE.md', '.cf-token', '.cf-config.json', '.cf-config.example.json')
+  $exclude = @('.git', 'scripts', 'dist', '.gitignore', '.gitattributes', '.claude', 'CLAUDE.md', 'AGENTS.md', '.cf-token', '.cf-config.json', '.cf-config.example.json')
   Get-ChildItem -Path $repoRoot -Force | Where-Object { $exclude -notcontains $_.Name } | ForEach-Object {
     Copy-Item -Path $_.FullName -Destination $staging -Recurse -Force
   }

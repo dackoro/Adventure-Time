@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.6] - 2026-08-13
+
+### Added
+- Balance rework: swords scale by quality tier — Tree (Common), Scarlet (Uncommon), Finn & Night (Epic), Grass (Legendary, strongest). Durability and item level now match the tier.
+- Thematic weapon trails per sword: Grass green, Scarlet gold, Tree & Finn white, Night violet. Trails show on swings and get a stronger version on the signature (Night keeps its always-on trail).
+- Signature VFX recolored per sword (AoE ring + charge glow in each sword's color) instead of the generic white/blue/yellow.
+- Differentiated impact sounds per sword (light / standard / steel / special / grass custom).
+
+### Notes
+- All crafting recipes unchanged.
+
+---
+
 ## [0.0.5] - 2026-05-26
 
 ### Fixed

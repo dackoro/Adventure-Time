@@ -7,7 +7,7 @@
   "Texture": "Resources/Grass_Sword/grass-sword.png",
   "Quality": "Legendary",
   "Icon": "Icons/ItemsGenerated/Grass_Sword.png",
-  "ItemLevel": 20,
+  "ItemLevel": 30,
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,
@@ -48,7 +48,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Left_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 17
+              "Physical": 22
             }
           },
           "DamageEffects": {
@@ -64,7 +64,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Right_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 20
+              "Physical": 26
             }
           },
           "DamageEffects": {
@@ -80,7 +80,7 @@
           "Parent": "Weapon_Sword_Primary_Thrust_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 26
+              "Physical": 36
             }
           },
           "EntityStatsOnHit": [
@@ -147,7 +147,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Down_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 25
+              "Physical": 33
             }
           },
           "DamageEffects": {
@@ -158,8 +158,8 @@
       ]
     }
   },
-  "MaxDurability": 120,
-  "DurabilityLossOnHit": 0.21,
+  "MaxDurability": 160,
+  "DurabilityLossOnHit": 0.15,
   "IconProperties": {
     "Scale": 0.36,
     "Rotation": [

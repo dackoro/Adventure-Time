@@ -7,7 +7,7 @@
   "Texture": "Resources/Night_Sword/Night_Sword.png",
   "Quality": "Epic",
   "Icon": "Icons/ItemsGenerated/Night_Sword.png",
-  "ItemLevel": 20,
+  "ItemLevel": 25,
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,
@@ -158,8 +158,8 @@
       ]
     }
   },
-  "MaxDurability": 120,
-  "DurabilityLossOnHit": 0.21,
+  "MaxDurability": 130,
+  "DurabilityLossOnHit": 0.19,
   "IconProperties": {
     "Scale": 0.36,
     "Rotation": [

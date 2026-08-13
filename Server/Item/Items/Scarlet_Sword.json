@@ -5,9 +5,9 @@
   },
   "Model": "Resources/Scarlet_Sword/scarlet-sword.blockymodel",
   "Texture": "Resources/Scarlet_Sword/scarlet.png",
-  "Quality": "Common",
+  "Quality": "Uncommon",
   "Icon": "Icons/ItemsGenerated/Scarlet_Sword.png",
-  "ItemLevel": 20,
+  "ItemLevel": 15,
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,
@@ -43,7 +43,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Left_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 9
+              "Physical": 11
             }
           },
           "DamageEffects": {
@@ -59,7 +59,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Right_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 10
+              "Physical": 12
             }
           },
           "DamageEffects": {
@@ -75,7 +75,7 @@
           "Parent": "Weapon_Sword_Primary_Swing_Down_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 18
+              "Physical": 20
             }
           },
           "DamageEffects": {
@@ -91,7 +91,7 @@
           "Parent": "Weapon_Sword_Primary_Thrust_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 26
+              "Physical": 28
             }
           },
           "EntityStatsOnHit": [
@@ -113,7 +113,7 @@
           "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 19
+              "Physical": 20
             }
           },
           "EntityStatsOnHit": [],
@@ -130,7 +130,7 @@
           "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage",
           "DamageCalculator": {
             "BaseDamage": {
-              "Physical": 56
+              "Physical": 58
             }
           },
           "EntityStatsOnHit": [],
@@ -153,8 +153,8 @@
       ]
     }
   },
-  "MaxDurability": 120,
-  "DurabilityLossOnHit": 0.21,
+  "MaxDurability": 100,
+  "DurabilityLossOnHit": 0.26,
   "IconProperties": {
     "Scale": 0.36,
     "Rotation": [

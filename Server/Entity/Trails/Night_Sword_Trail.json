@@ -1,0 +1,16 @@
+{
+  "TexturePath": "Trails/Void.png",
+  "LifeSpan": 7,
+  "Roll": 90,
+  "Start": {
+    "Color": "rgba(#c77dff, 0.85)",
+    "Width": 0.45
+  },
+  "End": {
+    "Color": "rgba(#3a1b5e, 0.4)",
+    "Width": 0
+  },
+  "LightInfluence": 0.3,
+  "Smooth": true,
+  "RenderMode": "BlendLinear"
+}

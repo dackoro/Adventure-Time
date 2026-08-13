@@ -6,6 +6,12 @@ Guidance for AI agents (and contributors) working on this repository.
 
 Hytale mod "Adventure time" by Dackoro — 5 Adventure Time-themed swords (Finn, Grass, Night, Scarlet, Tree). Content-only repo: JSON definitions plus asset files (`.blockymodel`, `.blockyanim`, `.png`, `.ogg`) loaded by the Hytale modding runtime. No source code, build system, or tests; iteration happens by loading the mod folder in the game client.
 
+## Git workflow (regla fija)
+
+- **NO hacer `git commit`** salvo que el usuario lo pida explícitamente.
+- **NO hacer `git add` / staging** tampoco. Dejar todo en la working tree, sin staging y sin commitear, a menos que el usuario indique lo contrario.
+- Los cambios se prueban en el juego directamente; el control de versiones lo decide el usuario cuándo toca.
+
 See `CLAUDE.md` for the full project layout, conventions, and dev/main workflow. This file focuses on external reference documentation.
 
 ## Documentation & reference sources

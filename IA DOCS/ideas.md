@@ -6,7 +6,7 @@ Ideas que no entraron en la iteración actual. Se priorizan cuando toque.
 
 - **Glow de firma** por espada: `ItemAppearanceConditions` con `SignatureEnergy [100,100]` + `ModelVFXId: "Sword_Signature_Status"` y partículas por espada (verde/plata/violeta/oro/blanco).
 - **Sonidos de impacto diferenciados** por espada (hoy todas usan `SFX_Sword_T2_Impact`). Reutilizar tiers stock T1/T2/T3 o añadir `.ogg` propios.
-- **Trails — wiring pendiente**: el campo `Trails` a nivel de item **NO es válido** (rompe el decode del item: "Failed to decode asset"). Los assets `Server/Entity/Trails/*.json` cargan bien pero no están conectados a nada. Hay que engancharlos por **interacción** (Effects de los swings): investigar cómo lo referencia una espada stock (p.ej. `Medium_Sword_Basic`) y luego añadir el campo correcto al item o a la interacción.
+- **Trails por golpe (opcional)**: los trails ya funcionan a nivel de item (`Trails: [{TrailId, TargetNodeName, PositionOffset}]`, formato del stock `Weapon_Sword_Frost`). Si se quieren estelas distintas según el golpe (swing vs firma), se pueden sobrescribir los selectors por interacción: `Swing_Left_Selector`, `Swing_Right_Selector`, `Swing_Down_Selector`, `Thrust_Selector`, `Vortexstrike_Spin_Selector`, `Vortexstrike_Stab_Selector` — con `Effects.Trails` (ver Wans_Wonder_Weapons / stock `Weapon_Sword_Primary_Swing_Left_Selector`).
 
 ## Fase 3 — Combos + hitboxes custom
 

@@ -8,6 +8,9 @@
   "Quality": "Epic",
   "Icon": "Icons/ItemsGenerated/Finn_Sword.png",
   "ItemLevel": 25,
+  "Trails": [
+    "Finn_Sword_Trail"
+  ],
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,

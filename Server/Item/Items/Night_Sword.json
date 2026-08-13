@@ -8,6 +8,9 @@
   "Quality": "Epic",
   "Icon": "Icons/ItemsGenerated/Night_Sword.png",
   "ItemLevel": 25,
+  "Trails": [
+    "Night_Sword_Trail"
+  ],
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,

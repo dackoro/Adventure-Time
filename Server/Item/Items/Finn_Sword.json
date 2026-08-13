@@ -8,6 +8,17 @@
   "Quality": "Epic",
   "Icon": "Icons/ItemsGenerated/Finn_Sword.png",
   "ItemLevel": 25,
+  "Trails": [
+    {
+      "TrailId": "Finn_Sword_Trail",
+      "TargetNodeName": "Handle",
+      "PositionOffset": {
+        "X": 0.8,
+        "Y": 0,
+        "Z": 0
+      }
+    }
+  ],
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,

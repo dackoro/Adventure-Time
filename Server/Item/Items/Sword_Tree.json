@@ -7,7 +7,7 @@
   "Texture": "Resources/Tree_Sword/texture.png",
   "Quality": "Common",
   "Icon": "Icons/ItemsGenerated/Sword_Tree.png",
-  "ItemLevel": 20,
+  "ItemLevel": 10,
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,
@@ -148,8 +148,8 @@
       ]
     }
   },
-  "MaxDurability": 120,
-  "DurabilityLossOnHit": 0.21,
+  "MaxDurability": 80,
+  "DurabilityLossOnHit": 0.3,
   "IconProperties": {
     "Scale": 0.36,
     "Rotation": [

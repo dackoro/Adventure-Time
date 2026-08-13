@@ -7,7 +7,7 @@
   "Texture": "Resources/Finn_Sword/finn_sword.png",
   "Quality": "Epic",
   "Icon": "Icons/ItemsGenerated/Finn_Sword.png",
-  "ItemLevel": 20,
+  "ItemLevel": 25,
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,
@@ -93,7 +93,7 @@
           "EntityStatsOnHit": [
             {
               "EntityStatId": "SignatureEnergy",
-              "Amount": 3
+              "Amount": 4
             }
           ],
           "DamageEffects": {
@@ -149,8 +149,8 @@
       ]
     }
   },
-  "MaxDurability": 120,
-  "DurabilityLossOnHit": 0.21,
+  "MaxDurability": 130,
+  "DurabilityLossOnHit": 0.19,
   "IconProperties": {
     "Scale": 0.4,
     "Rotation": [

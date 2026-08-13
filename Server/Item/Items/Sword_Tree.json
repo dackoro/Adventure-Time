@@ -8,9 +8,6 @@
   "Quality": "Common",
   "Icon": "Icons/ItemsGenerated/Sword_Tree.png",
   "ItemLevel": 10,
-  "Trails": [
-    "Tree_Sword_Trail"
-  ],
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,

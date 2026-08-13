@@ -8,9 +8,6 @@
   "Quality": "Legendary",
   "Icon": "Icons/ItemsGenerated/Grass_Sword.png",
   "ItemLevel": 30,
-  "Trails": [
-    "Grass_Sword_Trail"
-  ],
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,

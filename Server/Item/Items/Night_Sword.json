@@ -282,8 +282,8 @@
             }
           },
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Longsword_Special_Impact",
+            "LocalSoundEventId": "SFX_Longsword_Special_Impact"
           }
         }
       ]
@@ -298,8 +298,8 @@
             }
           },
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Longsword_Special_Impact",
+            "LocalSoundEventId": "SFX_Longsword_Special_Impact"
           }
         }
       ]
@@ -314,8 +314,8 @@
             }
           },
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Longsword_Special_Impact",
+            "LocalSoundEventId": "SFX_Longsword_Special_Impact"
           }
         }
       ]
@@ -336,8 +336,8 @@
             }
           ],
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Longsword_Special_Impact",
+            "LocalSoundEventId": "SFX_Longsword_Special_Impact"
           }
         }
       ]
@@ -353,8 +353,8 @@
           },
           "EntityStatsOnHit": [],
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Longsword_Special_Impact",
+            "LocalSoundEventId": "SFX_Longsword_Special_Impact"
           }
         }
       ]
@@ -370,8 +370,8 @@
           },
           "EntityStatsOnHit": [],
           "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact"
+            "WorldSoundEventId": "SFX_Longsword_Special_Impact",
+            "LocalSoundEventId": "SFX_Longsword_Special_Impact"
           }
         }
       ]

@@ -477,5 +477,14 @@
       "Color": "#91ae35",
       "Scale": 0.4
     }
-  ]
+  ],
+  "State": {
+    "Cursed_Sheathed": {
+      "Variant": true,
+      "TranslationProperties": {
+        "Name": "Grass Sword (Sheathed)"
+      },
+      "Icon": "Icons/ItemsGenerated/Grass_Sword_Sheathed.png"
+    }
+  }
 }

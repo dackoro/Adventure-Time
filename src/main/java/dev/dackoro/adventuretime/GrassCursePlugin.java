@@ -1,9 +1,14 @@
 package dev.dackoro.adventuretime;
 
+import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.asset.type.item.config.Item;
+import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.hypixel.hytale.server.core.universe.PlayerRef;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
 
 import javax.annotation.Nonnull;
@@ -98,6 +103,19 @@ public class GrassCursePlugin extends JavaPlugin {
         getEntityStoreRegistry().registerSystem(new CurseTickSystem());
         getEntityStoreRegistry().registerSystem(new CurseDropSystem());
         getEntityStoreRegistry().registerSystem(new CurseDropRequestSystem());
+        getEntityStoreRegistry().registerSystem(new AutoSheatheSystem());
+        getEntityStoreRegistry().registerSystem(new CursePickupSystem());
+        getEntityStoreRegistry().registerSystem(new CurseInventoryChangeSystem());
+        getCommandRegistry().registerCommand(new GrassCommand("grass"));
+
+        getEventRegistry().registerGlobal(PlayerReadyEvent.class, event -> {
+            Ref<EntityStore> ref = event.getPlayerRef();
+            Store<EntityStore> store = ref.getStore();
+            PlayerRef playerRef = store.getComponent(ref, PlayerRef.getComponentType());
+            if (playerRef != null && isCursed(playerRef.getUuid())) {
+                GrassSwordToggle.syncOnJoin(store, ref, playerRef);
+            }
+        });
 
         getLogger().at(Level.INFO).log("Adventure Time - Grass Sword curse plugin loaded "
                 + "(persisted cursed players: " + CURSED_PLAYERS.size() + ")");

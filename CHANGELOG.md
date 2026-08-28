@@ -1,50 +1,25 @@
 # Changelog
 
-## [0.0.6] - 2026-08-13
+## [0.0.7]
 
-### Added
-- Balance rework: swords scale by quality tier — Tree (Common), Scarlet (Uncommon), Finn & Night (Epic), Grass (Legendary, strongest). Durability and item level now match the tier.
-- Thematic weapon trails per sword: Grass green, Scarlet gold, Tree & Finn white, Night violet. Trails show on swings and get a stronger version on the signature (Night keeps its always-on trail).
-- Signature VFX recolored per sword (AoE ring + charge glow in each sword's color) instead of the generic white/blue/yellow.
-- Differentiated impact sounds per sword (light / standard / steel / special / grass custom).
+### ✨ Grass Sword Maldita (nueva mecánica)
+- **Infalible**: durabilidad infinita (`MaxDurability: 0`), no se daña ni se pierde con la muerte.
+- **Inseparable**: no se puede soltar ni eliminar del inventario.
+- **Reaparición garantizada**: si se pierde de algún modo, el sistema la re-grantea automáticamente (siempre hay ≥1 en el inventario).
+- **Efecto de maldición**: estado `Grass_Sword_Curse` persistente con icono propio.
 
-### Notes
-- All crafting recipes unchanged.
+### 🛠️ Técnico
+- El mod pasó de pack de contenido a **plugin Java 25** (Gradle wrapper, `Main: dev.dackoro.adventuretime.GrassCursePlugin`, `IncludesAssetPack: true`).
+- Nuevos sonidos VFX de impacto/carga/ocultar para la espada.
 
----
-
-## [0.0.5] - 2026-05-26
-
-### Fixed
-- Mod is now compatible with **Hytale Update 5**. Hytale changed the `ServerVersion` format from an exact build string to a semver range — the old format loaded with a warning and may stop working in a future update. The mod now declares `>=0.5.0`, which covers Update 5 and future patch releases without needing a new upload every Hytale build.
-
-### Notes
-- All Adventure Time swords (Finn, Grass, Night, Scarlet, Tree) remain craftable and functional as before. Stats and recipes unchanged.
+### 🧪 Notas
+- La vaina visual (modelo en el brazo al envainar) queda **aparcada** (el registro cosmético nativo no acepta modelos custom aún). Se retomará en una versión futura.
+- Eliminado el estado "sheathed" → la espada muestra un solo icono.
 
 ---
 
-## [0.0.4] - 2026-05-21
+## [0.0.6]
 
-### Fixed
-- Mod now loads on the latest Hytale build (`2026.03.26-89796e57b`). Previous versions were marked as incompatible due to a missing `ServerVersion` and stopped showing up in the mod list entirely.
-
-### Added
-- Mod icon in the in-game mod list (no more `?` placeholder).
-- MIT license included with the project.
-
-### Notes
-- All Adventure Time swords (Finn, Grass, Night, Scarlet, Tree) remain craftable and functional as before. Stats and recipes unchanged.
-
----
-
-## [0.0.3] - 2026-05-21
-
-Internal release used to bootstrap CurseForge publishing automation. Same content as 0.0.4 from a user perspective. Use 0.0.4 instead.
-
----
-
-## [0.0.1] - Initial release
-
-- Five Adventure Time swords: Finn Sword, Grass Sword, Night Sword, Scarlet Sword, Tree Sword.
-- Custom 3D models, textures, icons, and Grass Sword sound effects.
-- Crafting recipes at the Arcane Bench.
+- Sonidos de impacto específicos por arma (Finn, Night, Tree).
+- Trails por golpe y VFX de firma para todas las espadas.
+- Balance de estadísticas por tier de calidad.

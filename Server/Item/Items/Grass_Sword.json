@@ -377,8 +377,10 @@
       ]
     }
   },
-  "MaxDurability": 160,
-  "DurabilityLossOnHit": 0.15,
+  "MaxDurability": 0,
+  "DurabilityLossOnHit": 0,
+  "DurabilityLossOnDeath": false,
+  "DropsOnDeath": false,
   "IconProperties": {
     "Scale": 0.36,
     "Rotation": [

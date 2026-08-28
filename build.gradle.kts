@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "dev.dackoro"
-version = "0.0.6"
+version = "0.0.7"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(25))
@@ -23,7 +23,7 @@ dependencies {
 
 tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    archiveBaseName.set("Adventure_time_DEV")
+    archiveBaseName.set("Adventure_time")
     from(".") {
         include("manifest.json")
         include("Common/**")

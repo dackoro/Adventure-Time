@@ -3,8 +3,8 @@
 .SYNOPSIS
   Publish the current main version to CurseForge + GitHub release.
 .DESCRIPTION
-  Run AFTER promote.ps1. Builds the zip, uploads to CurseForge via Upload API,
-  and optionally creates a GitHub release with the zip attached.
+  Run AFTER promote.ps1. Builds the plugin jar, uploads to CurseForge via Upload API,
+  and optionally creates a GitHub release with the jar attached.
   Reads config from .cf-config.json (untracked) at repo root:
     {
       "ProjectId": 123456,
@@ -66,10 +66,10 @@ if ($ChangelogFile -and (Test-Path $ChangelogFile)) {
 Write-Host "==> Changelog ($($changelog.Length) chars):" -ForegroundColor DarkGray
 Write-Host ($changelog -split "`n" | ForEach-Object { "    $_" } | Out-String).Trim()
 
-# Build zip
-Write-Host "==> Building zip..." -ForegroundColor Cyan
-$zipPath = & (Join-Path $PSScriptRoot 'build-zip.ps1') | Select-Object -Last 1
-if (-not (Test-Path $zipPath)) { throw "Zip build failed." }
+# Build plugin jar (Gradle)
+Write-Host "==> Building plugin jar..." -ForegroundColor Cyan
+$artifactPath = & (Join-Path $PSScriptRoot 'build-jar.ps1') | Select-Object -Last 1
+if (-not (Test-Path $artifactPath)) { throw "Jar build failed." }
 
 # --- CurseForge upload ---
 if (-not $SkipCurseForge) {
@@ -105,10 +105,10 @@ if (-not $SkipCurseForge) {
   Add-Bytes $ms $enc.GetBytes("--$boundary$LF")
   Add-Bytes $ms $enc.GetBytes("Content-Disposition: form-data; name=`"metadata`"$LF$LF$metadata$LF")
   Add-Bytes $ms $enc.GetBytes("--$boundary$LF")
-  $fileName = [System.IO.Path]::GetFileName($zipPath)
+  $fileName = [System.IO.Path]::GetFileName($artifactPath)
   Add-Bytes $ms $enc.GetBytes("Content-Disposition: form-data; name=`"file`"; filename=`"$fileName`"$LF")
   Add-Bytes $ms $enc.GetBytes("Content-Type: application/zip$LF$LF")
-  Add-Bytes $ms ([System.IO.File]::ReadAllBytes($zipPath))
+  Add-Bytes $ms ([System.IO.File]::ReadAllBytes($artifactPath))
   Add-Bytes $ms $enc.GetBytes("$LF--$boundary--$LF")
   $body = $ms.ToArray(); $ms.Dispose()
 
@@ -127,7 +127,7 @@ if (-not $SkipGitHub) {
     $notesFile = New-TemporaryFile
     Set-Content -Path $notesFile -Value $changelog -Encoding utf8
     try {
-      gh release create $tag $zipPath --title "$($manifest.Name) $tag" --notes-file $notesFile
+      gh release create $tag $artifactPath --title "$($manifest.Name) $tag" --notes-file $notesFile
     } finally {
       Remove-Item $notesFile -ErrorAction SilentlyContinue
     }

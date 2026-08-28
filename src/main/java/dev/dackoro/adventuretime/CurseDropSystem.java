@@ -36,6 +36,16 @@ public class CurseDropSystem extends EntityEventSystem<EntityStore, DropItemEven
             return;
         }
         if (!isSurvivalPlayer(chunk, store, entityIndex)) {
+            // Creative: the drop is allowed to go through. If the sword was sheathed,
+            // the vaina model has to come off too, or it keeps rendering on the arm
+            // after the sword itself is gone.
+            if (GrassCursePlugin.isGrassSwordSheathed(stack)) {
+                Ref<EntityStore> ref = chunk.getReferenceTo(entityIndex);
+                PlayerRef playerRef = store.getComponent(ref, PlayerRef.getComponentType());
+                if (playerRef != null) {
+                    VainaAttachments.setSheathed(store, buffer, ref, playerRef, false);
+                }
+            }
             return;
         }
         event.setCancelled(true);

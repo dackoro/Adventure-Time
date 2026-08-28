@@ -25,7 +25,6 @@ import java.util.logging.Level;
 public class GrassSwordToggle {
 
     private static final String STATE_SHEATHED = "Cursed_Sheathed";
-    private static final String STATE_DRAWN = "Cursed_Drawn";
 
     /**
      * Always draws the Grass Sword: if it is held but sheathed, it is drawn in
@@ -39,7 +38,7 @@ public class GrassSwordToggle {
 
         if (GrassCursePlugin.isGrassSword(held)) {
             if (GrassCursePlugin.isGrassSwordSheathed(held)) {
-                hotbar.getInventory().setItemStackForSlot(activeSlot, held.withState(STATE_DRAWN));
+                hotbar.getInventory().setItemStackForSlot(activeSlot, toDrawn(held));
                 unequipVaina(store, null, ref, playerRef);
                 playerRef.sendMessage(Message.raw("The Grass Sword is drawn.").color("#7ac94f"));
             }
@@ -53,7 +52,7 @@ public class GrassSwordToggle {
         }
         ItemContainer hotbarInv = hotbar.getInventory();
         ItemStack current = hotbarInv.getItemStack(activeSlot);
-        ItemStack drawn = found.stack.withState(STATE_DRAWN);
+        ItemStack drawn = toDrawn(found.stack);
         // swap: the hand item moves to the sword's slot, the drawn sword goes to the hand.
         found.container.setItemStackForSlot(found.slot, current);
         hotbarInv.setItemStackForSlot(activeSlot, drawn);
@@ -69,7 +68,7 @@ public class GrassSwordToggle {
 
         if (GrassCursePlugin.isGrassSword(held)) {
             if (GrassCursePlugin.isGrassSwordSheathed(held)) {
-                hotbar.getInventory().setItemStackForSlot(activeSlot, held.withState(STATE_DRAWN));
+                hotbar.getInventory().setItemStackForSlot(activeSlot, toDrawn(held));
                 unequipVaina(store, null, ref, playerRef);
                 playerRef.sendMessage(Message.raw("The Grass Sword is drawn.").color("#7ac94f"));
             } else {
@@ -87,7 +86,7 @@ public class GrassSwordToggle {
         }
         ItemContainer hotbarInv = hotbar.getInventory();
         ItemStack current = hotbarInv.getItemStack(activeSlot);
-        ItemStack drawn = found.stack.withState(STATE_DRAWN);
+        ItemStack drawn = toDrawn(found.stack);
         // swap: the hand item moves to the sword's slot, the drawn sword goes to the hand.
         found.container.setItemStackForSlot(found.slot, current);
         hotbarInv.setItemStackForSlot(activeSlot, drawn);
@@ -128,7 +127,7 @@ public class GrassSwordToggle {
         ItemStack held = hotbar.getInventory().getItemStack(activeSlot);
         if (GrassCursePlugin.isGrassSword(held)) {
             if (GrassCursePlugin.isGrassSwordSheathed(held)) {
-                hotbar.getInventory().setItemStackForSlot(activeSlot, held.withState(STATE_DRAWN));
+                hotbar.getInventory().setItemStackForSlot(activeSlot, toDrawn(held));
                 unequipVaina(store, null, ref, playerRef);
                 playerRef.sendMessage(Message.raw("The Grass Sword is drawn.").color("#7ac94f"));
             }
@@ -141,7 +140,7 @@ public class GrassSwordToggle {
         }
         ItemContainer hotbarInv = hotbar.getInventory();
         ItemStack current = hotbarInv.getItemStack(activeSlot);
-        ItemStack drawn = found.stack.withState(STATE_DRAWN);
+        ItemStack drawn = toDrawn(found.stack);
         found.container.setItemStackForSlot(found.slot, current);
         hotbarInv.setItemStackForSlot(activeSlot, drawn);
         unequipVaina(store, null, ref, playerRef);
@@ -158,7 +157,7 @@ public class GrassSwordToggle {
         ItemStack active = hotbar.getInventory().getItemStack(newSlot);
         if (GrassCursePlugin.isGrassSword(active)) {
             if (GrassCursePlugin.isGrassSwordSheathed(active)) {
-                hotbar.getInventory().setItemStackForSlot(newSlot, active.withState(STATE_DRAWN));
+                hotbar.getInventory().setItemStackForSlot(newSlot, toDrawn(active));
                 unequipVaina(store, buffer, ref, playerRef);
             }
         } else {
@@ -170,11 +169,52 @@ public class GrassSwordToggle {
         }
     }
 
+    /**
+     * Returns the sheathed stack back to the base (drawn) item id. There is no
+     * "Cursed_Drawn" entry in the item's State map - the drawn form IS the base
+     * item - so this can't go through {@code ItemStack.withState(String)} (it
+     * throws IllegalArgumentException for any name not present in that map).
+     */
+    static ItemStack toDrawn(ItemStack sheathed) {
+        return new ItemStack(
+                GrassCursePlugin.GRASS_SWORD_ID,
+                sheathed.getQuantity(),
+                sheathed.getDurability(),
+                sheathed.getMaxDurability(),
+                sheathed.getQualityIndex(),
+                sheathed.getMetadata()
+        );
+    }
+
+    /**
+     * Re-applies the vaina cosmetic on join/world-load if a sheathed Grass Sword is
+     * anywhere in the player's inventory. The item's own state persists across
+     * sessions, but the Model rebuild in {@link VainaAttachments} does not - it only
+     * runs when {@link #toggle}/{@link #sheathe}/{@link #draw}/{@code autoHandleActiveSlot}
+     * fire, so without this a player who logs back in with the sword already sheathed
+     * sees no vaina until they manually toggle it once.
+     */
+    public static void syncOnJoin(Store<EntityStore> store, Ref<EntityStore> ref, PlayerRef playerRef) {
+        ActiveSlotInventoryComponent hotbar = store.getComponent(ref, InventoryComponent.Hotbar.getComponentType());
+        ItemStack held = hotbar.getInventory().getItemStack(hotbar.getActiveSlot());
+        boolean sheathed = GrassCursePlugin.isGrassSwordSheathed(held);
+        if (!sheathed) {
+            Slot found = findGrassSword(store, ref, (byte) -1);
+            sheathed = found != null && GrassCursePlugin.isGrassSwordSheathed(found.stack);
+        }
+        if (sheathed) {
+            equipVaina(store, null, ref, playerRef);
+        } else {
+            unequipVaina(store, null, ref, playerRef);
+        }
+    }
+
     private static void equipVaina(Store<EntityStore> store, CommandBuffer<EntityStore> buffer, Ref<EntityStore> ref, PlayerRef playerRef) {
-        GrassCursePlugin.get().getLogger().at(Level.INFO).log("VAINA: vaina disabled (model attachment approach reverted)");
+        VainaAttachments.setSheathed(store, buffer, ref, playerRef, true);
     }
 
     private static void unequipVaina(Store<EntityStore> store, CommandBuffer<EntityStore> buffer, Ref<EntityStore> ref, PlayerRef playerRef) {
+        VainaAttachments.setSheathed(store, buffer, ref, playerRef, false);
     }
 
     private static Slot findGrassSword(Store<EntityStore> store, Ref<EntityStore> ref, byte skipSlot) {

@@ -1,0 +1,7 @@
+{
+  "Name": "server.effect.grass_sword_curse",
+  "Infinite": true,
+  "Debuff": true,
+  "OverlapBehavior": "Overwrite",
+  "StatusEffectIcon": "UI/StatusEffects/Grass_Sword_Curse.png"
+}

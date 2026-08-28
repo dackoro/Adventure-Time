@@ -12,10 +12,13 @@
     }
   ],
   "Website": "https://x.com/dackoro",
-  "Dependencies": {},
+  "Dependencies": {
+    "Hytale:AssetModule": "*"
+  },
   "OptionalDependencies": {},
   "LoadBefore": {},
   "DisabledByDefault": false,
-  "IncludesAssetPack": false,
+  "IncludesAssetPack": true,
+  "Main": "dev.dackoro.adventuretime.GrassCursePlugin",
   "SubPlugins": []
 }

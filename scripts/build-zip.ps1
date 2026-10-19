@@ -30,9 +30,17 @@ $staging = Join-Path $env:TEMP "hytale-mod-build-$([guid]::NewGuid().ToString('N
 New-Item -ItemType Directory -Path $staging | Out-Null
 try {
   $exclude = @('.git', 'scripts', 'dist', '.gitignore', '.gitattributes', '.cf-token', '.cf-config.json', '.cf-config.example.json')
-  Get-ChildItem -Path $repoRoot -Force | Where-Object { $exclude -notcontains $_.Name } | ForEach-Object {
+  # Anything git ignores (.gitignore or .git/info/exclude) never goes into the zip either.
+  $isIgnored = {
+    param($item)
+    $rel = if ($item.PSIsContainer) { "$($item.Name)/" } else { $item.Name }
+    git -C $repoRoot check-ignore -q -- $rel 2>$null
+    $LASTEXITCODE -eq 0
+  }
+  Get-ChildItem -Path $repoRoot -Force | Where-Object { $exclude -notcontains $_.Name -and -not (& $isIgnored $_) } | ForEach-Object {
     Copy-Item -Path $_.FullName -Destination $staging -Recurse -Force
   }
+  $global:LASTEXITCODE = 0  # check-ignore exits 1 for files that are kept
   Compress-Archive -Path (Join-Path $staging '*') -DestinationPath $zipPath -CompressionLevel Optimal
 } finally {
   Remove-Item $staging -Recurse -Force -ErrorAction SilentlyContinue

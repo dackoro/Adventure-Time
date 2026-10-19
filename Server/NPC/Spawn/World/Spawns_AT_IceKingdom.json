@@ -1,0 +1,54 @@
+{
+  "Environments": [
+    "Env_AT_IceKingdom"
+  ],
+  "NPCs": [
+    {
+      "Weight": 30,
+      "SpawnBlockSet": "IceAndSnow",
+      "Id": "AT_Gunter",
+      "Flock": "Group_Small"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "IceAndSnow",
+      "Id": "Bear_Polar"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "IceAndSnow",
+      "Id": "Skeleton_Frost_Soldier",
+      "Flock": {
+        "Size": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "Weight": 4,
+      "SpawnBlockSet": "IceAndSnow",
+      "Id": "Snail_Frost"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "IceAndSnow",
+      "Id": "AT_Snow_Leopard"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "IceAndSnow",
+      "Id": "Yeti"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "IceAndSnow",
+      "Id": "Spirit_Frost"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "IceAndSnow",
+      "Id": "Larva_Silk"
+    }
+  ]
+}

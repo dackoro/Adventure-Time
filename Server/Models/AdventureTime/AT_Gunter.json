@@ -1,0 +1,239 @@
+{
+  "Model": "NPC/AdventureTime/Gunter/Models/Model.blockymodel",
+  "Texture": "NPC/AdventureTime/Gunter/Models/Texture.png",
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Idle.blockyanim"
+        }
+      ]
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Walk.blockyanim",
+          "Looping": true
+        }
+      ]
+    },
+    "WalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Walk_Backward.blockyanim"
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Run.blockyanim"
+        }
+      ]
+    },
+    "Crouch": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Crouch.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "CrouchWalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Crouch_Walk_Backward.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "CrouchWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Crouch_Walk.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "Fall": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Fall.blockyanim"
+        }
+      ]
+    },
+    "Alerted": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Alerted.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_AT_Gunter_Quack"
+        }
+      ]
+    },
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Fly/Fly_Idle.blockyanim"
+        }
+      ]
+    },
+    "Fly": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Fly/Fly.blockyanim",
+          "Weight": 3
+        },
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Fly/Fly_Glide.blockyanim",
+          "Weight": 1
+        }
+      ]
+    },
+    "FlyBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Fly/Fly_Backward.blockyanim"
+        }
+      ]
+    },
+    "FlyFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Fly/Fly.blockyanim",
+          "Weight": 1
+        },
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Fly/Fly_Glide.blockyanim",
+          "Weight": 3
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Damage/Hurt.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0.1,
+          "SoundEventId": "SFX_AT_Gunter_Quack"
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Damage/Death.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_AT_Gunter_Quack"
+        }
+      ]
+    },
+    "Spawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Spawn.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0
+        }
+      ]
+    },
+    "IdlePassive": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Flavor/Toot.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_AT_Gunter_Quack"
+        }
+      ]
+    },
+    "Jump": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Jump.blockyanim"
+        }
+      ]
+    },
+    "JumpWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Jump.blockyanim"
+        }
+      ]
+    },
+    "JumpRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Jump.blockyanim"
+        }
+      ]
+    },
+    "Sleep": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Idle.blockyanim",
+          "Speed": 0.3
+        }
+      ]
+    },
+    "Laydown": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Idle.blockyanim",
+          "Looping": false,
+          "Speed": 0.5
+        }
+      ]
+    },
+    "Wake": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Idle.blockyanim",
+          "Looping": false,
+          "Speed": 1
+        }
+      ]
+    },
+    "Eat": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Idle.blockyanim",
+          "Speed": 0.8
+        }
+      ]
+    },
+    "Curious": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Idle.blockyanim",
+          "Speed": 1,
+          "SoundEventId": "SFX_AT_Gunter_Quack"
+        }
+      ]
+    },
+    "GreetAnimation": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Idle.blockyanim",
+          "Looping": false,
+          "Speed": 1.2,
+          "SoundEventId": "SFX_AT_Gunter_Quack"
+        }
+      ]
+    }
+  },
+  "EyeHeight": 0.6,
+  "CrouchOffset": -0.1,
+  "HitBox": {
+    "Min": {
+      "X": -0.3,
+      "Y": 0,
+      "Z": -0.3
+    },
+    "Max": {
+      "X": 0.3,
+      "Y": 0.8,
+      "Z": 0.3
+    }
+  },
+  "Icon": "Icons/ModelsGenerated/Penguin.png"
+}

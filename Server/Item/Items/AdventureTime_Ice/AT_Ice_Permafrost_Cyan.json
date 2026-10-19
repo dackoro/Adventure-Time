@@ -1,0 +1,16 @@
+{
+  "Parent": "Rock_Ice_Permafrost",
+  "Icon": "Icons/ItemsGenerated/Rock_Ice_Permafrost.png",
+  "BlockType": {
+    "Textures": [
+      {
+        "All": "BlockTextures/Rock_Ice_Blue.png",
+        "Weight": 1
+      }
+    ],
+    "Tint": [
+      "#d4f6f6"
+    ],
+    "TextureComputedColor": "#86d6e3"
+  }
+}

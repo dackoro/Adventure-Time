@@ -1,0 +1,22 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Animal_Neutral",
+  "Modify": {
+    "Appearance": "AT_Gunter",
+    "FlockArray": [
+      "AT_Gunter"
+    ],
+    "DropList": "Drop_Penguin",
+    "MaxHealth": 38,
+    "WanderRadius": 12,
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.AT_Gunter.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

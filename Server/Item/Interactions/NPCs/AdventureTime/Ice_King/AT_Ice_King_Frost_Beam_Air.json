@@ -1,5 +1,5 @@
 {
-  "$Comment": "Air ice burst (2026-10-21: in the air each throw uses BOTH arms and fires two small bolts at once, one from each hand). 1.2 s charge (FrostBeamCharging, both hands raised beside the head) with the hand glow, then 4 throws 0.25 s apart, each FrostBeamFireBoth + a bolt from each hand in the same tick (Projectile RunTime 0 then the left one with the throw's 0.25 s): Projectile_Config_AT_Ice_King_Frost_Beam (right) / _L (left), the last pair _Final / _Final_L (push). 6 x 8 + 2 x 20 = 88 Ice and 8 frost stacks if every bolt hits (the ground burst: 52, 5 stacks). No MovementEffects: a movement lock on a flier is untested, and the air combat component already stops the circle and turns his body to his aim while he casts (MatchLook rule). Used by Component_AT_Ice_King_Air_Combat and _Air_Enraged_Combat on their own timers. 2026-10-21: the charge is FrostBeamChargingBoth (hands beside the head), only before the two-hand throws; FrostBeamCharging is the one-hand wind-up again.",
+  "$Comment": "Air ice burst (2026-10-21: in the air each throw uses BOTH arms and fires two small bolts at once, one from each hand). 1.2 s charge (FrostBeamCharging, both hands raised beside the head) with the hand glow, then 4 throws 0.25 s apart, each FrostBeamFireBoth + a bolt from each hand in the same tick (Projectile RunTime 0 then the left one with the throw's 0.25 s): Projectile_Config_AT_Ice_King_Frost_Beam (right) / _L (left), the last pair _Final / _Final_L (push). 6 x 8 + 2 x 20 = 88 Ice and 8 frost stacks if every bolt hits (the ground burst: 52, 5 stacks). No MovementEffects: a movement lock on a flier is untested, and the air combat component already stops the circle and turns his body to his aim while he casts (MatchLook rule). Used by Component_AT_Ice_King_Air_Combat and _Air_Enraged_Combat on their own timers. 2026-10-21: the charge is FrostBeamChargingBoth (hands beside the head), only before the two-hand throws; FrostBeamCharging is the one-hand wind-up again. 2026-10-22: the first right-hand bolt carries the AimingReference tag, so phase 4 (Deflection) leads the player with the bursts too; phase 2 aims without lead (Deflection false). 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Rays_Both on each two-hand throw (4), the frame the bolts leave.",
   "Type": "Simple",
   "RunTime": 1.2,
   "Effects": {
@@ -29,7 +29,31 @@
         "RunTime": 0,
         "Effects": {
           "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "FrostBeamFireBoth"
+          "ItemAnimationId": "FrostBeamFireBoth",
+          "WorldSoundEventId": "SFX_AT_Ice_King_Rays_Both"
+        }
+      },
+      {
+        "$Comment": "2026-10-22 (playtest: aim with prediction in phase 4): the root's only AimingReference tag (one per Attack root). With it HeadMotion Aim knows the bolt's speed and spawn point, so phase 4's Deflection: true leads the moving player for the whole burst; without any tag the bursts aimed where the player was. The correction uses this right-hand bolt's X +0.2, so the left-hand bolts land about 0.4 blocks to one side.",
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
+        "RunTime": 0,
+        "Tags": {
+          "AimingReference": []
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireBoth",
+          "WorldSoundEventId": "SFX_AT_Ice_King_Rays_Both"
         }
       },
       {
@@ -47,7 +71,8 @@
         "RunTime": 0,
         "Effects": {
           "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "FrostBeamFireBoth"
+          "ItemAnimationId": "FrostBeamFireBoth",
+          "WorldSoundEventId": "SFX_AT_Ice_King_Rays_Both"
         }
       },
       {
@@ -65,25 +90,8 @@
         "RunTime": 0,
         "Effects": {
           "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "FrostBeamFireBoth"
-        }
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
-        "RunTime": 0
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
-        "RunTime": 0.25
-      },
-      {
-        "Type": "Simple",
-        "RunTime": 0,
-        "Effects": {
-          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "FrostBeamFireBoth"
+          "ItemAnimationId": "FrostBeamFireBoth",
+          "WorldSoundEventId": "SFX_AT_Ice_King_Rays_Both"
         }
       },
       {

@@ -73,12 +73,12 @@
           },
           "children": [
             {
-              "id": "3",
-              "name": "Stalagtite1",
+              "id": "ice0",
+              "name": "Ice_1_000",
               "position": {
-                "x": 0,
-                "y": 0,
-                "z": 0
+                "x": -8.0,
+                "y": 0.0,
+                "z": 8.0
               },
               "orientation": {
                 "x": 1,
@@ -101,16 +101,16 @@
                 "settings": {
                   "isPiece": false,
                   "size": {
-                    "x": 32,
+                    "x": 16,
                     "y": 10,
-                    "z": 32
+                    "z": 16
                   }
                 },
                 "textureLayout": {
                   "back": {
                     "offset": {
-                      "x": 0,
-                      "y": 22
+                      "x": 276,
+                      "y": 32
                     },
                     "mirror": {
                       "x": false,
@@ -120,8 +120,8 @@
                   },
                   "right": {
                     "offset": {
-                      "x": 0,
-                      "y": 22
+                      "x": 265,
+                      "y": 32
                     },
                     "mirror": {
                       "x": false,
@@ -131,8 +131,8 @@
                   },
                   "front": {
                     "offset": {
-                      "x": 0,
-                      "y": 22
+                      "x": 271,
+                      "y": 32
                     },
                     "mirror": {
                       "x": false,
@@ -142,8 +142,8 @@
                   },
                   "left": {
                     "offset": {
-                      "x": 0,
-                      "y": 22
+                      "x": 256,
+                      "y": 32
                     },
                     "mirror": {
                       "x": false,
@@ -153,8 +153,8 @@
                   },
                   "top": {
                     "offset": {
-                      "x": 0,
-                      "y": 0
+                      "x": 192,
+                      "y": 32
                     },
                     "mirror": {
                       "x": false,
@@ -164,8 +164,444 @@
                   },
                   "bottom": {
                     "offset": {
-                      "x": 0,
+                      "x": 169,
+                      "y": 112
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice1",
+              "name": "Ice_1_001",
+              "position": {
+                "x": -8.0,
+                "y": 0.0,
+                "z": -8.0
+              },
+              "orientation": {
+                "x": 1,
+                "y": 0,
+                "z": 0,
+                "w": 0
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 16,
+                    "y": 10,
+                    "z": 16
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 258,
                       "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 270,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 276,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 264,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 192,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 104,
+                      "y": 112
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice2",
+              "name": "Ice_1_010",
+              "position": {
+                "x": 8.0,
+                "y": 0.0,
+                "z": 8.0
+              },
+              "orientation": {
+                "x": 1,
+                "y": 0,
+                "z": 0,
+                "w": 0
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 16,
+                    "y": 10,
+                    "z": 16
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 273,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 285,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 282,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 258,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 208,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 181,
+                      "y": 112
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice3",
+              "name": "Ice_1_011",
+              "position": {
+                "x": 8.0,
+                "y": 0.0,
+                "z": -8.0
+              },
+              "orientation": {
+                "x": 1,
+                "y": 0,
+                "z": 0,
+                "w": 0
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 16,
+                    "y": 10,
+                    "z": 16
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 264,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 266,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 280,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 263,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 80,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 131,
+                      "y": 112
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice4",
+              "name": "Ice_2_000",
+              "position": {
+                "x": -8.459,
+                "y": -6.994,
+                "z": 4.833
+              },
+              "orientation": {
+                "x": 0.9905,
+                "y": -0.04324,
+                "z": 0.13041,
+                "w": -0.0057
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 12,
+                    "y": 9,
+                    "z": 13
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 64,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 64,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 64,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 64,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 68,
+                      "y": 35
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 71,
+                      "y": 43
                     },
                     "mirror": {
                       "x": false,
@@ -179,336 +615,2514 @@
                 "doubleSided": false,
                 "shadingMode": "fullbright"
               },
-              "children": [
-                {
-                  "id": "4",
-                  "name": "Stalagtite1",
-                  "position": {
-                    "x": -1.38171,
-                    "y": 12,
-                    "z": -0.00046
+              "children": []
+            },
+            {
+              "id": "ice5",
+              "name": "Ice_2_001",
+              "position": {
+                "x": -5.094,
+                "y": -6.994,
+                "z": -7.724
+              },
+              "orientation": {
+                "x": 0.9905,
+                "y": -0.04324,
+                "z": 0.13041,
+                "w": -0.0057
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 12,
+                    "y": 9,
+                    "z": 13
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 192,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
                   },
-                  "orientation": {
-                    "x": 0.0057,
-                    "y": 0.13041,
-                    "z": 0.04324,
-                    "w": 0.9905
+                  "right": {
+                    "offset": {
+                      "x": 192,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
                   },
-                  "shape": {
-                    "type": "box",
+                  "front": {
+                    "offset": {
+                      "x": 192,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 192,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 196,
+                      "y": 35
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 199,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice6",
+              "name": "Ice_2_010",
+              "position": {
+                "x": 3.088,
+                "y": -8.04,
+                "z": 7.928
+              },
+              "orientation": {
+                "x": 0.9905,
+                "y": -0.04324,
+                "z": 0.13041,
+                "w": -0.0057
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 12,
+                    "y": 9,
+                    "z": 13
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 76,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 76,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 76,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 76,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 80,
+                      "y": 35
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 83,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice7",
+              "name": "Ice_2_011",
+              "position": {
+                "x": 6.453,
+                "y": -8.04,
+                "z": -4.629
+              },
+              "orientation": {
+                "x": 0.9905,
+                "y": -0.04324,
+                "z": 0.13041,
+                "w": -0.0057
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 12,
+                    "y": 9,
+                    "z": 13
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 12,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 12,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 12,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 12,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 16,
+                      "y": 35
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 19,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice8",
+              "name": "Ice_2_100",
+              "position": {
+                "x": -9.216,
+                "y": -15.96,
+                "z": 4.63
+              },
+              "orientation": {
+                "x": 0.9905,
+                "y": -0.04324,
+                "z": 0.13041,
+                "w": -0.0057
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 12,
+                    "y": 9,
+                    "z": 13
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 192,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 192,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 192,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 192,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 196,
+                      "y": 44
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 199,
+                      "y": 52
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice9",
+              "name": "Ice_2_101",
+              "position": {
+                "x": -5.852,
+                "y": -15.96,
+                "z": -7.927
+              },
+              "orientation": {
+                "x": 0.9905,
+                "y": -0.04324,
+                "z": 0.13041,
+                "w": -0.0057
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 12,
+                    "y": 9,
+                    "z": 13
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 128,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 128,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 128,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 128,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 132,
+                      "y": 44
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 135,
+                      "y": 52
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice10",
+              "name": "Ice_2_110",
+              "position": {
+                "x": 2.331,
+                "y": -17.006,
+                "z": 7.724
+              },
+              "orientation": {
+                "x": 0.9905,
+                "y": -0.04324,
+                "z": 0.13041,
+                "w": -0.0057
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 12,
+                    "y": 9,
+                    "z": 13
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 76,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 76,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 76,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 76,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 80,
+                      "y": 44
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 83,
+                      "y": 52
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice11",
+              "name": "Ice_2_111",
+              "position": {
+                "x": 5.695,
+                "y": -17.006,
+                "z": -4.832
+              },
+              "orientation": {
+                "x": 0.9905,
+                "y": -0.04324,
+                "z": 0.13041,
+                "w": -0.0057
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 12,
+                    "y": 9,
+                    "z": 13
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 12,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 12,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 12,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 12,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 16,
+                      "y": 44
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 19,
+                      "y": 52
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice12",
+              "name": "Ice_3_000",
+              "position": {
+                "x": -4.814,
+                "y": -23.866,
+                "z": 5.363
+              },
+              "orientation": {
+                "x": 0.9981,
+                "y": 0.04358,
+                "z": -0.04357,
+                "w": -0.00191
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 8,
+                    "y": 9,
+                    "z": 9
+                  }
+                },
+                "textureLayout": {
+                  "back": {
                     "offset": {
                       "x": 0,
-                      "y": 0,
-                      "z": 0
+                      "y": 39
                     },
-                    "stretch": {
-                      "x": 1,
-                      "y": 1,
-                      "z": 1
+                    "mirror": {
+                      "x": false,
+                      "y": false
                     },
-                    "settings": {
-                      "isPiece": false,
-                      "size": {
-                        "x": 24,
-                        "y": 18,
-                        "z": 26
-                      }
-                    },
-                    "textureLayout": {
-                      "back": {
-                        "offset": {
-                          "x": 0,
-                          "y": 0
-                        },
-                        "mirror": {
-                          "x": false,
-                          "y": false
-                        },
-                        "angle": 0
-                      },
-                      "right": {
-                        "offset": {
-                          "x": 0,
-                          "y": 0
-                        },
-                        "mirror": {
-                          "x": false,
-                          "y": false
-                        },
-                        "angle": 0
-                      },
-                      "front": {
-                        "offset": {
-                          "x": 0,
-                          "y": 0
-                        },
-                        "mirror": {
-                          "x": false,
-                          "y": false
-                        },
-                        "angle": 0
-                      },
-                      "left": {
-                        "offset": {
-                          "x": 0,
-                          "y": 0
-                        },
-                        "mirror": {
-                          "x": false,
-                          "y": false
-                        },
-                        "angle": 0
-                      },
-                      "top": {
-                        "offset": {
-                          "x": 4,
-                          "y": 3
-                        },
-                        "mirror": {
-                          "x": false,
-                          "y": false
-                        },
-                        "angle": 0
-                      },
-                      "bottom": {
-                        "offset": {
-                          "x": 71,
-                          "y": 43
-                        },
-                        "mirror": {
-                          "x": false,
-                          "y": true
-                        },
-                        "angle": 0
-                      }
-                    },
-                    "unwrapMode": "custom",
-                    "visible": true,
-                    "doubleSided": false,
-                    "shadingMode": "fullbright"
+                    "angle": 0
                   },
-                  "children": [
-                    {
-                      "id": "5",
-                      "name": "Stalagtite1",
-                      "position": {
-                        "x": 1.86844,
-                        "y": 15.89765,
-                        "z": 0.12748
-                      },
-                      "orientation": {
-                        "x": 0,
-                        "y": -0.17365,
-                        "z": -0.08583,
-                        "w": 0.98106
-                      },
-                      "shape": {
-                        "type": "box",
-                        "offset": {
-                          "x": 0,
-                          "y": 0,
-                          "z": 0
-                        },
-                        "stretch": {
-                          "x": 1,
-                          "y": 1,
-                          "z": 1
-                        },
-                        "settings": {
-                          "isPiece": false,
-                          "size": {
-                            "x": 16,
-                            "y": 18,
-                            "z": 19
-                          }
-                        },
-                        "textureLayout": {
-                          "back": {
-                            "offset": {
-                              "x": 0,
-                              "y": 7
-                            },
-                            "mirror": {
-                              "x": false,
-                              "y": false
-                            },
-                            "angle": 0
-                          },
-                          "right": {
-                            "offset": {
-                              "x": 0,
-                              "y": 0
-                            },
-                            "mirror": {
-                              "x": false,
-                              "y": false
-                            },
-                            "angle": 0
-                          },
-                          "front": {
-                            "offset": {
-                              "x": 16,
-                              "y": 8
-                            },
-                            "mirror": {
-                              "x": false,
-                              "y": false
-                            },
-                            "angle": 0
-                          },
-                          "left": {
-                            "offset": {
-                              "x": 0,
-                              "y": 9
-                            },
-                            "mirror": {
-                              "x": false,
-                              "y": false
-                            },
-                            "angle": 0
-                          },
-                          "top": {
-                            "offset": {
-                              "x": 8,
-                              "y": 6
-                            },
-                            "mirror": {
-                              "x": false,
-                              "y": false
-                            },
-                            "angle": 0
-                          },
-                          "bottom": {
-                            "offset": {
-                              "x": 75,
-                              "y": 40
-                            },
-                            "mirror": {
-                              "x": false,
-                              "y": true
-                            },
-                            "angle": 0
-                          }
-                        },
-                        "unwrapMode": "custom",
-                        "visible": true,
-                        "doubleSided": false,
-                        "shadingMode": "fullbright"
-                      },
-                      "children": [
-                        {
-                          "id": "6",
-                          "name": "Stalagtite1",
-                          "position": {
-                            "x": -1.77965,
-                            "y": 18.91688,
-                            "z": 0.01086
-                          },
-                          "orientation": {
-                            "x": -0.0038,
-                            "y": 0.08707,
-                            "z": 0.04345,
-                            "w": 0.99525
-                          },
-                          "shape": {
-                            "type": "box",
-                            "offset": {
-                              "x": 0,
-                              "y": 0,
-                              "z": 0
-                            },
-                            "stretch": {
-                              "x": 1,
-                              "y": 1,
-                              "z": 1
-                            },
-                            "settings": {
-                              "isPiece": false,
-                              "size": {
-                                "x": 11,
-                                "y": 23,
-                                "z": 12
-                              }
-                            },
-                            "textureLayout": {
-                              "back": {
-                                "offset": {
-                                  "x": 0,
-                                  "y": 0
-                                },
-                                "mirror": {
-                                  "x": false,
-                                  "y": false
-                                },
-                                "angle": 0
-                              },
-                              "right": {
-                                "offset": {
-                                  "x": 11,
-                                  "y": 0
-                                },
-                                "mirror": {
-                                  "x": false,
-                                  "y": false
-                                },
-                                "angle": 0
-                              },
-                              "front": {
-                                "offset": {
-                                  "x": 0,
-                                  "y": 0
-                                },
-                                "mirror": {
-                                  "x": false,
-                                  "y": false
-                                },
-                                "angle": 0
-                              },
-                              "left": {
-                                "offset": {
-                                  "x": 11,
-                                  "y": 0
-                                },
-                                "mirror": {
-                                  "x": false,
-                                  "y": false
-                                },
-                                "angle": 0
-                              },
-                              "top": {
-                                "offset": {
-                                  "x": 12,
-                                  "y": 11
-                                },
-                                "mirror": {
-                                  "x": false,
-                                  "y": false
-                                },
-                                "angle": 0
-                              },
-                              "bottom": {
-                                "offset": {
-                                  "x": 74,
-                                  "y": 31
-                                },
-                                "mirror": {
-                                  "x": false,
-                                  "y": true
-                                },
-                                "angle": 0
-                              }
-                            },
-                            "unwrapMode": "custom",
-                            "visible": true,
-                            "doubleSided": false,
-                            "shadingMode": "fullbright"
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+                  "right": {
+                    "offset": {
+                      "x": 0,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 16,
+                      "y": 40
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 0,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 8,
+                      "y": 38
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 11,
+                      "y": 40
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice13",
+              "name": "Ice_3_001",
+              "position": {
+                "x": -5.641,
+                "y": -23.866,
+                "z": -4.101
+              },
+              "orientation": {
+                "x": 0.9981,
+                "y": 0.04358,
+                "z": -0.04357,
+                "w": -0.00191
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 8,
+                    "y": 9,
+                    "z": 10
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 192,
+                      "y": 39
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 192,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 208,
+                      "y": 40
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 192,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 200,
+                      "y": 38
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 203,
+                      "y": 40
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice14",
+              "name": "Ice_3_010",
+              "position": {
+                "x": 3.126,
+                "y": -23.168,
+                "z": 4.668
+              },
+              "orientation": {
+                "x": 0.9981,
+                "y": 0.04358,
+                "z": -0.04357,
+                "w": -0.00191
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 8,
+                    "y": 9,
+                    "z": 9
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 200,
+                      "y": 39
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 200,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 216,
+                      "y": 40
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 200,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 208,
+                      "y": 38
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 211,
+                      "y": 40
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice15",
+              "name": "Ice_3_011",
+              "position": {
+                "x": 2.298,
+                "y": -23.168,
+                "z": -4.796
+              },
+              "orientation": {
+                "x": 0.9981,
+                "y": 0.04358,
+                "z": -0.04357,
+                "w": -0.00191
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 8,
+                    "y": 9,
+                    "z": 10
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 72,
+                      "y": 39
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 72,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 88,
+                      "y": 40
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 72,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 80,
+                      "y": 38
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 83,
+                      "y": 40
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice16",
+              "name": "Ice_3_100",
+              "position": {
+                "x": -4.032,
+                "y": -32.832,
+                "z": 5.294
+              },
+              "orientation": {
+                "x": 0.9981,
+                "y": 0.04358,
+                "z": -0.04357,
+                "w": -0.00191
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 8,
+                    "y": 9,
+                    "z": 9
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 0,
+                      "y": 48
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 0,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 16,
+                      "y": 49
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 0,
+                      "y": 50
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 8,
+                      "y": 47
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 11,
+                      "y": 49
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice17",
+              "name": "Ice_3_101",
+              "position": {
+                "x": -4.86,
+                "y": -32.831,
+                "z": -4.17
+              },
+              "orientation": {
+                "x": 0.9981,
+                "y": 0.04358,
+                "z": -0.04357,
+                "w": -0.00191
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 8,
+                    "y": 9,
+                    "z": 10
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 0,
+                      "y": 48
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 0,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 16,
+                      "y": 49
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 0,
+                      "y": 50
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 8,
+                      "y": 47
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 11,
+                      "y": 49
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice18",
+              "name": "Ice_3_110",
+              "position": {
+                "x": 3.907,
+                "y": -32.134,
+                "z": 4.6
+              },
+              "orientation": {
+                "x": 0.9981,
+                "y": 0.04358,
+                "z": -0.04357,
+                "w": -0.00191
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 8,
+                    "y": 9,
+                    "z": 9
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 8,
+                      "y": 48
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 8,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 24,
+                      "y": 49
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 8,
+                      "y": 50
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 16,
+                      "y": 47
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 19,
+                      "y": 49
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice19",
+              "name": "Ice_3_111",
+              "position": {
+                "x": 3.079,
+                "y": -32.134,
+                "z": -4.864
+              },
+              "orientation": {
+                "x": 0.9981,
+                "y": 0.04358,
+                "z": -0.04357,
+                "w": -0.00191
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 8,
+                    "y": 9,
+                    "z": 10
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 8,
+                      "y": 48
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 8,
+                      "y": 41
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 24,
+                      "y": 49
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 8,
+                      "y": 50
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 16,
+                      "y": 47
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 19,
+                      "y": 49
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice20",
+              "name": "Ice_4_000",
+              "position": {
+                "x": -4.264,
+                "y": -41.0,
+                "z": 2.727
+              },
+              "orientation": {
+                "x": 0.99905,
+                "y": 1e-05,
+                "z": 0.04362,
+                "w": -1e-05
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 5,
+                    "y": 11,
+                    "z": 6
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 64,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 75,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 64,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 75,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 76,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 74,
+                      "y": 63
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice21",
+              "name": "Ice_4_001",
+              "position": {
+                "x": -3.741,
+                "y": -41.0,
+                "z": -3.25
+              },
+              "orientation": {
+                "x": 0.99905,
+                "y": 1e-05,
+                "z": 0.04362,
+                "w": -1e-05
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 5,
+                    "y": 11,
+                    "z": 6
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 64,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 75,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 64,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 75,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 76,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 74,
+                      "y": 63
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice22",
+              "name": "Ice_4_010",
+              "position": {
+                "x": 1.216,
+                "y": -41.0,
+                "z": 3.207
+              },
+              "orientation": {
+                "x": 0.99905,
+                "y": 1e-05,
+                "z": 0.04362,
+                "w": -1e-05
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 6,
+                    "y": 11,
+                    "z": 6
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 5,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 16,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 5,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 16,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 17,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 15,
+                      "y": 63
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice23",
+              "name": "Ice_4_011",
+              "position": {
+                "x": 1.738,
+                "y": -41.0,
+                "z": -2.771
+              },
+              "orientation": {
+                "x": 0.99905,
+                "y": 1e-05,
+                "z": 0.04362,
+                "w": -1e-05
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 6,
+                    "y": 11,
+                    "z": 6
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 197,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 208,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 197,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 208,
+                      "y": 32
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 209,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 207,
+                      "y": 63
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice24",
+              "name": "Ice_4_100",
+              "position": {
+                "x": -4.263,
+                "y": -52.5,
+                "z": 2.727
+              },
+              "orientation": {
+                "x": 0.99905,
+                "y": 1e-05,
+                "z": 0.04362,
+                "w": -1e-05
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 5,
+                    "y": 12,
+                    "z": 6
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 128,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 139,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 128,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 139,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 140,
+                      "y": 54
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 138,
+                      "y": 42
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice25",
+              "name": "Ice_4_101",
+              "position": {
+                "x": -3.74,
+                "y": -52.5,
+                "z": -3.25
+              },
+              "orientation": {
+                "x": 0.99905,
+                "y": 1e-05,
+                "z": 0.04362,
+                "w": -1e-05
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 5,
+                    "y": 12,
+                    "z": 6
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 192,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 203,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 192,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 203,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 204,
+                      "y": 54
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 202,
+                      "y": 42
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice26",
+              "name": "Ice_4_110",
+              "position": {
+                "x": 1.216,
+                "y": -52.5,
+                "z": 3.207
+              },
+              "orientation": {
+                "x": 0.99905,
+                "y": 1e-05,
+                "z": 0.04362,
+                "w": -1e-05
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 6,
+                    "y": 12,
+                    "z": 6
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 69,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 80,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 69,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 80,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 81,
+                      "y": 54
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 79,
+                      "y": 42
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
+            },
+            {
+              "id": "ice27",
+              "name": "Ice_4_111",
+              "position": {
+                "x": 1.739,
+                "y": -52.5,
+                "z": -2.771
+              },
+              "orientation": {
+                "x": 0.99905,
+                "y": 1e-05,
+                "z": 0.04362,
+                "w": -1e-05
+              },
+              "shape": {
+                "type": "box",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "stretch": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "settings": {
+                  "isPiece": false,
+                  "size": {
+                    "x": 6,
+                    "y": 12,
+                    "z": 6
+                  }
+                },
+                "textureLayout": {
+                  "back": {
+                    "offset": {
+                      "x": 69,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "right": {
+                    "offset": {
+                      "x": 80,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "front": {
+                    "offset": {
+                      "x": 69,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "left": {
+                    "offset": {
+                      "x": 80,
+                      "y": 43
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "top": {
+                    "offset": {
+                      "x": 81,
+                      "y": 54
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": false
+                    },
+                    "angle": 0
+                  },
+                  "bottom": {
+                    "offset": {
+                      "x": 79,
+                      "y": 42
+                    },
+                    "mirror": {
+                      "x": false,
+                      "y": true
+                    },
+                    "angle": 0
+                  }
+                },
+                "unwrapMode": "custom",
+                "visible": true,
+                "doubleSided": false,
+                "shadingMode": "fullbright"
+              },
+              "children": []
             }
           ]
         }

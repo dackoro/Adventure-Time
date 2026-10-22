@@ -1,0 +1,36 @@
+{
+  "$Comment": "Ice Sword rune light swing (2026-10-22): as AT_Ice_King_Ice_Sword_Swing_Hit: 12 ice, short push, 1 frost stack.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 12
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageAttribute": "Damage",
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Hit",
+        "Knockback": {
+          "Force": 4,
+          "RelativeX": 0,
+          "RelativeZ": -1,
+          "VelocityY": 1.5,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        }
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

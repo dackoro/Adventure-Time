@@ -1,5 +1,5 @@
 {
-  "$Comment": "Zap (2026-10-21: a ray toward the player with little damage; concept 'ZAP!... AGAIN'): short 0.35 s charge with the hand glow, then Projectile_Config_AT_Ice_King_Zap (fast, straight, 8 damage). Animation: own ID ZapCast (2026-10-21). Used by CAE_AT_Ice_King (Zap) and the air combat components.",
+  "$Comment": "Zap, RIGHT hand (2026-10-21: a ray toward the player with little damage; concept 'ZAP!... AGAIN'): short 0.35 s charge with the hand glow, then Projectile_Config_AT_Ice_King_Zap (fast, straight, 8 damage). Animation: own ID ZapCast. 2026-10-21 (playtest: the zap alternates hands): Root_AT_Ice_King_Zap chains this one and AT_Ice_King_Zap_L. Only this projectile carries the AimingReference tag (one per Attack root).",
   "Type": "Simple",
   "Effects": {
     "ItemPlayerAnimationsId": "AT_Ice_King_Staff",

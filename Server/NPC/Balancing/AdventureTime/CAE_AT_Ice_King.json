@@ -1,6 +1,6 @@
 {
   "Type": "CombatActionEvaluator",
-  "$Comment": "Ice King, step 1: scepter hit (close), ice ray (far), ice nova (punishes staying close and hitting him). Format and formulas: vanilla CAE_Skeleton_Elite and CAE_Goblin_Gobliterator_Phase1.",
+  "$Comment": "Ice King, step 1: scepter hit (close), ice ray (far), ice nova (punishes staying close and hitting him). Format and formulas: vanilla CAE_Skeleton_Elite and CAE_Goblin_Gobliterator_Phase1. 2026-10-22 (playtest: phase 1 = mage): after every action he steps back to 10-14 blocks (PostExecuteDistanceRange, were 6-12); MeleeHit, IceNova and IceShield are close-range punishes. 2026-10-22 harness fight (AFK player moved around him, attack counts from the Evaluator log): phase 1 cast IceRayBoth 32 % of the time (25 of 78), Zap once, the ultimate every ~40 s. IceRayBoth weight 6->4; IceRayBoth cooldown 4->8 s; FrostUltimate cooldown 40->60 s; Zap weight 3->4. 2026-10-22 (playtest: switch off friendly-fire avoidance on all his attacks; if he kills his own penguins by mistake, better, a more chaotic team fight): every action has DamageFriendlies true (AbilityCombatAction -> ActionCombatAbility -> CombatSupport.setExecutingAttack), so his ground attacks also hurt his henchmen, who list his group in DisableDamageGroups and would cancel it otherwise. They still never target him back (their Damage sensor ignores that group).",
   "EntityEffects": [
     "Immunity_Slow",
     "Immunity_Freeze",
@@ -31,15 +31,15 @@
     "AvailableActions": {
       "MeleeHit": {
         "Type": "Ability",
-        "Description": "Swing the scepter at a close target. 2026-10-21: renamed ScepterHit -> MeleeHit (he holds no scepter; his close-range swing). The interaction/root keep their old file names (AT_Ice_King_Scepter_Hit).",
+        "Description": "Swing the scepter at a close target. 2026-10-21: renamed ScepterHit -> MeleeHit (he holds no scepter; his close-range swing). The interaction/root keep their old file names (AT_Ice_King_Scepter_Hit). 2026-10-22 (playtest: phase 1 = mage): a punish when the player sticks to him: every 6 s at most (was 3).",
         "Target": "Hostile",
         "AttackDistanceRange": [
           1,
           3
         ],
         "PostExecuteDistanceRange": [
-          6,
-          9
+          10,
+          14
         ],
         "FailureTimeout": 2,
         "Ability": "Root_AT_Ice_King_Scepter_Hit",
@@ -66,7 +66,7 @@
             "Type": "TimeSinceLastUsed",
             "Curve": {
               "Type": "Switch",
-              "SwitchPoint": 3
+              "SwitchPoint": 6
             }
           },
           {
@@ -85,7 +85,8 @@
             "MaxValue": 1
           }
         ],
-        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game)."
+        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game).",
+        "DamageFriendlies": true
       },
       "IceRay": {
         "Type": "Ability",
@@ -96,8 +97,8 @@
           12
         ],
         "PostExecuteDistanceRange": [
-          7,
-          11
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "RequireAiming": true,
@@ -128,24 +129,25 @@
             "MinValue": 0.7,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceNova": {
         "Type": "Ability",
-        "Description": "Ground warning, then a freezing burst around the king. Answer to a target that stays close and keeps hitting.",
+        "Description": "Ground warning, then a freezing burst around the king. Answer to a target that stays close and keeps hitting. 2026-10-22 (playtest: phase 1 = mage): weight 5 (was 8), still only within 4 blocks after sustained damage. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): RecentSustainedDamage is a Switch at 10.",
         "Target": "Hostile",
         "AttackDistanceRange": [
           0,
           4
         ],
         "PostExecuteDistanceRange": [
-          6,
-          9
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "Ability": "Root_AT_Ice_King_Ice_Nova",
         "SubState": "Default",
-        "WeightCoefficient": 8,
+        "WeightCoefficient": 5,
         "InteractionVars": {
           "Ice_Nova_Damage": {
             "$Comment": "Required: the Replace DefaultValue is not used for NPCs (SEVERE 'Missing replacement interactions' without this). Plain id form as the Skeleton_Elite Shield_Guard_End var.",
@@ -173,20 +175,20 @@
             }
           },
           {
-            "$Comment": "Any recent combat damage raises it, more damage = closer to 1 (InverseExponential over 0-15, as the Skeleton_Elite ShieldBlock over 0-10). The evaluator clears recent damage after each run.",
+            "$Comment": "2026-10-22 balance: Switch 0->1 at 10 recent damage (was InverseExponential). That curve is 1.1*(x-0.1)^0.28: below 10 % of its XRange Math.pow of a negative base gives NaN, which passed the clamp and won the evaluation, so this fired when NOT being hit (review). Switch as the Gobliterator's FurnaceBlast.",
             "Type": "RecentSustainedDamage",
             "Sources": [
               "Combat"
             ],
             "Curve": {
-              "ResponseCurve": "InverseExponential",
-              "XRange": [
-                0,
-                15
-              ]
+              "Type": "Switch",
+              "InitialState": 0,
+              "FinalState": 1,
+              "SwitchPoint": 10
             }
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "Iceberg": {
         "Type": "Ability",
@@ -197,8 +199,8 @@
           20
         ],
         "PostExecuteDistanceRange": [
-          6,
-          10
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "Ability": "Root_AT_Ice_King_Iceberg_Cast",
@@ -217,19 +219,20 @@
             "MinValue": 0.6,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "Summon": {
         "Type": "Ability",
-        "Description": "Summon 2 frost skeletons. Only when none of them is alive and the king is under 800 health. Conditions as the vanilla CAE_Skeleton_Praetorian Summon and CAE_Goblin_Glutton.",
+        "Description": "Summon 2 frost skeletons. Only when none of them is alive and the king is under 800 health. Conditions as the vanilla CAE_Skeleton_Praetorian Summon and CAE_Goblin_Glutton. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): NearbyCount Switch 5 (was 9): 10-12 Gunters could pile up (about 20-26 damage/s, more than the king).",
         "Target": "Hostile",
         "AttackDistanceRange": [
           3,
           20
         ],
         "PostExecuteDistanceRange": [
-          6,
-          10
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "Ability": "Root_AT_Ice_King_Summon",
@@ -252,7 +255,7 @@
               "Type": "Switch",
               "InitialState": 1,
               "FinalState": 0,
-              "SwitchPoint": 9
+              "SwitchPoint": 5
             }
           },
           {
@@ -266,31 +269,32 @@
               "SwitchPoint": 2400
             }
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceRayFreezing": {
         "Type": "Ability",
-        "Description": "Rare ice ray whose hit also freezes 1.5 s. Same conditions as IceRay, weight 1 (the minimum the engine accepts; IceRay has 4) and a lower Randomiser (0.2-0.8 instead of 0.7-1), so roughly 1 ray in 7 is this one.",
+        "Description": "Rare ice ray whose hit also freezes 1.5 s. Same conditions as IceRay, weight 1 (the minimum the engine accepts; IceRay has 4) and a lower Randomiser (0.2-0.8 instead of 0.7-1), so roughly 1 ray in 7 is this one. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): weight 5 (was 1), Randomiser 0.6-1 (0.2-0.8), cooldown 25 s (8): it fired about once in 13 min; now roughly every 25-30 s.",
         "Target": "Hostile",
         "AttackDistanceRange": [
           6,
           12
         ],
         "PostExecuteDistanceRange": [
-          7,
-          11
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "RequireAiming": true,
         "Ability": "Root_AT_Ice_King_Ice_Ray_Freezing",
         "SubState": "Default",
-        "WeightCoefficient": 1,
+        "WeightCoefficient": 5,
         "Conditions": [
           {
             "Type": "TimeSinceLastUsed",
             "Curve": {
               "Type": "Switch",
-              "SwitchPoint": 8
+              "SwitchPoint": 25
             }
           },
           {
@@ -306,10 +310,11 @@
           },
           {
             "Type": "Randomiser",
-            "MinValue": 0.2,
-            "MaxValue": 0.8
+            "MinValue": 0.6,
+            "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "Zap": {
         "Type": "Ability",
@@ -320,14 +325,14 @@
           20
         ],
         "PostExecuteDistanceRange": [
-          6,
-          10
+          10,
+          14
         ],
         "FailureTimeout": 2,
         "RequireAiming": true,
         "Ability": "Root_AT_Ice_King_Zap",
         "SubState": "Default",
-        "WeightCoefficient": 3,
+        "WeightCoefficient": 4,
         "Conditions": [
           {
             "$Comment": "Every 4 s at most.",
@@ -353,19 +358,20 @@
             "MinValue": 0.5,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceShield": {
         "Type": "Ability",
-        "Description": "Defens-ice (2026-10-21): 3 s of ice shield (no damage), then the shell bursts in a 5-block circle (15 ice, push, 2 frost stacks). Answer to taking a lot of damage, at any range. 2026-10-21: v3, up to 8 s, every 5 hits taken cut 4 s, warning only in the last 1.5 s; it already prefers moments when he has taken a lot of damage (RecentSustainedDamage condition).",
+        "Description": "Defens-ice (2026-10-21): 3 s of ice shield (no damage), then the shell bursts in a 5-block circle (15 ice, push, 2 frost stacks). Answer to taking a lot of damage, at any range. 2026-10-21: v3, up to 8 s, every 5 hits taken cut 4 s, warning only in the last 1.5 s; it already prefers moments when he has taken a lot of damage (RecentSustainedDamage condition). 2026-10-22 (playtest: phase 1 = mage): only within 6 blocks (was 0-20), a close-range answer. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): RecentSustainedDamage is a Switch at 20.",
         "Target": "Hostile",
         "AttackDistanceRange": [
           0,
-          20
+          6
         ],
         "PostExecuteDistanceRange": [
-          6,
-          10
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "Ability": "Root_AT_Ice_King_Ice_Shield",
@@ -381,17 +387,16 @@
             }
           },
           {
-            "$Comment": "Recent combat damage raises it (as the nova): more damage = closer to 1, 0 when nobody hit him.",
+            "$Comment": "2026-10-22 balance: Switch 0->1 at 20 recent damage (was InverseExponential). That curve is 1.1*(x-0.1)^0.28: below 10 % of its XRange Math.pow of a negative base gives NaN, which passed the clamp and won the evaluation, so this fired when NOT being hit (review). Switch as the Gobliterator's FurnaceBlast.",
             "Type": "RecentSustainedDamage",
             "Sources": [
               "Combat"
             ],
             "Curve": {
-              "ResponseCurve": "InverseExponential",
-              "XRange": [
-                0,
-                25
-              ]
+              "Type": "Switch",
+              "InitialState": 0,
+              "FinalState": 1,
+              "SwitchPoint": 20
             }
           },
           {
@@ -399,7 +404,8 @@
             "MinValue": 0.6,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceRain": {
         "Type": "Ability",
@@ -410,8 +416,8 @@
           25
         ],
         "PostExecuteDistanceRange": [
-          6,
-          10
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "Ability": "Root_AT_Ice_King_Ice_Rain",
@@ -431,7 +437,8 @@
             "MinValue": 0.6,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceBurst": {
         "Type": "Ability",
@@ -442,8 +449,8 @@
           18
         ],
         "PostExecuteDistanceRange": [
-          7,
-          11
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "RequireAiming": true,
@@ -475,7 +482,8 @@
             "MinValue": 0.6,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "FrostUltimate": {
         "Type": "Ability",
@@ -486,8 +494,8 @@
           50
         ],
         "PostExecuteDistanceRange": [
-          8,
-          12
+          10,
+          14
         ],
         "FailureTimeout": 4,
         "RequireAiming": true,
@@ -500,7 +508,7 @@
             "Type": "TimeSinceLastUsed",
             "Curve": {
               "Type": "Switch",
-              "SwitchPoint": 40
+              "SwitchPoint": 60
             }
           },
           {
@@ -519,7 +527,8 @@
             "MinValue": 0.7,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "FrostUltimateRage": {
         "Type": "Ability",
@@ -530,8 +539,8 @@
           50
         ],
         "PostExecuteDistanceRange": [
-          8,
-          12
+          10,
+          14
         ],
         "FailureTimeout": 4,
         "RequireAiming": true,
@@ -563,7 +572,8 @@
             "MinValue": 0.7,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceBurstBoth": {
         "Type": "Ability",
@@ -574,8 +584,8 @@
           18
         ],
         "PostExecuteDistanceRange": [
-          7,
-          11
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "RequireAiming": true,
@@ -607,7 +617,8 @@
             "MinValue": 0.6,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceRayBoth": {
         "Type": "Ability",
@@ -618,20 +629,20 @@
           16
         ],
         "PostExecuteDistanceRange": [
-          7,
-          11
+          10,
+          14
         ],
         "FailureTimeout": 3,
         "RequireAiming": true,
         "Ability": "Root_AT_Ice_King_Ice_Ray_Both",
         "SubState": "Default",
-        "WeightCoefficient": 6,
+        "WeightCoefficient": 4,
         "Conditions": [
           {
             "Type": "TimeSinceLastUsed",
             "Curve": {
               "Type": "Switch",
-              "SwitchPoint": 4
+              "SwitchPoint": 8
             },
             "$Comment": "Every 4 s at most."
           },
@@ -651,7 +662,8 @@
             "MinValue": 0.7,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceSwordSlash": {
         "Type": "Ability",
@@ -662,8 +674,8 @@
           3.5
         ],
         "PostExecuteDistanceRange": [
-          6,
-          9
+          10,
+          14
         ],
         "FailureTimeout": 2,
         "Ability": "Root_AT_Ice_King_Ice_Sword_Slash",
@@ -700,39 +712,8 @@
             "MaxValue": 1
           }
         ],
-        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game)."
-      },
-      "IceMaceSlam": {
-        "Type": "Ability",
-        "Description": "Ice mace slam (2026-10-21, instead of the drum solo): summons an ice mace and slams the ground 3 times; each slam sends a growing ring (14 ice, thrown up, 1 frost) the player must jump over. Mid range, every 20 s at most.",
-        "Target": "Hostile",
-        "AttackDistanceRange": [
-          3,
-          16
-        ],
-        "PostExecuteDistanceRange": [
-          6,
-          10
-        ],
-        "FailureTimeout": 3,
-        "Ability": "Root_AT_Ice_King_Ice_Mace_Slam",
-        "SubState": "Default",
-        "WeightCoefficient": 5,
-        "Conditions": [
-          {
-            "$Comment": "Every 20 s at most.",
-            "Type": "TimeSinceLastUsed",
-            "Curve": {
-              "Type": "Switch",
-              "SwitchPoint": 20
-            }
-          },
-          {
-            "Type": "Randomiser",
-            "MinValue": 0.6,
-            "MaxValue": 1
-          }
-        ]
+        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game).",
+        "DamageFriendlies": true
       }
     },
     "ActionSets": {
@@ -750,8 +731,7 @@
           "IceRain",
           "IceBurst",
           "IceBurstBoth",
-          "FrostUltimate",
-          "IceMaceSlam"
+          "FrostUltimate"
         ]
       }
     }

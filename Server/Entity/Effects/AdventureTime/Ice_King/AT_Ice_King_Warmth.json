@@ -1,13 +1,22 @@
 {
-  "$Comment": "Warmth buff from AT_Ice_King_Warmth_Potion (5 min). While it lasts the Ice King cannot freeze the player: AT_Ice_King_Freeze has an ApplyConditions entry against it, and the ray, nova and iceberg hits check it with an EffectCondition and apply only the weak slow. Fields of the vanilla Antidote buff.",
-  "Duration": 300,
+  "$Comment": "Warmth buff from AT_Ice_King_Warmth_Potion (5 min). While it lasts the Ice King cannot freeze the player: AT_Ice_King_Freeze has an ApplyConditions entry against it, and the ray, nova and iceberg hits check it with an EffectCondition and apply only the weak slow. Fields of the vanilla Antidote buff. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): Duration 600 s (was 300): a solo fight takes about 4-8 min, so it ran out around phase 4. 2026-10-22 (art: give the player the game's burning shader while the warmth lasts): ApplicationEffects ModelVFXId Burn (vanilla Server/Entity/ModelVFX/Burn.json, the one the Burn status uses: flames creep up and char the body), no fire particles, screen overlay or burn sounds (10 min of them would be too much); StatusEffectIcon = the new potion icon. 2026-10-22 (art pass): fire immunity while it lasts, as vanilla Immunity_Fire (DamageResistance Fire 100 %). 2026-10-22 (playtest: the status icon should be the little fire): StatusEffectIcon = vanilla UI/StatusEffects/Burn.png. 2026-10-22 (playtest: the vanilla Burn shader burns once and leaves the body pale): ModelVFXId AT_Ice_King_Warmth_Fire, a looping fire-vein look like Mob Battle's shimmer (Server/Entity/ModelVFX/AdventureTime/Ice_King). Known client limit: the client drops an entity's ModelVFX whenever ANY other effect is removed from it (seen in Mob Battle), so it can vanish mid-way; only code can re-send it (Mob Battle's LookKeeper).",
+  "Duration": 600,
   "OverlapBehavior": "Overwrite",
   "RemovalBehavior": "Duration",
   "Infinite": false,
   "Debuff": false,
   "ApplicationEffects": {
     "EntityTopTint": "#ffb36b",
-    "EntityBottomTint": "#ff7a2e"
+    "EntityBottomTint": "#ff7a2e",
+    "ModelVFXId": "AT_Ice_King_Warmth_Fire"
   },
-  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Bomb_Potion_Poison.png"
+  "StatusEffectIcon": "UI/StatusEffects/Burn.png",
+  "DamageResistance": {
+    "Fire": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Percent"
+      }
+    ]
+  }
 }

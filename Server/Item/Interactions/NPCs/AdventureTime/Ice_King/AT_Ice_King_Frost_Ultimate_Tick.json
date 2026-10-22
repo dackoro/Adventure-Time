@@ -1,25 +1,41 @@
 {
-  "$Comment": "Ultimate beam tick (2026-10-21: 'Ice... KING!' must be a giant ray like the Souls-like Bosses Nightlord's): 12 ice damage and 1 frost stack each time the beam's hit box catches you (every 0.4 s). Tune BaseDamage.Ice.",
-  "Type": "Serial",
-  "Interactions": [
-    {
-      "Type": "DamageEntity",
-      "DamageCalculator": {
-        "Type": "Absolute",
-        "BaseDamage": {
-          "Ice": 12
+  "$Comment": "Ultimate beam tick (2026-10-21: 'Ice... KING!' must be a giant ray like the Souls-like Bosses Nightlord's): 12 ice damage and 1 frost stack each time the beam's hit box catches you (every 0.4 s). Tune BaseDamage.Ice. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): 8 ice per tick (was 12) and no frost stack per tick (6 x 12 + 24 = 96 was close to a one-shot, and the 5th tick froze him for 4 s inside the beam). Total now 6 x 8 + 24 = 72; the final hit still adds a stack and freezes 2.5 s. 2026-10-22 (playtest: the ultimate can be blocked, but it freezes you anyway and the shield pays a lot of stamina): starts with a 1 Projectile damage probe (pattern of AT_Ice_King_Ice_Ray_Hit; vanilla swords and shields block Projectile, never Ice). Blocked from the front: the guard pays InitialAmount / StaminaCost.Value x StaminaDrainMultiplier stamina (vanilla Value 10, stamina max 10, no regen while guarding, below 0 the guard breaks and the rest of the beam lands). Not blocked: Next, the old hit with 1 ice damage less (same total). Tick: StaminaDrainMultiplier 15 = 1.5 stamina per blocked tick (6 ticks = 9).",
+  "Type": "DamageEntity",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Projectile": 1
+    }
+  },
+  "DamageEffects": {
+    "StaminaDrainMultiplier": 15
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "DamageEntity",
+        "DamageCalculator": {
+          "Type": "Absolute",
+          "BaseDamage": {
+            "Ice": 7
+          },
+          "RandomPercentageModifier": 0.1
         },
-        "RandomPercentageModifier": 0.1
-      },
-      "DamageEffects": {
-        "WorldParticles": [
-          {
-            "SystemId": "Impact_Ice"
-          }
-        ],
-        "WorldSoundEventId": "SFX_Ice_Break"
+        "DamageEffects": {
+          "WorldParticles": [
+            {
+              "SystemId": "Impact_Ice"
+            }
+          ],
+          "WorldSoundEventId": "SFX_Ice_Break"
+        }
       }
-    },
-    "AT_Ice_King_Frost_Hit"
-  ]
+    ]
+  },
+  "Blocked": {
+    "Type": "Simple",
+    "$Comment": "Guard up: no damage.",
+    "RunTime": 0
+  }
 }

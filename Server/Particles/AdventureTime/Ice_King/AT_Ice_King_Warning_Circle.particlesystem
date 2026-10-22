@@ -1,0 +1,26 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Warning_Circle",
+      "PositionOffset": {
+        "Y": 0.05
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Warning_Circle_Fill",
+      "PositionOffset": {
+        "Y": 0.05
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Warning_Circle_Edge",
+      "PositionOffset": {
+        "Y": 0.048
+      }
+    }
+  ],
+  "LifeSpan": 1.5,
+  "CullDistance": 128,
+  "IsImportant": true,
+  "$Comment": "Lift above the ground in system units: the interaction's Scale multiplies it too, so it is 0.25 blocks / that scale (2026-10-22, the circles floated at waist height with 0.27)."
+}

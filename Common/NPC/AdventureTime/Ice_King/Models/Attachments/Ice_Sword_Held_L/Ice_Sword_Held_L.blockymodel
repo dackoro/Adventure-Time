@@ -285,7 +285,7 @@
                             "unwrapMode": "custom",
                             "visible": false,
                             "doubleSided": false,
-                            "shadingMode": "flat"
+                            "shadingMode": "fullbright"
                           },
                           "children": [
                             {
@@ -393,7 +393,7 @@
                                 "unwrapMode": "custom",
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat"
+                                "shadingMode": "fullbright"
                               },
                               "children": []
                             },
@@ -502,7 +502,7 @@
                                 "unwrapMode": "custom",
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat"
+                                "shadingMode": "fullbright"
                               },
                               "children": []
                             },
@@ -611,7 +611,7 @@
                                 "unwrapMode": "custom",
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat"
+                                "shadingMode": "fullbright"
                               },
                               "children": [
                                 {
@@ -719,7 +719,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   },
                                   "children": [
                                     {
@@ -827,7 +827,7 @@
                                         "unwrapMode": "custom",
                                         "visible": false,
                                         "doubleSided": false,
-                                        "shadingMode": "flat"
+                                        "shadingMode": "fullbright"
                                       },
                                       "children": []
                                     }

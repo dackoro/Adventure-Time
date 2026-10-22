@@ -1,10 +1,10 @@
 {
-  "$Comment": "CAE ability: 2 s summoning cast standing still (vanilla Skeleton_Burnt_Praetorian_Summon look), then a bolt straight down (Projectile_Config_AT_Ice_King_Summon) whose ground hit spawns 2 AT_Gunter_Minion 2-4 blocks around. Summon circle and hand glow: AT_Ice_King_Summon_Ground/_Energy, ice-blue copies of the vanilla Praetorian ones (2026-10-21). 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge.",
+  "$Comment": "CAE ability: 2 s summoning cast standing still (vanilla Skeleton_Burnt_Praetorian_Summon look), then a bolt straight down (Projectile_Config_AT_Ice_King_Summon) whose ground hit spawns 2 AT_Gunter_Minion 2-4 blocks around. Summon circle and hand glow: AT_Ice_King_Summon_Ground/_Energy, ice-blue copies of the vanilla Praetorian ones (2026-10-21). 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Charge when the charge starts, VO_Summon on the cast; the laugh plays where the Gunters appear (Projectile_Config_AT_Ice_King_Summon).",
   "Type": "Simple",
   "Effects": {
     "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
     "ItemAnimationId": "SummonGuntersCharging",
-    "WorldSoundEventId": "SFX_Skeleton_Praetorian_Search_2",
+    "WorldSoundEventId": "SFX_AT_Ice_King_VO_Charge",
     "Particles": [
       {
         "SystemId": "AT_Ice_King_Summon_Ground",
@@ -37,7 +37,7 @@
         "Effects": {
           "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
           "ItemAnimationId": "SummonGuntersCast",
-          "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact"
+          "WorldSoundEventId": "SFX_AT_Ice_King_VO_Summon"
         }
       },
       {

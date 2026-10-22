@@ -1,0 +1,35 @@
+{
+  "$Comment": "Ice Mace rune wave hit (2026-10-22): as AT_Ice_King_Ice_Mace_Wave_Damage: 14 ice, thrown up (Point Force 5, VelocityY 7), 1 frost stack.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 14
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageAttribute": "Damage",
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break",
+        "Knockback": {
+          "Type": "Point",
+          "Force": 5,
+          "VelocityY": 7,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        }
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

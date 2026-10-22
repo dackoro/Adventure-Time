@@ -40,12 +40,12 @@
     "InitialAnimationFrame": {
       "Scale": {
         "X": {
-          "Min": 40,
-          "Max": 50
+          "Min": 20.0,
+          "Max": 25.0
         },
         "Y": {
-          "Min": 40,
-          "Max": 50
+          "Min": 20.0,
+          "Max": 25.0
         }
       },
       "Opacity": 1,
@@ -70,5 +70,5 @@
   },
   "LinearFiltering": true,
   "MaxConcurrentParticles": 3,
-  "$Comment": "Ice-blue copy of vanilla Dungeon_Goblin_Void_Strike_Glow_Top (purple colours turned blue; everything else unchanged)."
+  "$Comment": "Ice-blue copy of vanilla Dungeon_Goblin_Void_Strike_Glow_Top (purple colours turned blue; everything else unchanged). 2026-10-22 (playtest: the impact area was hugely big): every Scale x0.5, so the ground glow matches the 2.3-block hit circle / red warning."
 }

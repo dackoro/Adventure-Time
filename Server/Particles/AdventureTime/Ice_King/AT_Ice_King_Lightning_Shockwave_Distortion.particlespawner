@@ -18,12 +18,12 @@
         "Color": "#ffffff",
         "Scale": {
           "Y": {
-            "Min": 0,
+            "Min": 0.0,
             "Max": 0.0
           },
           "X": {
-            "Min": 0,
-            "Max": 0
+            "Min": 0.0,
+            "Max": 0.0
           }
         }
       },
@@ -48,12 +48,12 @@
         "Color": "#000000",
         "Scale": {
           "X": {
-            "Min": 1,
-            "Max": 1
+            "Min": 0.4,
+            "Max": 0.4
           },
           "Y": {
-            "Min": 1,
-            "Max": 1
+            "Min": 0.4,
+            "Max": 0.4
           }
         }
       }
@@ -73,12 +73,12 @@
       },
       "Scale": {
         "X": {
-          "Min": 7,
-          "Max": 10
+          "Min": 2.8,
+          "Max": 4.0
         },
         "Y": {
-          "Min": 7,
-          "Max": 10
+          "Min": 2.8,
+          "Max": 4.0
         }
       }
     }
@@ -102,5 +102,5 @@
   },
   "LinearFiltering": true,
   "MaxConcurrentParticles": 5,
-  "$Comment": "Ice-blue copy of vanilla Dungeon_Goblin_Void_Strike_Shockwave_Distortion (purple colours turned blue; everything else unchanged)."
+  "$Comment": "Ice-blue copy of vanilla Dungeon_Goblin_Void_Strike_Shockwave_Distortion (purple colours turned blue; everything else unchanged). 2026-10-22 (playtest: the impact area was hugely big): every Scale x0.4, so the ground glow matches the 2.3-block hit circle / red warning."
 }

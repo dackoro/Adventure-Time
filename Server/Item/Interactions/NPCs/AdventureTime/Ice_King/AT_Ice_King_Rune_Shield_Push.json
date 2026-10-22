@@ -1,0 +1,22 @@
+{
+  "$Comment": "Ice Shield rune bubble push (2026-10-22): copy of AT_Ice_King_Ice_Shield_Push: no damage, a short push out of the bubble.",
+  "Type": "DamageEntity",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Ice": 0
+    }
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Type": "Point",
+      "Force": 3,
+      "VelocityY": 0.5,
+      "VelocityType": "Set",
+      "VelocityConfig": {
+        "Threshold": 0.9
+      }
+    },
+    "WorldSoundEventId": "SFX_Ice_Break"
+  }
+}

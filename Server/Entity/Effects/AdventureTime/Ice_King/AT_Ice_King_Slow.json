@@ -1,5 +1,5 @@
 {
-  "$Comment": "Copy of vanilla Ability_Frost_Slow with a status icon that exists: the vanilla one points to UI/StatusEffects/Icon_Slow.png, which is not in Assets.zip 0.7.2 (red X on the HUD).",
+  "$Comment": "Copy of vanilla Ability_Frost_Slow with a status icon that exists: the vanilla one points to UI/StatusEffects/Icon_Slow.png, which is not in Assets.zip 0.7.2 (red X on the HUD). Snowflakes (2026-10-22: the step before the freeze): Particles AT_Ice_King_Slow_Snow (lighter than the freeze's Effect_Snow), FirstPersonParticles AT_Ice_King_Slow_Snow_FP (low, keeps the view clear). No ModelVFX on purpose: renewing this effect would drop the freeze shell.",
   "ApplyConditions": [
     {
       "Id": "HasEffect",
@@ -8,16 +8,28 @@
     }
   ],
   "Tags": {
-    "Element": ["Water"]
+    "Element": [
+      "Water"
+    ]
   },
   "ApplicationEffects": {
     "EntityTopTint": "#00beff",
     "EntityBottomTint": "#00ffff",
     "HorizontalSpeedMultiplier": 0.75,
-    "LocalSoundEventId": "SFX_Deployable_Totem_Slowing_Effect_Local"
+    "LocalSoundEventId": "SFX_Deployable_Totem_Slowing_Effect_Local",
+    "Particles": [
+      {
+        "SystemId": "AT_Ice_King_Slow_Snow"
+      }
+    ],
+    "FirstPersonParticles": [
+      {
+        "SystemId": "AT_Ice_King_Slow_Snow_FP"
+      }
+    ]
   },
   "Duration": 3.0,
   "OverlapBehavior": "Overwrite",
   "Debuff": true,
-  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Staff_Frost.png"
+  "StatusEffectIcon": "Icons/ItemsGenerated/AT_Ice_King/AT_Ice_King_Slow.png"
 }

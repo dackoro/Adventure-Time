@@ -1,5 +1,5 @@
 {
-  "$Comment": "Fridjitzu combo, hit 3 (the spin): bigger hit and knockback, then one frost stack through AT_Ice_King_Frost_Hit (pattern of AT_Ice_King_Ice_Ray_Hit). The CAE can change it with the Fridjitzu_Final_Damage var.",
+  "$Comment": "Fridjitzu combo, hit 3 (the spin): bigger hit and knockback, then one frost stack through AT_Ice_King_Frost_Hit (pattern of AT_Ice_King_Ice_Ray_Hit). The CAE can change it with the Fridjitzu_Final_Damage var. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Ice_Hit when the hit lands (was SFX_Ice_Break). 2026-10-22 block stamina (playtest: blocking the king with a plain sword barely cost stamina): a blocked hit costs InitialAmount / StaminaCost.Value stamina (DamageSystems.DamageStamina; vanilla sword and shield Value 10, player stamina max 10, no regen while guarding, below 0 the guard breaks), times DamageEffects.StaminaDrainMultiplier (official field; vanilla Gobliterator uppercut 10). StaminaDrainMultiplier 2.5 on the spin: about 4 stamina for 16 damage. 2026-10-22 (playtest: blocked, only the strong hits add frost): kept as it is on purpose: the damage is the first step of a Serial, so a blocked spin still runs the next step, AT_Ice_King_Frost_Hit (1 stack). Hits 1-2 (AT_Ice_King_Fridjitzu_Hit_Damage) and the punches put their frost in Next, which a blocked hit skips (DamageEntityInteraction jumps to its Blocked label), so blocked they add nothing.",
   "Type": "Serial",
   "Interactions": [
     {
@@ -20,12 +20,13 @@
           "VelocityY": 1.0,
           "VelocityType": "Set"
         },
-        "WorldSoundEventId": "SFX_Ice_Break",
+        "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Hit",
         "WorldParticles": [
           {
             "SystemId": "Impact_Ice"
           }
-        ]
+        ],
+        "StaminaDrainMultiplier": 2.5
       }
     },
     "AT_Ice_King_Frost_Hit"

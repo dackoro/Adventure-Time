@@ -1,0 +1,25 @@
+{
+  "$Comment": "Ice King sound (2026-10-22, voice clips): Ice mace slam impact, on trial (kept: the current vanilla one: SFX_Gobliterator_Club_Slam_Impact is the fallback); two layers together: heavy ice clash + bright hit. Files: Common/Sounds/AdventureTime/Ice_King. Volume in dB; Parent sets how far it is heard.",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Effects/AT_Ice_King_Mace_Impact_1.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -1,
+        "MaxPitch": 1
+      }
+    },
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Effects/AT_Ice_King_Mace_Impact_2.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -1,
+        "MaxPitch": 1
+      }
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Loud"
+}

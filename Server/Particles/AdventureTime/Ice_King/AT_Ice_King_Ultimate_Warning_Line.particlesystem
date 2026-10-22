@@ -1,0 +1,25 @@
+{
+  "IsImportant": true,
+  "LifeSpan": 2.0,
+  "CullDistance": 128,
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Ultimate_Warning_Line",
+      "PositionOffset": {
+        "Y": 0.25
+      },
+      "RotationOffset": {
+        "Yaw": 180
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Ultimate_Warning_Line_Fill",
+      "PositionOffset": {
+        "Y": 0.25
+      },
+      "RotationOffset": {
+        "Yaw": 180
+      }
+    }
+  ]
+}

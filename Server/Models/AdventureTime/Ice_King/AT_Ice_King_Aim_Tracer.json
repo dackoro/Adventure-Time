@@ -1,0 +1,19 @@
+{
+  "$Comment": "Ultimate laser sight tracer (2026-10-22). Take 2 (playtest: the particle trail looked horrible; attached particles follow the projectile's yaw, not its pitch, so the dashes lay flat): the model itself is the laser, a thin fullbright needle (3 units ~0.05 block, ice-blue edges, pale core; red changed to blue) 7.5 blocks long reaching ahead of the projectile (Aim_Tracer.blockymodel). Fired every 0.11 s at 70 b/s the needles touch end to end into one line. Tune: L in the art (needle length), the texture colours. No light, scale 1.",
+  "Model": "NPC/AdventureTime/Ice_King/Ray/Aim_Tracer.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Ray/Aim_Tracer_Texture.png",
+  "HitBox": {
+    "Max": {
+      "X": 0.05,
+      "Y": 0.05,
+      "Z": 0.05
+    },
+    "Min": {
+      "X": -0.05,
+      "Y": -0.05,
+      "Z": -0.05
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1
+}

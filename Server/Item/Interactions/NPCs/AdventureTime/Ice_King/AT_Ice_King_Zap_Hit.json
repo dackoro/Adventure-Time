@@ -1,19 +1,37 @@
 {
-  "$Comment": "Zap hit (2026-10-21: a ray that goes to the player with little damage): a quick poke, 8 ice damage (the normal ray does 18), no frost stack, no slow. Tune BaseDamage.Ice.",
+  "$Comment": "Zap hit (2026-10-21: a ray that goes to the player with little damage): a quick poke, 8 ice damage (the normal ray does 18), no slow. Tune BaseDamage.Ice. Shield (2026-10-21: blocking with a shield should stop the ray, frost and slow included): the vanilla shields (Shield_Block_Damage, Weapon_Shield_Secondary_Guard_Wield) block only the causes listed in their AngledWielding DamageModifiers (Physical, Projectile, Poison, Fire, Wind, Earth, Water, Bludgeoning) and match the exact cause (DamageSystems wielding filter), so Ice was never blocked. This hit starts with a 1 Projectile damage probe: blocked from the front (95 degrees, stamina cost, the shield's own block effects) -> its Blocked branch, which is empty, so no ice damage, no frost and no slow; not blocked -> Next, the old hit with 1 ice damage less (same total). A failed probe (invulnerable target) also stops the rest. 2026-10-21 (playtest: every hit of the king applies frost): half a frost stack through AT_Ice_King_Frost_Half_Hit (every second such hit adds one stack), since this hit is quick and frequent. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Zap_Hit when the hit lands (was SFX_Ice_Break). 2026-10-22 block stamina (playtest: blocking the king with a plain sword barely cost stamina, 50 hits in a row): a blocked hit costs InitialAmount / StaminaCost.Value stamina (DamageSystems.DamageStamina; vanilla sword and shield Value 10 = 1 stamina per 10 damage, player stamina max 10, no regen while guarding, below 0 the guard breaks), times DamageEffects.StaminaDrainMultiplier (official field, inherited by Parent overrides; vanilla Gobliterator uppercut 10). StaminaDrainMultiplier 25: the blocked 1-damage probe costs 2.5 stamina (was 0.1).",
   "Type": "DamageEntity",
   "DamageCalculator": {
     "Type": "Absolute",
     "BaseDamage": {
-      "Ice": 8
-    },
-    "RandomPercentageModifier": 0.1
+      "Projectile": 1
+    }
   },
   "DamageEffects": {
-    "WorldParticles": [
-      {
-        "SystemId": "Impact_Ice"
-      }
-    ],
-    "WorldSoundEventId": "SFX_Ice_Break"
+    "StaminaDrainMultiplier": 25
+  },
+  "Next": {
+    "Type": "DamageEntity",
+    "DamageCalculator": {
+      "Type": "Absolute",
+      "BaseDamage": {
+        "Ice": 7
+      },
+      "RandomPercentageModifier": 0.1
+    },
+    "DamageEffects": {
+      "WorldParticles": [
+        {
+          "SystemId": "Impact_Ice"
+        }
+      ],
+      "WorldSoundEventId": "SFX_AT_Ice_King_Zap_Hit"
+    },
+    "Next": "AT_Ice_King_Frost_Half_Hit"
+  },
+  "Blocked": {
+    "Type": "Simple",
+    "$Comment": "Shield up: nothing else lands.",
+    "RunTime": 0
   }
 }

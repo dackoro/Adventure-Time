@@ -1,0 +1,14 @@
+{
+  "$Comment": "Ice King ultimate aim tracer trail (2026-10-22): rides on the invisible AT_Ice_King_Aim_Tracer projectile and leaves a thin red line behind it for ~0.5 s. Glow + core layers.",
+  "IsImportant": true,
+  "CullDistance": 160,
+  "BoundingRadius": 4,
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Aim_Tracer_Glow"
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Aim_Tracer_Core"
+    }
+  ]
+}

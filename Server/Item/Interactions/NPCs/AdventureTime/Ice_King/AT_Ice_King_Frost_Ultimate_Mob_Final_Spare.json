@@ -1,0 +1,71 @@
+{
+  "$Comment": "Normal ultimate final hit on non-players (2026-10-22: the normal ultimate FREEZES his Gunters and snowmen but does not hurt them; the rage one does both): a creature with AT_Ice_King_Ice_Body gets only the final freeze of AT_Ice_King_Frost_Ultimate_Mob_Final (AT_Ice_King_Freeze_Ultimate 2.5 s, cleared and re-added a tick apart if still on), no damage; any other mob gets AT_Ice_King_Frost_Ultimate_Mob_Final, as with the rage ultimate. 2026-10-22 (playtest: the king's attacks froze his own ice pillars, that must never happen; they may take damage, so the player can hide behind one, but never frost or freeze): targets with the marker AT_Ice_King_Frost_Immune (the pillar AT_Ice_King_Ice_Pillar and AT_Ice_King_Lightning_Stuck put it on themselves) skip the frost/freeze part; the damage still lands.",
+  "Type": "EffectCondition",
+  "Entity": "Target",
+  "EntityEffectIds": [
+    "AT_Ice_King_Ice_Body"
+  ],
+  "Match": "All",
+  "Next": {
+    "$Comment": "2026-10-21 (snow shell): the final freeze must last 2.5 s from here. Still frozen from a tick: clear it, wait 0.1 s and put a new one (a plain renewal drops the Freeze ModelVFX on the client; a remove + add a tick apart shows it again).",
+    "Type": "EffectCondition",
+    "Entity": "Target",
+    "EntityEffectIds": [
+      "AT_Ice_King_Freeze_Ultimate"
+    ],
+    "Match": "All",
+    "Next": {
+      "Type": "Serial",
+      "Interactions": [
+        {
+          "Type": "ClearEntityEffect",
+          "EntityEffectId": "AT_Ice_King_Freeze_Ultimate",
+          "Entity": "Target"
+        },
+        {
+          "Type": "Simple",
+          "RunTime": 0.1
+        },
+        {
+          "Type": "EffectCondition",
+          "Entity": "Target",
+          "EntityEffectIds": [
+            "AT_Ice_King_Frost_Immune"
+          ],
+          "Match": "None",
+          "Next": {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze_Ultimate",
+            "Entity": "Target",
+            "Duration": 2.5
+          },
+          "Failed": {
+            "Type": "Simple",
+            "$Comment": "Frost-immune target (ice pillar): no frost.",
+            "RunTime": 0
+          }
+        }
+      ]
+    },
+    "Failed": {
+      "Type": "EffectCondition",
+      "Entity": "Target",
+      "EntityEffectIds": [
+        "AT_Ice_King_Frost_Immune"
+      ],
+      "Match": "None",
+      "Next": {
+        "Type": "ApplyEffect",
+        "EffectId": "AT_Ice_King_Freeze_Ultimate",
+        "Entity": "Target",
+        "Duration": 2.5
+      },
+      "Failed": {
+        "Type": "Simple",
+        "$Comment": "Frost-immune target (ice pillar): no frost.",
+        "RunTime": 0
+      }
+    }
+  },
+  "Failed": "AT_Ice_King_Frost_Ultimate_Mob_Final"
+}

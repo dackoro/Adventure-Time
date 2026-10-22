@@ -1,6 +1,7 @@
 {
-  "$Comment": "Ice pillar left where an iceberg lands (spawned by Projectile_Config_AT_Ice_King_Iceberg). It stands still, blocks arrows and the king's rays with its hitbox, can be broken (40 health) and melts after 10 s. Static shape and Fly controller at 1.7 over the ground copied from vanilla Template_Void_Anomaly_Crystal; timed Despawn from vanilla Template_Bear_Voidtaken_Tentacle_Marker. Look: the iceberg stuck in the ground tip down (model AT_Ice_King_Ice_Pillar). Fly heights 0-0.1 (were 1.7, 2026-10-21; the server refuses a MaxHeightOverGround of 0): it sits on the ground instead of floating.",
+  "$Comment": "Ice pillar left where an iceberg lands (spawned by Projectile_Config_AT_Ice_King_Iceberg). It stands still, blocks arrows and the king's rays with its hitbox, can be broken (40 health) and melts after 10 s. Static shape and Fly controller at 1.7 over the ground copied from vanilla Template_Void_Anomaly_Crystal; timed Despawn from vanilla Template_Bear_Voidtaken_Tentacle_Marker. Look: the iceberg stuck in the ground tip down (model AT_Ice_King_Ice_Pillar). Fly heights 0-0.1 (were 1.7, 2026-10-21; the server refuses a MaxHeightOverGround of 0): it sits on the ground instead of floating. 2026-10-22 (art pass: the pillar melt and burst animations are now piece by piece and longer, Pillar_Melt 110 frames = 1.83 s, Pillar_Burst 80 frames = 1.33 s, also the death animation): DespawnAnimationTime 1.9 (default 0.8 cut the melt halfway). DeathAnimationTime stays at the default 1.5. 2026-10-22: first instruction puts AT_Ice_King_Frost_Immune on itself (no frost or freeze from the king, damage still lands). 2026-10-22: DeathInteraction Root_AT_Ice_King_Ice_Pillar_Death removes its invisible solid box (deployable AT_Ice_King_Iceberg_Collider) when the pillar is killed. 2026-10-22: DeathInteraction removed with the solid iceberg test.",
   "Type": "Generic",
+  "DespawnAnimationTime": 1.9,
   "Appearance": "AT_Ice_King_Ice_Pillar",
   "NameTranslationKey": "server.npcRoles.AT_Ice_King_Ice_Pillar.name",
   "MaxHealth": 40,
@@ -24,6 +25,21 @@
   ],
   "Instructions": [
     {
+      "$Comment": "2026-10-22: mark itself frost-immune (AT_Ice_King_Frost_Immune) so the king's attacks still damage it but never frost or freeze it (playtest: the player can take cover behind an ice pillar).",
+      "Continue": true,
+      "Sensor": {
+        "Type": "Any",
+        "Once": true
+      },
+      "Actions": [
+        {
+          "Type": "ApplyEntityEffect",
+          "EntityEffect": "AT_Ice_King_Frost_Immune",
+          "UseTarget": false
+        }
+      ]
+    },
+    {
       "Sensor": {
         "Type": "State",
         "State": "Idle"
@@ -45,7 +61,10 @@
               "Actions": [
                 {
                   "Type": "Timeout",
-                  "Delay": [ 10, 10 ]
+                  "Delay": [
+                    10,
+                    10
+                  ]
                 },
                 {
                   "Type": "Despawn",

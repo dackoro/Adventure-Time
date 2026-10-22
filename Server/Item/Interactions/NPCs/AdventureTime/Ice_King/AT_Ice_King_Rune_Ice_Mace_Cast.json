@@ -1,0 +1,151 @@
+{
+  "$Comment": "Ice Mace rune cast (2026-10-22): the king's AT_Ice_King_Ice_Mace_Slam without his red warning: 0.5 s IceMaceSummon, then three slams 0.67 s apart, each forking one Root_AT_Ice_King_Rune_Mace_Wave (Parallel: first entry goes on, the others run as forks). You stand still while slamming. The king's mace is an attachment of his model, so the mace the player sees is the overlay effect AT_Ice_King_Rune_Ice_Mace_Overlay, put on at the start. Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: the king's own AT_Ice_King_Staff animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
+  "Type": "StatsCondition",
+  "Costs": {
+    "AT_Ice_Magic": 30
+  },
+  "Failed": "Ability_Cast_Fail",
+  "Next": {
+    "Type": "StatsCondition",
+    "UseAbilityCost": true,
+    "Failed": "Ability_Cast_Fail",
+    "Next": {
+      "Type": "Parallel",
+      "Interactions": [
+        {
+          "Interactions": [
+            {
+              "Type": "ApplyEffect",
+              "EffectId": "AT_Ice_King_Rune_Ice_Mace_Overlay",
+              "Entity": "User",
+              "Duration": 2.55
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.5,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "IceMaceSummon",
+                "WaitForAnimationToFinish": false,
+                "WorldSoundEventId": "SFX_Staff_Ice_Shoot",
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.2,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "IceMaceSlam",
+                "WaitForAnimationToFinish": false,
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "Parallel",
+              "Interactions": [
+                {
+                  "Interactions": [
+                    {
+                      "Type": "Simple",
+                      "RunTime": 0.47,
+                      "Effects": {
+                        "MovementEffects": {
+                          "DisableAll": true
+                        }
+                      }
+                    },
+                    {
+                      "Type": "Simple",
+                      "RunTime": 0.2,
+                      "Effects": {
+                        "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                        "ItemAnimationId": "IceMaceSlam",
+                        "WaitForAnimationToFinish": false,
+                        "MovementEffects": {
+                          "DisableAll": true
+                        }
+                      }
+                    },
+                    {
+                      "Type": "Parallel",
+                      "Interactions": [
+                        {
+                          "Interactions": [
+                            {
+                              "Type": "Simple",
+                              "RunTime": 0.47,
+                              "Effects": {
+                                "MovementEffects": {
+                                  "DisableAll": true
+                                }
+                              }
+                            },
+                            {
+                              "Type": "Simple",
+                              "RunTime": 0.2,
+                              "Effects": {
+                                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                "ItemAnimationId": "IceMaceSlamLast",
+                                "WaitForAnimationToFinish": false,
+                                "MovementEffects": {
+                                  "DisableAll": true
+                                }
+                              }
+                            },
+                            {
+                              "Type": "Parallel",
+                              "Interactions": [
+                                {
+                                  "Interactions": [
+                                    {
+                                      "Type": "Simple",
+                                      "RunTime": 0.67,
+                                      "Effects": {
+                                        "MovementEffects": {
+                                          "DisableAll": true
+                                        },
+                                        "WorldSoundEventId": "SFX_Ice_Break"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "Root_AT_Ice_King_Rune_Mace_Wave"
+                              ]
+                            }
+                          ]
+                        },
+                        "Root_AT_Ice_King_Rune_Mace_Wave"
+                      ]
+                    }
+                  ]
+                },
+                "Root_AT_Ice_King_Rune_Mace_Wave"
+              ]
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "TriggerCooldown",
+              "UseAbilityCooldown": true
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "ChangeStat",
+              "UseAbilityCost": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

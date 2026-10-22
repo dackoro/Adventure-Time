@@ -1,0 +1,95 @@
+{
+  "$Comment": "Ice King ultimate aim tracer trail (2026-10-22): soft red glow around the line. Tune: Particle Scale X = line width in blocks; ParticleLifeSpan = how long the line stays; SpawnRate = dashes per second (raise it if the line shows gaps); VelocityStretchMultiplier x InitialVelocity Speed = dash length (2.2 blocks); Color = tint (warning circle reds #ff0000 / #ff8600).",
+  "RenderMode": "BlendAdd",
+  "ParticleRotationInfluence": "BillboardVelocity",
+  "ParticleRotateWithSpawner": true,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "UseEmitDirection": false,
+  "LinearFiltering": true,
+  "LightInfluence": 0,
+  "MaxConcurrentParticles": 84,
+  "ParticleLifeSpan": {
+    "Min": 0.5,
+    "Max": 0.5
+  },
+  "SpawnRate": {
+    "Min": 120,
+    "Max": 120
+  },
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 0.2,
+      "Max": 0.2
+    }
+  },
+  "VelocityStretchMultiplier": 11.0,
+  "Particle": {
+    "Texture": "Particles/Textures/AdventureTime/Ice_King/Ultimate_Beam_Glow.png",
+    "ScaleRatioConstraint": "None",
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 0.28,
+          "Max": 0.28
+        },
+        "Y": {
+          "Min": 1.0,
+          "Max": 1.0
+        }
+      },
+      "Opacity": 0.75,
+      "Color": "#ff2a1a",
+      "Rotation": {
+        "Z": {
+          "Min": -90.0,
+          "Max": -90.0
+        }
+      }
+    },
+    "Animation": {
+      "0": {
+        "Opacity": 0.75,
+        "Color": "#ff2a1a",
+        "Scale": {
+          "X": {
+            "Min": 0.28,
+            "Max": 0.28
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "60": {
+        "Opacity": 0.6000000000000001,
+        "Color": "#ff6a3a",
+        "Scale": {
+          "X": {
+            "Min": 0.252,
+            "Max": 0.252
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "100": {
+        "Opacity": 0.0,
+        "Color": "#ff6a3a",
+        "Scale": {
+          "X": {
+            "Min": 0.168,
+            "Max": 0.168
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      }
+    }
+  }
+}

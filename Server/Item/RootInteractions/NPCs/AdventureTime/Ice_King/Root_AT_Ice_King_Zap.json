@@ -1,7 +1,15 @@
 {
-  "$Comment": "Zap root (quick weak ice bolt).",
+  "$Comment": "Zap root (quick weak ice bolt). 2026-10-21 (playtest: alternate hands): a Chaining of AT_Ice_King_Zap (right) and AT_Ice_King_Zap_L (left), one per zap. ChainingAllowance 60, so it keeps alternating between zaps far apart.",
   "Interactions": [
-    "AT_Ice_King_Zap"
+    {
+      "Type": "Chaining",
+      "ChainId": "IceKingZaps",
+      "ChainingAllowance": 60,
+      "Next": [
+        "AT_Ice_King_Zap",
+        "AT_Ice_King_Zap_L"
+      ]
+    }
   ],
   "Tags": {
     "Attack": [

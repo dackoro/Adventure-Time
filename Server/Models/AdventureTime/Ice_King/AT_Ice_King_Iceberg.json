@@ -1,7 +1,7 @@
 {
-  "$Comment": "Ice King's falling iceberg: the vanilla Stalactite_Falling shape with the iceberg texture. 2026-10-21 (playtest: sky-blue glow on the crystals): the shape is our copy NPC/AdventureTime/Ice_King/Iceberg/Iceberg.blockymodel with every face fullbright (shows at full brightness, unlit), plus a sky-blue Light (#8cf, levels 0-15 per channel like block light; Radius in blocks).",
+  "$Comment": "Ice King's falling iceberg: the vanilla Stalactite_Falling shape with the iceberg texture. 2026-10-21 (playtest: sky-blue glow on the crystals): the shape is our copy NPC/AdventureTime/Ice_King/Iceberg/Iceberg.blockymodel with every face fullbright (shows at full brightness, unlit), plus a sky-blue Light (#8cf, levels 0-15 per channel like block light; Radius in blocks). 2026-10-22 (playtest: with the glow they looked almost completely white): Iceberg_Texture_Deep.png, the same texture in deeper, saturated ice blues (art script iceberg_tint.py: saturation x2.3, brightness x0.72), still fullbright. Back to Iceberg_Texture.png to undo.",
   "Model": "NPC/AdventureTime/Ice_King/Iceberg/Iceberg.blockymodel",
-  "Texture": "NPC/AdventureTime/Ice_King/Iceberg/Iceberg_Texture.png",
+  "Texture": "NPC/AdventureTime/Ice_King/Iceberg/Iceberg_Texture_Deep.png",
   "HitBox": {
     "Max": {
       "X": 0.2,

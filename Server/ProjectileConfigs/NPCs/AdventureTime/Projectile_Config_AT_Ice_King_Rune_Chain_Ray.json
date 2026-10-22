@@ -1,0 +1,63 @@
+{
+  "$Comment": "Chain Rays rune bolt (2026-10-22): fast straight bolt; on an entity hit, SplitAbilityProjectile (vanilla Ability_Split) launches a copy at the nearest other entity within RicochetRange (the rune's Attributes Ricochet 4 = 4 hits in all, each target once), then the freezing hit. Vanilla ricochet code: SplitAbilityProjectileInteraction (0.7.3).",
+  "Model": "AT_Ice_King_Ray",
+  "LaunchForce": 60,
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 55,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "SpawnOffset": {
+    "X": 0.15,
+    "Y": -0.25,
+    "Z": -0.5
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "SplitAbilityProjectile",
+          "RicochetRange": 10
+        },
+        "AT_Ice_King_Rune_Freezing_Hit",
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Ice_Break",
+            "Particles": [
+              {
+                "SystemId": "Impact_Ice",
+                "TargetEntityPart": "Entity",
+                "DetachedFromModel": true
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  },
+  "LaunchWorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
+}

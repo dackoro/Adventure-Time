@@ -1,5 +1,5 @@
 {
-  "$Comment": "Shield bubble push (2026-10-21: the player must not be able to walk into the Ice King's shield). Run by every 0.5 s hold step of AT_Ice_King_Ice_Shield on everything within its AOECircle: no damage (BaseDamage 0: DamageEntityInteraction puts the knockback on the target before and apart from the damage, and a zero amount is skipped by the damage systems, decompiled 0.7.2), only a push straight out from the king (Point knockback: direction = target - king, decompiled PointKnockback) and a little up. Tune Force (how far) and VelocityY (how high).",
+  "$Comment": "Shield bubble push (2026-10-21: the player must not be able to walk into the Ice King's shield). Run by every 0.5 s hold step of AT_Ice_King_Ice_Shield on everything within its AOECircle: no damage (BaseDamage 0: DamageEntityInteraction puts the knockback on the target before and apart from the damage, and a zero amount is skipped by the damage systems, decompiled 0.7.2), only a push straight out from the king (Point knockback: direction = target - king, decompiled PointKnockback) and a little up. Tune Force (how far) and VelocityY (how high). 2026-10-22 (playtest: it pushed players much too far, so they could not get close enough to hit him; it should only keep them out of the cube, a short push to its edge): Force 3 (was 9), VelocityY 0.5 (was 2.5). It repeats every 0.5 s while someone is inside, so a short push is enough.",
   "Type": "DamageEntity",
   "DamageCalculator": {
     "Type": "Absolute",
@@ -10,8 +10,8 @@
   "DamageEffects": {
     "Knockback": {
       "Type": "Point",
-      "Force": 9,
-      "VelocityY": 2.5,
+      "Force": 3,
+      "VelocityY": 0.5,
       "VelocityType": "Set",
       "VelocityConfig": {
         "Threshold": 0.9

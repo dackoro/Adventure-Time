@@ -1,0 +1,10 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Slow_Weak_Flakes",
+      "PositionOffset": {
+        "Y": 1.25
+      }
+    }
+  ]
+}

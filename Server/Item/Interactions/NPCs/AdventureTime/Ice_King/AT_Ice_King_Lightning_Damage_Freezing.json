@@ -1,5 +1,5 @@
 {
-  "$Comment": "Rare freezing variant of AT_Ice_King_Lightning_Damage: the same hit plus an instant 1.5 s freeze. Picked about 15% of the time (CAE weight for the ray, encounter Random for icebergs and lightning).",
+  "$Comment": "Rare freezing variant of AT_Ice_King_Lightning_Damage: the same hit plus an instant 1.5 s freeze. Picked about 15% of the time (CAE weight for the ray, encounter Random for icebergs and lightning). 2026-10-21 (snow shell): AT_Ice_King_Freeze_Prep before the freeze (clears the short frost effects, waits 0.1 s). 2026-10-22 (playtest: the king's attacks froze his own ice pillars, that must never happen; they may take damage, so the player can hide behind one, but never frost or freeze): targets with the marker AT_Ice_King_Frost_Immune (the pillar AT_Ice_King_Ice_Pillar and AT_Ice_King_Lightning_Stuck put it on themselves) skip the frost/freeze part; the damage still lands.",
   "Type": "Serial",
   "Interactions": [
     {
@@ -25,19 +25,21 @@
       "Type": "EffectCondition",
       "Entity": "Target",
       "EntityEffectIds": [
-        "AT_Ice_King_Freeze_Guard"
+        "AT_Ice_King_Freeze_Guard",
+        "AT_Ice_King_Frost_Immune"
       ],
       "Match": "None",
       "Next": {
         "Type": "Serial",
         "Interactions": [
-        {
-          "$Comment": "The rare instant freeze (1.5 s). AT_Ice_King_Freeze's ApplyConditions skip it under the warmth potion or Immunity_Freeze.",
-          "Type": "ApplyEffect",
-          "EffectId": "AT_Ice_King_Freeze",
-          "Entity": "Target",
-          "Duration": 1.5
-        },
+          "AT_Ice_King_Freeze_Prep",
+          {
+            "$Comment": "The rare instant freeze (1.5 s). AT_Ice_King_Freeze's ApplyConditions skip it under the warmth potion or Immunity_Freeze.",
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze",
+            "Entity": "Target",
+            "Duration": 1.5
+          },
           {
             "Type": "ApplyEffect",
             "EffectId": "AT_Ice_King_Freeze_Guard",

@@ -1,0 +1,36 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Cracks",
+      "PositionOffset": {
+        "Y": 0.02
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Debris"
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Spikes"
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Dust",
+      "PositionOffset": {
+        "Y": 0.5
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Distortion3"
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Ground",
+      "PositionOffset": {
+        "Y": 0.1
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Distortion"
+    }
+  ],
+  "IsImportant": true,
+  "$Comment": "Ice King iceberg / ice rain landing: vanilla Falling_Stalactite_Hit with every spawner recoloured to ice and snow (2026-10-22: the spikes it raised looked like earth)."
+}

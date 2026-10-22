@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ground two-arm ice burst (2026-10-21: the two-arm burst on the ground too, picked at random against the one-arm burst). Copy of AT_Ice_King_Frost_Beam_Air with the ground burst's 1.6 s charge, standing still the whole time (MovementEffects DisableAll, as AT_Ice_King_Frost_Beam) and 1 s recovery: 4 throws FrostBeamFireBoth 0.25 s apart, a bolt from each hand per throw, the last pair _Final/_Final_L (push). 6 x 8 + 2 x 20 = 88 Ice, 8 frost stacks if all hit. CAE action IceBurstBoth. 2026-10-21: the charge is FrostBeamChargingBoth (hands beside the head), only before the two-hand throws; FrostBeamCharging is the one-hand wind-up again.",
+  "$Comment": "Ground two-arm ice burst (2026-10-21: the two-arm burst on the ground too, picked at random against the one-arm burst). Copy of AT_Ice_King_Frost_Beam_Air with the ground burst's 1.6 s charge, standing still the whole time (MovementEffects DisableAll, as AT_Ice_King_Frost_Beam) and 1 s recovery: 4 throws FrostBeamFireBoth 0.25 s apart, a bolt from each hand per throw, the last pair _Final/_Final_L (push). 6 x 8 + 2 x 20 = 88 Ice, 8 frost stacks if all hit. CAE action IceBurstBoth. 2026-10-21: the charge is FrostBeamChargingBoth (hands beside the head), only before the two-hand throws; FrostBeamCharging is the one-hand wind-up again. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Rays_Both on each two-hand throw (4), the frame the bolts leave.",
   "Type": "Simple",
   "RunTime": 1.6,
   "Effects": {
@@ -35,7 +35,8 @@
           "ItemAnimationId": "FrostBeamFireBoth",
           "MovementEffects": {
             "DisableAll": true
-          }
+          },
+          "WorldSoundEventId": "SFX_AT_Ice_King_Rays_Both"
         }
       },
       {
@@ -66,7 +67,8 @@
           "ItemAnimationId": "FrostBeamFireBoth",
           "MovementEffects": {
             "DisableAll": true
-          }
+          },
+          "WorldSoundEventId": "SFX_AT_Ice_King_Rays_Both"
         }
       },
       {
@@ -97,7 +99,8 @@
           "ItemAnimationId": "FrostBeamFireBoth",
           "MovementEffects": {
             "DisableAll": true
-          }
+          },
+          "WorldSoundEventId": "SFX_AT_Ice_King_Rays_Both"
         }
       },
       {
@@ -128,7 +131,8 @@
           "ItemAnimationId": "FrostBeamFireBoth",
           "MovementEffects": {
             "DisableAll": true
-          }
+          },
+          "WorldSoundEventId": "SFX_AT_Ice_King_Rays_Both"
         }
       },
       {

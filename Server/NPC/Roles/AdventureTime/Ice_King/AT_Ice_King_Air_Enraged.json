@@ -1,7 +1,7 @@
 {
-  "$Comment": "Ice King, phase 4 (enraged, under 20% health): he takes off again and attacks with everything. A Variant of vanilla Template_Flying_Aggressive like AT_Ice_King_Air (phase 2), but faster (MaxHorizontalSpeed 9.5, was 7), lower (combat altitude 10-15, was 12-20) and with a shorter pause between ice rays (1.2-2 s, was 2.5-4). Component_AT_Ice_King_Air_Enraged_Combat adds the freezing ray every 6 s and 3 Gunters every 15 s; the encounter drops icebergs every 5 s and lightning every 6-10 s. A flying template has no CAE and the ice nova (radius 4.5 around him) cannot reach the ground from up there, so it has no nova. MaxHealth must match the other phase roles. 2026-10-21 (playtest: he hovered over the player's head): higher floor (MotionFlyMinHeightAboveGround), and when he is far the Seek stops farther than his flying height (CombatSeekStopDistance), so he no longer comes to rest right above the player; close by, his combat component circles around the player. 2026-10-21 (playtest: he loses focus and flies off): CombatBehaviorDistance 60 (template default 30). Past it, or without line of sight, Template_Flying_Aggressive drops from combat to .Chase (Soft_Leash + Intelligent_Chase), and a lost target sends him to Search, wandering 20-30 s. 2026-10-21 (playtest: no air death / ground crash animation, the pigeon has both): DeathAnimationTime 6 (template default 2). The king inherits DeathFly (falling) and DeathFlyImpact (crash) from the vanilla Player model, like the Pigeon, but his corpse was removed 2 s after death, still in the air from 14-20 blocks up, so neither the fall nor the crash on landing showed. 2026-10-21: AlertedTime [0.2, 0.2] (template default 2 s), so after a role change he reaches combat at once and his combat component plays PhaseChange.",
+  "$Comment": "Ice King, phase 4 (enraged, under 20% health): he takes off again and attacks with everything. A Variant of vanilla Template_Flying_Aggressive like AT_Ice_King_Air (phase 2), but faster (MaxHorizontalSpeed 9.5, was 7), lower (combat altitude 10-15, was 12-20) and with a shorter pause between ice rays (1.2-2 s, was 2.5-4). Component_AT_Ice_King_Air_Enraged_Combat adds the freezing ray every 6 s and 3 Gunters every 15 s; the encounter drops icebergs every 5 s and lightning every 6-10 s. A flying template has no CAE and the ice nova (radius 4.5 around him) cannot reach the ground from up there, so it has no nova. MaxHealth must match the other phase roles. 2026-10-21 (playtest: he hovered over the player's head): higher floor (MotionFlyMinHeightAboveGround), and when he is far the Seek stops farther than his flying height (CombatSeekStopDistance), so he no longer comes to rest right above the player; close by, his combat component circles around the player. 2026-10-21 (playtest: he loses focus and flies off): CombatBehaviorDistance 60 (template default 30). Past it, or without line of sight, Template_Flying_Aggressive drops from combat to .Chase (Soft_Leash + Intelligent_Chase), and a lost target sends him to Search, wandering 20-30 s. 2026-10-21 (playtest: no air death / ground crash animation, the pigeon has both): DeathAnimationTime 6 (template default 2). The king inherits DeathFly (falling) and DeathFlyImpact (crash) from the vanilla Player model, like the Pigeon, but his corpse was removed 2 s after death, still in the air from 14-20 blocks up, so neither the fall nor the crash on landing showed. 2026-10-21: AlertedTime [0.2, 0.2] (template default 2 s), so after a role change he reaches combat at once and his combat component plays PhaseChange. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): RangedAttackPauseRange [3, 4] (was [1.2, 2]): an Attack action starts nothing while another attack runs, so with the template ray every few seconds most timed attacks were lost (the phase 4 ultimate came every ~130 s instead of 40). 2026-10-22: Reference Template_AT_Ice_King_Flying (our copy of Template_Flying_Aggressive that keeps his combat altitude in .Chase instead of dropping to [0, 2] next to the target). 2026-10-22 (playtest: more specials, less basic ray in phase 4): RangedAttackPauseRange [5, 7] (was [3, 4]). 2026-10-22 (playtest: spamming dagger hits during the phase 1->2 change cancelled his take-off and kept him on the ground): KnockbackScale 0 (template default 0.5): every hit's knockback reset his velocity, so he could not climb. A flying boss is not pushed now.",
   "Type": "Variant",
-  "Reference": "Template_Flying_Aggressive",
+  "Reference": "Template_AT_Ice_King_Flying",
   "Parameters": {
     "NameTranslationKey": {
       "Value": "server.npcRoles.AT_Ice_King.name",
@@ -32,8 +32,8 @@
     "RangedAttackDistance": 30,
     "CombatBehaviorDistance": 60,
     "RangedAttackPauseRange": [
-      1.2,
-      2
+      5,
+      7
     ],
     "CombatRelativeSpeedChase": 1,
     "CombatSeekStopDistance": 15,
@@ -52,10 +52,12 @@
         "AT_Ice_King_Ice_Body"
       ]
     },
-    "DeathAnimationTime": 6,
+    "DeathAnimationTime": 4,
+    "DeathParticles": "AT_Ice_King_Death_Snow",
     "AlertedTime": [
       0.2,
       0.2
-    ]
+    ],
+    "KnockbackScale": 0
   }
 }

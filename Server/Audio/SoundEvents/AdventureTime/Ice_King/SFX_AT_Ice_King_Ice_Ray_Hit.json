@@ -1,0 +1,19 @@
+{
+  "$Comment": "Ice King sound (2026-10-22): the ice ray hits the player, a short bright ice hit (0.4 s, so quick volleys don't pile up). Only the sharp hit chosen (\"brilloso\"; the others sounded like static), with a +-2 semitone random pitch for variety. The long freezing crackle is only for a real freeze (SFX_AT_Ice_King_Freeze).",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Effects/AT_Ice_King_Ice_Rain_Drop_2.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -2,
+        "MaxPitch": 2,
+        "MinVolume": -1,
+        "MaxVolume": 0.5
+      }
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Moderate",
+  "MaxInstance": 12
+}

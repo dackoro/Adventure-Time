@@ -1,0 +1,16 @@
+{
+  "$Comment": "2026-10-22 multiplayer (copy of vanilla Gobliterator_Scale_Health_P2): +1000 max health to the Ice King for the 2th player within 80 blocks. AT_Ice_King_Encounter puts it on in Waiting, while the king is untouched, together with AT_Ice_King_Scale_TopUp (this only raises the maximum, not the current value). Kept through the phase role changes; never removed when players leave, as the Gobliterator.",
+  "RawStatModifiers": {
+    "Health": [
+      {
+        "Amount": 1000,
+        "CalculationType": "Additive",
+        "Target": "Max"
+      }
+    ]
+  },
+  "OverlapBehavior": "Ignore",
+  "Infinite": true,
+  "RemovalBehavior": "Infinite",
+  "Debuff": false
+}

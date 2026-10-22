@@ -1,0 +1,21 @@
+{
+  "$Comment": "Iceberg rune drop (2026-10-22): run once by the rune's ability entity where the player aims: the vanilla Stalactite_Ground_Indicator warning, then the iceberg falls on it (about 1 s). The warning is a TriggerAbilityFX, not Effects: an ability entity's chains are server-simulated and their Effects never reach a client (codec doc).",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "TriggerAbilityFX",
+      "SystemId": "Stalactite_Ground_Indicator",
+      "Scale": 1.0,
+      "ScaleAttribute": "AoeScale"
+    },
+    {
+      "Type": "Simple",
+      "RunTime": 0.1
+    },
+    {
+      "Type": "Projectile",
+      "Config": "Projectile_Config_AT_Ice_King_Rune_Iceberg",
+      "RunTime": 2
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice King model. Camera (2026-10-21, mechanics pass request): how far the head (and body) may turn toward the target. Without it the server clamps head yaw to +-45 deg from the body (MotionControllerBase.calculateYaw), and a flier's body points along its flight path, so circling he could not face the player and his ray (fired along the head look) went off sideways. Yaw +-60 split over Head and Belly (was +-150, then +-90: his head looked wrong looking back while flying away), Pitch +-89 on Head. Vanilla Spirit_* use +-180 on Head only; if Head+Belly looks wrong, fall back to [\"Head\"]. Camera is inherited (appendInherited), so AT_Ice_King_Wrapped gets it too. AnimationSets HurtFly, DeathFly, DeathFlyImpact, HurtFall, DeathFall, HurtBurn, HurtDrown, DeathDrown (2026-10-21): own copies of the vanilla Player sets he inherited (Parent Skeleton -> Player; AnimationSets merge with the parent's), same files, blending and sounds, with the Mouth uv cells remapped to the king's 4x3 mouth sheet (player 120 -> 87 clenched teeth, 140 -> 0 open, 160 -> 29 shout): the player cells fell outside his sheet and his mouth became a red strip when hit while flying (HurtFly is picked whenever the NPC is flying, Entity.DefaultAnimations). DeathFly plays by itself for a death while flying. PhaseChange: played by the phase roles on entry; Phase_Change.blockyanim starts as a copy of Alerted to animate by hand. DeathFly is a one-shot (2026-10-21: the corpse lay on the ground still tumbling, DeathFlyImpact never plays for him): two tumbling cycles of the vanilla Death_Fly (frames 0-99, ~1.7 s), then the vanilla Death_Fly_Impact from frame 100 (crash, ends lying down), holdLastKeyframe true, Looping false; 140 frames. Frost_Beam attachment (2026-10-21): the ultimate's giant ray, a fullbright translucent box (Frost_Beam + Frost_Beam_Core) on the Head bone, so it points where his head looks like the Stab hit box (HeadRotation), and the charge orb (Frost_Orb, its own attachment Frost_Orb.blockymodel) on the Origin bone between his hands, hidden in the model (visible false) and shown only by the FrostUltimate* staff animations with shapeVisible, like the vanilla gun Laser attachment. IdlePassive without Head_Spin (2026-10-21: the skeleton's joke idle turned his head to his back); Head_Shake and Head_Look_Around stay. Own Spawn/Despawn/Laydown/Sleep/Wake (2026-10-21: the skeleton ones crawled out of the ground, crumbled and dropped the jaw): Spawn_Ice = flies down from 4 blocks up inside an ice orb (Frost_Orb node), lands and stands; Despawn_Ice = raises his arms, the ice orb forms and he flies away up; Laydown_Ice/Sleep_Ice/Wake_Ice = sits on the ground, snores (mouth open/closed, head nodding), stands up with a yawn and a stretch. Overriding them is needed: removing a set would fall back to the Skeleton parent's. Ice_Sword_Held attachment (2026-10-21): the ice sword for the sword slash, piece on the R-Hand bone (socket = his R-Attachment spot), hidden in the model and shown only by the IceSword* staff animations (they also tuck the staff away with R-Attachment z -36), same trick as Frost_Orb. Ice_Mace_Held attachment (2026-10-21): the vanilla Prisma mace repainted as pure ice, for the ground-slam attack; piece on the R-Hand bone like Ice_Sword_Held, hidden in the model and shown only by the IceMace* staff animations (they also tuck the staff away with R-Attachment z -36). Ice_Sword_Held_L attachment (2026-10-21): the same ice sword on his LEFT hand (piece on L-Hand, nodes IceSwordL_*), for phase 3 where the nunchucks fill his right hand; hidden, shown only by the nunchuck set's IceSword* animations. Ice_Sword_Held (right hand, IceSword_*) stays for the staff set's sword entries, unused now.",
+  "$Comment": "Ice King model. Camera (2026-10-21, mechanics pass request): how far the head (and body) may turn toward the target. Without it the server clamps head yaw to +-45 deg from the body (MotionControllerBase.calculateYaw), and a flier's body points along its flight path, so circling he could not face the player and his ray (fired along the head look) went off sideways. Yaw +-60 split over Head and Belly (was +-150, then +-90: his head looked wrong looking back while flying away), Pitch +-89 on Head. Vanilla Spirit_* use +-180 on Head only; if Head+Belly looks wrong, fall back to [\"Head\"]. Camera is inherited (appendInherited), so AT_Ice_King_Wrapped gets it too. AnimationSets HurtFly, DeathFly, DeathFlyImpact, HurtFall, DeathFall, HurtBurn, HurtDrown, DeathDrown (2026-10-21): own copies of the vanilla Player sets he inherited (Parent Skeleton -> Player; AnimationSets merge with the parent's), same files, blending and sounds, with the Mouth uv cells remapped to the king's 4x3 mouth sheet (player 120 -> 87 clenched teeth, 140 -> 0 open, 160 -> 29 shout): the player cells fell outside his sheet and his mouth became a red strip when hit while flying (HurtFly is picked whenever the NPC is flying, Entity.DefaultAnimations). DeathFly plays by itself for a death while flying. PhaseChange: played by the phase roles on entry; Phase_Change.blockyanim starts as a copy of Alerted to animate by hand. DeathFly is a one-shot (2026-10-21: the corpse lay on the ground still tumbling, DeathFlyImpact never plays for him): two tumbling cycles of the vanilla Death_Fly (frames 0-99, ~1.7 s), then the vanilla Death_Fly_Impact from frame 100 (crash, ends lying down), holdLastKeyframe true, Looping false; 140 frames. Frost_Beam attachment (2026-10-21): the ultimate's giant ray, a fullbright translucent box (Frost_Beam + Frost_Beam_Core) on the Head bone, so it points where his head looks like the Stab hit box (HeadRotation), and the charge orb (Frost_Orb, its own attachment Frost_Orb.blockymodel) on the Origin bone between his hands, hidden in the model (visible false) and shown only by the FrostUltimate* staff animations with shapeVisible, like the vanilla gun Laser attachment. IdlePassive without Head_Spin (2026-10-21: the skeleton's joke idle turned his head to his back); Head_Shake and Head_Look_Around stay. Own Spawn/Despawn/Laydown/Sleep/Wake (2026-10-21: the skeleton ones crawled out of the ground, crumbled and dropped the jaw): Spawn_Ice = flies down from 4 blocks up inside an ice orb (Frost_Orb node), lands and stands; Despawn_Ice = raises his arms, the ice orb forms and he flies away up; Laydown_Ice/Sleep_Ice/Wake_Ice = sits on the ground, snores (mouth open/closed, head nodding), stands up with a yawn and a stretch. Overriding them is needed: removing a set would fall back to the Skeleton parent's. Ice_Sword_Held attachment (2026-10-21): the ice sword for the sword slash, piece on the R-Hand bone (socket = his R-Attachment spot), hidden in the model and shown only by the IceSword* staff animations (they also tuck the staff away with R-Attachment z -36), same trick as Frost_Orb. Ice_Mace_Held attachment (2026-10-21): the vanilla Prisma mace repainted as pure ice, for the ground-slam attack; piece on the R-Hand bone like Ice_Sword_Held, hidden in the model and shown only by the IceMace* staff animations (they also tuck the staff away with R-Attachment z -36). Ice_Sword_Held_L attachment (2026-10-21): the same ice sword on his LEFT hand (piece on L-Hand, nodes IceSwordL_*), for phase 3 where the nunchucks fill his right hand; hidden, shown only by the nunchuck set's IceSword* animations. Ice_Sword_Held (right hand, IceSword_*) stays for the staff set's sword entries, unused now. Sounds (2026-10-22: he still sounded like a skeleton): stand-ins from the game until his own recordings, Walk/Run/RunBackward/Sprint = SFX_Snow_Walk, Alerted = SFX_Goblin_Burner_VO_Laugh_Cackle_Howl (a cackle when he spots you), Hurt = SFX_Outlander_Hurt, Death = SFX_Player_Death, Spawn = SFX_Ice_Build, Despawn = SFX_Ice_Break, Search silent (was the skeleton mumble). Own voice (2026-10-22, voice clips): Hurt/HurtFly = SFX_AT_Ice_King_VO_Hurt (flesh impact every hit + a grunt about 1 hit in 3), Death = SFX_AT_Ice_King_VO_Death_Ground, DeathFly = SFX_AT_Ice_King_VO_Death_Air; the other hurt/death sets keep the game's sounds. 2026-10-22 (playtest: dying in the air he stayed in the falling pose on the ground for a while): DeathFly loops again like vanilla Player/Pigeon (no Looping false): played once, the 2.3 s Death_Fly held its last frame and the client only went to DeathFlyImpact after it. 2026-10-22 later (playtest: the fall-and-die then repeated several times): Death_Fly.blockyanim had the impact baked in (frames 100-140, the same as Death_Fly_Impact), so looping it replayed the whole death. Trimmed to the 80-frame fall loop; DeathFlyImpact plays the landing.",
   "Parent": "Skeleton",
   "Model": "NPC/AdventureTime/Ice_King/Models/Model.blockymodel",
   "Texture": "NPC/AdventureTime/Ice_King/Models/Texture.png",
@@ -55,7 +55,7 @@
         {
           "Animation": "NPC/AdventureTime/Ice_King/walk.blockyanim",
           "Speed": 1,
-          "SoundEventId": "SFX_Skeleton_Walk"
+          "SoundEventId": "SFX_Snow_Walk"
         }
       ]
     },
@@ -72,7 +72,7 @@
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Run.blockyanim",
           "Speed": 0.9,
-          "SoundEventId": "SFX_Skeleton_Run"
+          "SoundEventId": "SFX_Snow_Walk"
         }
       ]
     },
@@ -81,7 +81,7 @@
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Run_Backward.blockyanim",
           "Speed": 0.9,
-          "SoundEventId": "SFX_Skeleton_Run"
+          "SoundEventId": "SFX_Snow_Walk"
         }
       ]
     },
@@ -90,7 +90,7 @@
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Sprint.blockyanim",
           "Speed": 1.1,
-          "SoundEventId": "SFX_Skeleton_Run"
+          "SoundEventId": "SFX_Snow_Walk"
         }
       ]
     },
@@ -174,7 +174,7 @@
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Alerted.blockyanim",
           "Looping": false,
-          "SoundEventId": "SFX_Skeleton_Alerted"
+          "SoundEventId": "SFX_Goblin_Burner_VO_Laugh_Cackle_Howl"
         }
       ]
     },
@@ -367,13 +367,13 @@
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt.blockyanim",
           "BlendingDuration": 0.1,
           "Looping": false,
-          "SoundEventId": "SFX_Skeleton_Hurt"
+          "SoundEventId": "SFX_AT_Ice_King_VO_Hurt"
         },
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt2.blockyanim",
           "BlendingDuration": 0.1,
           "Looping": false,
-          "SoundEventId": "SFX_Skeleton_Hurt"
+          "SoundEventId": "SFX_AT_Ice_King_VO_Hurt"
         }
       ]
     },
@@ -381,11 +381,13 @@
       "Animations": [
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Player_Death.blockyanim",
-          "Looping": false
+          "Looping": false,
+          "SoundEventId": "SFX_AT_Ice_King_VO_Death_Ground"
         },
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Player_Death2.blockyanim",
-          "Looping": false
+          "Looping": false,
+          "SoundEventId": "SFX_AT_Ice_King_VO_Death_Ground"
         }
       ]
     },
@@ -393,7 +395,8 @@
       "Animations": [
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Spawn_Ice.blockyanim",
-          "Looping": false
+          "Looping": false,
+          "SoundEventId": "SFX_Ice_Build"
         }
       ]
     },
@@ -401,7 +404,8 @@
       "Animations": [
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Despawn_Ice.blockyanim",
-          "Looping": false
+          "Looping": false,
+          "SoundEventId": "SFX_Ice_Break"
         }
       ]
     },
@@ -424,8 +428,7 @@
     "Search": {
       "Animations": [
         {
-          "Animation": "NPC/AdventureTime/Ice_King/Animations/Flavor/Search.blockyanim",
-          "SoundEventId": "SFX_Skeleton_Search_2"
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Flavor/Search.blockyanim"
         }
       ]
     },
@@ -458,25 +461,25 @@
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fly.blockyanim",
           "BlendingDuration": 0.1,
           "Looping": false,
-          "SoundEventId": "SFX_Player_Hurt"
+          "SoundEventId": "SFX_AT_Ice_King_VO_Hurt"
         },
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fly2.blockyanim",
           "BlendingDuration": 0.1,
           "Looping": false,
-          "SoundEventId": "SFX_Player_Hurt"
+          "SoundEventId": "SFX_AT_Ice_King_VO_Hurt"
         },
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fly3.blockyanim",
           "BlendingDuration": 0.1,
           "Looping": false,
-          "SoundEventId": "SFX_Player_Hurt"
+          "SoundEventId": "SFX_AT_Ice_King_VO_Hurt"
         },
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fly4.blockyanim",
           "BlendingDuration": 0.1,
           "Looping": false,
-          "SoundEventId": "SFX_Player_Hurt"
+          "SoundEventId": "SFX_AT_Ice_King_VO_Hurt"
         }
       ]
     },
@@ -484,8 +487,8 @@
       "Animations": [
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Death_Fly.blockyanim",
-          "BlendingDuration": 0.6,
-          "SoundEventId": "SFX_Player_Hurt",
+          "BlendingDuration": 0.2,
+          "SoundEventId": "SFX_AT_Ice_King_VO_Death_Air",
           "Looping": false
         }
       ]

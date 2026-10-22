@@ -1,0 +1,51 @@
+{
+  "$Comment": "Runs right before every freeze of a player by the Ice King's side (2026-10-21: the snow shell on the body did not always show). Clears every short effect the king's hits leave on the target (frost stacks Frost_1-4, the half-stack flag, the weak slow), then waits 0.1 s (2 ticks) before the caller applies AT_Ice_King_Freeze. Why: the client drops an entity's active ModelVFX (Freeze's snow shell) whenever another effect is removed from it or a visual effect is renewed (Mob Battle finding, tested), even though the server still has the freeze on. Cleared now, none of them can expire in the middle of the freeze, and the wait keeps these removals and the Freeze add in different updates. The frost build-up starts again from zero after a freeze. ClearEntityEffect never fails, so effects that are not there are fine. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Freeze (ice closing in) and VO_Freeze_Laugh right as the freeze goes on, for every freeze of a player.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_1",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_2",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_3",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_4",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_Half",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Slow_Weak",
+      "Entity": "Target"
+    },
+    {
+      "Type": "Simple",
+      "RunTime": 0.1,
+      "Effects": {
+        "WorldSoundEventId": "SFX_AT_Ice_King_Freeze"
+      }
+    },
+    {
+      "Type": "Simple",
+      "$Comment": "VO_Freeze_Laugh with the freeze (a step of its own: one sound per Effects).",
+      "RunTime": 0,
+      "Effects": {
+        "WorldSoundEventId": "SFX_AT_Ice_King_VO_Freeze_Laugh"
+      }
+    }
+  ]
+}

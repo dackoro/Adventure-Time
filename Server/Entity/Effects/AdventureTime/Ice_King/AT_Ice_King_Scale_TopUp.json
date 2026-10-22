@@ -1,0 +1,10 @@
+{
+  "$Comment": "2026-10-22 multiplayer (copy of vanilla Gobliterator_Scale_TopUp): refills the Ice King to his scaled max health right after a AT_Ice_King_Scale_Health_P* effect.",
+  "StatModifiers": {
+    "Health": 100
+  },
+  "ValueType": "Percent",
+  "OverlapBehavior": "Overwrite",
+  "Duration": 0.1,
+  "Debuff": false
+}

@@ -1,0 +1,11 @@
+{
+  "Interactions": [
+    "AT_Ice_King_Rune_Zap_Cast"
+  ],
+  "RequireNewClick": true,
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

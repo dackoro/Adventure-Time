@@ -1,6 +1,15 @@
 {
+  "$Comment": "MeleeHit root (file name kept from the old scepter swing; CAE_AT_Ice_King uses it). 2026-10-21 (playtest: alternate fists): a Chaining of AT_Ice_King_Punch_R and AT_Ice_King_Punch_L, one per attack, staff animation set. ChainingAllowance 10: after 10 s without punching he starts again with the right fist. The old swing AT_Ice_King_Scepter_Hit is no longer used.",
   "Interactions": [
-    "AT_Ice_King_Scepter_Hit"
+    {
+      "Type": "Chaining",
+      "ChainId": "IceKingPunches",
+      "ChainingAllowance": 10,
+      "Next": [
+        "AT_Ice_King_Punch_R",
+        "AT_Ice_King_Punch_L"
+      ]
+    }
   ],
   "Tags": {
     "Attack": [

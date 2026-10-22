@@ -1,0 +1,162 @@
+{
+  "$Comment": "Frost Burst rune cast (2026-10-22): the king's 5-bolt burst (AT_Ice_King_Frost_Beam): 0.6 s charge, then 5 bolts 0.22 s apart, left/right throws by turns; 5 hits = 5 frost stacks = a freeze, the last one pushes. Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: the king's own AT_Ice_King_Staff animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
+  "Type": "StatsCondition",
+  "Costs": {
+    "AT_Ice_Magic": 30
+  },
+  "Failed": "Ability_Cast_Fail",
+  "Next": {
+    "Type": "StatsCondition",
+    "UseAbilityCost": true,
+    "Failed": "Ability_Cast_Fail",
+    "Next": {
+      "Type": "Parallel",
+      "Interactions": [
+        {
+          "Interactions": [
+            {
+              "Type": "Simple",
+              "RunTime": 0.6,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "FrostBeamChargingL",
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "AT_Ice_King_Summon_Energy",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "R-Hand",
+                    "Scale": 1.4
+                  },
+                  {
+                    "SystemId": "AT_Ice_King_Summon_Energy",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "L-Hand",
+                    "Scale": 1.4
+                  }
+                ]
+              }
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "FrostBeamFireL",
+                "WaitForAnimationToFinish": false,
+                "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Beam"
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed"
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "FrostBeamFire",
+                "WaitForAnimationToFinish": false
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed"
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "FrostBeamFireL",
+                "WaitForAnimationToFinish": false
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed"
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "FrostBeamFire",
+                "WaitForAnimationToFinish": false
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed"
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "FrostBeamFireL",
+                "WaitForAnimationToFinish": false
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Final",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed"
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "TriggerCooldown",
+              "UseAbilityCooldown": true
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "ChangeStat",
+              "UseAbilityCost": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

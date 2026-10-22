@@ -1,0 +1,15 @@
+{
+  "$Comment": "Ice King sound (2026-10-22): charging a strong attack (Ice Nova, Iceberg, summon, frost ultimate). One of two shouts, never the same twice in a row: \"Iceeee\" and the short loud shout. (\"THE KINGGG\" was tried and dropped: even separated it kept bits of the electric bolts, odd before he fires; it stays on the giant lightning.)",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Voice/AT_Ice_King_VO_Charge_1.ogg",
+        "Sounds/AdventureTime/Ice_King/Voice/AT_Ice_King_VO_Charge_2.ogg"
+      ],
+      "RoundRobinHistorySize": 1
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Loud",
+  "PreventSoundInterruption": true
+}

@@ -1,0 +1,36 @@
+{
+  "$Comment": "Frost Burst rune last bolt (2026-10-22): 10 ice, a push away, 1 frost stack.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 10
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageAttribute": "Damage",
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break",
+        "Knockback": {
+          "Force": 8,
+          "RelativeX": 0,
+          "RelativeZ": -1,
+          "VelocityY": 3,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        }
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

@@ -1,12 +1,67 @@
 {
-  "$Comment": "Ultimate beam last tick on anything that is NOT a player (2026-10-21: the ultimate freezes everything, allies too; it hurts every creature except ice creatures). First the ultimate freeze AT_Ice_King_Freeze_Ultimate (2.5 s, renewed by every tick, lands even through Immunity_Freeze), then the same ice damage as the player version (24 + push Ice): the king's Gunters and snowmen carry AT_Ice_King_Ice_Body (100 % Ice resistance), so they are frozen and unhurt, while other mobs are frozen and hurt. No frost stacks (those are for players). Freeze first: a fully resisted hit can end the chain. 2026-10-21 (playtest: the ultimate hurts everything, his ice creatures too): the damage cause is AT_Frost_Ultimate (Elemental, not Ice), which AT_Ice_King_Ice_Body does not resist, so his Gunters and snowmen are frozen AND hurt like every other creature.",
+  "$Comment": "Ultimate beam last tick on anything that is NOT a player (2026-10-21: the ultimate freezes everything, allies too; it hurts every creature except ice creatures). First the ultimate freeze AT_Ice_King_Freeze_Ultimate (2.5 s, renewed by every tick, lands even through Immunity_Freeze), then the same ice damage as the player version (24 + push Ice): the king's Gunters and snowmen carry AT_Ice_King_Ice_Body (100 % Ice resistance), so they are frozen and unhurt, while other mobs are frozen and hurt. No frost stacks (those are for players). Freeze first: a fully resisted hit can end the chain. 2026-10-21 (playtest: the ultimate hurts everything, his ice creatures too): the damage cause is AT_Frost_Ultimate (Elemental, not Ice), which AT_Ice_King_Ice_Body does not resist, so his Gunters and snowmen are frozen AND hurt like every other creature. 2026-10-22: same as the player final hit (24 + freeze 2.5 s); the normal ultimate reaches it only through AT_Ice_King_Frost_Ultimate_Mob_Final_Spare, which skips his ice creatures. 2026-10-22 (playtest: the king's attacks froze his own ice pillars, that must never happen; they may take damage, so the player can hide behind one, but never frost or freeze): targets with the marker AT_Ice_King_Frost_Immune (the pillar AT_Ice_King_Ice_Pillar and AT_Ice_King_Lightning_Stuck put it on themselves) skip the frost/freeze part; the damage still lands.",
   "Type": "Serial",
   "Interactions": [
     {
-      "Type": "ApplyEffect",
-      "EffectId": "AT_Ice_King_Freeze_Ultimate",
+      "$Comment": "2026-10-21 (snow shell): the final freeze must last 2.5 s from here. Still frozen from a tick: clear it, wait 0.1 s and put a new one (a plain renewal drops the Freeze ModelVFX on the client; a remove + add a tick apart shows it again).",
+      "Type": "EffectCondition",
       "Entity": "Target",
-      "Duration": 2.5
+      "EntityEffectIds": [
+        "AT_Ice_King_Freeze_Ultimate"
+      ],
+      "Match": "All",
+      "Next": {
+        "Type": "Serial",
+        "Interactions": [
+          {
+            "Type": "ClearEntityEffect",
+            "EntityEffectId": "AT_Ice_King_Freeze_Ultimate",
+            "Entity": "Target"
+          },
+          {
+            "Type": "Simple",
+            "RunTime": 0.1
+          },
+          {
+            "Type": "EffectCondition",
+            "Entity": "Target",
+            "EntityEffectIds": [
+              "AT_Ice_King_Frost_Immune"
+            ],
+            "Match": "None",
+            "Next": {
+              "Type": "ApplyEffect",
+              "EffectId": "AT_Ice_King_Freeze_Ultimate",
+              "Entity": "Target",
+              "Duration": 2.5
+            },
+            "Failed": {
+              "Type": "Simple",
+              "$Comment": "Frost-immune target (ice pillar): no frost.",
+              "RunTime": 0
+            }
+          }
+        ]
+      },
+      "Failed": {
+        "Type": "EffectCondition",
+        "Entity": "Target",
+        "EntityEffectIds": [
+          "AT_Ice_King_Frost_Immune"
+        ],
+        "Match": "None",
+        "Next": {
+          "Type": "ApplyEffect",
+          "EffectId": "AT_Ice_King_Freeze_Ultimate",
+          "Entity": "Target",
+          "Duration": 2.5
+        },
+        "Failed": {
+          "Type": "Simple",
+          "$Comment": "Frost-immune target (ice pillar): no frost.",
+          "RunTime": 0
+        }
+      }
     },
     {
       "Type": "DamageEntity",

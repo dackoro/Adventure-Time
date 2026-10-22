@@ -1,5 +1,5 @@
 {
-  "$Comment": "Hit 1: swing to the left. RunTime = wind-up before the hit (vanilla flail 0.289, a bit slower to read it)",
+  "$Comment": "Hit 1: swing to the left. RunTime = wind-up before the hit (vanilla flail 0.289, a bit slower to read it) 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Nunchuck_Swing on the three hit windows (was the vanilla swing), Nunchuck_Spin when the spin starts, VO_Tired on the 0.5 s recovery after the combo.",
   "Type": "Simple",
   "Effects": {
     "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
@@ -11,7 +11,7 @@
     "$Comment": "Hit window",
     "RunTime": 0.2,
     "Effects": {
-      "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+      "WorldSoundEventId": "SFX_AT_Ice_King_Nunchuck_Swing"
     },
     "Selector": {
       "Id": "Horizontal",
@@ -55,7 +55,7 @@
           "$Comment": "Hit window",
           "RunTime": 0.2,
           "Effects": {
-            "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+            "WorldSoundEventId": "SFX_AT_Ice_King_Nunchuck_Swing"
           },
           "Selector": {
             "Id": "Horizontal",
@@ -91,7 +91,8 @@
               "$Comment": "Hit 3: wind up the spin (the tell: the player can step back here)",
               "Effects": {
                 "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
-                "ItemAnimationId": "SpinSwingLeftCharging"
+                "ItemAnimationId": "SpinSwingLeftCharging",
+                "WorldSoundEventId": "SFX_AT_Ice_King_Nunchuck_Spin"
               },
               "RunTime": 0.45,
               "Next": {
@@ -107,7 +108,7 @@
                   "$Comment": "Hit window",
                   "RunTime": 0.2,
                   "Effects": {
-                    "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+                    "WorldSoundEventId": "SFX_AT_Ice_King_Nunchuck_Swing"
                   },
                   "Selector": {
                     "Id": "Horizontal",
@@ -137,7 +138,10 @@
                   "Next": {
                     "Type": "Simple",
                     "$Comment": "Recovery after the combo: the opening to punish him",
-                    "RunTime": 0.5
+                    "RunTime": 0.5,
+                    "Effects": {
+                      "WorldSoundEventId": "SFX_AT_Ice_King_VO_Tired"
+                    }
                   }
                 }
               }

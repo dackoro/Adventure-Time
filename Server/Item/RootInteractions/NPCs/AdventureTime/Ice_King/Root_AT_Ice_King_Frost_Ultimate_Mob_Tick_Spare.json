@@ -1,0 +1,6 @@
+{
+  "$Comment": "Normal ultimate beam on non-players, sparing his ice creatures: AT_Ice_King_Frost_Ultimate_Mob_Tick_Spare (2026-10-22). The rage ultimate keeps Root_AT_Ice_King_Frost_Ultimate_Mob_Tick.",
+  "Interactions": [
+    "AT_Ice_King_Frost_Ultimate_Mob_Tick_Spare"
+  ]
+}

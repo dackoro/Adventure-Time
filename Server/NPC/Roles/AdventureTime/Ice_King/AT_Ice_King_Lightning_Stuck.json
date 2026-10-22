@@ -1,0 +1,80 @@
+{
+  "$Comment": "The giant ice bolt left stuck in the ground where EncLightning lands (2026-10-22: like the iceberg's pillar). Spawned by Projectile_Config_AT_Ice_King_Lightning(_Freezing) on landing; model AT_Ice_King_Lightning_Stuck (art: tip down, a third underground, Spawn slams it in, Despawn melts or shatters at random). Copy of AT_Ice_King_Ice_Pillar: no AI, sits still, but Invulnerable and gone after 3 s (timed Despawn, Force false so the Despawn animation plays). Excluded from AT_Ice_King_Group so the encounter never binds it as the king. 2026-10-22: first instruction puts AT_Ice_King_Frost_Immune on itself (no frost or freeze from the king, damage still lands).",
+  "Invulnerable": true,
+  "Type": "Generic",
+  "Appearance": "AT_Ice_King_Lightning_Stuck",
+  "NameTranslationKey": "server.npcRoles.AT_Ice_King_Lightning_Stuck.name",
+  "MaxHealth": 10,
+  "KnockbackScale": 0,
+  "DropList": "Empty",
+  "DefaultPlayerAttitude": "Neutral",
+  "DefaultNPCAttitude": "Ignore",
+  "DeathParticles": "IceBall_Explosion",
+  "StartState": "Idle",
+  "MotionControllerList": [
+    {
+      "Type": "Fly",
+      "Acceleration": 10,
+      "Gravity": 10,
+      "MaxFallSpeed": 8,
+      "MaxHorizontalSpeed": 3,
+      "MaxHeightOverGround": 0.1,
+      "MinAirSpeed": 0,
+      "MinHeightOverGround": 0
+    }
+  ],
+  "Instructions": [
+    {
+      "$Comment": "2026-10-22: mark itself frost-immune (AT_Ice_King_Frost_Immune) so the king's attacks still damage it but never frost or freeze it (playtest: the player can take cover behind an ice pillar).",
+      "Continue": true,
+      "Sensor": {
+        "Type": "Any",
+        "Once": true
+      },
+      "Actions": [
+        {
+          "Type": "ApplyEntityEffect",
+          "EntityEffect": "AT_Ice_King_Frost_Immune",
+          "UseTarget": false
+        }
+      ]
+    },
+    {
+      "Sensor": {
+        "Type": "State",
+        "State": "Idle"
+      },
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "Self",
+            "Filters": []
+          },
+          "BodyMotion": {
+            "Type": "Nothing"
+          },
+          "ActionsBlocking": true,
+          "Actions": [
+            {
+              "Type": "Sequence",
+              "Blocking": true,
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": [
+                    3,
+                    3
+                  ]
+                },
+                {
+                  "Type": "Despawn",
+                  "Force": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

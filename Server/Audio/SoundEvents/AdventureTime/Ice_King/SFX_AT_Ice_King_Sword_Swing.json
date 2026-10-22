@@ -1,0 +1,19 @@
+{
+  "$Comment": "Ice King sound (2026-10-22, voice clips): Each ice sword swing, as the blade moves (not the hit). Files: Common/Sounds/AdventureTime/Ice_King. Volume in dB; Parent sets how far it is heard.",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Effects/AT_Ice_King_Sword_Swing.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -1.5,
+        "MaxPitch": 1.5,
+        "MinVolume": -1,
+        "MaxVolume": 0.5
+      }
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Moderate",
+  "MaxInstance": 6
+}

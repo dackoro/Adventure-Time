@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice King's ice nunchucks (phase 3, Fridjitzu): the vanilla flail poses (Parent Club_Flail: SwingLeft/Right, SpinSwing*, Guard, GuardBash). They key the flail's own Chain nodes, so a nunchuck model with the same node names (Handle > Chain > Chain2 > Chain3 > Chain4) swings with them. The four entries the Fridjitzu combo plays now use the king's own copies (ThirdPerson and ThirdPersonMoving) in Characters/Animations/Items/AdventureTime/Ice_King/Nunchucks/, made by scripts/nunchuck-anims.py (2026-10-21): the sticks Chain2/Chain4 trail the arm by 2/4 frames and swing 1.2 times as far, and wobble in the Charging spin; the FirstPerson files stay vanilla (an NPC never shows them). The four entries the Fridjitzu combo plays are copies of Club_Flail's with their own ThirdPersonFace: the vanilla faces (Frown, Rage) move the node 'Mouth' to cells of the player's face sheet (x 0 y -20, x 160), which are empty in the king's 4x3 mouth sheet, so his mouth vanished. Face_Clench = mouth cell 3 (clenched teeth, 87,0), Face_Shout = cell 1 (big shout, 29,0). Ice sword in phase 3 (2026-10-21: the sword only in the nunchuck phase, from his free hand): IceSwordSummon (0.6 s), IceSwordSwing1 / IceSwordSwing2 (0.45 s, blade crosses at frame 10), IceSwordSlash (chop at 0.15 s, the sword swells and shatters at 0.37-0.4 s) are the staff set's sword animations mirrored to his LEFT hand (Ice_Sword_L_*, attachment Ice_Sword_Held_L) with the nunchucks kept in his right hand (no staff tuck).",
+  "$Comment": "Ice King's ice nunchucks (phase 3, Fridjitzu): the vanilla flail poses (Parent Club_Flail: SwingLeft/Right, SpinSwing*, Guard, GuardBash). They key the flail's own Chain nodes, so a nunchuck model with the same node names (Handle > Chain > Chain2 > Chain3 > Chain4) swings with them. The four entries the Fridjitzu combo plays now use the king's own copies (ThirdPerson and ThirdPersonMoving) in Characters/Animations/Items/AdventureTime/Ice_King/Nunchucks/, made by scripts/nunchuck-anims.py (2026-10-21): the sticks Chain2/Chain4 trail the arm by 2/4 frames and swing 1.2 times as far, and wobble in the Charging spin; the FirstPerson files stay vanilla (an NPC never shows them). The four entries the Fridjitzu combo plays are copies of Club_Flail's with their own ThirdPersonFace: the vanilla faces (Frown, Rage) move the node 'Mouth' to cells of the player's face sheet (x 0 y -20, x 160), which are empty in the king's 4x3 mouth sheet, so his mouth vanished. Face_Clench = mouth cell 3 (clenched teeth, 87,0), Face_Shout = cell 1 (big shout, 29,0). Ice sword in phase 3 (2026-10-21: the sword only in the nunchuck phase, from his free hand): IceSwordSummon (0.6 s), IceSwordSwing1 / IceSwordSwing2 (0.45 s, blade crosses at frame 10), IceSwordSlash (chop at 0.15 s, the sword swells and shatters at 0.37-0.4 s) are the staff set's sword animations mirrored to his LEFT hand (Ice_Sword_L_*, attachment Ice_Sword_Held_L) with the nunchucks kept in his right hand (no staff tuck). PunchR / PunchL (2026-10-21: MeleeHit's hit came long after the punch, and it should alternate fists): right / left straight punch, 0.6 s, fist fully out at 0.2 s (frame 12) and held to 0.28 s, the other fist guarding the chin, the held weapon tucked (R-Attachment z -36); for an interaction with a 0.2 s prepare RunTime. Upper body only, so the same file works moving.",
   "Parent": "Club_Flail",
   "Animations": {
     "SwingLeft": {
@@ -67,6 +67,22 @@
       "ThirdPersonFace": "Characters/Animations/Items/AdventureTime/Ice_King/Face_Shout.blockyanim",
       "Speed": 1,
       "BlendingDuration": 0.05
+    },
+    "PunchR": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_R.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_R.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "ThirdPersonFace": "Characters/Animations/Items/AdventureTime/Ice_King/Face_Clench.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "PunchL": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_L.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_L.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "ThirdPersonFace": "Characters/Animations/Items/AdventureTime/Ice_King/Face_Clench.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
     }
   }
 }

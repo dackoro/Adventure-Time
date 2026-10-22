@@ -1,0 +1,46 @@
+{
+  "$Comment": "MeleeHit, right straight punch (2026-10-21: the hit came long after the fist, and the fists should alternate). PunchR (art, 0.6 s): the fist is fully out at 0.2 s (frame 12) and held to 0.28 s, so the prepare RunTime is 0.2 and the hit window is 0.2-0.35 s. Played from AT_Ice_King_Staff. Damage through the Scepter_Hit_Damage var (CAE MeleeHit). Alternation: the root's Chaining.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+    "ItemAnimationId": "PunchR"
+  },
+  "RunTime": 0.2,
+  "Next": {
+    "Type": "Selector",
+    "RunTime": 0.15,
+    "Effects": {
+      "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+    },
+    "Selector": {
+      "$Comment": "A short sweep in front of him (60 degrees, from the punching side inward), reach 0.5-3.5 blocks as the old swing.",
+      "Id": "Horizontal",
+      "Direction": "ToLeft",
+      "TestLineOfSight": true,
+      "ExtendTop": 1.0,
+      "ExtendBottom": 1.0,
+      "StartDistance": 0.5,
+      "EndDistance": 3.5,
+      "Length": 60,
+      "YawStartOffset": -30
+    },
+    "HitEntity": {
+      "Interactions": [
+        {
+          "Type": "Replace",
+          "DefaultValue": {
+            "Interactions": [
+              "AT_Ice_King_Scepter_Hit_Damage"
+            ]
+          },
+          "Var": "Scepter_Hit_Damage"
+        }
+      ]
+    },
+    "Next": {
+      "Type": "Simple",
+      "$Comment": "Rest of the 0.6 s punch.",
+      "RunTime": 0.25
+    }
+  }
+}

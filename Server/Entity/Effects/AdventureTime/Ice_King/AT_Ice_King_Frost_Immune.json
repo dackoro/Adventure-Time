@@ -1,0 +1,5 @@
+{
+  "$Comment": "Marker (2026-10-22): an entity with this effect never gets the Ice King's frost stacks or freezes (his attacks check it with EffectCondition before applying them; damage still lands). Put on themselves by AT_Ice_King_Ice_Pillar and AT_Ice_King_Lightning_Stuck. No visuals, no stats.",
+  "Infinite": true,
+  "Debuff": false
+}

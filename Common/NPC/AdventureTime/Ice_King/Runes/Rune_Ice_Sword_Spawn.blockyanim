@@ -1,0 +1,984 @@
+{
+  "formatVersion": 1,
+  "duration": 104,
+  "holdLastKeyframe": true,
+  "nodeAnimations": {
+    "Sword_Pivot": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 66,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 76,
+          "delta": {
+            "x": 9,
+            "y": 12,
+            "z": -2
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 104,
+          "delta": {
+            "x": 9,
+            "y": 12,
+            "z": -2
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "orientation": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.44013,
+            "y": -0.48375,
+            "z": 0.30818,
+            "w": 0.69087
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 0.6385,
+            "y": -0.3378,
+            "z": 0.36864,
+            "w": 0.58508
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 27,
+          "delta": {
+            "x": 0.69711,
+            "y": -0.21995,
+            "z": 0.24003,
+            "w": 0.63878
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 0.7301,
+            "y": -0.09402,
+            "z": 0.10261,
+            "w": 0.66902
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 33,
+          "delta": {
+            "x": 0.73627,
+            "y": 0.03536,
+            "z": -0.03859,
+            "w": 0.67466
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 36,
+          "delta": {
+            "x": 0.71538,
+            "y": 0.16344,
+            "z": -0.17836,
+            "w": 0.65552
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 39,
+          "delta": {
+            "x": 0.6682,
+            "y": 0.28552,
+            "z": -0.31159,
+            "w": 0.61229
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 51,
+          "delta": {
+            "x": 0.6682,
+            "y": 0.28552,
+            "z": -0.31159,
+            "w": 0.61229
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 54,
+          "delta": {
+            "x": 0.71216,
+            "y": 0.17486,
+            "z": -0.19082,
+            "w": 0.65257
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 57,
+          "delta": {
+            "x": 0.73447,
+            "y": 0.05888,
+            "z": -0.06426,
+            "w": 0.67302
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 60,
+          "delta": {
+            "x": 0.73447,
+            "y": -0.05888,
+            "z": 0.06426,
+            "w": 0.67302
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 63,
+          "delta": {
+            "x": 0.71216,
+            "y": -0.17486,
+            "z": 0.19082,
+            "w": 0.65257
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 66,
+          "delta": {
+            "x": 0.6682,
+            "y": -0.28552,
+            "z": 0.31159,
+            "w": 0.61229
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 78,
+          "delta": {
+            "x": 0.12279,
+            "y": 0.69636,
+            "z": 0.12279,
+            "w": 0.69636
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 81,
+          "delta": {
+            "x": 0.23021,
+            "y": 0.66858,
+            "z": 0.23021,
+            "w": 0.66858
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 84,
+          "delta": {
+            "x": 0.33197,
+            "y": 0.62434,
+            "z": 0.33197,
+            "w": 0.62434
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 87,
+          "delta": {
+            "x": 0.42555,
+            "y": 0.56472,
+            "z": 0.42555,
+            "w": 0.56472
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 90,
+          "delta": {
+            "x": 0.50865,
+            "y": 0.4912,
+            "z": 0.50865,
+            "w": 0.4912
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 0.57923,
+            "y": 0.40558,
+            "z": 0.57923,
+            "w": 0.40558
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 0.59637,
+            "y": 0.37993,
+            "z": 0.59637,
+            "w": 0.37993
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeStretch": [],
+      "shapeVisible": [],
+      "shapeUvOffset": []
+    },
+    "Sword_Handle": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": -30,
+            "y": 12.0,
+            "z": 6.0
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 20,
+          "delta": {
+            "x": 1.1,
+            "y": 1.1,
+            "z": 1.1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 0.3,
+            "y": 0.3,
+            "z": 0.3
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Sword_Pommel": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 30,
+            "y": 18.0,
+            "z": -9.0
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 20,
+          "delta": {
+            "x": 1.1,
+            "y": 1.1,
+            "z": 1.1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 0.3,
+            "y": 0.3,
+            "z": 0.3
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Sword_Crossguard": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": -18.0,
+            "y": 30,
+            "z": 15.0
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 20,
+          "delta": {
+            "x": 1.1,
+            "y": 1.1,
+            "z": 1.1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 0.3,
+            "y": 0.3,
+            "z": 0.3
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Sword_Sword_Base": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 24.0,
+            "y": -6.0,
+            "z": 18.0
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 20,
+          "delta": {
+            "x": 1.1,
+            "y": 1.1,
+            "z": 1.1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 0.3,
+            "y": 0.3,
+            "z": 0.3
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Sword_Sword_Middle": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 0,
+            "y": 36.0,
+            "z": -15.0
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 20,
+          "delta": {
+            "x": 1.1,
+            "y": 1.1,
+            "z": 1.1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 0.3,
+            "y": 0.3,
+            "z": 0.3
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Sword_Sword_Tip": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": -27.0,
+            "y": -15.0,
+            "z": -12.0
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 20,
+          "delta": {
+            "x": 1.1,
+            "y": 1.1,
+            "z": 1.1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 93,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 0.3,
+            "y": 0.3,
+            "z": 0.3
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Trail_Side1": {
+      "position": [],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.6,
+            "y": 0.6,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 26,
+          "delta": {
+            "x": 0.85,
+            "y": 0.85,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 32,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 46,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": false,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 26,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 46,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Trail_Side2": {
+      "position": [],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.6,
+            "y": 0.6,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 53,
+          "delta": {
+            "x": 0.85,
+            "y": 0.85,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 59,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 73,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": false,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 53,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 73,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Trail_Chop": {
+      "position": [],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.6,
+            "y": 0.6,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 80,
+          "delta": {
+            "x": 0.85,
+            "y": 0.85,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 86,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 99,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": false,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 80,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 99,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    }
+  }
+}

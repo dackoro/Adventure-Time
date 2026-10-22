@@ -1,5 +1,5 @@
 {
-  "$Comment": "Two-hand ice throw (2026-10-21: besides the one-hand ice ray, a separate attack with its own timing: one quick throw with both hands, two bolts at once, and the most common of his throws). 0.6 s charge (FrostBeamChargingBoth, hand glow), then FrostBeamFireBoth and one bolt from each hand in the same tick: the burst bolts Projectile_Config_AT_Ice_King_Frost_Beam (right) and _L (left), straight (no gravity), 8 Ice and a frost stack each, so 16 Ice and 2 stacks if both hit. No AimingReference tag: two bolts, one from each side, can't share one aim correction; each flies 0.2 blocks beside the aim line. Ground: CAE IceRayBoth (phases 1 and 3); air: its own timer in both air components. Works without the encounter.",
+  "$Comment": "Two-hand ice throw (2026-10-21: besides the one-hand ice ray, a separate attack with its own timing: one quick throw with both hands, two bolts at once, and the most common of his throws). 0.6 s charge (FrostBeamChargingBoth, hand glow), then FrostBeamFireBoth and one bolt from each hand in the same tick: the burst bolts Projectile_Config_AT_Ice_King_Frost_Beam (right) and _L (left), straight (no gravity), 8 Ice and a frost stack each, so 16 Ice and 2 stacks if both hit. No AimingReference tag: two bolts, one from each side, can't share one aim correction; each flies 0.2 blocks beside the aim line. Ground: CAE IceRayBoth (phases 1 and 3); air: its own timer in both air components. Works without the encounter. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Rays_Both on each two-hand throw (1), the frame the bolts leave.",
   "Type": "Simple",
   "RunTime": 0.6,
   "Effects": {
@@ -28,7 +28,8 @@
         "RunTime": 0,
         "Effects": {
           "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "FrostBeamFireBoth"
+          "ItemAnimationId": "FrostBeamFireBoth",
+          "WorldSoundEventId": "SFX_AT_Ice_King_Rays_Both"
         }
       },
       {

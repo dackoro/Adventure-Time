@@ -1,0 +1,29 @@
+{
+  "BoundingRadius": 10,
+  "IsImportant": true,
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Death_Snow_Cloud_Medium",
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Death_Snow_Main_Medium",
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Death_Snow_Shockwave_Medium"
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Death_Snow_Shockwave2_Medium"
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Death_Snow_Main_Medium2",
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Death_Snow_Debris",
+      "FixedRotation": true
+    }
+  ],
+  "$Comment": "Ice King corpse removal puff: vanilla Effect_Death_Medium (generic death cloud) with every spawner recoloured to snow and ice. For the king roles' DeathParticles (2026-10-22)."
+}

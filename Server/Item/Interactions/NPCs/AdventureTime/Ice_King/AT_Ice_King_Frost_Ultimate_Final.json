@@ -1,61 +1,103 @@
 {
-  "$Comment": "Ultimate beam last tick: 24 ice damage, a strong push away and up, 1 frost stack. A full beam (6 ticks + this) is 6 x 12 + 24 = 96 damage. Then a 2.5 s freeze (guarded).",
-  "Type": "Serial",
-  "Interactions": [
-    {
-      "Type": "DamageEntity",
-      "DamageCalculator": {
-        "Type": "Absolute",
-        "BaseDamage": {
-          "Ice": 24
+  "$Comment": "Ultimate beam last tick: 24 ice damage, a strong push away and up, 1 frost stack. A full beam (6 ticks + this) is 6 x 12 + 24 = 96 damage. Then a 2.5 s freeze (guarded). 2026-10-21 (snow shell): AT_Ice_King_Freeze_Prep before the freeze (clears the short frost effects, waits 0.1 s). 2026-10-22 (playtest: the ultimate can be blocked, but it freezes you anyway and the shield pays a lot of stamina): starts with a 1 Projectile damage probe (pattern of AT_Ice_King_Ice_Ray_Hit; vanilla swords and shields block Projectile, never Ice). Blocked from the front: the guard pays InitialAmount / StaminaCost.Value x StaminaDrainMultiplier stamina (vanilla Value 10, stamina max 10, no regen while guarding, below 0 the guard breaks and the rest of the beam lands). Not blocked: Next, the old hit with 1 ice damage less (same total). Final: StaminaDrainMultiplier 30 = 3 stamina; a whole beam blocked from its first tick costs 12, more than a full bar, so the guard breaks near the end. 2026-10-22 (playtest: the king's attacks froze his own ice pillars, that must never happen; they may take damage, so the player can hide behind one, but never frost or freeze): targets with the marker AT_Ice_King_Frost_Immune (the pillar AT_Ice_King_Ice_Pillar and AT_Ice_King_Lightning_Stuck put it on themselves) skip the frost/freeze part; the damage still lands.",
+  "Type": "DamageEntity",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Projectile": 1
+    }
+  },
+  "DamageEffects": {
+    "StaminaDrainMultiplier": 30
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "DamageEntity",
+        "DamageCalculator": {
+          "Type": "Absolute",
+          "BaseDamage": {
+            "Ice": 23
+          },
+          "RandomPercentageModifier": 0.1
         },
-        "RandomPercentageModifier": 0.1
-      },
-      "DamageEffects": {
-        "WorldParticles": [
-          {
-            "SystemId": "Impact_Ice"
-          }
-        ],
-        "WorldSoundEventId": "SFX_Ice_Break",
-        "Knockback": {
-          "Force": 14,
-          "RelativeX": 0,
-          "RelativeZ": -1,
-          "VelocityY": 6,
-          "VelocityType": "Set",
-          "VelocityConfig": {
-            "Threshold": 0.9
+        "DamageEffects": {
+          "WorldParticles": [
+            {
+              "SystemId": "Impact_Ice"
+            }
+          ],
+          "WorldSoundEventId": "SFX_Ice_Break",
+          "Knockback": {
+            "Force": 14,
+            "RelativeX": 0,
+            "RelativeZ": -1,
+            "VelocityY": 6,
+            "VelocityType": "Set",
+            "VelocityConfig": {
+              "Threshold": 0.9
+            }
           }
         }
+      },
+      "AT_Ice_King_Frost_Hit",
+      {
+        "$Comment": "2026-10-21 (playtest: the beam should also freeze): the last tick freezes 2.5 s, unless the freeze guard is on (same pattern as the other freezing hits).",
+        "Type": "EffectCondition",
+        "Entity": "Target",
+        "EntityEffectIds": [
+          "AT_Ice_King_Freeze_Guard",
+          "AT_Ice_King_Frost_Immune"
+        ],
+        "Match": "None",
+        "Next": {
+          "Type": "Serial",
+          "Interactions": [
+            "AT_Ice_King_Freeze_Prep",
+            {
+              "Type": "ApplyEffect",
+              "EffectId": "AT_Ice_King_Freeze",
+              "Entity": "Target",
+              "Duration": 2.5
+            },
+            {
+              "Type": "ApplyEffect",
+              "EffectId": "AT_Ice_King_Freeze_Guard",
+              "Entity": "Target",
+              "Duration": 7.5
+            }
+          ]
+        }
       }
-    },
-    "AT_Ice_King_Frost_Hit",
-    {
-      "$Comment": "2026-10-21 (playtest: the beam should also freeze): the last tick freezes 2.5 s, unless the freeze guard is on (same pattern as the other freezing hits).",
-      "Type": "EffectCondition",
-      "Entity": "Target",
-      "EntityEffectIds": [
-        "AT_Ice_King_Freeze_Guard"
-      ],
-      "Match": "None",
-      "Next": {
-        "Type": "Serial",
-        "Interactions": [
-          {
-            "Type": "ApplyEffect",
-            "EffectId": "AT_Ice_King_Freeze",
-            "Entity": "Target",
-            "Duration": 2.5
-          },
-          {
-            "Type": "ApplyEffect",
-            "EffectId": "AT_Ice_King_Freeze_Guard",
-            "Entity": "Target",
-            "Duration": 7.5
-          }
-        ]
-      }
+    ]
+  },
+  "Blocked": {
+    "$Comment": "Guard up: no damage and no push, but the beam still freezes you (same guarded freeze as an unblocked final hit).",
+    "Type": "EffectCondition",
+    "Entity": "Target",
+    "EntityEffectIds": [
+      "AT_Ice_King_Freeze_Guard",
+      "AT_Ice_King_Frost_Immune"
+    ],
+    "Match": "None",
+    "Next": {
+      "Type": "Serial",
+      "Interactions": [
+        "AT_Ice_King_Freeze_Prep",
+        {
+          "Type": "ApplyEffect",
+          "EffectId": "AT_Ice_King_Freeze",
+          "Entity": "Target",
+          "Duration": 2.5
+        },
+        {
+          "Type": "ApplyEffect",
+          "EffectId": "AT_Ice_King_Freeze_Guard",
+          "Entity": "Target",
+          "Duration": 7.5
+        }
+      ]
     }
-  ]
+  }
 }

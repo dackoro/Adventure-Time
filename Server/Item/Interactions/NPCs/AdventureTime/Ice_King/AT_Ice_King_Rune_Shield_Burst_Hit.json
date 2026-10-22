@@ -1,0 +1,65 @@
+{
+  "$Comment": "Ice Shield rune burst (2026-10-22): as AT_Ice_King_Ice_Shield_Burst_Damage: 8 ice, a strong push out and up (Point), 1 s freeze (guarded).",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 8
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageAttribute": "Damage",
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break",
+        "Knockback": {
+          "Type": "Point",
+          "Force": 18,
+          "VelocityY": 7,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        }
+      }
+    },
+    {
+      "Type": "EffectCondition",
+      "Entity": "Target",
+      "EntityEffectIds": [
+        "AT_Ice_King_Freeze_Guard",
+        "AT_Ice_King_Frost_Immune"
+      ],
+      "Match": "None",
+      "Next": {
+        "Type": "Serial",
+        "Interactions": [
+          "AT_Ice_King_Freeze_Prep",
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze",
+            "Entity": "Target",
+            "Duration": 1
+          },
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze_Guard",
+            "Entity": "Target",
+            "Duration": 6
+          }
+        ]
+      },
+      "Failed": {
+        "Type": "Simple",
+        "RunTime": 0
+      }
+    }
+  ]
+}

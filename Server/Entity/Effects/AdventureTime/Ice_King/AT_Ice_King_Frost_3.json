@@ -20,5 +20,5 @@
   "Duration": 20.0,
   "OverlapBehavior": "Overwrite",
   "Debuff": true,
-  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Staff_Frost.png"
+  "StatusEffectIcon": "Icons/ItemsGenerated/AT_Ice_King/AT_Ice_King_Frost_3.png"
 }

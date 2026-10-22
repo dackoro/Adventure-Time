@@ -162,7 +162,7 @@
                         "unwrapMode": "custom",
                         "visible": false,
                         "doubleSided": false,
-                        "shadingMode": "flat"
+                        "shadingMode": "fullbright"
                       },
                       "children": [
                         {
@@ -476,7 +476,7 @@
                             "unwrapMode": "custom",
                             "visible": false,
                             "doubleSided": false,
-                            "shadingMode": "flat"
+                            "shadingMode": "fullbright"
                           }
                         },
                         {
@@ -583,7 +583,7 @@
                             "unwrapMode": "custom",
                             "visible": false,
                             "doubleSided": false,
-                            "shadingMode": "flat"
+                            "shadingMode": "fullbright"
                           },
                           "children": [
                             {
@@ -630,7 +630,7 @@
                                         },
                                         "visible": false,
                                         "doubleSided": false,
-                                        "shadingMode": "flat",
+                                        "shadingMode": "fullbright",
                                         "unwrapMode": "custom",
                                         "textureLayout": {
                                           "front": {
@@ -735,7 +735,7 @@
                                     },
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat",
+                                    "shadingMode": "fullbright",
                                     "unwrapMode": "custom",
                                     "textureLayout": {
                                       "front": {
@@ -890,7 +890,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 },
                                 {
@@ -976,7 +976,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 },
                                 {
@@ -1066,7 +1066,7 @@
                                         "unwrapMode": "custom",
                                         "visible": false,
                                         "doubleSided": false,
-                                        "shadingMode": "flat"
+                                        "shadingMode": "fullbright"
                                       }
                                     }
                                   ],
@@ -1160,7 +1160,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 }
                               ],
@@ -1254,7 +1254,7 @@
                                 "unwrapMode": "custom",
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat"
+                                "shadingMode": "fullbright"
                               }
                             },
                             {
@@ -1301,7 +1301,7 @@
                                         },
                                         "visible": false,
                                         "doubleSided": false,
-                                        "shadingMode": "flat",
+                                        "shadingMode": "fullbright",
                                         "unwrapMode": "custom",
                                         "textureLayout": {
                                           "back": {
@@ -1395,7 +1395,7 @@
                                     },
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat",
+                                    "shadingMode": "fullbright",
                                     "unwrapMode": "custom",
                                     "textureLayout": {
                                       "front": {
@@ -1550,7 +1550,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 },
                                 {
@@ -1636,7 +1636,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 },
                                 {
@@ -1726,7 +1726,7 @@
                                         "unwrapMode": "custom",
                                         "visible": false,
                                         "doubleSided": false,
-                                        "shadingMode": "flat"
+                                        "shadingMode": "fullbright"
                                       }
                                     }
                                   ],
@@ -1820,7 +1820,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 }
                               ],
@@ -1914,7 +1914,7 @@
                                 "unwrapMode": "custom",
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat"
+                                "shadingMode": "fullbright"
                               }
                             },
                             {
@@ -1961,7 +1961,7 @@
                                         },
                                         "visible": false,
                                         "doubleSided": false,
-                                        "shadingMode": "flat",
+                                        "shadingMode": "fullbright",
                                         "unwrapMode": "custom",
                                         "textureLayout": {
                                           "front": {
@@ -2066,7 +2066,7 @@
                                     },
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat",
+                                    "shadingMode": "fullbright",
                                     "unwrapMode": "custom",
                                     "textureLayout": {
                                       "front": {
@@ -2221,7 +2221,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 },
                                 {
@@ -2307,7 +2307,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 },
                                 {
@@ -2397,7 +2397,7 @@
                                         "unwrapMode": "custom",
                                         "visible": false,
                                         "doubleSided": false,
-                                        "shadingMode": "flat"
+                                        "shadingMode": "fullbright"
                                       }
                                     }
                                   ],
@@ -2491,7 +2491,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 }
                               ],
@@ -2585,7 +2585,7 @@
                                 "unwrapMode": "custom",
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat"
+                                "shadingMode": "fullbright"
                               }
                             },
                             {
@@ -2632,7 +2632,7 @@
                                         },
                                         "visible": false,
                                         "doubleSided": false,
-                                        "shadingMode": "flat",
+                                        "shadingMode": "fullbright",
                                         "unwrapMode": "custom",
                                         "textureLayout": {
                                           "back": {
@@ -2726,7 +2726,7 @@
                                     },
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat",
+                                    "shadingMode": "fullbright",
                                     "unwrapMode": "custom",
                                     "textureLayout": {
                                       "front": {
@@ -2881,7 +2881,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 },
                                 {
@@ -2967,7 +2967,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 },
                                 {
@@ -3057,7 +3057,7 @@
                                         "unwrapMode": "custom",
                                         "visible": false,
                                         "doubleSided": false,
-                                        "shadingMode": "flat"
+                                        "shadingMode": "fullbright"
                                       }
                                     }
                                   ],
@@ -3151,7 +3151,7 @@
                                     "unwrapMode": "custom",
                                     "visible": false,
                                     "doubleSided": false,
-                                    "shadingMode": "flat"
+                                    "shadingMode": "fullbright"
                                   }
                                 }
                               ],
@@ -3245,7 +3245,7 @@
                                 "unwrapMode": "custom",
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat"
+                                "shadingMode": "fullbright"
                               }
                             }
                           ]
@@ -3290,7 +3290,7 @@
                                 },
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat",
+                                "shadingMode": "fullbright",
                                 "unwrapMode": "collapsed",
                                 "textureLayout": {
                                   "front": {
@@ -3453,7 +3453,7 @@
                             "unwrapMode": "custom",
                             "visible": false,
                             "doubleSided": false,
-                            "shadingMode": "flat"
+                            "shadingMode": "fullbright"
                           }
                         },
                         {
@@ -3492,7 +3492,7 @@
                             },
                             "visible": false,
                             "doubleSided": false,
-                            "shadingMode": "flat",
+                            "shadingMode": "fullbright",
                             "unwrapMode": "custom",
                             "textureLayout": {
                               "front": {
@@ -3673,7 +3673,7 @@
                                 "unwrapMode": "custom",
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat"
+                                "shadingMode": "fullbright"
                               }
                             },
                             {
@@ -3864,7 +3864,7 @@
                             "unwrapMode": "custom",
                             "visible": false,
                             "doubleSided": false,
-                            "shadingMode": "flat"
+                            "shadingMode": "fullbright"
                           }
                         },
                         {
@@ -3976,7 +3976,7 @@
                                 "unwrapMode": "custom",
                                 "visible": false,
                                 "doubleSided": false,
-                                "shadingMode": "flat"
+                                "shadingMode": "fullbright"
                               }
                             },
                             {
@@ -4167,7 +4167,7 @@
                             "unwrapMode": "custom",
                             "visible": false,
                             "doubleSided": false,
-                            "shadingMode": "flat"
+                            "shadingMode": "fullbright"
                           }
                         },
                         {
@@ -4206,7 +4206,7 @@
                             },
                             "visible": false,
                             "doubleSided": false,
-                            "shadingMode": "flat",
+                            "shadingMode": "fullbright",
                             "unwrapMode": "custom",
                             "textureLayout": {
                               "front": {
@@ -4314,7 +4314,7 @@
                             },
                             "visible": false,
                             "doubleSided": false,
-                            "shadingMode": "flat",
+                            "shadingMode": "fullbright",
                             "unwrapMode": "custom",
                             "textureLayout": {
                               "front": {

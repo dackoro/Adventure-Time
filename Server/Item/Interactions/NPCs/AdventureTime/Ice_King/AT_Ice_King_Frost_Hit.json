@@ -1,110 +1,78 @@
 {
-  "$Comment": "One frost stack on the hit target (used by the ray, the nova twice, and the iceberg). With AT_Ice_King_Warmth (the potion): only AT_Ice_King_Slow_Weak, no stacks. Otherwise: no stack -> Frost_1, Frost_N -> clear it and put Frost_N+1, Frost_4 -> clear it and freeze 4 s (the 5th hit; 8 s until 2026-10-21: too long). Chain of EffectCondition as vanilla Ability_ChargedShot_Cast (Charge_1 -> 2 -> 3); ClearEntityEffect with Entity as vanilla Dungeon_Goblin_Mace_Slam.",
+  "$Comment": "One frost stack on the hit target (used by the ray, the nova twice, and the iceberg). With AT_Ice_King_Warmth (the potion): only AT_Ice_King_Slow_Weak, no stacks. Otherwise: no stack -> Frost_1, Frost_N -> clear it and put Frost_N+1, Frost_4 -> clear it and freeze 4 s (the 5th hit; 8 s until 2026-10-21: too long). Chain of EffectCondition as vanilla Ability_ChargedShot_Cast (Charge_1 -> 2 -> 3); ClearEntityEffect with Entity as vanilla Dungeon_Goblin_Mace_Slam. 2026-10-21 (snow shell): nothing at all on a target that is frozen right now (AT_Ice_King_Freeze or the ultimate's AT_Ice_King_Freeze_Ultimate), not even the weak slow or the half-stack flag: the client drops an entity's active ModelVFX (Freeze's snow shell) whenever another effect is removed from it or a visual effect is renewed (Mob Battle finding, tested), even though the server still has the freeze on. The freeze guard after the freeze still gives only the weak slow. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): the 5th stack freezes 2.5 s (was 4) with the guard 7.5 s (was 9), still 5 s free after; vanilla freezes last 0.8-1.5 s and everything landed for sure during 4 s. 2026-10-22 (playtest: the king's attacks froze his own ice pillars, that must never happen; they may take damage, so the player can hide behind one, but never frost or freeze): targets with the marker AT_Ice_King_Frost_Immune (the pillar AT_Ice_King_Ice_Pillar and AT_Ice_King_Lightning_Stuck put it on themselves) skip the frost/freeze part; the damage still lands. 2026-10-22 (playtest: the immunity is against the freeze, not the slow; and the slow must not double up when it ends): the freeze guard no longer stops the stacking (it only skipped it, giving a 1.5 s AT_Ice_King_Slow_Weak instead): during the immunity hits still add frost stacks (Frost_1..Frost_4 replace each other, they never add up), but at Frost_4 the freeze step still asks for no guard, so a guarded player stays at Frost_4 (the strongest slow) until the guard ends; the next hit after it freezes. Frost-immune targets (ice pillars) still skip it all.",
   "Type": "EffectCondition",
   "Entity": "Target",
   "EntityEffectIds": [
-    "AT_Ice_King_Warmth"
+    "AT_Ice_King_Freeze"
   ],
-  "Match": "None",
+  "Match": "All",
   "Next": {
-    "$Comment": "Freeze guard first (2026-10-21): while AT_Ice_King_Freeze_Guard is on (frozen, or the 5 s after) no stacks build up, only the mild slow. Without this a frozen player rebuilt Frost_1..4 during the freeze and the 5th hit froze him again right after the guard ended.",
+    "Type": "Simple",
+    "RunTime": 0
+  },
+  "Failed": {
     "Type": "EffectCondition",
     "Entity": "Target",
     "EntityEffectIds": [
-      "AT_Ice_King_Freeze_Guard"
+      "AT_Ice_King_Freeze_Ultimate"
     ],
-    "Match": "None",
+    "Match": "All",
     "Next": {
+      "Type": "Simple",
+      "RunTime": 0
+    },
+    "Failed": {
       "Type": "EffectCondition",
       "Entity": "Target",
       "EntityEffectIds": [
-        "AT_Ice_King_Frost_4"
+        "AT_Ice_King_Warmth"
       ],
-      "Match": "All",
+      "Match": "None",
       "Next": {
-        "Type": "Serial",
-        "Interactions": [
-          {
-            "Type": "ClearEntityEffect",
-            "EntityEffectId": "AT_Ice_King_Frost_4",
-            "Entity": "Target"
-          },
-          {
-            "Type": "Simple",
-            "$Comment": "2026-10-21: wait 0.1 s (2 ticks) so removing Frost_4 and adding Freeze reach the client in different updates. In the same tick the client sometimes did not draw the Freeze ice shell (ModelVFX): removing any effect drops an active ModelVFX (Mob Battle finding). Untested.",
-            "RunTime": 0.1
-          },
-          {
-            "$Comment": "Freeze immunity: no freeze while AT_Ice_King_Freeze_Guard is on the target; every freeze puts it for the freeze time + 5 s (9 s here: 4 s freeze, 2026-10-21, was 8 + 3). Change the immunity in the Guard Duration.",
-            "Type": "EffectCondition",
-            "Entity": "Target",
-            "EntityEffectIds": [
-              "AT_Ice_King_Freeze_Guard"
-            ],
-            "Match": "None",
-            "Next": {
-              "Type": "Serial",
-              "Interactions": [
-                {
-                  "Type": "ApplyEffect",
-                  "EffectId": "AT_Ice_King_Freeze",
-                  "Entity": "Target",
-                  "Duration": 4
-                },
-                {
-                  "Type": "ApplyEffect",
-                  "EffectId": "AT_Ice_King_Freeze_Guard",
-                  "Entity": "Target",
-                  "Duration": 9
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "Failed": {
+        "$Comment": "Freeze guard first (2026-10-21): while AT_Ice_King_Freeze_Guard is on (frozen, or the 5 s after) no stacks build up, only the mild slow. Without this a frozen player rebuilt Frost_1..4 during the freeze and the 5th hit froze him again right after the guard ended.",
         "Type": "EffectCondition",
         "Entity": "Target",
         "EntityEffectIds": [
-          "AT_Ice_King_Frost_3"
+          "AT_Ice_King_Frost_Immune"
         ],
-        "Match": "All",
+        "Match": "None",
         "Next": {
-          "Type": "Serial",
-          "Interactions": [
-            {
-              "Type": "ClearEntityEffect",
-              "EntityEffectId": "AT_Ice_King_Frost_3",
-              "Entity": "Target"
-            },
-            {
-              "Type": "ApplyEffect",
-              "EffectId": "AT_Ice_King_Frost_4",
-              "Entity": "Target",
-              "Duration": 20
-            }
-          ]
-        },
-        "Failed": {
           "Type": "EffectCondition",
           "Entity": "Target",
           "EntityEffectIds": [
-            "AT_Ice_King_Frost_2"
+            "AT_Ice_King_Frost_4"
           ],
           "Match": "All",
           "Next": {
             "Type": "Serial",
             "Interactions": [
               {
-                "Type": "ClearEntityEffect",
-                "EntityEffectId": "AT_Ice_King_Frost_2",
-                "Entity": "Target"
-              },
-              {
-                "Type": "ApplyEffect",
-                "EffectId": "AT_Ice_King_Frost_3",
+                "$Comment": "Freeze immunity: no freeze while AT_Ice_King_Freeze_Guard is on the target; every freeze puts it for the freeze time + 5 s (9 s here: 4 s freeze, 2026-10-21, was 8 + 3). Change the immunity in the Guard Duration.",
+                "Type": "EffectCondition",
                 "Entity": "Target",
-                "Duration": 20
+                "EntityEffectIds": [
+                  "AT_Ice_King_Freeze_Guard",
+                  "AT_Ice_King_Frost_Immune"
+                ],
+                "Match": "None",
+                "Next": {
+                  "Type": "Serial",
+                  "Interactions": [
+                    "AT_Ice_King_Freeze_Prep",
+                    {
+                      "Type": "ApplyEffect",
+                      "EffectId": "AT_Ice_King_Freeze",
+                      "Entity": "Target",
+                      "Duration": 2.5
+                    },
+                    {
+                      "Type": "ApplyEffect",
+                      "EffectId": "AT_Ice_King_Freeze_Guard",
+                      "Entity": "Target",
+                      "Duration": 7.5
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -112,7 +80,7 @@
             "Type": "EffectCondition",
             "Entity": "Target",
             "EntityEffectIds": [
-              "AT_Ice_King_Frost_1"
+              "AT_Ice_King_Frost_3"
             ],
             "Match": "All",
             "Next": {
@@ -120,38 +88,86 @@
               "Interactions": [
                 {
                   "Type": "ClearEntityEffect",
-                  "EntityEffectId": "AT_Ice_King_Frost_1",
+                  "EntityEffectId": "AT_Ice_King_Frost_3",
                   "Entity": "Target"
                 },
                 {
                   "Type": "ApplyEffect",
-                  "EffectId": "AT_Ice_King_Frost_2",
+                  "EffectId": "AT_Ice_King_Frost_4",
                   "Entity": "Target",
                   "Duration": 20
                 }
               ]
             },
             "Failed": {
-              "Type": "ApplyEffect",
-              "EffectId": "AT_Ice_King_Frost_1",
+              "Type": "EffectCondition",
               "Entity": "Target",
-              "Duration": 20
+              "EntityEffectIds": [
+                "AT_Ice_King_Frost_2"
+              ],
+              "Match": "All",
+              "Next": {
+                "Type": "Serial",
+                "Interactions": [
+                  {
+                    "Type": "ClearEntityEffect",
+                    "EntityEffectId": "AT_Ice_King_Frost_2",
+                    "Entity": "Target"
+                  },
+                  {
+                    "Type": "ApplyEffect",
+                    "EffectId": "AT_Ice_King_Frost_3",
+                    "Entity": "Target",
+                    "Duration": 20
+                  }
+                ]
+              },
+              "Failed": {
+                "Type": "EffectCondition",
+                "Entity": "Target",
+                "EntityEffectIds": [
+                  "AT_Ice_King_Frost_1"
+                ],
+                "Match": "All",
+                "Next": {
+                  "Type": "Serial",
+                  "Interactions": [
+                    {
+                      "Type": "ClearEntityEffect",
+                      "EntityEffectId": "AT_Ice_King_Frost_1",
+                      "Entity": "Target"
+                    },
+                    {
+                      "Type": "ApplyEffect",
+                      "EffectId": "AT_Ice_King_Frost_2",
+                      "Entity": "Target",
+                      "Duration": 20
+                    }
+                  ]
+                },
+                "Failed": {
+                  "Type": "ApplyEffect",
+                  "EffectId": "AT_Ice_King_Frost_1",
+                  "Entity": "Target",
+                  "Duration": 20
+                }
+              }
             }
           }
+        },
+        "Failed": {
+          "Type": "ApplyEffect",
+          "EffectId": "AT_Ice_King_Slow_Weak",
+          "Entity": "Target",
+          "Duration": 1.5
         }
+      },
+      "Failed": {
+        "Type": "ApplyEffect",
+        "EffectId": "AT_Ice_King_Slow_Weak",
+        "Entity": "Target",
+        "Duration": 1.5
       }
-    },
-    "Failed": {
-      "Type": "ApplyEffect",
-      "EffectId": "AT_Ice_King_Slow_Weak",
-      "Entity": "Target",
-      "Duration": 1.5
     }
-  },
-  "Failed": {
-    "Type": "ApplyEffect",
-    "EffectId": "AT_Ice_King_Slow_Weak",
-    "Entity": "Target",
-    "Duration": 1.5
   }
 }

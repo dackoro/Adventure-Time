@@ -1,5 +1,5 @@
 {
-  "$Comment": "Shield warning look (2026-10-21: before it blows the bubble should stop turning and throb, growing and shrinking fast). AT_Ice_King_Ice_Shield (the interaction) swaps the shield effect for this one when the red warning starts: it applies this, then clears AT_Ice_King_Ice_Shield; the burst clears this one. Same bubble, tint, snow and 70 % DamageResistance as AT_Ice_King_Ice_Shield. No Spawn set (it must not pop in again: it takes over the same bubble). Idle = Shield_Bubble_Pulse (art pass, 1.5 s loop): no turning, the bubble and its caps throb, beats speeding up from 18 to 6 frames apart and swelling from x1.08 to x1.17 toward the burst. The Despawn set (swells and vanishes) lives here now, since this is the effect the burst removes; AT_Ice_King_Ice_Shield has no Despawn any more, so the swap does not play it. Untested in game: whether the client swaps the two overrides without a visible jump.",
+  "$Comment": "Shield warning look (2026-10-21: before it blows the bubble should stop turning and throb, growing and shrinking fast). AT_Ice_King_Ice_Shield (the interaction) swaps the shield effect for this one when the red warning starts: it applies this, then clears AT_Ice_King_Ice_Shield; the burst clears this one. Same bubble, tint, snow and 70 % DamageResistance as AT_Ice_King_Ice_Shield. No Spawn set (it must not pop in again: it takes over the same bubble). Idle = Shield_Bubble_Pulse (art pass, 1.5 s loop): no turning, the bubble and its caps throb, beats speeding up from 18 to 6 frames apart and swelling from x1.08 to x1.17 toward the burst. The Despawn set (swells and vanishes) lives here now, since this is the effect the burst removes; AT_Ice_King_Ice_Shield has no Despawn any more, so the swap does not play it. Untested in game: whether the client swaps the two overrides without a visible jump. 2026-10-22 (playtest: an ice ball chasing me looks odd, he should not move while shielded): HorizontalSpeedMultiplier 0.0, the same lock as AT_Ice_King_Beam_Focus (the ground ultimate): no walking or flying, and no turning, while the bubble is up.",
   "ApplicationEffects": {
     "EntityTopTint": "#e3fbff",
     "EntityBottomTint": "#80ecff",
@@ -7,7 +7,8 @@
       {
         "SystemId": "Effect_Snow"
       }
-    ]
+    ],
+    "HorizontalSpeedMultiplier": 0.0
   },
   "Duration": 4,
   "OverlapBehavior": "Overwrite",

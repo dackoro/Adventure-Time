@@ -1,0 +1,307 @@
+{
+  "$Comment": "Rune ice mace, first person: for each slam of Rune_Ice_Mace_Spawn (0.70, 1.37, 2.04 s) a downward ice slash just before and the iceberg ice impact on the ground; a last burst at 2.40 s. Put it in the effect's FirstPersonParticles with PositionOffset about (0, 0.05, 1.2): the ground 1.2 blocks in front. Script rune_fp.py.",
+  "BoundingRadius": 4,
+  "LifeSpan": 3.0,
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright",
+      "StartDelay": 0.58,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      },
+      "PositionOffset": {
+        "X": 0,
+        "Y": 1.0,
+        "Z": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright2",
+      "StartDelay": 0.58,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      },
+      "PositionOffset": {
+        "X": 0,
+        "Y": 1.0,
+        "Z": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Alpha2",
+      "StartDelay": 0.58,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      },
+      "PositionOffset": {
+        "X": 0,
+        "Y": 1.0,
+        "Z": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Cracks",
+      "PositionOffset": {
+        "Y": 0.02
+      },
+      "StartDelay": 0.7
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Debris",
+      "StartDelay": 0.7
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Spikes",
+      "StartDelay": 0.7
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Dust",
+      "PositionOffset": {
+        "Y": 0.5
+      },
+      "StartDelay": 0.7
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Distortion3",
+      "StartDelay": 0.7
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Ground",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "StartDelay": 0.7
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Distortion",
+      "StartDelay": 0.7
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright",
+      "StartDelay": 1.25,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      },
+      "PositionOffset": {
+        "X": 0,
+        "Y": 1.0,
+        "Z": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright2",
+      "StartDelay": 1.25,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      },
+      "PositionOffset": {
+        "X": 0,
+        "Y": 1.0,
+        "Z": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Alpha2",
+      "StartDelay": 1.25,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      },
+      "PositionOffset": {
+        "X": 0,
+        "Y": 1.0,
+        "Z": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Cracks",
+      "PositionOffset": {
+        "Y": 0.02
+      },
+      "StartDelay": 1.37
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Debris",
+      "StartDelay": 1.37
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Spikes",
+      "StartDelay": 1.37
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Dust",
+      "PositionOffset": {
+        "Y": 0.5
+      },
+      "StartDelay": 1.37
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Distortion3",
+      "StartDelay": 1.37
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Ground",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "StartDelay": 1.37
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Distortion",
+      "StartDelay": 1.37
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright",
+      "StartDelay": 1.92,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      },
+      "PositionOffset": {
+        "X": 0,
+        "Y": 1.0,
+        "Z": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright2",
+      "StartDelay": 1.92,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      },
+      "PositionOffset": {
+        "X": 0,
+        "Y": 1.0,
+        "Z": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Alpha2",
+      "StartDelay": 1.92,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      },
+      "PositionOffset": {
+        "X": 0,
+        "Y": 1.0,
+        "Z": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Cracks",
+      "PositionOffset": {
+        "Y": 0.02
+      },
+      "StartDelay": 2.04
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Debris",
+      "StartDelay": 2.04
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Spikes",
+      "StartDelay": 2.04
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Dust",
+      "PositionOffset": {
+        "Y": 0.5
+      },
+      "StartDelay": 2.04
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Distortion3",
+      "StartDelay": 2.04
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Ground",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "StartDelay": 2.04
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Distortion",
+      "StartDelay": 2.04
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Cracks",
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0.6,
+        "Z": -0.4
+      },
+      "StartDelay": 2.4
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Debris",
+      "StartDelay": 2.4,
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0.6,
+        "Z": -0.4
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Spikes",
+      "StartDelay": 2.4,
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0.6,
+        "Z": -0.4
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Dust",
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0.6,
+        "Z": -0.4
+      },
+      "StartDelay": 2.4
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Distortion3",
+      "StartDelay": 2.4,
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0.6,
+        "Z": -0.4
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Ground",
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0.6,
+        "Z": -0.4
+      },
+      "StartDelay": 2.4
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Iceberg_Hit_Shockwave_Distortion",
+      "StartDelay": 2.4,
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0.6,
+        "Z": -0.4
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$Comment": "Frost Burst rune bolt 1-4 (2026-10-22): as AT_Ice_King_Frost_Beam_Hit: 6 ice, 1 frost stack (5 bolts = 5 stacks = a freeze).",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 6
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageAttribute": "Damage",
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break"
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

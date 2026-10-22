@@ -1,0 +1,57 @@
+{
+  "$Comment": "Freezing ray hit of the Freezing Ray and Chain Rays runes (2026-10-22): as AT_Ice_King_Ice_Ray_Hit_Freezing without the shield probe: 15 ice, an instant 1.5 s freeze (guarded: none while AT_Ice_King_Freeze_Guard is on), then 1 frost stack.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 15
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageAttribute": "Damage",
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Ray_Hit"
+      }
+    },
+    {
+      "Type": "EffectCondition",
+      "Entity": "Target",
+      "EntityEffectIds": [
+        "AT_Ice_King_Freeze_Guard",
+        "AT_Ice_King_Frost_Immune"
+      ],
+      "Match": "None",
+      "Next": {
+        "Type": "Serial",
+        "Interactions": [
+          "AT_Ice_King_Freeze_Prep",
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze",
+            "Entity": "Target",
+            "Duration": 1.5
+          },
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze_Guard",
+            "Entity": "Target",
+            "Duration": 6.5
+          }
+        ]
+      },
+      "Failed": {
+        "Type": "Simple",
+        "RunTime": 0
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

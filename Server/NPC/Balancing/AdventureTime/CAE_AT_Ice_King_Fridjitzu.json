@@ -1,6 +1,6 @@
 {
   "Type": "CombatActionEvaluator",
-  "$Comment": "Ice King, phase 3 (Fridjitzu, AT_Ice_King_Fridjitzu; was CAE_AT_Ice_King_Enraged until 2026-10-21): same actions as CAE_AT_Ice_King with shorter cooldowns, no health gate on the summon, and the FridjitzuCombo instead of the scepter swing.",
+  "$Comment": "Ice King, phase 3 (Fridjitzu, AT_Ice_King_Fridjitzu; was CAE_AT_Ice_King_Enraged until 2026-10-21): same actions as CAE_AT_Ice_King with shorter cooldowns, no health gate on the summon, and the FridjitzuCombo instead of the scepter swing. 2026-10-22 harness fight (AFK player moved around him, attack counts from the Evaluator log): phase 3 cast FridjitzuCombo 28 % (5 in a row once), IceSwordSlash once, IceRayBoth 23 %. FridjitzuCombo weight 6->5; FridjitzuCombo cooldown 3->6 s; IceSwordSlash weight 5->6; IceRayBoth cooldown 4->7 s; IceRay cooldown 5->8 s. Second run: FridjitzuCombo fell to 8.6 %; weight back to 6 (cooldown stays 6 s). 2026-10-22 (playtest: switch off friendly-fire avoidance on all his attacks; if he kills his own penguins by mistake, better, a more chaotic team fight): every action has DamageFriendlies true (AbilityCombatAction -> ActionCombatAbility -> CombatSupport.setExecutingAttack), so his ground attacks also hurt his henchmen, who list his group in DisableDamageGroups and would cancel it otherwise. They still never target him back (their Damage sensor ignores that group).",
   "EntityEffects": [
     "Immunity_Slow",
     "Immunity_Freeze",
@@ -31,7 +31,7 @@
     "AvailableActions": {
       "MeleeHit": {
         "Type": "Ability",
-        "Description": "Swing the scepter at a close target. 2026-10-21: renamed ScepterHit -> MeleeHit (he holds no scepter; his close-range swing). The interaction/root keep their old file names (AT_Ice_King_Scepter_Hit).",
+        "Description": "Close-range punches, right and left in turn (2026-10-21; was the scepter swing). Phase 3 root Root_AT_Ice_King_Punch_Fridjitzu: same punches with the nunchuck animation set.",
         "Target": "Hostile",
         "AttackDistanceRange": [
           1,
@@ -42,7 +42,7 @@
           9
         ],
         "FailureTimeout": 2,
-        "Ability": "Root_AT_Ice_King_Scepter_Hit",
+        "Ability": "Root_AT_Ice_King_Punch_Fridjitzu",
         "SubState": "Default",
         "WeightCoefficient": 2,
         "InteractionVars": {
@@ -85,11 +85,12 @@
             "MaxValue": 1
           }
         ],
-        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game)."
+        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game).",
+        "DamageFriendlies": true
       },
       "FridjitzuCombo": {
         "Type": "Ability",
-        "Description": "Fridjitzu: 3-hit combo with the ice nunchucks (left, right, charged spin that adds a frost stack).",
+        "Description": "Fridjitzu: 3-hit combo with the ice nunchucks (left, right, charged spin that adds a frost stack). 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): weight 6 (was 3): his signature combo was only ~14 % of the close picks; ~50 % now (simulated).",
         "Target": "Hostile",
         "AttackDistanceRange": [
           1,
@@ -102,7 +103,7 @@
         "FailureTimeout": 3,
         "Ability": "Root_AT_Ice_King_Fridjitzu",
         "SubState": "Default",
-        "WeightCoefficient": 3,
+        "WeightCoefficient": 6,
         "InteractionVars": {
           "Fridjitzu_Hit_Damage": {
             "Interactions": [
@@ -129,7 +130,7 @@
             "Type": "TimeSinceLastUsed",
             "Curve": {
               "Type": "Switch",
-              "SwitchPoint": 3
+              "SwitchPoint": 6
             }
           },
           {
@@ -148,7 +149,8 @@
             "MaxValue": 1
           }
         ],
-        "$Comment": "Phase 3 melee instead of ScepterHit (kept in AvailableActions, out of the ActionSet). He stays close after it (PostExecuteDistanceRange 2-4): a brawler now, not a mage. Damage of hits 1-2 here; hit 3 is AT_Ice_King_Fridjitzu_Final_Damage, also given here as Fridjitzu_Final_Damage: an NPC attack never uses a Replace's DefaultValue (log: Missing replacement interactions ... for var Fridjitzu_Final_Damage)."
+        "$Comment": "Phase 3 melee instead of ScepterHit (kept in AvailableActions, out of the ActionSet). He stays close after it (PostExecuteDistanceRange 2-4): a brawler now, not a mage. Damage of hits 1-2 here; hit 3 is AT_Ice_King_Fridjitzu_Final_Damage, also given here as Fridjitzu_Final_Damage: an NPC attack never uses a Replace's DefaultValue (log: Missing replacement interactions ... for var Fridjitzu_Final_Damage).",
+        "DamageFriendlies": true
       },
       "IceRay": {
         "Type": "Ability",
@@ -172,7 +174,7 @@
             "Type": "TimeSinceLastUsed",
             "Curve": {
               "Type": "Switch",
-              "SwitchPoint": 5
+              "SwitchPoint": 8
             }
           },
           {
@@ -191,11 +193,12 @@
             "MinValue": 0.7,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceNova": {
         "Type": "Ability",
-        "Description": "Ground warning, then a freezing burst around the king. Answer to a target that stays close and keeps hitting.",
+        "Description": "Ground warning, then a freezing burst around the king. Answer to a target that stays close and keeps hitting. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): RecentSustainedDamage is a Switch at 10.",
         "Target": "Hostile",
         "AttackDistanceRange": [
           0,
@@ -236,20 +239,20 @@
             }
           },
           {
-            "$Comment": "Any recent combat damage raises it, more damage = closer to 1 (InverseExponential over 0-15, as the Skeleton_Elite ShieldBlock over 0-10). The evaluator clears recent damage after each run.",
+            "$Comment": "2026-10-22 balance: Switch 0->1 at 10 recent damage (was InverseExponential). That curve is 1.1*(x-0.1)^0.28: below 10 % of its XRange Math.pow of a negative base gives NaN, which passed the clamp and won the evaluation, so this fired when NOT being hit (review). Switch as the Gobliterator's FurnaceBlast.",
             "Type": "RecentSustainedDamage",
             "Sources": [
               "Combat"
             ],
             "Curve": {
-              "ResponseCurve": "InverseExponential",
-              "XRange": [
-                0,
-                15
-              ]
+              "Type": "Switch",
+              "InitialState": 0,
+              "FinalState": 1,
+              "SwitchPoint": 10
             }
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "Iceberg": {
         "Type": "Ability",
@@ -279,12 +282,24 @@
             "Type": "Randomiser",
             "MinValue": 0.6,
             "MaxValue": 1
+          },
+          {
+            "$Comment": "2026-10-22 balance: better the farther the target, 0 at 3 blocks, 1 at 15 (it punishes keeping distance, as its description says).",
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "Linear",
+              "XRange": [
+                3,
+                15
+              ]
+            }
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "Summon": {
         "Type": "Ability",
-        "Description": "Summon 2 Gunters (up to 10 nearby). Root_AT_Ice_King_Summon_Fridjitzu: the phase 1 summon with nunchuck animations, so he keeps holding them right (2026-10-21).",
+        "Description": "Summon 2 Gunters (up to 10 nearby). Root_AT_Ice_King_Summon_Fridjitzu: the phase 1 summon with nunchuck animations, so he keeps holding them right (2026-10-21). 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): NearbyCount Switch 5 (was 9).",
         "Target": "Hostile",
         "AttackDistanceRange": [
           3,
@@ -315,10 +330,11 @@
               "Type": "Switch",
               "InitialState": 1,
               "FinalState": 0,
-              "SwitchPoint": 9
+              "SwitchPoint": 5
             }
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceRayFreezing": {
         "Type": "Ability",
@@ -361,7 +377,8 @@
             "MinValue": 0.2,
             "MaxValue": 0.8
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceRayBoth": {
         "Type": "Ability",
@@ -385,7 +402,7 @@
             "Type": "TimeSinceLastUsed",
             "Curve": {
               "Type": "Switch",
-              "SwitchPoint": 4
+              "SwitchPoint": 7
             },
             "$Comment": "Every 4 s at most."
           },
@@ -405,7 +422,8 @@
             "MinValue": 0.7,
             "MaxValue": 1
           }
-        ]
+        ],
+        "DamageFriendlies": true
       },
       "IceSwordSlash": {
         "Type": "Ability",
@@ -422,7 +440,7 @@
         "FailureTimeout": 2,
         "Ability": "Root_AT_Ice_King_Ice_Sword_Slash",
         "SubState": "Default",
-        "WeightCoefficient": 5,
+        "WeightCoefficient": 6,
         "InteractionVars": {
           "Scepter_Hit_Damage": {
             "Interactions": [
@@ -452,9 +470,53 @@
             "Type": "Randomiser",
             "MinValue": 0.6,
             "MaxValue": 1
+          },
+          {
+            "$Comment": "2026-10-22 balance: only within 5 blocks; without a distance he walked up from 14 blocks to swing.",
+            "Type": "TargetDistance",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 1,
+              "FinalState": 0,
+              "SwitchPoint": 5
+            }
           }
         ],
-        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game)."
+        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game).",
+        "DamageFriendlies": true
+      },
+      "IceMaceSlam": {
+        "Type": "Ability",
+        "Description": "Ice mace slam (2026-10-21, instead of the drum solo): summons an ice mace and slams the ground 3 times; each slam sends a growing ring (14 ice, thrown up, 1 frost) the player must jump over. Mid range, every 16 s at most. 2026-10-21 (playtest: phase 1 is the ranged phase, the mace belongs with the close fighting of phase 3): moved to CAE_AT_Ice_King_Fridjitzu, every 16 s at most. The Staff animations tuck the held item, so the nunchucks are put away while he swings the mace with both hands.",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          3,
+          16
+        ],
+        "PostExecuteDistanceRange": [
+          6,
+          10
+        ],
+        "FailureTimeout": 3,
+        "Ability": "Root_AT_Ice_King_Ice_Mace_Slam",
+        "SubState": "Default",
+        "WeightCoefficient": 5,
+        "Conditions": [
+          {
+            "$Comment": "Every 16 s at most.",
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 16
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.6,
+            "MaxValue": 1
+          }
+        ],
+        "DamageFriendlies": true
       }
     },
     "ActionSets": {
@@ -467,7 +529,8 @@
           "Iceberg",
           "Summon",
           "IceRayFreezing",
-          "IceSwordSlash"
+          "IceSwordSlash",
+          "IceMaceSlam"
         ]
       }
     }

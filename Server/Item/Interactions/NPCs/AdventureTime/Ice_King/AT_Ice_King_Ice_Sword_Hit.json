@@ -1,36 +1,55 @@
 {
-  "$Comment": "Ice sword slash hit (2026-10-21, concept attack 5): 28 ice damage, a push away and a little up, and 2 frost stacks (AT_Ice_King_Frost_Hit). Used by AT_Ice_King_Ice_Sword_Dive (air) and AT_Ice_King_Ice_Sword_Slash (ground). Knockback format of AT_Ice_King_Ice_Nova_Damage.",
-  "Type": "Serial",
-  "Interactions": [
-    {
-      "Type": "DamageEntity",
-      "DamageCalculator": {
-        "Type": "Absolute",
-        "BaseDamage": {
-          "Ice": 28
+  "$Comment": "Ice sword slash hit (2026-10-21, concept attack 5): 28 ice damage, a push away and a little up, and 2 frost stacks (AT_Ice_King_Frost_Hit). Used by AT_Ice_King_Ice_Sword_Dive (air) and AT_Ice_King_Ice_Sword_Slash (ground). Knockback format of AT_Ice_King_Ice_Nova_Damage. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Ice_Hit when the hit lands (was SFX_Ice_Break). 2026-10-22 (playtest: blockable, like the punches; rule: what comes straight at you is blocked, what marks a zone is dodged): starts with a 1 Physical damage probe, the pattern of AT_Ice_King_Ice_Ray_Hit. Vanilla swords and shields block only the causes in their DamageModifiers (Physical, Projectile...), so Ice never was. Blocked from the front -> its empty Blocked branch: no ice damage, no frost, no push; the guard pays InitialAmount / StaminaCost.Value x StaminaDrainMultiplier 50 = 5 stamina with a vanilla sword or shield (Value 10). Not blocked -> Next, the old hit with 1 ice damage less (same total). 2026-10-22: blocked chop = 1 frost stack (Blocked branch); the two light swings (AT_Ice_King_Ice_Sword_Swing_Hit) blocked add nothing.",
+  "Type": "DamageEntity",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Physical": 1
+    }
+  },
+  "DamageEffects": {
+    "StaminaDrainMultiplier": 50
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "DamageEntity",
+        "DamageCalculator": {
+          "Type": "Absolute",
+          "BaseDamage": {
+            "Ice": 27
+          },
+          "RandomPercentageModifier": 0.1
         },
-        "RandomPercentageModifier": 0.1
+        "DamageEffects": {
+          "Knockback": {
+            "Force": 10,
+            "RelativeX": 0,
+            "RelativeZ": -1,
+            "VelocityY": 3,
+            "VelocityType": "Set",
+            "VelocityConfig": {
+              "Threshold": 0.9
+            }
+          },
+          "WorldParticles": [
+            {
+              "SystemId": "Impact_Ice"
+            }
+          ],
+          "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Hit"
+        }
       },
-      "DamageEffects": {
-        "Knockback": {
-          "Force": 10,
-          "RelativeX": 0,
-          "RelativeZ": -1,
-          "VelocityY": 3,
-          "VelocityType": "Set",
-          "VelocityConfig": {
-            "Threshold": 0.9
-          }
-        },
-        "WorldParticles": [
-          {
-            "SystemId": "Impact_Ice"
-          }
-        ],
-        "WorldSoundEventId": "SFX_Ice_Break"
-      }
-    },
-    "AT_Ice_King_Frost_Hit",
-    "AT_Ice_King_Frost_Hit"
-  ]
+      "AT_Ice_King_Frost_Hit",
+      "AT_Ice_King_Frost_Hit"
+    ]
+  },
+  "Blocked": {
+    "Type": "Serial",
+    "$Comment": "Guard up on the chop (2026-10-22: blocked, only the strong hits should still add frost: the sword's last chop and the nunchucks' last hit): no damage, no push, but 1 frost stack (unblocked: 2).",
+    "Interactions": [
+      "AT_Ice_King_Frost_Hit"
+    ]
+  }
 }

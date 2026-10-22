@@ -1,0 +1,19 @@
+{
+  "$Comment": "MeleeHit root for phase 3 (CAE_AT_Ice_King_Fridjitzu, 2026-10-21): the same alternating punches with the nunchuck animation set (PunchR / PunchL in AT_Ice_King_Nunchucks), so the nunchucks stay in his hand instead of the staff set.",
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "IceKingPunchesFridjitzu",
+      "ChainingAllowance": 10,
+      "Next": [
+        "AT_Ice_King_Punch_R_Fridjitzu",
+        "AT_Ice_King_Punch_L_Fridjitzu"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

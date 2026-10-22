@@ -1,0 +1,120 @@
+{
+  "$Comment": "Ice King ultimate beam layer (2026-10-22): wide soft sky-blue haze. BillboardVelocity + VelocityStretchMultiplier 60 (as vanilla Flamethrower_Beam): a 60-block tube facing the camera.",
+  "RenderMode": "BlendAdd",
+  "ParticleRotationInfluence": "BillboardVelocity",
+  "MaxConcurrentParticles": 3,
+  "ParticleLifeSpan": {
+    "Min": 0.2,
+    "Max": 0.2
+  },
+  "SpawnBurst": true,
+  "SpawnRate": {
+    "Min": 1.0,
+    "Max": 1.0
+  },
+  "WaveDelay": {
+    "Min": 0.1,
+    "Max": 0.1
+  },
+  "ParticleRotateWithSpawner": true,
+  "UseEmitDirection": false,
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 1.0,
+      "Max": 1.0
+    }
+  },
+  "VelocityStretchMultiplier": 60,
+  "LinearFiltering": true,
+  "Particle": {
+    "Texture": "Particles/Textures/AdventureTime/Ice_King/Ultimate_Beam_Glow.png",
+    "ScaleRatioConstraint": "None",
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 7.0,
+          "Max": 7.0
+        },
+        "Y": {
+          "Min": 1.0,
+          "Max": 1.0
+        }
+      },
+      "Opacity": 0.45,
+      "Color": "#5fc8ff",
+      "Rotation": {
+        "Z": {
+          "Min": -90.0,
+          "Max": -90.0
+        }
+      }
+    },
+    "Animation": {
+      "0": {
+        "Opacity": 0.0,
+        "Scale": {
+          "X": {
+            "Min": 5.95,
+            "Max": 5.95
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "15": {
+        "Opacity": 0.45,
+        "Scale": {
+          "X": {
+            "Min": 7.35,
+            "Max": 7.35
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "50": {
+        "Opacity": 0.45,
+        "Scale": {
+          "X": {
+            "Min": 6.65,
+            "Max": 6.65
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "85": {
+        "Opacity": 0.45,
+        "Scale": {
+          "X": {
+            "Min": 7.35,
+            "Max": 7.35
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "100": {
+        "Opacity": 0.0,
+        "Scale": {
+          "X": {
+            "Min": 7.0,
+            "Max": 7.0
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      }
+    }
+  }
+}

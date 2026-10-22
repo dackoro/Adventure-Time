@@ -1,52 +1,71 @@
 {
-  "$Comment": "Rare freezing variant of AT_Ice_King_Ice_Ray_Hit: the same hit plus an instant 1.5 s freeze. Picked about 15% of the time (CAE weight for the ray, encounter Random for icebergs and lightning).",
-  "Type": "Serial",
-  "Interactions": [
-    {
-      "Type": "DamageEntity",
-      "DamageCalculator": {
-        "Type": "Absolute",
-        "BaseDamage": {
-          "Ice": 18
+  "$Comment": "Rare freezing variant of AT_Ice_King_Ice_Ray_Hit: the same hit plus an instant 1.5 s freeze. Picked about 15% of the time (CAE weight for the ray, encounter Random for icebergs and lightning). Shield (2026-10-21: blocking with a shield should stop the ray, frost and slow included): the vanilla shields (Shield_Block_Damage, Weapon_Shield_Secondary_Guard_Wield) block only the causes listed in their AngledWielding DamageModifiers (Physical, Projectile, Poison, Fire, Wind, Earth, Water, Bludgeoning) and match the exact cause (DamageSystems wielding filter), so Ice was never blocked. This hit starts with a 1 Projectile damage probe: blocked from the front (95 degrees, stamina cost, the shield's own block effects) -> its Blocked branch, which is empty, so no ice damage, no frost and no slow; not blocked -> Next, the old hit with 1 ice damage less (same total). A failed probe (invulnerable target) also stops the rest. 2026-10-21 (snow shell): AT_Ice_King_Freeze_Prep before the freeze (clears the short frost effects, waits 0.1 s). 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Ice_Ray_Hit when the hit lands (was SFX_Ice_Break). 2026-10-22 block stamina (playtest: blocking the king with a plain sword barely cost stamina, 50 hits in a row): a blocked hit costs InitialAmount / StaminaCost.Value stamina (DamageSystems.DamageStamina; vanilla sword and shield Value 10 = 1 stamina per 10 damage, player stamina max 10, no regen while guarding, below 0 the guard breaks), times DamageEffects.StaminaDrainMultiplier (official field, inherited by Parent overrides; vanilla Gobliterator uppercut 10). StaminaDrainMultiplier 40: the blocked 1-damage probe costs 4 stamina (was 0.1). 2026-10-22 (playtest: the king's attacks froze his own ice pillars, that must never happen; they may take damage, so the player can hide behind one, but never frost or freeze): targets with the marker AT_Ice_King_Frost_Immune (the pillar AT_Ice_King_Ice_Pillar and AT_Ice_King_Lightning_Stuck put it on themselves) skip the frost/freeze part; the damage still lands.",
+  "Type": "DamageEntity",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Projectile": 1
+    }
+  },
+  "DamageEffects": {
+    "StaminaDrainMultiplier": 40
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "DamageEntity",
+        "DamageCalculator": {
+          "Type": "Absolute",
+          "BaseDamage": {
+            "Ice": 17
+          },
+          "RandomPercentageModifier": 0.1
         },
-        "RandomPercentageModifier": 0.1
+        "DamageEffects": {
+          "WorldParticles": [
+            {
+              "SystemId": "Impact_Ice"
+            }
+          ],
+          "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Ray_Hit"
+        }
       },
-      "DamageEffects": {
-        "WorldParticles": [
-          {
-            "SystemId": "Impact_Ice"
-          }
+      {
+        "$Comment": "Freeze immunity: no freeze while AT_Ice_King_Freeze_Guard is on the target; every freeze puts it for the freeze time + 5 s (6.5 s here, 2026-10-21, was 1.5 + 3). Change the immunity in the Guard Duration.",
+        "Type": "EffectCondition",
+        "Entity": "Target",
+        "EntityEffectIds": [
+          "AT_Ice_King_Freeze_Guard",
+          "AT_Ice_King_Frost_Immune"
         ],
-        "WorldSoundEventId": "SFX_Ice_Break"
-      }
-    },
-    {
-      "$Comment": "Freeze immunity: no freeze while AT_Ice_King_Freeze_Guard is on the target; every freeze puts it for the freeze time + 5 s (6.5 s here, 2026-10-21, was 1.5 + 3). Change the immunity in the Guard Duration.",
-      "Type": "EffectCondition",
-      "Entity": "Target",
-      "EntityEffectIds": [
-        "AT_Ice_King_Freeze_Guard"
-      ],
-      "Match": "None",
-      "Next": {
-        "Type": "Serial",
-        "Interactions": [
-        {
-          "$Comment": "The rare instant freeze (1.5 s). AT_Ice_King_Freeze's ApplyConditions skip it under the warmth potion or Immunity_Freeze.",
-          "Type": "ApplyEffect",
-          "EffectId": "AT_Ice_King_Freeze",
-          "Entity": "Target",
-          "Duration": 1.5
-        },
-          {
-            "Type": "ApplyEffect",
-            "EffectId": "AT_Ice_King_Freeze_Guard",
-            "Entity": "Target",
-            "Duration": 6.5
-          }
-        ]
-      }
-    },
-    "AT_Ice_King_Frost_Hit"
-  ]
+        "Match": "None",
+        "Next": {
+          "Type": "Serial",
+          "Interactions": [
+            "AT_Ice_King_Freeze_Prep",
+            {
+              "$Comment": "The rare instant freeze (1.5 s). AT_Ice_King_Freeze's ApplyConditions skip it under the warmth potion or Immunity_Freeze.",
+              "Type": "ApplyEffect",
+              "EffectId": "AT_Ice_King_Freeze",
+              "Entity": "Target",
+              "Duration": 1.5
+            },
+            {
+              "Type": "ApplyEffect",
+              "EffectId": "AT_Ice_King_Freeze_Guard",
+              "Entity": "Target",
+              "Duration": 6.5
+            }
+          ]
+        }
+      },
+      "AT_Ice_King_Frost_Hit"
+    ]
+  },
+  "Blocked": {
+    "Type": "Simple",
+    "$Comment": "Shield up: nothing else lands.",
+    "RunTime": 0
+  }
 }

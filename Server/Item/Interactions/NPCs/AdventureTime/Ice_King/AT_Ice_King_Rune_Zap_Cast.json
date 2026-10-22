@@ -1,0 +1,72 @@
+{
+  "$Comment": "Zap rune cast (2026-10-22): 0.15 s with the king's ZapCast pose and hand glow, then the zap bolt. Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: the king's own AT_Ice_King_Staff animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
+  "Type": "StatsCondition",
+  "Costs": {
+    "AT_Ice_Magic": 30
+  },
+  "Failed": "Ability_Cast_Fail",
+  "Next": {
+    "Type": "StatsCondition",
+    "UseAbilityCost": true,
+    "Failed": "Ability_Cast_Fail",
+    "Next": {
+      "Type": "Parallel",
+      "Interactions": [
+        {
+          "Interactions": [
+            {
+              "Type": "Simple",
+              "RunTime": 0.15,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "ZapCast",
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "AT_Ice_King_Summon_Energy",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "R-Hand",
+                    "Scale": 1.0
+                  },
+                  {
+                    "SystemId": "AT_Ice_King_Summon_Energy",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "L-Hand",
+                    "Scale": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Zap",
+              "Lifetime": 0.8,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed"
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.15
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "TriggerCooldown",
+              "UseAbilityCooldown": true
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "ChangeStat",
+              "UseAbilityCost": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

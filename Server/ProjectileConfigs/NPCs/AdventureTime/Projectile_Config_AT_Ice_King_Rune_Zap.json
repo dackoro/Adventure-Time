@@ -1,0 +1,62 @@
+{
+  "$Comment": "Zap rune bolt (2026-10-22): the king's zap flight (fast, straight, LaunchForce 60, no gravity), vanilla player SpawnOffset (Projectile_Config_Fireball).",
+  "Model": "AT_Ice_King_Ray",
+  "LaunchForce": 60,
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 55,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "SpawnOffset": {
+    "X": 0.15,
+    "Y": -0.25,
+    "Z": -0.5
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "SplitAbilityProjectile"
+        },
+        "AT_Ice_King_Rune_Zap_Hit",
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Ice_Break",
+            "Particles": [
+              {
+                "SystemId": "Impact_Ice",
+                "TargetEntityPart": "Entity",
+                "DetachedFromModel": true
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  },
+  "LaunchWorldSoundEventId": "SFX_AT_Ice_King_Zap_Shot"
+}

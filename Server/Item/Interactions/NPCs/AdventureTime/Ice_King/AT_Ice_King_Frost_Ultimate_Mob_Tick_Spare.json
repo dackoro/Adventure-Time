@@ -1,0 +1,14 @@
+{
+  "$Comment": "Normal ultimate tick on non-players (2026-10-22): a creature with AT_Ice_King_Ice_Body gets nothing on the ticks (the ticks freeze no one any more, players included; the freeze comes with the final hit, see _Mob_Final_Spare); any other mob gets AT_Ice_King_Frost_Ultimate_Mob_Tick.",
+  "Type": "EffectCondition",
+  "Entity": "Target",
+  "EntityEffectIds": [
+    "AT_Ice_King_Ice_Body"
+  ],
+  "Match": "All",
+  "Next": {
+    "Type": "Simple",
+    "RunTime": 0
+  },
+  "Failed": "AT_Ice_King_Frost_Ultimate_Mob_Tick"
+}

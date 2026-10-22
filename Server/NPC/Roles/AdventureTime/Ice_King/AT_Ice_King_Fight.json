@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice King, phase 1 once the fight started: AT_Ice_King (same CAE_AT_Ice_King) but hostile for good, so he does not calm down and wander off ('?' Search) when the player stops hitting. AT_Ice_King_Encounter switches to it on the first hit (ChangeTargetRole). Without an encounter the neutral AT_Ice_King fights on its own. 2026-10-21: AlertedAnimation PhaseChange, so the start of this phase plays the phase-change animation (he passes through Alerted after every role change).",
+  "$Comment": "Ice King, phase 1 once the fight started: AT_Ice_King (same CAE_AT_Ice_King) but hostile for good, so he does not calm down and wander off ('?' Search) when the player stops hitting. AT_Ice_King_Encounter switches to it on the first hit (ChangeTargetRole). Without an encounter the neutral AT_Ice_King fights on its own. 2026-10-21: AlertedAnimation PhaseChange, so the start of this phase plays the phase-change animation (he passes through Alerted after every role change). 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Alert when he enters the role. 2026-10-22 (playtest: phase 1 fights like a mage; he walked into melee and mostly punched): he keeps 10-14 blocks (DesiredAttackDistanceRange, was 6-10) and flees to a safe distance when the target stays within 5 (CombatFleeIfTooCloseDistance, Component_Instruction_Combat_Retreat; was 2); AttackDistance and CombatBehaviorDistance 18, TargetRange 20 (were 12/12/12), so he engages from casting range. Phase 3 (Fridjitzu) stays a close fighter.",
   "Type": "Variant",
   "Reference": "Template_AT_Ice_King",
   "Parameters": {
@@ -38,14 +38,14 @@
       24
     ],
     "WakingIdleBehaviorComponent": "Component_Instruction_Stationary_Idle",
-    "AttackDistance": 12,
+    "AttackDistance": 18,
     "DesiredAttackDistanceRange": [
-      6,
-      10
+      10,
+      14
     ],
-    "CombatFleeIfTooCloseDistance": 2,
-    "CombatBehaviorDistance": 12,
-    "TargetRange": 12,
+    "CombatFleeIfTooCloseDistance": 5,
+    "CombatBehaviorDistance": 18,
+    "TargetRange": 20,
     "ChaseRelativeSpeed": 1,
     "CombatMovingRelativeSpeed": 0.8,
     "LeashMinPlayerDistance": 6,
@@ -65,6 +65,8 @@
       15,
       20
     ],
-    "AlertedAnimation": "PhaseChange"
+    "AlertedAnimation": "PhaseChange",
+    "AlertedVoice": true,
+    "AlertedVoiceSound": "SFX_AT_Ice_King_VO_Alert"
   }
 }

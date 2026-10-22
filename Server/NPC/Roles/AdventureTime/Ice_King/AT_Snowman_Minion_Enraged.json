@@ -1,0 +1,76 @@
+{
+  "$Comment": "Phase 4 henchman (2026-10-22: in phase 4 the king's attacks should hurt his henchmen too): exact copy of AT_Snowman_Minion with AT_Ice_King_Ice_Body_Half (50 % Ice resistance) instead of AT_Ice_King_Ice_Body (100 %), so the enraged king's ice hurts it at half. Same name, look and behaviour; if AT_Snowman_Minion changes, copy it again and swap the effect back. Original comment: Snowman henchman summoned by the Ice King with the Gunters (2026-10-21, concept 'SNOW MEN': slow, his hug freezes at once, melts after a while). Variant of vanilla Template_Predator like AT_Gunter_Minion. Slow (MaxSpeed 3), weak (40 HP); the hug (Root_AT_Snowman_Hug, Fox_Bite window) does 3 damage and freezes 2 s (AT_Snowman_Hug_Freeze, freeze guard respected). AT_Snowman_Melting in CombatConfig EntityEffects melts him in about 20 s (2 fire damage a second). Model AT_Snowman (placeholder). 2026-10-21 (playtest: they walk too fast): MaxSpeed 2 (was 3), ChaseRelativeSpeed and CombatMovingRelativeSpeed 0.8 (were 1). 2026-10-21: 2.5 blocks tall now (art): AttackDistance 2.6 (was 1.8) and CombatBehaviorDistance 5 (4) to match the longer hug reach (AT_Snowman_Hug EndDistance 3). 2026-10-22 (playtest: defend the king like a pack): FlockArray set, which turns on Template_Predator's 'Flock_Attack' listener while Idle/asleep: the king's beacon (payload = whoever hit him) makes them lock that attacker and fight (LockedTarget, Combat.Maybe). Side effect, also wanted: henchmen flock together, and when one engages the rest join (vanilla pack behaviour). Already fighting someone, they keep their target. 2026-10-22, reverted the same day: with FlockArray set they stopped attacking the player while he hit the king. Template_Predator's flock logic made the members follow and target their flock leader, and the king's Flock_Attack beacon sent them to the random Combat.Maybe check (ChanceToBeAlertedWhenFlockAlerted 70) on every hit, back to Idle, where the target is cleared. FlockArray removed; they detect players on their own as before. The king's beacon stays harmless (nobody listens to it now). 2026-10-22 (playtest: sometimes the king hits the Gunters first and they hit him back, that must never happen): DisableDamageGroups [Self, AT_Ice_King_Group]. The victim's list makes vanilla cancel damage from those groups (NPCDamageSystems.FilterDamageSystem -> CombatSupport.getCanCauseDamage) unless the attacker's running Attack has DamageFriendlies (the king's do, so his ultimate still hurts them), and the Damage sensor that locks the attacker (Template_Predator, Friendly false) skips attackers in those groups (SensorDamage), so a henchman never targets the king for a hit. Their own attacks also hold fire with the king in the line (ActionAttack AvoidFriendlyFire).",
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "AT_Snowman",
+    "DropList": "Empty",
+    "MaxHealth": 40,
+    "MaxSpeed": 2,
+    "WanderRadius": 6,
+    "ViewRange": 20,
+    "HearingRange": 12,
+    "AbsoluteDetectionRange": 20,
+    "AlertedRange": 25,
+    "AlertedTime": [
+      0.5,
+      1
+    ],
+    "MaintainDistanceWhileAlerted": false,
+    "FleeIfNotThreatened": false,
+    "TimidDuringDay": false,
+    "IsMemory": false,
+    "Attack": "Root_AT_Snowman_Hug",
+    "AttackDistance": 2.6,
+    "CombatBehaviorDistance": 5,
+    "CombatDirectWeight": 10,
+    "CombatStrafeWeight": 0,
+    "CombatBackOffAfterAttack": false,
+    "ChaseRelativeSpeed": 0.8,
+    "CombatMovingRelativeSpeed": 0.8,
+    "AlwaysSleepAtNight": false,
+    "_InteractionVars": {
+      "Bite_Damage": {
+        "Interactions": [
+          {
+            "Parent": "Fox_Bite_Damage",
+            "DamageCalculator": {
+              "Type": "Absolute",
+              "BaseDamage": {
+                "Physical": 3
+              },
+              "RandomPercentageModifier": 0.2
+            },
+            "DamageEffects": {
+              "Knockback": {
+                "Force": 0.5
+              }
+            }
+          },
+          "AT_Snowman_Hug_Freeze"
+        ]
+      }
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    },
+    "_CombatConfig": {
+      "EntityEffects": [
+        "Immunity_Slow",
+        "Immunity_Freeze",
+        "AT_Ice_King_Ice_Body_Half",
+        "AT_Snowman_Melting"
+      ]
+    },
+    "DisableDamageGroups": [
+      "Self",
+      "AT_Ice_King_Group"
+    ]
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.AT_Snowman.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

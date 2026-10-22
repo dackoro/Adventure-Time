@@ -1,0 +1,24 @@
+{
+  "$Comment": "Projectile model for the Ice King rune ultimate (2026-10-22, rune art): a 4-block piece of fullbright ice beam (pale core bar + two crossed glow quads), centred and symmetric, so shots fired end to end read as one beam. Art: Common/NPC/AdventureTime/Ice_King/Runes/Rune_Beam_Segment.*, script rune_beam.py. Scale 1 (attached particles would scale with it).",
+  "Model": "NPC/AdventureTime/Ice_King/Runes/Rune_Beam_Segment.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Runes/Rune_Beam_Segment_Texture.png",
+  "EyeHeight": 0,
+  "HitBox": {
+    "Max": {
+      "X": 0.1,
+      "Y": 0.1,
+      "Z": 0.1
+    },
+    "Min": {
+      "X": -0.1,
+      "Y": -0.1,
+      "Z": -0.1
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1,
+  "Light": {
+    "Color": "#8cf",
+    "Radius": 3
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$Comment": "Rune ice sword, first person (the ModelOverride sword is not drawn in first person): three ice slashes timed to Rune_Ice_Sword_Spawn (0.40 right->left, 0.85 left->right, 1.30 chop). Tune StartDelay and RotationOffset (Roll 180 mirrors the swing, Roll 90 makes it vertical). Script rune_fp.py.",
+  "BoundingRadius": 4,
+  "LifeSpan": 2.0,
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright",
+      "StartDelay": 0.4,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright2",
+      "StartDelay": 0.4,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Alpha2",
+      "StartDelay": 0.4,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 0
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright",
+      "StartDelay": 0.85,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 180
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright2",
+      "StartDelay": 0.85,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 180
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Alpha2",
+      "StartDelay": 0.85,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 180
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright",
+      "StartDelay": 1.3,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Bright2",
+      "StartDelay": 1.3,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Rune_Slash_Alpha2",
+      "StartDelay": 1.3,
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 90
+      }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "RenderMode": "BlendAdd",
+  "EmitOffset": {
+    "X": {
+      "Min": 0,
+      "Max": 0.4
+    },
+    "Y": {
+      "Min": 0,
+      "Max": 0.4
+    },
+    "Z": {
+      "Min": 0,
+      "Max": 0.4
+    }
+  },
+  "ParticleRotationInfluence": "Billboard",
+  "LinearFiltering": false,
+  "LightInfluence": 1,
+  "MaxConcurrentParticles": 18,
+  "ParticleLifeSpan": {
+    "Min": 1.5,
+    "Max": 1.875
+  },
+  "ParticleRotateWithSpawner": true,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "SpawnRate": {
+    "Min": 600,
+    "Max": 600
+  },
+  "TotalParticles": {
+    "Min": 20,
+    "Max": 20
+  },
+  "InitialVelocity": {
+    "Yaw": {
+      "Min": -180,
+      "Max": 180
+    },
+    "Pitch": {
+      "Min": -180,
+      "Max": 180
+    },
+    "Speed": {
+      "Min": 3,
+      "Max": 3
+    }
+  },
+  "Attractors": [
+    {
+      "Position": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Radius": 0,
+      "RadialImpulse": 0.6,
+      "RadialTangentAcceleration": 0.72,
+      "DampingMultiplier": {
+        "X": 0.3771495156249999,
+        "Y": 0.3771495156249999,
+        "Z": 0.3771495156249999
+      }
+    }
+  ],
+  "Particle": {
+    "Texture": "Particles/Textures/Smoke/Smoke_Smooth.png",
+    "FrameSize": {
+      "Width": 64,
+      "Height": 64
+    },
+    "Animation": {
+      "0": {
+        "Opacity": 0.4,
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          }
+        },
+        "Rotation": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          },
+          "Y": {
+            "Min": 0,
+            "Max": 0
+          },
+          "Z": {
+            "Min": 0,
+            "Max": 0
+          }
+        }
+      },
+      "10": {
+        "Opacity": 0.4
+      },
+      "30": {
+        "Opacity": 0.4
+      },
+      "60": {
+        "Opacity": 0.32,
+        "Scale": {
+          "X": {
+            "Min": 1.6,
+            "Max": 1.8
+          }
+        }
+      },
+      "100": {
+        "Opacity": 0.0
+      }
+    },
+    "InitialAnimationFrame": {
+      "Rotation": {
+        "X": {
+          "Min": 0,
+          "Max": 180
+        },
+        "Y": {
+          "Min": 0,
+          "Max": 180
+        },
+        "Z": {
+          "Min": 0,
+          "Max": 180
+        }
+      },
+      "Scale": {
+        "X": {
+          "Min": 1,
+          "Max": 1
+        }
+      },
+      "Opacity": 0.2
+    }
+  },
+  "$Comment": "Vanilla Iceball_Ice_Cloud, softer for the Ice King's nova and shield burst (2026-10-22: the smoke was very strong; then barely visible; then lower its opacity): opacity x0.4, life x0.75, max 18 puffs (vanilla 30). Tune those three."
+}

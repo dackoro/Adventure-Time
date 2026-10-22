@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice mace slam (2026-10-21, instead of the drum solo: he takes an ice mace, slams the ground and makes waves the player must jump over). Art: hidden Ice_Mace_Held attachment shown by the IceMace* animations of set AT_Ice_King_Staff. 0.6 s IceMaceSummon (the mace grows, cocked behind his head), then 3 slams: IceMaceSlam twice and IceMaceSlamLast (impact at 0.2 s of each; the mace bursts at the end of the last). Each impact forks one AT_Ice_King_Ice_Mace_Wave (Parallel: its first entry goes on with this chain, the others run as forks, decompiled ParallelInteraction), so the waves are 0.67 s apart and several are on the field at once. He stands still the whole time (MovementEffects DisableAll). Ground phase 1 (CAE IceMaceSlam): the Staff animations tuck his staff away, which would not fit the nunchucks of phase 3. 2026-10-21 (playtest: warn the player with a red zone first): it starts with 0.7 s standing still with the vanilla Gobliterator_Slam_Warning (red circle that fills in 1.5 s, as the Gobliterator and the dungeon goblin mace slams use it; Scale 0.6, on the impact point, X -0.25 like the dungeon mace) and the Gobliterator slam charge sound, so the circle fills exactly when the first impact lands (0.7 + 0.6 summon + 0.2). About 3.2 s.",
+  "$Comment": "Ice mace slam (2026-10-21, instead of the drum solo: he takes an ice mace, slams the ground and makes waves the player must jump over). Art: hidden Ice_Mace_Held attachment shown by the IceMace* animations of set AT_Ice_King_Staff. 0.6 s IceMaceSummon (the mace grows, cocked behind his head), then 3 slams: IceMaceSlam twice and IceMaceSlamLast (impact at 0.2 s of each; the mace bursts at the end of the last). Each impact forks one AT_Ice_King_Ice_Mace_Wave (Parallel: its first entry goes on with this chain, the others run as forks, decompiled ParallelInteraction), so the waves are 0.67 s apart and several are on the field at once. He stands still the whole time (MovementEffects DisableAll). Phase 3, Fridjitzu (CAE_AT_Ice_King_Fridjitzu IceMaceSlam; 2026-10-21 playtest: it was in phase 1, the ranged phase, it belongs with the close fighting): the Staff animations tuck the held item away, so the nunchucks are put away while he swings the mace with both hands. 2026-10-21 (playtest: warn the player with a red zone first): it starts with 0.7 s standing still with the vanilla Gobliterator_Slam_Warning (red circle that fills in 1.5 s, as the Gobliterator and the dungeon goblin mace slams use it; Scale 0.6, on the impact point, X -0.25 like the dungeon mace) and the Gobliterator slam charge sound, so the circle fills exactly when the first impact lands (0.7 + 0.6 summon + 0.2). About 3.2 s. 2026-10-22 (art: the vanilla warnings are additive and vanish on white snow, and lie 1-2 cm up so snow layers hide them): the warning is now AT_Ice_King_Mace_Warning, an art copy of Gobliterator_Slam_Warning with alpha blending, 0.25 block up (so our Y 0.1 offset went to 0).",
   "Type": "Simple",
   "RunTime": 0.7,
   "Effects": {
@@ -9,13 +9,13 @@
     },
     "Particles": [
       {
-        "SystemId": "Gobliterator_Slam_Warning",
+        "SystemId": "AT_Ice_King_Mace_Warning",
         "TargetEntityPart": "Entity",
         "TargetNodeName": "Origin",
         "Scale": 0.6,
         "PositionOffset": {
           "X": -0.25,
-          "Y": 0.1,
+          "Y": 0,
           "Z": 1.2
         },
         "DetachedFromModel": true

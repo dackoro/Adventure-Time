@@ -1524,15 +1524,15 @@
                   "z": 0
                 },
                 "stretch": {
-                  "x": 1,
-                  "y": 1,
+                  "x": 2.0625,
+                  "y": 1.875,
                   "z": 1
                 },
                 "settings": {
                   "isPiece": false,
                   "size": {
-                    "x": 33,
-                    "y": 30
+                    "x": 16,
+                    "y": 16
                   },
                   "normal": "+Z",
                   "isStaticBox": true
@@ -1540,8 +1540,8 @@
                 "textureLayout": {
                   "front": {
                     "offset": {
-                      "x": 0,
-                      "y": 0
+                      "x": 8,
+                      "y": 7
                     },
                     "mirror": {
                       "x": false,

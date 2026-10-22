@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice King mini-boss, step 1: combat role driven by the Combat Action Evaluator (CAE_AT_Ice_King). Built like the vanilla Skeleton_Elite. Placeholder appearance until the custom model exists.",
+  "$Comment": "Ice King mini-boss, step 1: combat role driven by the Combat Action Evaluator (CAE_AT_Ice_King). Built like the vanilla Skeleton_Elite. Placeholder appearance until the custom model exists. 2026-10-22: EncounterDrops false: the passive king never runs the encounter's falling attacks.",
   "Type": "Variant",
   "Reference": "Template_AT_Ice_King",
   "Parameters": {
@@ -58,6 +58,7 @@
     "NameTranslationKey": {
       "Compute": "NameTranslationKey"
     },
-    "SwitchRoleOnHit": true
+    "SwitchRoleOnHit": true,
+    "EncounterDrops": false
   }
 }

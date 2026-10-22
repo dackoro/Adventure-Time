@@ -1,5 +1,5 @@
 {
-  "$Comment": "Air one-arm ice burst (2026-10-21: in the air too, one-arm and two-arm picked at random). Copy of the ground AT_Ice_King_Frost_Beam (5 throws alternating FrostBeamFire / FrostBeamFireL, one bolt from the throwing hand each, the last one with the push) with the air timings of AT_Ice_King_Frost_Beam_Air (1.2 s charge, 0.6 s pause) and no MovementEffects (a movement lock on a flier is untested). 4 x 8 + 20 = 52 Ice, 5 frost stacks if all hit. 2026-10-21 (playtest: the burst = quick shots one after another alternating L R L R L R; the two-hand burst is a separate attack): 6 throws L, R, L, R, L, R (FrostBeamFireL / FrostBeamFire), one bolt from the throwing hand each, the last (right) with the push (_Final); the charge is FrostBeamChargingL (left arm back), matching the first throw. 5 x 8 + 20 = 60 Ice, 6 frost stacks if all hit.",
+  "$Comment": "Air one-arm ice burst (2026-10-21: in the air too, one-arm and two-arm picked at random). Copy of the ground AT_Ice_King_Frost_Beam (5 throws alternating FrostBeamFire / FrostBeamFireL, one bolt from the throwing hand each, the last one with the push) with the air timings of AT_Ice_King_Frost_Beam_Air (1.2 s charge, 0.6 s pause) and no MovementEffects (a movement lock on a flier is untested). 4 x 8 + 20 = 52 Ice, 5 frost stacks if all hit. 2026-10-21 (playtest: the burst = quick shots one after another alternating L R L R L R; the two-hand burst is a separate attack): 6 throws L, R, L, R, L, R (FrostBeamFireL / FrostBeamFire), one bolt from the throwing hand each, the last (right) with the push (_Final); the charge is FrostBeamChargingL (left arm back), matching the first throw. 5 x 8 + 20 = 60 Ice, 6 frost stacks if all hit. 2026-10-22: the first right-hand bolt carries the AimingReference tag, so phase 4 (Deflection) leads the player with the bursts too; phase 2 aims without lead (Deflection false). 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Frost_Beam (1.6 s) with the first bolt of the volley.",
   "Type": "Simple",
   "RunTime": 1.2,
   "Effects": {
@@ -29,7 +29,8 @@
         "RunTime": 0,
         "Effects": {
           "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "FrostBeamFireL"
+          "ItemAnimationId": "FrostBeamFireL",
+          "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Beam"
         }
       },
       {
@@ -46,9 +47,13 @@
         }
       },
       {
+        "$Comment": "2026-10-22 (playtest: aim with prediction in phase 4): the root's only AimingReference tag (one per Attack root). With it HeadMotion Aim knows the bolt's speed and spawn point, so phase 4's Deflection: true leads the moving player for the whole burst; without any tag the bursts aimed where the player was. The correction uses this right-hand bolt's X +0.2, so the left-hand bolts land about 0.4 blocks to one side.",
         "Type": "Projectile",
         "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
-        "RunTime": 0.25
+        "RunTime": 0.25,
+        "Tags": {
+          "AimingReference": []
+        }
       },
       {
         "Type": "Simple",

@@ -1,10 +1,10 @@
 {
-  "$Comment": "Phase 3 (Fridjitzu) copy of AT_Ice_King_Summon (2026-10-21: in the summon he should hold the nunchucks as in his other animations). The staff cast set (AT_Ice_King_Staff) posed his arm for a staff, so the nunchucks sat wrong in his hand. Same summon (circle, hand glow, 2 s still, bolt down that spawns 2 Gunters), but with the nunchuck set AT_Ice_King_Nunchucks: SpinSwingLeftCharging (looping spin overhead, shout face) while he calls, SpinSwingLeftCharged (the spin swing, clenched face) when the bolt goes down. Used by CAE_AT_Ice_King_Fridjitzu through Root_AT_Ice_King_Summon_Fridjitzu. 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge.",
+  "$Comment": "Phase 3 (Fridjitzu) copy of AT_Ice_King_Summon (2026-10-21: in the summon he should hold the nunchucks as in his other animations). The staff cast set (AT_Ice_King_Staff) posed his arm for a staff, so the nunchucks sat wrong in his hand. Same summon (circle, hand glow, 2 s still, bolt down that spawns 2 Gunters), but with the nunchuck set AT_Ice_King_Nunchucks: SpinSwingLeftCharging (looping spin overhead, shout face) while he calls, SpinSwingLeftCharged (the spin swing, clenched face) when the bolt goes down. Used by CAE_AT_Ice_King_Fridjitzu through Root_AT_Ice_King_Summon_Fridjitzu. 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Charge when the charge starts, VO_Summon on the cast; the laugh plays where the Gunters appear (Projectile_Config_AT_Ice_King_Summon).",
   "Type": "Simple",
   "Effects": {
     "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
     "ItemAnimationId": "SpinSwingLeftCharging",
-    "WorldSoundEventId": "SFX_Skeleton_Praetorian_Search_2",
+    "WorldSoundEventId": "SFX_AT_Ice_King_VO_Charge",
     "Particles": [
       {
         "SystemId": "AT_Ice_King_Summon_Ground",
@@ -37,7 +37,7 @@
         "Effects": {
           "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
           "ItemAnimationId": "SpinSwingLeftCharged",
-          "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact"
+          "WorldSoundEventId": "SFX_AT_Ice_King_VO_Summon"
         }
       },
       {

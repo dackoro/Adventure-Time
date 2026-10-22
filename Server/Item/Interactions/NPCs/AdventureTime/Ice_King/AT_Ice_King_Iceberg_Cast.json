@@ -1,10 +1,10 @@
 {
-  "$Comment": "CAE ability: the king raises his hands 1.2 s, then sends the beacon AT_Ice_King_Iceberg. The encounter (AT_Ice_King_Encounter) hears it and drops icebergs on every player, as the vanilla Gobliterator Club_Slam sends Stalactite_Trigger. Without an encounter placed nothing falls. 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge.",
+  "$Comment": "CAE ability: the king raises his hands 1.2 s, then sends the beacon AT_Ice_King_Iceberg. The encounter (AT_Ice_King_Encounter) hears it and drops icebergs on every player, as the vanilla Gobliterator Club_Slam sends Stalactite_Trigger. Without an encounter placed nothing falls. 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Charge when the charge starts, VO_Attack_Launch on the cast.",
   "Type": "Simple",
   "Effects": {
     "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
     "ItemAnimationId": "IcebergCharging",
-    "WorldSoundEventId": "SFX_Staff_Ice_Shoot",
+    "WorldSoundEventId": "SFX_AT_Ice_King_VO_Charge",
     "Particles": [
       {
         "SystemId": "Impact_Ice",
@@ -44,7 +44,8 @@
         "Type": "Simple",
         "Effects": {
           "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "IcebergCast"
+          "ItemAnimationId": "IcebergCast",
+          "WorldSoundEventId": "SFX_AT_Ice_King_VO_Attack_Launch"
         },
         "RunTime": 0.4
       }

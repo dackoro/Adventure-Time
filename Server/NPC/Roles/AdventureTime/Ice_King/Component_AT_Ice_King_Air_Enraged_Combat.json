@@ -1,4 +1,5 @@
 {
+  "$Comment": "2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Phase4_Growl with the PhaseChange and VO_Scream_Long 1.7 s later; VO_Shield_Break on the shield's 5th hit (1); VO_Low_Health once under 15 % health and VO_Low_Health_Laugh every 25 s while under it. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): timers Zap 6, RayBoth 7, Freeze 10, Burst_Single 20, Burst 24 s (were 3/4/6/12/16; they asked for about 185 % of his time, so most were lost); shield off; summons only while 0-5 Gunters are around (was 0-9). 2026-10-22 test logger: a Log action (\"[IceKing] ...\") after every PlaySound / role change, printed to the server log. Log is rate-limited by the server to one line per second for ALL Log actions together (ActionLog atMostEvery 1 s). Sounds played by interactions (attacks) cannot log. 2026-10-22 (playtest: phase 4 should be the hardest; he mostly flew and used the basic ray, a special only now and then; more cadence): timers Zap 4, RayBoth 5, Freeze 7, Burst_Single 12, Burst 15, Ultimate 30, Rain 18 s (were 6/7/10/20/24/40/25); every timed attack also waits while he is casting (Not Self IsExecutingInteraction), so when its timer is up it fires as soon as he is free instead of being lost. 2026-10-22: every Attack action has DamageFriendlies true. The henchmen list the king's group in DisableDamageGroups (so they never fight back at him); with this flag his attacks still land on them as before (ultimate, stray rays), while their Damage sensor still ignores him. 2026-10-22 (harness fight, attack counts per phase): the attack timers are no longer Repeating. A repeating timer restarts by itself at 0, so its rule (Timer TimeRemainingRange [0, 1] + Not IsExecutingInteraction) could only fire during the last second of each cycle; when the king was busy then (Zap and Ray_Both kept him busy most of the time) that attack was skipped for a whole cycle: phase 2 cast Sword_Dive 0 times in 3 min, phase 4 the ultimate once. A non-repeating timer stops at 0 (Timer.tick) and waits there, the rule fires as soon as he is free, and the rule's TimerRestart starts the next cycle. When several are ready, the first rule in file order goes first, so Zap (near the end) fills the gaps instead of starving the rest. 2026-10-22 (playtest: switch off friendly-fire avoidance on all his attacks; if he kills his own penguins by mistake, better, a more chaotic team fight): every Attack action has AvoidFriendlyFire false (ActionAttack: with true, an entity of his own damage groups in the line made him drop the attack). 2026-10-22 (playtest: phase 4 only spawned Gunters, no snowmen): the air summon now spawns snowmen too (gunters 3->2, +2 snowmen; count group -> AT_Ice_King_Minions), like the ground summon (Projectile_Config_AT_Ice_King_Summon: Gunters + a snowman); its limit counts both (group AT_Ice_King_Minions, was Gunters only). 2026-10-22: phase 4 spawns AT_Gunter_Minion_Enraged / AT_Snowman_Minion_Enraged (50 % Ice resistance, AT_Ice_King_Ice_Body_Half), so his ice hurts them; phases 1-3 keep the 100 % henchmen. 2026-10-22 (playtest: a debug report of every attack): a Log '[IceKing][cast][p4] <attack>' after every Attack and summon, read by scripts/ice-king-harness.py watch. The server lets one Log line per second through for all Log actions together, so two casts in the same second count as one.",
   "Type": "Component",
   "Class": "Instruction",
   "Interface": "Hytale.Instruction.Combat",
@@ -11,17 +12,312 @@
     },
     "Instructions": [
       {
-        "$Comment": "2026-10-21: phase-change animation (AT_Ice_King model set PhaseChange, Status slot) once when he reaches combat in this role. The flying template's Alerted state plays a fixed Alerted animation, so the air roles shorten AlertedTime and this one plays right after it.",
+        "$Comment": "2026-10-21: phase-change animation (AT_Ice_King model set PhaseChange, Status slot) once when he reaches combat in this role. The flying template's Alerted state plays a fixed Alerted animation, so the air roles shorten AlertedTime and this one plays right after it. 2026-10-22 (playtest: in phase 2 the laugh played many times a second): an 'Any, Once' sensor here re-arms every time the combat component is entered again, which the flying template does often, so the phase line (and the PhaseChange animation) repeated nonstop. Now guarded by the flag AT_Ice_King_Phase4_Voice: it runs while the flag is not set and sets it, so it plays once per role.",
         "Continue": true,
         "Sensor": {
-          "Type": "Any",
-          "Once": true
+          "Type": "Flag",
+          "Name": "AT_Ice_King_Phase4_Voice",
+          "Set": false
         },
         "Actions": [
           {
             "Type": "PlayAnimation",
             "Slot": "Status",
             "Animation": "PhaseChange"
+          },
+          {
+            "Type": "PlaySound",
+            "SoundEventId": "SFX_AT_Ice_King_VO_Phase4_Growl"
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][phase 4] sound SFX_AT_Ice_King_VO_Phase4_Growl"
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][phase 4] sound SFX_AT_Ice_King_VO_Scream_Long scheduled in [1.7, 1.7] s"
+          },
+          {
+            "Type": "Timeout",
+            "Delay": [
+              1.7,
+              1.7
+            ],
+            "Action": {
+              "Type": "PlaySound",
+              "SoundEventId": "SFX_AT_Ice_King_VO_Scream_Long"
+            }
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_ManyPlayers",
+            "StartValueRange": [
+              5,
+              5
+            ],
+            "RestartValueRange": [
+              90,
+              90
+            ]
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_Retarget",
+            "StartValueRange": [
+              4,
+              4
+            ],
+            "RestartValueRange": [
+              6,
+              6
+            ]
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_Swap",
+            "StartValueRange": [
+              8,
+              12
+            ],
+            "RestartValueRange": [
+              8,
+              12
+            ]
+          },
+          {
+            "Type": "SetFlag",
+            "Name": "AT_Ice_King_Phase4_Voice",
+            "SetTo": true
+          }
+        ]
+      },
+      {
+        "$Comment": "2026-10-22 (playtest: the Gunters and snowmen defend the king like a pack, whoever attacks him, they go after them): on every tick he takes combat damage, store the attacker (Damage sensor TargetSlot, as vanilla Component_Instruction_Void_Anomaly_Death's LastAttacker) and send it as the payload of a 'Flock_Attack' beacon (SendTargetSlot) to the AT_Ice_King_Minions group within 40 blocks. Template_Predator (the henchmen's base) already listens for 'Flock_Attack' while Idle or asleep (TargetSlot LockedTarget, then Combat.Maybe / Alerted) once its FlockArray is set, which the henchmen roles now do. A Beacon to a group, not a flock: flock members cannot hurt each other and an attacker holds fire when a flock friend is in its line (PositionCache.isFriendlyBlockingLineOfSight), so he stays out of their flock.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "Damage",
+          "Combat": true,
+          "TargetSlot": "AT_Ice_King_Attacker"
+        },
+        "Actions": [
+          {
+            "Type": "Beacon",
+            "Message": "Flock_Attack",
+            "Range": 40,
+            "TargetGroups": [
+              "AT_Ice_King_Minions"
+            ],
+            "SendTargetSlot": "AT_Ice_King_Attacker"
+          }
+        ]
+      },
+      {
+        "$Comment": "2026-10-22 multiplayer (like the Gobliterator spreading its attacks): when hit, the air attacks switch to whoever did the most damage (Damage sensor TargetSlot LockedTarget = DamageData.getMostDamagingAttacker), at most every 6 s (timer first in the And: SensorAnd stops at the first false, so the Damage sensor only rebinds when the timer is done).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Retarget",
+              "TimeRemainingRange": [
+                0,
+                0.5
+              ]
+            },
+            {
+              "Type": "Damage",
+              "Combat": true,
+              "TargetSlot": "LockedTarget"
+            }
+          ]
+        },
+        "Actions": [
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Retarget"
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Swap"
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][target] attacker"
+          }
+        ]
+      },
+      {
+        "$Comment": "2026-10-22 multiplayer: every 8-12 s without a damage switch, lock onto the nearest OTHER player within 60 blocks (Player sensor IgnoredTargetSlot LockedTarget + LockOnTarget), so the air phases do not chase one player all fight. Alone, no other player matches and nothing changes.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Swap",
+              "TimeRemainingRange": [
+                0,
+                0.5
+              ]
+            },
+            {
+              "Type": "Player",
+              "Range": 60,
+              "IgnoredTargetSlot": "LockedTarget",
+              "LockOnTarget": true
+            }
+          ]
+        },
+        "Actions": [
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Swap"
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][target] swap"
+          }
+        ]
+      },
+      {
+        "$Comment": "2026-10-22 VO_Many_Players (approximation, no sensor tells who hit him): he is hit while 2 or more players are within 24 blocks (Count with IncludeGroups Player, SensorCount.groupListHasPlayer), at most every 90 s (timer AT_Ice_King_ManyPlayers, first possible 5 s into the role).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Damage",
+              "Combat": true
+            },
+            {
+              "Type": "Count",
+              "Count": [
+                2,
+                100
+              ],
+              "Range": [
+                0,
+                24
+              ],
+              "IncludeGroups": [
+                "Player"
+              ]
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_ManyPlayers",
+              "TimeRemainingRange": [
+                0,
+                0.5
+              ]
+            }
+          ]
+        },
+        "Actions": [
+          {
+            "Type": "PlaySound",
+            "SoundEventId": "SFX_AT_Ice_King_VO_Many_Players"
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][phase 4] sound SFX_AT_Ice_King_VO_Many_Players"
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_ManyPlayers"
+          }
+        ]
+      },
+      {
+        "$Comment": "2026-10-22: VO_Low_Health ('Please!') once when his health drops under 15 % (Self + Stat filter, as vanilla Component_Feran_Sensor_Low_HP). Only phase 4 gets that low: the encounter changes phase at higher health. 2026-10-22 (playtest: phase 2 and 4 voices looped nonstop): 'Any, Once' re-arms every time the flying template re-enters this combat component (it flips between combat and chase whenever line of sight flickers), so it is replaced by a flag set the first time: once per role.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Flag",
+              "Name": "AT_Ice_King_Low_Health_Said",
+              "Set": false
+            },
+            {
+              "Type": "Self",
+              "Filters": [
+                {
+                  "Type": "Stat",
+                  "StatTarget": "Value",
+                  "RelativeTo": "Health",
+                  "Stat": "Health",
+                  "RelativeToTarget": "Max",
+                  "ValueRange": [
+                    0,
+                    0.15
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Actions": [
+          {
+            "Type": "PlaySound",
+            "SoundEventId": "SFX_AT_Ice_King_VO_Low_Health"
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][phase 4] sound SFX_AT_Ice_King_VO_Low_Health"
+          },
+          {
+            "Type": "SetFlag",
+            "Name": "AT_Ice_King_Low_Health_Said",
+            "SetTo": true
+          }
+        ]
+      },
+      {
+        "$Comment": "2026-10-22: under 15 % health, the nervous laugh VO_Low_Health_Laugh now and then: timer AT_Ice_King_Air_Enraged_Laugh (first after 12 s, then every 25 s).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Self",
+              "Filters": [
+                {
+                  "Type": "Stat",
+                  "StatTarget": "Value",
+                  "RelativeTo": "Health",
+                  "Stat": "Health",
+                  "RelativeToTarget": "Max",
+                  "ValueRange": [
+                    0,
+                    0.15
+                  ]
+                }
+              ]
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Enraged_Laugh",
+              "TimeRemainingRange": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "Actions": [
+          {
+            "Type": "PlaySound",
+            "SoundEventId": "SFX_AT_Ice_King_VO_Low_Health_Laugh"
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][phase 4] sound SFX_AT_Ice_King_VO_Low_Health_Laugh"
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Enraged_Laugh"
           }
         ]
       },
@@ -65,6 +361,14 @@
             "Type": "ApplyEntityEffect",
             "EntityEffect": "AT_Ice_King_Shield_Hit_Flash",
             "UseTarget": false
+          },
+          {
+            "Type": "PlaySound",
+            "SoundEventId": "SFX_AT_Ice_King_VO_Shield_Break"
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][phase 4] sound SFX_AT_Ice_King_VO_Shield_Break"
           }
         ]
       },
@@ -246,6 +550,38 @@
         ]
       },
       {
+        "$Comment": "2026-10-22 (playtest: the rage ultimate beam turned so fast it was almost impossible to dodge): while AT_Ice_King_Beam_Focus_Rage is on him (the rage beam's charge and fire), turn the body with the head (MatchLook) but aim slowly: HeadMotion Aim RelativeTurnSpeed 0.25 and no lead (Deflection false), so the sweep follows the player at a quarter of the normal turn speed. Placed before the casting MatchLook rule: the first body/head motion of a tick wins. 2026-10-22 (running sideways: the rage beam still caught up too fast): RelativeTurnSpeed 0.12 (was 0.25), half the sweep speed. Then 0.175 (after trying 0.12).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Target",
+              "Range": 60
+            },
+            {
+              "Type": "Self",
+              "Filters": [
+                {
+                  "Type": "EntityEffect",
+                  "EffectId": "AT_Ice_King_Beam_Focus_Rage"
+                }
+              ]
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "MatchLook"
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": false,
+          "RelativeTurnSpeed": 0.175
+        }
+      },
+      {
         "$Comment": "2026-10-21 (playtest: the ray still went where he was not): while he casts, turn the body toward the target. The circle already stops during a cast, but the template Seek that took over does nothing inside CombatSeekStopDistance, and a flier then keeps flying straight (MotionControllerFly, MinAirSpeed), so the head (Camera yaw +-60 from the body) still could not reach the player. MatchLook sets the body yaw to the head yaw every tick (BodyMotionMatchLook), so the body chases the aiming head until it faces the player; the first body motion of the tick wins, so it beats the Seek. Flight turn 180 deg/s, the ray leaves 0.8 s into the cast.",
         "Continue": true,
         "Sensor": {
@@ -276,15 +612,30 @@
         }
       },
       {
-        "$Comment": "AT_CIRCLE 2/2: fly around the player in a 13-block circle at the combat altitude instead of the template's Seek, which came to a stop right over his head. The first body motion asked for in a tick wins (MotionContextSupport.setNextBodyMotionStep), and this component runs before the template's basic combat, so the Seek is skipped while the template's OverrideAltitude and ranged Attack still run. Continue, so the timers below still run. Same motion as the template's idle WanderInCircle (straight pieces of at least 2 s, turns up to 60 degrees). Farther than 30 blocks the template's Seek brings him back.",
+        "$Comment": "AT_ORBIT (2026-10-22: he hovered right over his head, he had to aim almost straight up; 40-50 degrees wanted). Replaces the WanderInCircle (radius 17), which picks random points INSIDE the circle and so crossed over the player; an AT_RING Flee tried the same day made him fly at ground level and was removed. Now 8 waypoints on a ring of radius 13 around the player, 13 blocks above him, so about 45 degrees up (horizontal distance = height). Each is the target's position plus an offset (AdjustPosition wrapping the Target sensor, as vanilla Template_Goblin_Scrapper wraps ReadPosition; the And sensor takes the first position, SensorAnd), flown to with the same Seek as the template's combat Seek (DesiredAltitudeWeight 1). The repeating timer AT_Ice_King_Air_Enraged_Orbit (16 s) picks one waypoint per 2 s in order, so he goes round the player. Not while he casts (MatchLook turns him toward the player then). The template's OverrideAltitude (10-15 over the ground) still runs. Continue, so the timers below still run. Tune: radius and height in each Offset, seconds per waypoint in the TimeRemainingRange slices. 2026-10-22 (log: the waypoint rules were active the whole time but he did not move toward them): Seek UsePathfinder false and SkipSteering false. BodyMotionFind skips steering when its probe says the goal is not reached in a straight line (shouldSkipSteering), then falls back to the pathfinder, which waits 3-5 s after a failed search (ThrottleDelayRange); the waypoint changes every 2-3 s, so he never got going. In open air pure steering is enough. 2026-10-22, later (playtest: now he gets stuck in trees): pure steering flies straight into canopies, so the pathfinder is back as a fallback (UsePathfinder true) while steering is still tried first (SkipSteering false), and a failed path search waits 0.5-1 s instead of 3-5 (ThrottleDelayRange).",
         "Continue": true,
         "Sensor": {
-          "$Comment": "2026-10-21: not while he casts (Self IsExecutingInteraction, as vanilla Template_Skeleton_Elite_Phase_2). An NPC fires where its head looks (ProjectileInteraction -> TargetUtil.getLook), and the head can only turn 45 degrees from the body (MotionControllerBase.calculateYaw; the AT_Ice_King model, Parent Skeleton/Player, has no Camera yaw range). Circling, his body points along the circle, about 90 degrees away from the player, so the rays went 45 degrees off into the ground. While casting the template Seek takes over and turns him toward the target.",
           "Type": "And",
           "Sensors": [
             {
-              "Type": "Target",
-              "Range": 30
+              "Type": "AdjustPosition",
+              "Offset": [
+                0.0,
+                13,
+                13.0
+              ],
+              "Sensor": {
+                "Type": "Target",
+                "Range": 60
+              }
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Enraged_Orbit",
+              "TimeRemainingRange": [
+                14,
+                16
+              ]
             },
             {
               "Type": "Not",
@@ -300,11 +651,430 @@
           ]
         },
         "BodyMotion": {
-          "Type": "WanderInCircle",
-          "Radius": 10,
-          "MaxHeadingChange": 140,
-          "MinWalkTime": 1,
-          "RelativeSpeed": 1.0
+          "Type": "Seek",
+          "DesiredAltitudeWeight": 1,
+          "RelativeSpeed": 0.8,
+          "SlowDownDistance": 5,
+          "StopDistance": 2,
+          "UsePathfinder": true,
+          "SkipSteering": false,
+          "ThrottleDelayRange": [
+            0.5,
+            1
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": true
+        }
+      },
+      {
+        "$Comment": "AT_ORBIT waypoint 2/8 (see waypoint 1).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "AdjustPosition",
+              "Offset": [
+                9.19,
+                13,
+                9.19
+              ],
+              "Sensor": {
+                "Type": "Target",
+                "Range": 60
+              }
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Enraged_Orbit",
+              "TimeRemainingRange": [
+                12,
+                14
+              ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "Seek",
+          "DesiredAltitudeWeight": 1,
+          "RelativeSpeed": 0.8,
+          "SlowDownDistance": 5,
+          "StopDistance": 2,
+          "UsePathfinder": true,
+          "SkipSteering": false,
+          "ThrottleDelayRange": [
+            0.5,
+            1
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": true
+        }
+      },
+      {
+        "$Comment": "AT_ORBIT waypoint 3/8 (see waypoint 1).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "AdjustPosition",
+              "Offset": [
+                13.0,
+                13,
+                0.0
+              ],
+              "Sensor": {
+                "Type": "Target",
+                "Range": 60
+              }
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Enraged_Orbit",
+              "TimeRemainingRange": [
+                10,
+                12
+              ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "Seek",
+          "DesiredAltitudeWeight": 1,
+          "RelativeSpeed": 0.8,
+          "SlowDownDistance": 5,
+          "StopDistance": 2,
+          "UsePathfinder": true,
+          "SkipSteering": false,
+          "ThrottleDelayRange": [
+            0.5,
+            1
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": true
+        }
+      },
+      {
+        "$Comment": "AT_ORBIT waypoint 4/8 (see waypoint 1).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "AdjustPosition",
+              "Offset": [
+                9.19,
+                13,
+                -9.19
+              ],
+              "Sensor": {
+                "Type": "Target",
+                "Range": 60
+              }
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Enraged_Orbit",
+              "TimeRemainingRange": [
+                8,
+                10
+              ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "Seek",
+          "DesiredAltitudeWeight": 1,
+          "RelativeSpeed": 0.8,
+          "SlowDownDistance": 5,
+          "StopDistance": 2,
+          "UsePathfinder": true,
+          "SkipSteering": false,
+          "ThrottleDelayRange": [
+            0.5,
+            1
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": true
+        }
+      },
+      {
+        "$Comment": "AT_ORBIT waypoint 5/8 (see waypoint 1).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "AdjustPosition",
+              "Offset": [
+                0.0,
+                13,
+                -13.0
+              ],
+              "Sensor": {
+                "Type": "Target",
+                "Range": 60
+              }
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Enraged_Orbit",
+              "TimeRemainingRange": [
+                6,
+                8
+              ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "Seek",
+          "DesiredAltitudeWeight": 1,
+          "RelativeSpeed": 0.8,
+          "SlowDownDistance": 5,
+          "StopDistance": 2,
+          "UsePathfinder": true,
+          "SkipSteering": false,
+          "ThrottleDelayRange": [
+            0.5,
+            1
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": true
+        }
+      },
+      {
+        "$Comment": "AT_ORBIT waypoint 6/8 (see waypoint 1).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "AdjustPosition",
+              "Offset": [
+                -9.19,
+                13,
+                -9.19
+              ],
+              "Sensor": {
+                "Type": "Target",
+                "Range": 60
+              }
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Enraged_Orbit",
+              "TimeRemainingRange": [
+                4,
+                6
+              ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "Seek",
+          "DesiredAltitudeWeight": 1,
+          "RelativeSpeed": 0.8,
+          "SlowDownDistance": 5,
+          "StopDistance": 2,
+          "UsePathfinder": true,
+          "SkipSteering": false,
+          "ThrottleDelayRange": [
+            0.5,
+            1
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": true
+        }
+      },
+      {
+        "$Comment": "AT_ORBIT waypoint 7/8 (see waypoint 1).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "AdjustPosition",
+              "Offset": [
+                -13.0,
+                13,
+                -0.0
+              ],
+              "Sensor": {
+                "Type": "Target",
+                "Range": 60
+              }
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Enraged_Orbit",
+              "TimeRemainingRange": [
+                2,
+                4
+              ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "Seek",
+          "DesiredAltitudeWeight": 1,
+          "RelativeSpeed": 0.8,
+          "SlowDownDistance": 5,
+          "StopDistance": 2,
+          "UsePathfinder": true,
+          "SkipSteering": false,
+          "ThrottleDelayRange": [
+            0.5,
+            1
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": true
+        }
+      },
+      {
+        "$Comment": "AT_ORBIT waypoint 8/8 (see waypoint 1).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "AdjustPosition",
+              "Offset": [
+                -9.19,
+                13,
+                9.19
+              ],
+              "Sensor": {
+                "Type": "Target",
+                "Range": 60
+              }
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Enraged_Orbit",
+              "TimeRemainingRange": [
+                0,
+                2
+              ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "Seek",
+          "DesiredAltitudeWeight": 1,
+          "RelativeSpeed": 0.8,
+          "SlowDownDistance": 5,
+          "StopDistance": 2,
+          "UsePathfinder": true,
+          "SkipSteering": false,
+          "ThrottleDelayRange": [
+            0.5,
+            1
+          ]
         },
         "HeadMotion": {
           "Type": "Aim",
@@ -316,8 +1086,9 @@
       {
         "Continue": true,
         "Sensor": {
-          "Type": "Any",
-          "Once": true
+          "Type": "Flag",
+          "Name": "AT_Ice_King_Enraged_Timers_Started",
+          "Set": false
         },
         "Actions": [
           {
@@ -355,10 +1126,10 @@
               3
             ],
             "RestartValueRange": [
-              6,
-              6
+              7,
+              7
             ],
-            "Repeating": true
+            "Repeating": false
           },
           {
             "Type": "TimerRestart",
@@ -372,10 +1143,10 @@
               1.5
             ],
             "RestartValueRange": [
-              3,
-              3
+              4,
+              4
             ],
-            "Repeating": true
+            "Repeating": false
           },
           {
             "Type": "TimerRestart",
@@ -392,7 +1163,7 @@
               20,
               20
             ],
-            "Repeating": true
+            "Repeating": false
           },
           {
             "Type": "TimerRestart",
@@ -406,10 +1177,10 @@
               12
             ],
             "RestartValueRange": [
-              25,
-              25
+              18,
+              18
             ],
-            "Repeating": true
+            "Repeating": false
           },
           {
             "Type": "TimerRestart",
@@ -423,10 +1194,10 @@
               8
             ],
             "RestartValueRange": [
-              16,
-              16
+              15,
+              15
             ],
-            "Repeating": true
+            "Repeating": false
           },
           {
             "Type": "TimerRestart",
@@ -440,10 +1211,10 @@
               20
             ],
             "RestartValueRange": [
-              40,
-              40
+              30,
+              30
             ],
-            "Repeating": true
+            "Repeating": false
           },
           {
             "Type": "TimerRestart",
@@ -460,7 +1231,7 @@
               12,
               12
             ],
-            "Repeating": true
+            "Repeating": false
           },
           {
             "Type": "TimerRestart",
@@ -474,10 +1245,10 @@
               2
             ],
             "RestartValueRange": [
-              4,
-              4
+              5,
+              5
             ],
-            "Repeating": true
+            "Repeating": false
           },
           {
             "Type": "TimerRestart",
@@ -494,23 +1265,55 @@
               14,
               14
             ],
-            "Repeating": true
+            "Repeating": false
           },
           {
             "Type": "TimerRestart",
             "Name": "AT_Ice_King_Air_Enraged_Sword"
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_Enraged_Orbit",
+            "StartValueRange": [
+              16,
+              16
+            ],
+            "RestartValueRange": [
+              16,
+              16
+            ],
+            "Repeating": true
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_Enraged_Laugh",
+            "StartValueRange": [
+              12,
+              12
+            ],
+            "RestartValueRange": [
+              25,
+              25
+            ],
+            "Repeating": true
+          },
+          {
+            "Type": "SetFlag",
+            "Name": "AT_Ice_King_Enraged_Timers_Started",
+            "SetTo": true
           }
-        ]
+        ],
+        "$Comment": " 2026-10-22 (playtest: phase 2 and 4 voices looped nonstop): 'Any, Once' re-arms every time the flying template re-enters this combat component (it flips between combat and chase whenever line of sight flickers), so it is replaced by a flag set the first time: once per role. Otherwise every re-entry restarted the attack timers."
       },
       {
-        "$Comment": "Ice rain in the air, every 25 s (first after 12 s) when the target is within 30 blocks: bolt into the sky, then the encounter drops 10 marked shards around every player (AT_Ice_King_Ice_Rain).",
+        "$Comment": "Ice rain in the air, every 25 s (first after 12 s) when the target is within 30 blocks: bolt into the sky, then the encounter drops 10 marked shards around every player (AT_Ice_King_Ice_Rain). 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 34 (were 30). AT_RING (removed the same day) kept him up to 19 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched.",
         "Continue": true,
         "Sensor": {
           "Type": "And",
           "Sensors": [
             {
               "Type": "Target",
-              "Range": 30
+              "Range": 34
             },
             {
               "Type": "Timer",
@@ -519,6 +1322,17 @@
                 0,
                 1
               ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -529,7 +1343,13 @@
             "AimingTimeRange": [
               0,
               0
-            ]
+            ],
+            "DamageFriendlies": true,
+            "AvoidFriendlyFire": false
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Root_AT_Ice_King_Ice_Rain"
           },
           {
             "Type": "TimerRestart",
@@ -538,14 +1358,14 @@
         ]
       },
       {
-        "$Comment": "Defens-ice in the air (concept: 'NEUTRAL (AIR)'), every 20 s (first after 10 s) when the target is within 20 blocks: 3 s shield, then a 5-block shard burst. Shield, burst and timer in AT_Ice_King_Ice_Shield / Root_AT_Ice_King_Ice_Shield.",
+        "$Comment": "Defens-ice in the air (concept: 'NEUTRAL (AIR)'), every 20 s (first after 10 s) when the target is within 20 blocks: 3 s shield, then a 5-block shard burst. Shield, burst and timer in AT_Ice_King_Ice_Shield / Root_AT_Ice_King_Ice_Shield. 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 34 (were 20). AT_RING (removed the same day) kept him up to 19 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): Enabled false: in the air its push (radius 3) and burst (radius 5) never reach the player 10-15 blocks below, so it was only 8.6 s of -70 % damage that also blocked his attacks.",
         "Continue": true,
         "Sensor": {
           "Type": "And",
           "Sensors": [
             {
               "Type": "Target",
-              "Range": 20
+              "Range": 34
             },
             {
               "Type": "Timer",
@@ -554,6 +1374,17 @@
                 0,
                 1
               ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -564,23 +1395,30 @@
             "AimingTimeRange": [
               0,
               0
-            ]
+            ],
+            "DamageFriendlies": true,
+            "AvoidFriendlyFire": false
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Root_AT_Ice_King_Ice_Shield"
           },
           {
             "Type": "TimerRestart",
             "Name": "AT_Ice_King_Air_Enraged_Shield"
           }
-        ]
+        ],
+        "Enabled": false
       },
       {
-        "$Comment": "Air two-arm ice burst (2026-10-21: two different attacks, both on the ground and in the air): both arms, two bolts per throw (AT_Ice_King_Frost_Beam_Air), every 16 s (first after 8 s) when the target is within 24 blocks in sight. Same pattern as the Zap.",
+        "$Comment": "Air two-arm ice burst (2026-10-21: two different attacks, both on the ground and in the air): both arms, two bolts per throw (AT_Ice_King_Frost_Beam_Air), every 16 s (first after 8 s) when the target is within 24 blocks in sight. Same pattern as the Zap. 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 34 (were 24). AT_RING (removed the same day) kept him up to 19 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched.",
         "Continue": true,
         "Sensor": {
           "Type": "And",
           "Sensors": [
             {
               "Type": "Target",
-              "Range": 24,
+              "Range": 34,
               "Filters": [
                 {
                   "Type": "LineOfSight"
@@ -594,6 +1432,17 @@
                 0,
                 1
               ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -610,7 +1459,13 @@
             "AimingTimeRange": [
               0.3,
               0.4
-            ]
+            ],
+            "DamageFriendlies": true,
+            "AvoidFriendlyFire": false
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Root_AT_Ice_King_Frost_Beam_Air"
           },
           {
             "Type": "TimerRestart",
@@ -619,14 +1474,14 @@
         ]
       },
       {
-        "$Comment": "Air one-arm ice burst (2026-10-21: quick shots one after another, L R L R L R): AT_Ice_King_Frost_Beam_Air_Single, every 12 s (first after 4 s) when the target is within 24 blocks in sight. Same pattern as the Zap.",
+        "$Comment": "Air one-arm ice burst (2026-10-21: quick shots one after another, L R L R L R): AT_Ice_King_Frost_Beam_Air_Single, every 12 s (first after 4 s) when the target is within 24 blocks in sight. Same pattern as the Zap. 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 34 (were 24). AT_RING (removed the same day) kept him up to 19 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched.",
         "Continue": true,
         "Sensor": {
           "Type": "And",
           "Sensors": [
             {
               "Type": "Target",
-              "Range": 24,
+              "Range": 34,
               "Filters": [
                 {
                   "Type": "LineOfSight"
@@ -640,6 +1495,17 @@
                 0,
                 1
               ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -656,7 +1522,13 @@
             "AimingTimeRange": [
               0.3,
               0.4
-            ]
+            ],
+            "DamageFriendlies": true,
+            "AvoidFriendlyFire": false
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Root_AT_Ice_King_Frost_Beam_Air_Single"
           },
           {
             "Type": "TimerRestart",
@@ -686,6 +1558,17 @@
                 0,
                 1
               ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -702,7 +1585,13 @@
             "AimingTimeRange": [
               0.3,
               0.5
-            ]
+            ],
+            "DamageFriendlies": true,
+            "AvoidFriendlyFire": false
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Root_AT_Ice_King_Frost_Ultimate_Rage"
           },
           {
             "Type": "TimerRestart",
@@ -711,14 +1600,14 @@
         ]
       },
       {
-        "$Comment": "Two-hand ice throw in the air (2026-10-21: separate attack, the most common throw): AT_Ice_King_Ice_Ray_Both every 4 s (first after 2 s) when the target is within 24 blocks in sight. Same pattern as the Zap; the Attack action starts nothing while another attack runs.",
+        "$Comment": "Two-hand ice throw in the air (2026-10-21: separate attack, the most common throw): AT_Ice_King_Ice_Ray_Both every 4 s (first after 2 s) when the target is within 24 blocks in sight. Same pattern as the Zap; the Attack action starts nothing while another attack runs. 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 34 (were 24). AT_RING (removed the same day) kept him up to 19 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched.",
         "Continue": true,
         "Sensor": {
           "Type": "And",
           "Sensors": [
             {
               "Type": "Target",
-              "Range": 24,
+              "Range": 34,
               "Filters": [
                 {
                   "Type": "LineOfSight"
@@ -732,6 +1621,17 @@
                 0,
                 1
               ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -748,7 +1648,13 @@
             "AimingTimeRange": [
               0.2,
               0.3
-            ]
+            ],
+            "DamageFriendlies": true,
+            "AvoidFriendlyFire": false
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Root_AT_Ice_King_Ice_Ray_Both"
           },
           {
             "Type": "TimerRestart",
@@ -757,14 +1663,14 @@
         ]
       },
       {
-        "$Comment": "Ice sword dive (2026-10-21, concept attack 5): AT_Ice_King_Ice_Sword_Dive every 14 s (first after 10 s) when the target is within 22 blocks in sight: he summons the sword, swoops at the player and chops. Same pattern as the Zap. 2026-10-21 (playtest: the sword only in the nunchuck phase; in the air it took too long to come down and swung far from the player): Enabled false.",
+        "$Comment": "Ice sword dive (2026-10-21, concept attack 5): AT_Ice_King_Ice_Sword_Dive every 14 s (first after 10 s) when the target is within 22 blocks in sight: he summons the sword, swoops at the player and chops. Same pattern as the Zap. 2026-10-21 (playtest: the sword only in the nunchuck phase; in the air it took too long to come down and swung far from the player): Enabled false. 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 34 (were 22). AT_RING (removed the same day) kept him up to 19 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched.",
         "Continue": true,
         "Sensor": {
           "Type": "And",
           "Sensors": [
             {
               "Type": "Target",
-              "Range": 22,
+              "Range": 34,
               "Filters": [
                 {
                   "Type": "LineOfSight"
@@ -778,6 +1684,17 @@
                 0,
                 1
               ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -794,7 +1711,13 @@
             "AimingTimeRange": [
               0.2,
               0.3
-            ]
+            ],
+            "DamageFriendlies": true,
+            "AvoidFriendlyFire": false
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Root_AT_Ice_King_Ice_Sword_Dive"
           },
           {
             "Type": "TimerRestart",
@@ -804,14 +1727,14 @@
         "Enabled": false
       },
       {
-        "$Comment": "Zap (2026-10-21): quick weak ice bolt every 3 s (first after 1.5 s) when the target is within 30 blocks in sight. Same pattern as the enraged freezing ray: And(Target, Timer) + HeadMotion Aim + Attack. The Attack action starts nothing while another attack runs, so it never overlaps the normal ray.",
+        "$Comment": "Zap (2026-10-21): quick weak ice bolt every 3 s (first after 1.5 s) when the target is within 30 blocks in sight. Same pattern as the enraged freezing ray: And(Target, Timer) + HeadMotion Aim + Attack. The Attack action starts nothing while another attack runs, so it never overlaps the normal ray. 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 34 (were 30). AT_RING (removed the same day) kept him up to 19 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched.",
         "Continue": true,
         "Sensor": {
           "Type": "And",
           "Sensors": [
             {
               "Type": "Target",
-              "Range": 30,
+              "Range": 34,
               "Filters": [
                 {
                   "Type": "LineOfSight"
@@ -825,6 +1748,17 @@
                 0,
                 1
               ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -841,7 +1775,13 @@
             "AimingTimeRange": [
               0.2,
               0.3
-            ]
+            ],
+            "DamageFriendlies": true,
+            "AvoidFriendlyFire": false
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Root_AT_Ice_King_Zap"
           },
           {
             "Type": "TimerRestart",
@@ -850,14 +1790,14 @@
         ]
       },
       {
-        "$Comment": "Freezing ray on its own timer.",
+        "$Comment": "Freezing ray on its own timer. 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 34 (were 24). AT_RING (removed the same day) kept him up to 19 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched.",
         "Continue": true,
         "Sensor": {
           "Type": "And",
           "Sensors": [
             {
               "Type": "Target",
-              "Range": 24,
+              "Range": 34,
               "Filters": [
                 {
                   "Type": "LineOfSight"
@@ -871,6 +1811,17 @@
                 0,
                 1
               ]
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -887,7 +1838,13 @@
             "AimingTimeRange": [
               0.3,
               0.5
-            ]
+            ],
+            "DamageFriendlies": true,
+            "AvoidFriendlyFire": false
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Root_AT_Ice_King_Ice_Ray_Freezing"
           },
           {
             "Type": "TimerRestart",
@@ -905,14 +1862,14 @@
               "Type": "Count",
               "Count": [
                 0,
-                9
+                5
               ],
               "Range": [
                 0,
                 30
               ],
               "IncludeGroups": [
-                "Gunters"
+                "AT_Ice_King_Minions"
               ]
             },
             {
@@ -928,12 +1885,36 @@
         "Actions": [
           {
             "Type": "Spawn",
-            "Kind": "AT_Gunter_Minion",
+            "Kind": "AT_Gunter_Minion_Enraged",
+            "SpawnDirection": 0,
+            "DistanceRange": [
+              3,
+              4
+            ],
             "SpawnAngle": 360,
             "FanOut": true,
             "CountRange": [
-              3,
-              3
+              2,
+              2
+            ],
+            "DelayRange": [
+              0,
+              0
+            ]
+          },
+          {
+            "Type": "Spawn",
+            "Kind": "AT_Snowman_Minion_Enraged",
+            "SpawnDirection": 90,
+            "DistanceRange": [
+              4,
+              5
+            ],
+            "SpawnAngle": 360,
+            "FanOut": true,
+            "CountRange": [
+              2,
+              2
             ],
             "DelayRange": [
               0,
@@ -943,6 +1924,10 @@
           {
             "Type": "TimerRestart",
             "Name": "AT_Ice_King_Air_Enraged_Summon"
+          },
+          {
+            "Type": "Log",
+            "Message": "[IceKing][cast][p4] Summon"
           }
         ]
       }

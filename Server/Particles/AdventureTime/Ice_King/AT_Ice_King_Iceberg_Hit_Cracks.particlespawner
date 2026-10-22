@@ -1,0 +1,52 @@
+{
+  "Particle": {
+    "Texture": "Particles/Textures/Impacts/ImpactCracks.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0
+      },
+      "2": {
+        "Opacity": 1
+      },
+      "90": {
+        "Opacity": 1
+      },
+      "100": {
+        "Opacity": 0
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 1,
+          "Max": 1
+        }
+      },
+      "Rotation": {
+        "X": {
+          "Min": 90,
+          "Max": 90
+        }
+      },
+      "Opacity": 0.66,
+      "Color": "#7eaada"
+    }
+  },
+  "SpawnRate": {
+    "Min": 22,
+    "Max": 22
+  },
+  "SpawnBurst": true,
+  "MaxConcurrentParticles": 5,
+  "TotalParticles": {
+    "Min": 5,
+    "Max": 5
+  },
+  "ParticleLifeSpan": {
+    "Min": 3,
+    "Max": 3
+  },
+  "RenderMode": "Erosion",
+  "LightInfluence": 0.8,
+  "$Comment": "Copy of vanilla Stalactite_Hit_Cracks recoloured to ice/snow for the Ice King's iceberg landing (2026-10-22: the vanilla stalactite hit was earth-coloured)."
+}

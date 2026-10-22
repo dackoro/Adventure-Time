@@ -1,0 +1,13 @@
+{
+  "$Comment": "Half ice body (2026-10-22: phase 4 is the king out of control, his attacks should hurt his own henchmen, for a more chaotic fight): copy of AT_Ice_King_Ice_Body with 50 % Ice resistance (was 100 %). Only on the phase 4 henchmen (AT_Gunter_Minion_Enraged, AT_Snowman_Minion_Enraged, spawned by Component_AT_Ice_King_Air_Enraged_Combat), so in phases 1-3 his ice still does nothing to them. They still never target the king (DisableDamageGroups AT_Ice_King_Group). Raise/lower Amount to make them tougher/frailer against his ice.",
+  "Infinite": true,
+  "DamageResistance": {
+    "Ice": [
+      {
+        "Amount": 0.5,
+        "CalculationType": "Percent"
+      }
+    ]
+  },
+  "OverlapBehavior": "Overwrite"
+}

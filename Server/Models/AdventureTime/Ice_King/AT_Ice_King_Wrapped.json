@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice King in phase 3 (Fridjitzu): AT_Ice_King with the beard wrapped over his mouth (Beard_Wrapped attachment, custom model). Everything else comes from the Parent: model, texture, animations. DefaultAttachments is the whole list again because a child replaces it. AnimationSets: only the sets that differ in phase 3 (the rest come from AT_Ice_King): Animations/Fridjitzu/*_Fridjitzu copies (angry brows; animated by hand: Idle_Fridjitzu, scripts/copy-pose.py copies its brow keys to the others). Frost_Beam attachment (2026-10-21): the ultimate's giant ray, a fullbright translucent box (Frost_Beam + Frost_Beam_Core) on the Head bone, so it points where his head looks like the Stab hit box (HeadRotation), and the charge orb (Frost_Orb, its own attachment Frost_Orb.blockymodel) on the Origin bone between his hands, hidden in the model (visible false) and shown only by the FrostUltimate* staff animations with shapeVisible, like the vanilla gun Laser attachment. Ice_Sword_Held attachment (2026-10-21): the ice sword for the sword slash, piece on the R-Hand bone (socket = his R-Attachment spot), hidden in the model and shown only by the IceSword* staff animations (they also tuck the staff away with R-Attachment z -36), same trick as Frost_Orb. Ice_Mace_Held attachment (2026-10-21): the vanilla Prisma mace repainted as pure ice, for the ground-slam attack; piece on the R-Hand bone like Ice_Sword_Held, hidden in the model and shown only by the IceMace* staff animations (they also tuck the staff away with R-Attachment z -36). Ice_Sword_Held_L attachment (2026-10-21): the same ice sword on his LEFT hand (piece on L-Hand, nodes IceSwordL_*), for phase 3 where the nunchucks fill his right hand; hidden, shown only by the nunchuck set's IceSword* animations. Ice_Sword_Held (right hand, IceSword_*) stays for the staff set's sword entries, unused now.",
+  "$Comment": "Ice King in phase 3 (Fridjitzu): AT_Ice_King with the beard wrapped over his mouth (Beard_Wrapped attachment, custom model). Everything else comes from the Parent: model, texture, animations. DefaultAttachments is the whole list again because a child replaces it. AnimationSets: only the sets that differ in phase 3 (the rest come from AT_Ice_King): Animations/Fridjitzu/*_Fridjitzu copies (angry brows; animated by hand: Idle_Fridjitzu, scripts/copy-pose.py copies its brow keys to the others). Frost_Beam attachment (2026-10-21): the ultimate's giant ray, a fullbright translucent box (Frost_Beam + Frost_Beam_Core) on the Head bone, so it points where his head looks like the Stab hit box (HeadRotation), and the charge orb (Frost_Orb, its own attachment Frost_Orb.blockymodel) on the Origin bone between his hands, hidden in the model (visible false) and shown only by the FrostUltimate* staff animations with shapeVisible, like the vanilla gun Laser attachment. Ice_Sword_Held attachment (2026-10-21): the ice sword for the sword slash, piece on the R-Hand bone (socket = his R-Attachment spot), hidden in the model and shown only by the IceSword* staff animations (they also tuck the staff away with R-Attachment z -36), same trick as Frost_Orb. Ice_Mace_Held attachment (2026-10-21): the vanilla Prisma mace repainted as pure ice, for the ground-slam attack; piece on the R-Hand bone like Ice_Sword_Held, hidden in the model and shown only by the IceMace* staff animations (they also tuck the staff away with R-Attachment z -36). Ice_Sword_Held_L attachment (2026-10-21): the same ice sword on his LEFT hand (piece on L-Hand, nodes IceSwordL_*), for phase 3 where the nunchucks fill his right hand; hidden, shown only by the nunchuck set's IceSword* animations. Ice_Sword_Held (right hand, IceSword_*) stays for the staff set's sword entries, unused now. Sounds (2026-10-22: he still sounded like a skeleton): stand-ins from the game until his own recordings, Walk/Run/RunBackward/Sprint = SFX_Snow_Walk, Alerted = SFX_Goblin_Burner_VO_Laugh_Cackle_Howl (a cackle when he spots you), Hurt = SFX_Outlander_Hurt, Death = SFX_Player_Death, Spawn = SFX_Ice_Build, Despawn = SFX_Ice_Break, Search silent (was the skeleton mumble). Own voice (2026-10-22, voice clips): Hurt/HurtFly = SFX_AT_Ice_King_VO_Hurt (flesh impact every hit + a grunt about 1 hit in 3), Death = SFX_AT_Ice_King_VO_Death_Ground, DeathFly = SFX_AT_Ice_King_VO_Death_Air; the other hurt/death sets keep the game's sounds.",
   "Parent": "AT_Ice_King",
   "DefaultAttachments": [
     {
@@ -53,7 +53,7 @@
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Walk_Fridjitzu.blockyanim",
           "Speed": 1,
-          "SoundEventId": "SFX_Skeleton_Walk"
+          "SoundEventId": "SFX_Snow_Walk"
         }
       ]
     },
@@ -70,7 +70,7 @@
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Run_Fridjitzu.blockyanim",
           "Speed": 0.9,
-          "SoundEventId": "SFX_Skeleton_Run"
+          "SoundEventId": "SFX_Snow_Walk"
         }
       ]
     },
@@ -79,7 +79,7 @@
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Sprint_Fridjitzu.blockyanim",
           "Speed": 1.1,
-          "SoundEventId": "SFX_Skeleton_Run"
+          "SoundEventId": "SFX_Snow_Walk"
         }
       ]
     },
@@ -88,7 +88,7 @@
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Alerted_Fridjitzu.blockyanim",
           "Looping": false,
-          "SoundEventId": "SFX_Skeleton_Alerted"
+          "SoundEventId": "SFX_Goblin_Burner_VO_Laugh_Cackle_Howl"
         }
       ]
     },
@@ -98,13 +98,13 @@
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Hurt_Fridjitzu.blockyanim",
           "BlendingDuration": 0.1,
           "Looping": false,
-          "SoundEventId": "SFX_Skeleton_Hurt"
+          "SoundEventId": "SFX_AT_Ice_King_VO_Hurt"
         },
         {
           "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Hurt2_Fridjitzu.blockyanim",
           "BlendingDuration": 0.1,
           "Looping": false,
-          "SoundEventId": "SFX_Skeleton_Hurt"
+          "SoundEventId": "SFX_AT_Ice_King_VO_Hurt"
         }
       ]
     }

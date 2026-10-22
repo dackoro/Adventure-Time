@@ -1,5 +1,5 @@
 {
-  "$Comment": "Fridjitzu combo, hits 1 and 2: physical damage of the ice nunchucks (format of AT_Ice_King_Scepter_Hit_Damage). The CAE can change it with the Fridjitzu_Hit_Damage var.",
+  "$Comment": "Fridjitzu combo, hits 1 and 2: physical damage of the ice nunchucks (format of AT_Ice_King_Scepter_Hit_Damage). The CAE can change it with the Fridjitzu_Hit_Damage var. Fridjitzu combo hits 1 and 2 (the CAE override takes this file as Parent). 2026-10-21 (playtest: every hit of the king applies frost): half a frost stack through AT_Ice_King_Frost_Half_Hit (every second such hit adds one stack), since this hit is quick and frequent. Next is inherited by the Parent overrides. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Ice_Hit when the hit lands (was SFX_Ice_Break). 2026-10-22 block stamina (playtest: blocking the king with a plain sword barely cost stamina, 50 hits in a row): a blocked hit costs InitialAmount / StaminaCost.Value stamina (DamageSystems.DamageStamina; vanilla sword and shield Value 10 = 1 stamina per 10 damage, player stamina max 10, no regen while guarding, below 0 the guard breaks), times DamageEffects.StaminaDrainMultiplier (official field, inherited by Parent overrides; vanilla Gobliterator uppercut 10). StaminaDrainMultiplier 2.5: a blocked hit costs 2.5 x its damage / 10 (about 2.5 stamina for 10 damage; the CAE's 22-damage override about 5.5).",
   "Parent": "DamageEntityParent",
   "DamageCalculator": {
     "BaseDamage": {
@@ -15,11 +15,13 @@
       "VelocityY": 0.4,
       "VelocityType": "Set"
     },
-    "WorldSoundEventId": "SFX_Ice_Break",
+    "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Hit",
     "WorldParticles": [
       {
         "SystemId": "Impact_Ice"
       }
-    ]
-  }
+    ],
+    "StaminaDrainMultiplier": 2.5
+  },
+  "Next": "AT_Ice_King_Frost_Half_Hit"
 }

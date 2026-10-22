@@ -1,0 +1,43 @@
+{
+  "$Comment": "Aim tracer of both ultimates (2026-10-22: a particle line during the charge, so a running player knows where the beam starts even when the king is out of sight). While AT_Ice_King_Frost_Ultimate(_Rage) charges (1.8 s) it fires one of these every 0.3 s along his aim. Model AT_Ice_King_Aim_Tracer (art pass): invisible, no light, carries AT_Ice_King_Aim_Tracer_Trail (red dashes left in the world for 0.5 s, so the shots join into one line). Same flight as Projectile_Config_AT_Ice_King_Beam_Light (fast, straight, no damage, removes itself on any hit or miss; a plain projectile stops on the first entity it touches, so the line ends on the player it points at), but from the beam's own line (no 2.5 block lift). Scale stays 1 (the trail scales with it); VelocityDamped rotation keeps it facing its flight, which the dash stretch follows.",
+  "Model": "AT_Ice_King_Aim_Tracer",
+  "LaunchForce": 70,
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 60,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "SpawnOffset": {
+    "X": 0.0,
+    "Y": 0.0,
+    "Z": -0.7
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  }
+}

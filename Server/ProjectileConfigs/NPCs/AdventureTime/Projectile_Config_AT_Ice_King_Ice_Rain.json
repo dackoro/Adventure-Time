@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice rain shard (2026-10-21): the falling iceberg, faster and weaker and without the pillar. Spawned 25 blocks up like the iceberg, LaunchForce 20 (iceberg 13) = about 1.25 s of fall, so even the last wave lands while the 2.2 s Stalactite_Ground_Indicator is still on the ground. Hit circle 2.3 (matches the indicator), AT_Ice_King_Ice_Rain_Damage.",
+  "$Comment": "Ice rain shard (2026-10-21): the falling iceberg, faster and weaker and without the pillar. Spawned 25 blocks up like the iceberg, LaunchForce 20 (iceberg 13) = about 1.25 s of fall, so even the last wave lands while the 2.2 s Stalactite_Ground_Indicator is still on the ground. Hit circle 2.3 (matches the indicator), AT_Ice_King_Ice_Rain_Damage. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Ice_Rain_Drop when it lands, on the ground or on an entity.",
   "Model": "AT_Ice_King_Iceberg",
   "SpawnRotationOffset": {
     "Pitch": -90,
@@ -28,6 +28,9 @@
             "Interactions": [
               "AT_Ice_King_Ice_Rain_Damage"
             ]
+          },
+          "Effects": {
+            "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Rain_Drop"
           }
         },
         "Weapon_Stick_Fire_Projectile_Despawn_Delay",
@@ -45,7 +48,7 @@
           "Effects": {
             "Particles": [
               {
-                "SystemId": "Falling_Stalactite_Hit",
+                "SystemId": "AT_Ice_King_Iceberg_Hit",
                 "TargetEntityPart": "Entity",
                 "Scale": 0.35,
                 "RotationOffset": {
@@ -57,7 +60,7 @@
                 }
               }
             ],
-            "WorldSoundEventId": "SFX_Ice_Break"
+            "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Rain_Drop"
           },
           "RunTime": 0.05,
           "HitEntity": {
@@ -65,6 +68,11 @@
               "AT_Ice_King_Ice_Rain_Damage"
             ]
           }
+        },
+        {
+          "$Comment": "2026-10-22: wait before RemoveEntity. The Selector's HitEntity runs as forked chains on the owner (the king) with this projectile as their entity; once the projectile is gone a fork still running (DamageEntity takes 2 ticks, the freeze path ~0.2 s) is cancelled every tick but never removed (InteractionManager.doTickChain throws ChainCancelledException with the chain's own NotFinished state), so the king kept an open chain forever and every rule waiting for IsExecutingInteraction false (air attacks, orbit, phase change) froze. Found with Mob Battle's /mobbattle test chains.",
+          "Type": "Simple",
+          "RunTime": 0.4
         },
         {
           "Type": "RemoveEntity"

@@ -1,0 +1,18 @@
+{
+  "$Comment": "Ice King sound (2026-10-22, voice clips): Both hands at once (AT_Ice_King_Ice_Ray_Both, AT_Ice_King_Frost_Beam_Both): two discharges crossing. Files: Common/Sounds/AdventureTime/Ice_King. Volume in dB; Parent sets how far it is heard.",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Effects/AT_Ice_King_Rays_Both.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -1.5,
+        "MaxPitch": 1.5,
+        "MinVolume": -1,
+        "MaxVolume": 0.5
+      }
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Loud"
+}

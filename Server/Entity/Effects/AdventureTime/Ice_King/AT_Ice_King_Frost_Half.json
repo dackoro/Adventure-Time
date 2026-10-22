@@ -1,0 +1,6 @@
+{
+  "$Comment": "Invisible flag on a player hit by one of the Ice King's quick hits (2026-10-21: zap, punches, nunchuck hits 1-2). AT_Ice_King_Frost_Half_Hit: without it the hit only puts it on; with it the hit clears it and adds one real frost stack (AT_Ice_King_Frost_Hit), so two quick hits = one stack. Same 20 s as the frost stacks (set by the interaction).",
+  "Duration": 20,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

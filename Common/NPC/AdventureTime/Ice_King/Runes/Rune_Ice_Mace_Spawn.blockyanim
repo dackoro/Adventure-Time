@@ -1,0 +1,4683 @@
+{
+  "formatVersion": 1,
+  "duration": 156,
+  "holdLastKeyframe": true,
+  "nodeAnimations": {
+    "Mace_Pivot": {
+      "position": [],
+      "orientation": [
+        {
+          "time": 0,
+          "delta": {
+            "x": -0.13053,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.99144
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": -0.13053,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.99144
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 35,
+          "delta": {
+            "x": -0.17365,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.98481
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 39,
+          "delta": {
+            "x": 0.42262,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.90631
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 42,
+          "delta": {
+            "x": 0.92631,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.37675
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 45,
+          "delta": {
+            "x": 0.9126,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.40885
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 48,
+          "delta": {
+            "x": 0.92631,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.37675
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 72,
+          "delta": {
+            "x": -0.13053,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.99144
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 75,
+          "delta": {
+            "x": -0.17365,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.98481
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 79,
+          "delta": {
+            "x": 0.42262,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.90631
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 82,
+          "delta": {
+            "x": 0.92631,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.37675
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 85,
+          "delta": {
+            "x": 0.9126,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.40885
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 88,
+          "delta": {
+            "x": 0.92631,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.37675
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 112,
+          "delta": {
+            "x": -0.13053,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.99144
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 115,
+          "delta": {
+            "x": -0.17365,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.98481
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 119,
+          "delta": {
+            "x": 0.42262,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.90631
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 122,
+          "delta": {
+            "x": 0.92631,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.37675
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 125,
+          "delta": {
+            "x": 0.9126,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.40885
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 128,
+          "delta": {
+            "x": 0.92631,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.37675
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0.92631,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.37675
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 156,
+          "delta": {
+            "x": 0.92631,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.37675
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeStretch": [],
+      "shapeVisible": [],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Socket": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 6.882,
+            "y": 14.507,
+            "z": 16.531
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Origin_Projectile": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 24.777,
+            "y": 14.394,
+            "z": 23.65
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Origin_Item": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -26.376,
+            "y": 2.063,
+            "z": 24.828
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Handle": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 8.343,
+            "y": 24.054,
+            "z": -21.66
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_MaceBase": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -1.732,
+            "y": 15.206,
+            "z": 2.451
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Gem": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 4.141,
+            "y": 29.213,
+            "z": -15.863
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Gem_2": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -12.349,
+            "y": 24.981,
+            "z": 14.881
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Mace": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -19.062,
+            "y": 17.829,
+            "z": -20.229
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 6.577,
+            "y": 22.398,
+            "z": -27.901
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 20.799,
+            "y": 17.433,
+            "z": -15.933
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_2": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 27.016,
+            "y": 22.344,
+            "z": -11.799
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_2": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 25.843,
+            "y": 2.353,
+            "z": 9.959
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_3": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -16.532,
+            "y": 26.459,
+            "z": 10.676
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_4": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 26.128,
+            "y": 23.625,
+            "z": -11.268
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_5": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -7.773,
+            "y": 20.043,
+            "z": -19.841
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_6": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -24.352,
+            "y": 11.918,
+            "z": 5.774
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_3": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -27.811,
+            "y": 10.676,
+            "z": -9.078
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_4": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -10.642,
+            "y": 19.111,
+            "z": -1.078
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_7": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -10.316,
+            "y": 1.127,
+            "z": 11.461
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_8": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -24.808,
+            "y": 28.506,
+            "z": -26.72
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_9": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 13.989,
+            "y": 20.693,
+            "z": -26.988
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_10": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 16.113,
+            "y": 8.029,
+            "z": 4.397
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_11": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -27.492,
+            "y": 27.196,
+            "z": -17.869
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_5": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 25.49,
+            "y": 18.209,
+            "z": 14.321
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_6": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 24.061,
+            "y": 26.523,
+            "z": -8.715
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_12": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -8.132,
+            "y": 1.482,
+            "z": 15.434
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_13": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -21.949,
+            "y": 14.904,
+            "z": 16.645
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_14": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 20.143,
+            "y": 27.802,
+            "z": 24.965
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_15": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -22.894,
+            "y": 9.556,
+            "z": 6.206
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_16": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 23.413,
+            "y": 9.602,
+            "z": 23.755
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_7": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 2.528,
+            "y": 11.253,
+            "z": -10.259
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_8": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -18.061,
+            "y": 25.308,
+            "z": -19.663
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_17": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 10.594,
+            "y": 29.804,
+            "z": -18.954
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_18": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -25.281,
+            "y": 29.202,
+            "z": 1.878
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_19": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -5.27,
+            "y": 15.76,
+            "z": 5.262
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_BladeMid_20": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 18.273,
+            "y": 2.66,
+            "z": -4.382
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_MaceBase_2": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -24.88,
+            "y": 24.964,
+            "z": -26.168
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_9": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -0.36,
+            "y": 20.306,
+            "z": -20.688
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_10": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 12.973,
+            "y": 26.988,
+            "z": 7.302
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Pommel": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 16.129,
+            "y": 23.602,
+            "z": -3.665
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Pommel_2": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -19.642,
+            "y": 20.684,
+            "z": -11.49
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Gem_3": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -2.623,
+            "y": 29.958,
+            "z": 19.726
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Pommel_3": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 26.656,
+            "y": 2.788,
+            "z": -0.663
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Pommel_4": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 12.852,
+            "y": 1.257,
+            "z": -11.703
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Gem_4": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -5.388,
+            "y": 21.21,
+            "z": -6.888
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_11": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 27.35,
+            "y": 27.589,
+            "z": 7.11
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Rune_IceMace_Node_12": {
+      "position": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": -0.038,
+            "y": 9.691,
+            "z": -23.008
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.05,
+            "y": 0.05,
+            "z": 0.05
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 24,
+          "delta": {
+            "x": 1.08,
+            "y": 1.08,
+            "z": 1.08
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 140,
+          "delta": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 150,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    },
+    "Mace_Ring": {
+      "position": [],
+      "orientation": [],
+      "shapeStretch": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.2,
+            "y": 0.2,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 41,
+          "delta": {
+            "x": 0.2,
+            "y": 0.2,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 42,
+          "delta": {
+            "x": 0.35,
+            "y": 0.35,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 55,
+          "delta": {
+            "x": 1.6,
+            "y": 1.6,
+            "z": 1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 81,
+          "delta": {
+            "x": 0.2,
+            "y": 0.2,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 82,
+          "delta": {
+            "x": 0.35,
+            "y": 0.35,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 95,
+          "delta": {
+            "x": 1.6,
+            "y": 1.6,
+            "z": 1
+          },
+          "interpolationType": "smooth"
+        },
+        {
+          "time": 121,
+          "delta": {
+            "x": 0.2,
+            "y": 0.2,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 122,
+          "delta": {
+            "x": 0.35,
+            "y": 0.35,
+            "z": 1
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 135,
+          "delta": {
+            "x": 1.6,
+            "y": 1.6,
+            "z": 1
+          },
+          "interpolationType": "smooth"
+        }
+      ],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": false,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 42,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 56,
+          "delta": false,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 82,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 96,
+          "delta": false,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 122,
+          "delta": true,
+          "interpolationType": "linear"
+        },
+        {
+          "time": 136,
+          "delta": false,
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeUvOffset": []
+    }
+  }
+}

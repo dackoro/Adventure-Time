@@ -1,0 +1,26 @@
+{
+  "$Comment": "Ice Rain rune shard hit (2026-10-22): 8 ice (the king's shard does 12; the rune drops more of them), 1 frost stack.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 8
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageAttribute": "Damage",
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Rain_Drop"
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

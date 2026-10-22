@@ -1,0 +1,19 @@
+{
+  "$Comment": "Ice King sound (2026-10-22, voice clips): Electric zap shot (AT_Ice_King_Zap), the moment it leaves the hand. Files: Common/Sounds/AdventureTime/Ice_King. Volume in dB; Parent sets how far it is heard.",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Effects/AT_Ice_King_Zap_Shot.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -1.5,
+        "MaxPitch": 1.5,
+        "MinVolume": -1,
+        "MaxVolume": 0.5
+      }
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Moderate",
+  "MaxInstance": 12
+}

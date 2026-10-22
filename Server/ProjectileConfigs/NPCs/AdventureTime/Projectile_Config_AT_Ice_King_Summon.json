@@ -1,5 +1,5 @@
 {
-  "$Comment": "Summon bolt (2026-10-21): the king fires it straight down at his feet at the end of the summon cast, and where it hits the ground 2 AT_Gunter_Minion come out 2-4 blocks around. Why a projectile: SpawnNPC is a block interaction (SimpleBlockInteraction.tick0 needs the context's TARGET_BLOCK, else it fails silently), and only a client click, a projectile hit, a charge or BlockHitInteraction set one: an NPC attack (ActionAttack, forInteraction) and an encounter SpawnInteraction host never do. A projectile hitting a block does (StandardPhysicsProvider), which is why the iceberg's pillar spawns. SpawnRotationOffset Pitch -90 turns the launch straight down (as the iceberg's), the ray model is the bolt.",
+  "$Comment": "Summon bolt (2026-10-21): the king fires it straight down at his feet at the end of the summon cast, and where it hits the ground 2 AT_Gunter_Minion come out 2-4 blocks around. Why a projectile: SpawnNPC is a block interaction (SimpleBlockInteraction.tick0 needs the context's TARGET_BLOCK, else it fails silently), and only a client click, a projectile hit, a charge or BlockHitInteraction set one: an NPC attack (ActionAttack, forInteraction) and an encounter SpawnInteraction host never do. A projectile hitting a block does (StandardPhysicsProvider), which is why the iceberg's pillar spawns. SpawnRotationOffset Pitch -90 turns the launch straight down (as the iceberg's), the ray model is the bolt. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Summon_Laugh where the Gunters appear (was the ice break). 2026-10-22 (playtest: snowmen spawned glued to the Gunters): Gunters at 2-3 blocks, snowmen at 4.5-6 (were 2-4 and 3-5, overlapping).",
   "Model": "AT_Ice_King_Ray",
   "SpawnRotationOffset": {
     "Pitch": -90,
@@ -33,7 +33,7 @@
           "Effects": {
             "Particles": [
               {
-                "SystemId": "Falling_Stalactite_Hit",
+                "SystemId": "AT_Ice_King_Iceberg_Hit",
                 "TargetEntityPart": "Entity",
                 "Scale": 0.35,
                 "RotationOffset": {
@@ -45,7 +45,7 @@
                 }
               }
             ],
-            "WorldSoundEventId": "SFX_Ice_Break"
+            "WorldSoundEventId": "SFX_AT_Ice_King_VO_Summon_Laugh"
           },
           "RunTime": 0.05
         },
@@ -65,7 +65,7 @@
           ],
           "DistanceRange": [
             2,
-            4
+            3
           ],
           "SpawnOffset": {
             "X": 0,
@@ -93,8 +93,8 @@
             }
           ],
           "DistanceRange": [
-            3,
-            5
+            4.5,
+            6
           ],
           "SpawnOffset": {
             "X": 0,

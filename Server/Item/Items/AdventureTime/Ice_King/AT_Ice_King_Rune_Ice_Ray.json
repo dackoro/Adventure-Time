@@ -1,17 +1,17 @@
 {
-  "$Comment": "Ice ray rune: casts the Ice King's own ice ray (Projectile_Config_AT_Ice_King_Ray: ice damage + a frost stack). Costs 30 mana like a vanilla rune; its cast first needs 30 ice magic (stat AT_Ice_Magic), which only the Ice King crown gives, so it only works while you wear it (Ability.CostType is a fixed list, a mod stat is refused there). Structure of vanilla Rune_Fireball; placeholder look: the blank vanilla rune. No recipe yet.",
+  "$Comment": "Ice ray rune: casts the Ice King's own ice ray (Projectile_Config_AT_Ice_King_Ray: ice damage + a frost stack). Costs 30 mana like a vanilla rune; its cast first needs 30 ice magic (stat AT_Ice_Magic), which only the Ice King crown gives, so it only works while you wear it (Ability.CostType is a fixed list, a mod stat is refused there). Structure of vanilla Rune_Fireball; look: the ice-bolt rune icon and texture (2026-10-22). No recipe yet.",
   "TranslationProperties": {
     "Name": "server.items.AT_Ice_King_Rune_Ice_Ray.name",
     "Description": "server.items.AT_Ice_King_Rune_Ice_Ray.description"
   },
-  "Icon": "Icons/ItemsGenerated/Rune_Empty.png",
+  "Icon": "Icons/ItemsGenerated/AT_Ice_King/Runes/AT_Ice_King_Rune_Ice_Ray.png",
   "Quality": "Epic",
   "ItemLevel": 25,
   "Categories": [
     "Items.Ingredients"
   ],
   "Model": "Items/Runes/Rune_Ability.blockymodel",
-  "Texture": "Items/Runes/Rune_Textures/Rune_Ability_Blank.png",
+  "Texture": "Items/AdventureTime/Ice_King/Runes/AT_Ice_King_Rune_Ice_Ray.png",
   "PlayerAnimationsId": "Item",
   "IconProperties": {
     "Scale": 0.75,

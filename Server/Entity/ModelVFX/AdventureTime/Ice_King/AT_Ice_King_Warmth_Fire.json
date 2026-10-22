@@ -1,0 +1,26 @@
+{
+  "$Comment": "Warmth potion look (2026-10-22, art pass: the vanilla Burn shader chars the body once and leaves it pale; wanted a lasting fire look like Mob Battle's shimmer): fire veins pulsing under the texture for as long as AT_Ice_King_Warmth lasts. Same setup as Mob Battle's MobBattle_Look_Shimmer_* (LoopMirror, no post colour, bloom on the highlight), fire colours, noise scrolling up. Tune: HighlightColor, NoiseScale (bigger = finer veins), NoiseScrollSpeed.Y (flame rise), AnimationDuration (pulse length).",
+  "SwitchTo": "PostColor",
+  "EffectDirection": "None",
+  "AnimationDuration": 2.0,
+  "AnimationRange": {
+    "X": 0.25,
+    "Y": 0.75
+  },
+  "CurveType": "Linear",
+  "LoopOption": "LoopMirror",
+  "HighlightColor": "#ff8a2a",
+  "HighlightThickness": 1.0,
+  "UseBloomOnHighlight": true,
+  "UseProgessiveHighlight": false,
+  "NoiseScale": {
+    "X": 24.0,
+    "Y": 18.0
+  },
+  "NoiseScrollSpeed": {
+    "X": 0.0,
+    "Y": 0.08
+  },
+  "PostColor": "#ff5a10",
+  "PostColorOpacity": 0.0
+}

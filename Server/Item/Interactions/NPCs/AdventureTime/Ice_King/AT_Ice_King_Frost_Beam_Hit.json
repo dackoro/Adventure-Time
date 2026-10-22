@@ -1,25 +1,42 @@
 {
-  "$Comment": "Frost beam hit 1-4 (2026-10-21, concept 'Ice... KING!'): 8 ice damage and 1 frost stack each. With the final hit that is 5 stacks in a row, so a full beam freezes (unless the freeze guard or the warmth potion is on). Tune BaseDamage.Ice.",
-  "Type": "Serial",
-  "Interactions": [
-    {
-      "Type": "DamageEntity",
-      "DamageCalculator": {
-        "Type": "Absolute",
-        "BaseDamage": {
-          "Ice": 8
+  "$Comment": "Frost beam hit 1-4 (2026-10-21, concept 'Ice... KING!'): 8 ice damage and 1 frost stack each. With the final hit that is 5 stacks in a row, so a full beam freezes (unless the freeze guard or the warmth potion is on). Tune BaseDamage.Ice. Shield (2026-10-21: blocking with a shield should stop the ray, frost and slow included): the vanilla shields (Shield_Block_Damage, Weapon_Shield_Secondary_Guard_Wield) block only the causes listed in their AngledWielding DamageModifiers (Physical, Projectile, Poison, Fire, Wind, Earth, Water, Bludgeoning) and match the exact cause (DamageSystems wielding filter), so Ice was never blocked. This hit starts with a 1 Projectile damage probe: blocked from the front (95 degrees, stamina cost, the shield's own block effects) -> its Blocked branch, which is empty, so no ice damage, no frost and no slow; not blocked -> Next, the old hit with 1 ice damage less (same total). A failed probe (invulnerable target) also stops the rest. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): 5 ice (was 7) + the 1 projectile probe: the two-arm burst falls from 88 to ~64, the one-arm one from 60 to ~44. 2026-10-22 block stamina (playtest: blocking the king with a plain sword barely cost stamina, 50 hits in a row): a blocked hit costs InitialAmount / StaminaCost.Value stamina (DamageSystems.DamageStamina; vanilla sword and shield Value 10 = 1 stamina per 10 damage, player stamina max 10, no regen while guarding, below 0 the guard breaks), times DamageEffects.StaminaDrainMultiplier (official field, inherited by Parent overrides; vanilla Gobliterator uppercut 10). StaminaDrainMultiplier 15: the blocked 1-damage probe costs 1.5 stamina (was 0.1).",
+  "Type": "DamageEntity",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Projectile": 1
+    }
+  },
+  "DamageEffects": {
+    "StaminaDrainMultiplier": 15
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "DamageEntity",
+        "DamageCalculator": {
+          "Type": "Absolute",
+          "BaseDamage": {
+            "Ice": 5
+          },
+          "RandomPercentageModifier": 0.1
         },
-        "RandomPercentageModifier": 0.1
+        "DamageEffects": {
+          "WorldParticles": [
+            {
+              "SystemId": "Impact_Ice"
+            }
+          ],
+          "WorldSoundEventId": "SFX_Ice_Break"
+        }
       },
-      "DamageEffects": {
-        "WorldParticles": [
-          {
-            "SystemId": "Impact_Ice"
-          }
-        ],
-        "WorldSoundEventId": "SFX_Ice_Break"
-      }
-    },
-    "AT_Ice_King_Frost_Hit"
-  ]
+      "AT_Ice_King_Frost_Hit"
+    ]
+  },
+  "Blocked": {
+    "Type": "Simple",
+    "$Comment": "Shield up: nothing else lands.",
+    "RunTime": 0
+  }
 }

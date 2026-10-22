@@ -1,0 +1,172 @@
+{
+  "$Comment": "Ice King ultimate beam layer (2026-10-22): cyan halo, 8-frame spiral flipbook so the tube seems to spin. BillboardVelocity + VelocityStretchMultiplier 60 (as vanilla Flamethrower_Beam): a 60-block tube facing the camera.",
+  "RenderMode": "BlendAdd",
+  "ParticleRotationInfluence": "BillboardVelocity",
+  "MaxConcurrentParticles": 3,
+  "ParticleLifeSpan": {
+    "Min": 0.2,
+    "Max": 0.2
+  },
+  "SpawnBurst": true,
+  "SpawnRate": {
+    "Min": 1.0,
+    "Max": 1.0
+  },
+  "WaveDelay": {
+    "Min": 0.1,
+    "Max": 0.1
+  },
+  "ParticleRotateWithSpawner": true,
+  "UseEmitDirection": false,
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 1.0,
+      "Max": 1.0
+    }
+  },
+  "VelocityStretchMultiplier": 60,
+  "LinearFiltering": true,
+  "Particle": {
+    "Texture": "Particles/Textures/AdventureTime/Ice_King/Ultimate_Beam_Spin.png",
+    "ScaleRatioConstraint": "None",
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 4.2,
+          "Max": 4.2
+        },
+        "Y": {
+          "Min": 1.0,
+          "Max": 1.0
+        }
+      },
+      "Opacity": 0.95,
+      "Color": "#9fe8ff",
+      "Rotation": {
+        "Z": {
+          "Min": -90.0,
+          "Max": -90.0
+        }
+      },
+      "FrameIndex": {
+        "Min": 0,
+        "Max": 0
+      }
+    },
+    "Animation": {
+      "0": {
+        "Opacity": 0.0,
+        "Scale": {
+          "X": {
+            "Min": 3.57,
+            "Max": 3.57
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        },
+        "FrameIndex": {
+          "Min": 0,
+          "Max": 0
+        }
+      },
+      "15": {
+        "Opacity": 0.95,
+        "Scale": {
+          "X": {
+            "Min": 4.41,
+            "Max": 4.41
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "50": {
+        "Opacity": 0.95,
+        "Scale": {
+          "X": {
+            "Min": 3.99,
+            "Max": 3.99
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "85": {
+        "Opacity": 0.95,
+        "Scale": {
+          "X": {
+            "Min": 4.41,
+            "Max": 4.41
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        }
+      },
+      "100": {
+        "Opacity": 0.0,
+        "Scale": {
+          "X": {
+            "Min": 4.2,
+            "Max": 4.2
+          },
+          "Y": {
+            "Min": 1.0,
+            "Max": 1.0
+          }
+        },
+        "FrameIndex": {
+          "Min": 7,
+          "Max": 7
+        }
+      },
+      "14": {
+        "FrameIndex": {
+          "Min": 1,
+          "Max": 1
+        }
+      },
+      "29": {
+        "FrameIndex": {
+          "Min": 2,
+          "Max": 2
+        }
+      },
+      "43": {
+        "FrameIndex": {
+          "Min": 3,
+          "Max": 3
+        }
+      },
+      "57": {
+        "FrameIndex": {
+          "Min": 4,
+          "Max": 4
+        }
+      },
+      "71": {
+        "FrameIndex": {
+          "Min": 5,
+          "Max": 5
+        }
+      },
+      "86": {
+        "FrameIndex": {
+          "Min": 6,
+          "Max": 6
+        }
+      }
+    },
+    "FrameSize": {
+      "Width": 256,
+      "Height": 64
+    }
+  }
+}

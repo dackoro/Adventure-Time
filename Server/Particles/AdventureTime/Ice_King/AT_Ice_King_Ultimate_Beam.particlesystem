@@ -1,0 +1,38 @@
+{
+  "$Comment": "Ice King ultimate beam (2026-10-22, take 2): particles instead of the Frost_Beam attachment (not culled with his body, level with the hit). Three layers, the halo spins (flipbook). A stretched quad is centred on its particle, so the spawners sit 30 blocks ahead (PositionOffset Z) to start at his mouth (1.55 blocks up). Yaw 180 as the warning line. Attached to Origin on the fire step, 3.1 s.",
+  "IsImportant": true,
+  "LifeSpan": 3.1,
+  "CullDistance": 128,
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Ultimate_Beam_Haze",
+      "PositionOffset": {
+        "Y": 1.55,
+        "Z": 30.0
+      },
+      "RotationOffset": {
+        "Yaw": 180
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Ultimate_Beam_Glow",
+      "PositionOffset": {
+        "Y": 1.55,
+        "Z": 30.0
+      },
+      "RotationOffset": {
+        "Yaw": 180
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Ultimate_Beam_Core",
+      "PositionOffset": {
+        "Y": 1.55,
+        "Z": 30.0
+      },
+      "RotationOffset": {
+        "Yaw": 180
+      }
+    }
+  ]
+}

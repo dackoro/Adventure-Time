@@ -240,30 +240,30 @@
         {
           "time": 0,
           "delta": {
-            "x": -0.04312,
+            "x": 0,
             "y": 0,
             "z": 0,
-            "w": 0.99907
+            "w": 1
           },
           "interpolationType": "smooth"
         },
         {
           "time": 10,
           "delta": {
-            "x": 0.05071,
+            "x": 0,
             "y": 0,
             "z": 0,
-            "w": 0.99871
+            "w": 1
           },
           "interpolationType": "smooth"
         },
         {
           "time": 30,
           "delta": {
-            "x": 0.0513,
+            "x": 0,
             "y": 0,
             "z": 0,
-            "w": 0.99868
+            "w": 1
           },
           "interpolationType": "smooth"
         }
@@ -278,30 +278,30 @@
         {
           "time": 0,
           "delta": {
-            "x": 0.06976,
+            "x": 0,
             "y": 0,
             "z": 0,
-            "w": 0.99756
+            "w": 1
           },
           "interpolationType": "smooth"
         },
         {
           "time": 6,
           "delta": {
-            "x": -0.05234,
+            "x": 0,
             "y": 0,
             "z": 0,
-            "w": 0.99863
+            "w": 1
           },
           "interpolationType": "smooth"
         },
         {
           "time": 168,
           "delta": {
-            "x": -0.05234,
+            "x": 0,
             "y": 0,
             "z": 0,
-            "w": 0.99863
+            "w": 1
           },
           "interpolationType": "smooth"
         }
@@ -1291,7 +1291,8 @@
       "shapeVisible": [
         {
           "time": 0,
-          "delta": true
+          "delta": true,
+          "interpolationType": "linear"
         }
       ],
       "shapeUvOffset": []
@@ -1547,7 +1548,8 @@
       "shapeVisible": [
         {
           "time": 0,
-          "delta": true
+          "delta": true,
+          "interpolationType": "linear"
         }
       ],
       "shapeUvOffset": []

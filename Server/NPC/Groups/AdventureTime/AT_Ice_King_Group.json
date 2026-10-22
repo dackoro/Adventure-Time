@@ -1,9 +1,10 @@
 {
-  "$Comment": "The Ice King in any phase role (AT_Ice_King, AT_Ice_King_Fight, AT_Ice_King_Air, AT_Ice_King_Fridjitzu, AT_Ice_King_Air_Enraged). AT_Ice_King_Encounter finds and binds him with this group (as vanilla Goblin_Gobliterator_Fight_Group). A pattern, as vanilla Undead/Skeleton.json: the plain role names warned 'not a pattern and does not otherwise exist' at boot. ExcludeRoles (2026-10-21: hitting a pillar turned it into the Ice King): the pattern also matched AT_Ice_King_Ice_Pillar, so the encounter could bind a pillar as the King and change its role on the first hit (vanilla Goblin.json excludes Voidtaken* the same way).",
+  "$Comment": "The Ice King in any phase role (AT_Ice_King, AT_Ice_King_Fight, AT_Ice_King_Air, AT_Ice_King_Fridjitzu, AT_Ice_King_Air_Enraged). AT_Ice_King_Encounter finds and binds him with this group (as vanilla Goblin_Gobliterator_Fight_Group). A pattern, as vanilla Undead/Skeleton.json: the plain role names warned 'not a pattern and does not otherwise exist' at boot. ExcludeRoles (2026-10-21: hitting a pillar turned it into the Ice King): the pattern also matched AT_Ice_King_Ice_Pillar, so the encounter could bind a pillar as the King and change its role on the first hit (vanilla Goblin.json excludes Voidtaken* the same way). 2026-10-22: AT_Ice_King_Lightning_Stuck (the bolt left in the ground) excluded for the same reason.",
   "IncludeRoles": [
     "AT_Ice_King*"
   ],
   "ExcludeRoles": [
-    "AT_Ice_King_Ice_Pillar"
+    "AT_Ice_King_Ice_Pillar",
+    "AT_Ice_King_Lightning_Stuck"
   ]
 }

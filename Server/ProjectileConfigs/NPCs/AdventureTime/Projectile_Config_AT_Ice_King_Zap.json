@@ -1,5 +1,5 @@
 {
-  "$Comment": "Zap (2026-10-21): the ice ray bolt, faster and straight. LaunchForce 60 (ray 40) and Gravity 0 (ray 3), so it is hard to dodge but weak; hit = AT_Ice_King_Zap_Hit. 2026-10-21 (art: ZapCast now plays the right-hand ice ray throw, the hand ends in front of the face): same spawn point as the ice ray bolts, X 0 / Y 0 / Z -0.7 (eye height, in front of the face; Y must stay 0 for NPC aiming, see Projectile_Config_AT_Ice_King_Ray_R). The old Z 1.0 started it behind his head.",
+  "$Comment": "Zap (2026-10-21): the ice ray bolt, faster and straight. LaunchForce 60 (ray 40) and Gravity 0 (ray 3), so it is hard to dodge but weak; hit = AT_Ice_King_Zap_Hit. 2026-10-21 (art: ZapCast now plays the right-hand ice ray throw, the hand ends in front of the face): same spawn point as the ice ray bolts, X 0 / Y 0 / Z -0.7 (eye height, in front of the face; Y must stay 0 for NPC aiming, see Projectile_Config_AT_Ice_King_Ray_R). The old Z 1.0 started it behind his head. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): Zap_Shot as the bolt leaves the hand (LaunchWorldSoundEventId: plays on the launch tick).",
   "Model": "AT_Ice_King_Ray",
   "LaunchForce": 60,
   "Physics": {
@@ -16,7 +16,7 @@
     "Y": 0.0,
     "Z": -0.7
   },
-  "LaunchWorldSoundEventId": "SFX_Staff_Ice_Shoot",
+  "LaunchWorldSoundEventId": "SFX_AT_Ice_King_Zap_Shot",
   "Interactions": {
     "ProjectileHit": {
       "Cooldown": {

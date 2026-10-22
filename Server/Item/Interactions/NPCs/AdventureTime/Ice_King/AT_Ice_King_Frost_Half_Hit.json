@@ -1,0 +1,63 @@
+{
+  "$Comment": "Half a frost stack (2026-10-21: every hit of the king applies frost; the quick ones less). With AT_Ice_King_Frost_Half on the target: clear it and run AT_Ice_King_Frost_Hit (one stack, freeze at 5, warmth potion and freeze guard respected there). Without it: put it on for 20 s and nothing else. Used by the zap, the punches and the nunchuck hits 1-2. 2026-10-21 (snow shell): nothing at all on a target that is frozen right now (AT_Ice_King_Freeze or the ultimate's AT_Ice_King_Freeze_Ultimate), not even the weak slow or the half-stack flag: the client drops an entity's active ModelVFX (Freeze's snow shell) whenever another effect is removed from it or a visual effect is renewed (Mob Battle finding, tested), even though the server still has the freeze on. The freeze guard after the freeze still gives only the weak slow. 2026-10-22 (playtest: the king's attacks froze his own ice pillars, that must never happen; they may take damage, so the player can hide behind one, but never frost or freeze): targets with the marker AT_Ice_King_Frost_Immune (the pillar AT_Ice_King_Ice_Pillar and AT_Ice_King_Lightning_Stuck put it on themselves) skip the frost/freeze part; the damage still lands.",
+  "Type": "EffectCondition",
+  "Entity": "Target",
+  "EntityEffectIds": [
+    "AT_Ice_King_Frost_Immune"
+  ],
+  "Match": "None",
+  "Next": {
+    "Type": "EffectCondition",
+    "Entity": "Target",
+    "EntityEffectIds": [
+      "AT_Ice_King_Freeze"
+    ],
+    "Match": "All",
+    "Next": {
+      "Type": "Simple",
+      "RunTime": 0
+    },
+    "Failed": {
+      "Type": "EffectCondition",
+      "Entity": "Target",
+      "EntityEffectIds": [
+        "AT_Ice_King_Freeze_Ultimate"
+      ],
+      "Match": "All",
+      "Next": {
+        "Type": "Simple",
+        "RunTime": 0
+      },
+      "Failed": {
+        "Type": "EffectCondition",
+        "Entity": "Target",
+        "EntityEffectIds": [
+          "AT_Ice_King_Frost_Half"
+        ],
+        "Match": "All",
+        "Next": {
+          "Type": "Serial",
+          "Interactions": [
+            {
+              "Type": "ClearEntityEffect",
+              "EntityEffectId": "AT_Ice_King_Frost_Half",
+              "Entity": "Target"
+            },
+            "AT_Ice_King_Frost_Hit"
+          ]
+        },
+        "Failed": {
+          "Type": "ApplyEffect",
+          "EffectId": "AT_Ice_King_Frost_Half",
+          "Entity": "Target",
+          "Duration": 20
+        }
+      }
+    }
+  },
+  "Failed": {
+    "Type": "Simple",
+    "$Comment": "Frost-immune target (ice pillar): no frost.",
+    "RunTime": 0
+  }
+}

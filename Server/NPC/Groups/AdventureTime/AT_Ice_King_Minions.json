@@ -1,0 +1,7 @@
+{
+  "$Comment": "The Ice King's henchmen (2026-10-22: they defend the king like a pack): the summoned Gunters and snowmen. The king's 'Flock_Attack' beacon with his attacker goes to this group only (Beacon TargetGroups), so other mobs never get it. 2026-10-22: AT_Gunter_Minion* / AT_Snowman_Minion* (was AT_Gunter* / AT_Snowman*): the wild AT_Gunter of the Ice Kingdom biome matched too, so penguins wandering near the fight filled the summon limits (Count 0-4 within 30 blocks: phase 2 never summoned in one fight) and got the king's Flock_Attack calls.",
+  "IncludeRoles": [
+    "AT_Gunter_Minion*",
+    "AT_Snowman_Minion*"
+  ]
+}

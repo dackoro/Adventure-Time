@@ -1,5 +1,5 @@
 {
-  "$Comment": "The ultimate's freeze (2026-10-21: the ultimate freezes everything, even his ice creatures, but hurts no ice creature; his other ice attacks still never freeze them). Copy of AT_Ice_King_Freeze (same ice block, shell, screen overlay, movement and ability locks) WITHOUT the Immunity_Freeze apply condition, so it also lands on the Gunters, snowmen and the king's other ice allies, which carry vanilla Immunity_Freeze (role CombatConfig EntityEffects) and are skipped by every normal freeze. The warmth potion still stops it. Only used by AT_Ice_King_Frost_Ultimate_Mob_Tick/_Final (the beam on non-players); players get the normal freeze from the frost stacks and the last tick. If AT_Ice_King_Freeze changes, copy it again and drop the Immunity_Freeze condition.",
+  "$Comment": "The ultimate's freeze (2026-10-21: the ultimate freezes everything, even his ice creatures, but hurts no ice creature; his other ice attacks still never freeze them). Copy of AT_Ice_King_Freeze (same ice block, shell, screen overlay, movement and ability locks) WITHOUT the Immunity_Freeze apply condition, so it also lands on the Gunters, snowmen and the king's other ice allies, which carry vanilla Immunity_Freeze (role CombatConfig EntityEffects) and are skipped by every normal freeze. The warmth potion still stops it. Only used by AT_Ice_King_Frost_Ultimate_Mob_Tick/_Final (the beam on non-players); players get the normal freeze from the frost stacks and the last tick. If AT_Ice_King_Freeze changes, copy it again and drop the Immunity_Freeze condition. Ice block variants (2026-10-21: not always the same block): the Spawn set lists Ice_Block_Spawn, Ice_Block_Spawn_B (taller, twisted) and Ice_Block_Spawn_C (wide and low, top crystal tipped) with Weight 1 each; the client picks one and holds its shape while the freeze lasts. Same model and texture. More variants (2026-10-21: cool ones): the model is now Ice_Block_Variants.blockymodel = Ice_Block plus hidden extra crystals (X1-X8 tall, Y1-Y4 small) that only the new Spawn variants show: D crown of spikes on the head crystal, E burst of crystals, F glacier slabs leaning on the block, G two tall spires. Seven Spawn animations, Weight 1 each. Ice_Block.blockymodel itself is untouched (edits to it must be copied into the variants model, or rerun the ice_block_cool.py). 20 variants (2026-10-21/22: only one or two should cover him fully, one a snowman, the rest spaced chunks that let him show): Ice_Block_Variants.blockymodel (every part hidden by default, plus pools X1-X8 / Y1-Y8 / C01-C12, all animatable; the head crystal centred on a vanilla Player) with Spawn = Ice_Block_V01..V20, Weight 1 each: V01 full block, V02 full + crown of spikes, V03 snowman, V04-V20 partial (legs, feet slab, torso band, pauldrons, diagonal, arms, back spikes, head, chest burst, spiral, left / right cluster, glacier, spires, scattered, cage, chest and head). Despawn = Ice_Block_V_Despawn (empty: the pieces vanish at once; the old break animation would show the full block). Generator: the ice_block_v20.py.",
   "ApplyConditions": [
     {
       "Id": "HasEffect",
@@ -41,23 +41,119 @@
   "Duration": 1.5,
   "OverlapBehavior": "Overwrite",
   "Debuff": true,
-  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Staff_Frost.png",
+  "StatusEffectIcon": "Icons/ItemsGenerated/AT_Ice_King/AT_Ice_King_Freeze.png",
   "ModelOverride": {
-    "Model": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block.blockymodel",
+    "Model": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Variants.blockymodel",
     "Texture": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Texture.png",
     "AnimationSets": {
       "Spawn": {
         "Animations": [
           {
-            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Spawn.blockyanim",
-            "Looping": false
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V01.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V02.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V03.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V04.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V05.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V06.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V07.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V08.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V09.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V10.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V11.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V12.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V13.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V14.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V15.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V16.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V17.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V18.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V19.blockyanim",
+            "Looping": false,
+            "Weight": 1
+          },
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V20.blockyanim",
+            "Looping": false,
+            "Weight": 1
           }
         ]
       },
       "Despawn": {
         "Animations": [
           {
-            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Despawn.blockyanim",
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_V_Despawn.blockyanim",
             "Looping": false
           }
         ]

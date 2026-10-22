@@ -1,5 +1,5 @@
 {
-  "$Comment": "Snowman hug (2026-10-21, concept: if a henchman hugs someone, they freeze instantly): freeze 2 s on the hugged target, then the freeze guard for 2 + 5 s, unless the guard is already on (same pattern as the king's freezing attacks: EffectCondition Match None on AT_Ice_King_Freeze_Guard). AT_Ice_King_Freeze skips targets with Immunity_Freeze or the warmth potion by itself.",
+  "$Comment": "Snowman hug (2026-10-21, concept: if a henchman hugs someone, they freeze instantly): freeze 2 s on the hugged target, then the freeze guard for 2 + 5 s, unless the guard is already on (same pattern as the king's freezing attacks: EffectCondition Match None on AT_Ice_King_Freeze_Guard). AT_Ice_King_Freeze skips targets with Immunity_Freeze or the warmth potion by itself. 2026-10-21 (snow shell): AT_Ice_King_Freeze_Prep before the freeze (clears the short frost effects, waits 0.1 s).",
   "Type": "EffectCondition",
   "Entity": "Target",
   "EntityEffectIds": [
@@ -9,6 +9,7 @@
   "Next": {
     "Type": "Serial",
     "Interactions": [
+      "AT_Ice_King_Freeze_Prep",
       {
         "Type": "ApplyEffect",
         "EffectId": "AT_Ice_King_Freeze",

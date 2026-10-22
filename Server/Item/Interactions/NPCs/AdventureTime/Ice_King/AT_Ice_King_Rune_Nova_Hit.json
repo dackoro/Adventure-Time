@@ -1,0 +1,36 @@
+{
+  "$Comment": "Ice Nova rune hit (2026-10-22): as AT_Ice_King_Ice_Nova_Damage: 30 ice, a push straight out from the caster and up (Point), 2 frost stacks.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 30
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageAttribute": "Damage",
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break",
+        "Knockback": {
+          "Type": "Point",
+          "Force": 12,
+          "VelocityY": 4,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        }
+      }
+    },
+    "AT_Ice_King_Frost_Hit",
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

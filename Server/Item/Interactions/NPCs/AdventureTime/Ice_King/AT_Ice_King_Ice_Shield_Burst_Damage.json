@@ -1,5 +1,5 @@
 {
-  "$Comment": "Defens-ice burst hit: the shield shatters into shards. 15 ice damage, a push away and up, then 2 frost stacks through AT_Ice_King_Frost_Hit (5 stacks freeze; the warmth potion turns it into a mild slow). Knockback format of AT_Ice_King_Ice_Nova_Damage. 2026-10-21 (playtest: the shield burst must not be another nova): 'I defend and push you away': 8 ice damage (was 15), a much stronger push (Force 18, up 7; was 9 / 3) and a 1 s freeze (freeze guard respected, then 3 s immune) instead of the 2 frost stacks. The nova stays the strong close-range punish.",
+  "$Comment": "Defens-ice burst hit: the shield shatters into shards. 15 ice damage, a push away and up, then 2 frost stacks through AT_Ice_King_Frost_Hit (5 stacks freeze; the warmth potion turns it into a mild slow). Knockback format of AT_Ice_King_Ice_Nova_Damage. 2026-10-21 (playtest: the shield burst must not be another nova): 'I defend and push you away': 8 ice damage (was 15), a much stronger push (Force 18, up 7; was 9 / 3) and a 1 s freeze (freeze guard respected, then 3 s immune) instead of the 2 frost stacks. The nova stays the strong close-range punish. 2026-10-21 (snow shell): AT_Ice_King_Freeze_Prep before the freeze (clears the short frost effects, waits 0.1 s). 2026-10-22 (playtest: the king's attacks froze his own ice pillars, that must never happen; they may take damage, so the player can hide behind one, but never frost or freeze): targets with the marker AT_Ice_King_Frost_Immune (the pillar AT_Ice_King_Ice_Pillar and AT_Ice_King_Lightning_Stuck put it on themselves) skip the frost/freeze part; the damage still lands. 2026-10-22: freeze guard = freeze time + 5 s (playtest: 5 seconds of immunity after a freeze).",
   "Type": "Serial",
   "Interactions": [
     {
@@ -34,12 +34,14 @@
       "Type": "EffectCondition",
       "Entity": "Target",
       "EntityEffectIds": [
-        "AT_Ice_King_Freeze_Guard"
+        "AT_Ice_King_Freeze_Guard",
+        "AT_Ice_King_Frost_Immune"
       ],
       "Match": "None",
       "Next": {
         "Type": "Serial",
         "Interactions": [
+          "AT_Ice_King_Freeze_Prep",
           {
             "Type": "ApplyEffect",
             "EffectId": "AT_Ice_King_Freeze",
@@ -50,7 +52,7 @@
             "Type": "ApplyEffect",
             "EffectId": "AT_Ice_King_Freeze_Guard",
             "Entity": "Target",
-            "Duration": 4
+            "Duration": 6
           }
         ]
       }

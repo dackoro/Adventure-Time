@@ -1,0 +1,875 @@
+{
+  "$Comment": "Ultimate rune 'Ice... KING!' cast (2026-10-22): the king's ultimate for a player: 1.2 s charge standing still (hand glow, his warning line), then 7 Stab hit boxes 0.37 s apart along your look line (40 blocks, 3 wide, 2.5 tall, line of sight): 6 ticks of 8 ice and a last hit of 24 + push + 2.5 s freeze. You can turn while it fires. Visible beam: the beam segments (Projectile_Config_AT_Ice_King_Rune_Beam), 6 per hit box 0.06 s apart; each hit box (Stab) runs 0.07 s after them (7 x 0.37 s as before). 2026-10-22: the first placeholder, the king's Aim_Tracer needle, never showed: its texture is 3x3 px and the client refuses textures that are not multiples of 32 (client log). Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: the king's own AT_Ice_King_Staff animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
+  "Type": "StatsCondition",
+  "Costs": {
+    "AT_Ice_Magic": 30
+  },
+  "Failed": "Ability_Cast_Fail",
+  "Next": {
+    "Type": "StatsCondition",
+    "UseAbilityCost": true,
+    "Failed": "Ability_Cast_Fail",
+    "Next": {
+      "Type": "Parallel",
+      "Interactions": [
+        {
+          "Interactions": [
+            {
+              "Type": "Simple",
+              "RunTime": 1.2,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "FrostUltimateCharging",
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "AT_Ice_King_Summon_Energy",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "R-Hand",
+                    "Scale": 1.6
+                  },
+                  {
+                    "SystemId": "AT_Ice_King_Summon_Energy",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "L-Hand",
+                    "Scale": 1.6
+                  },
+                  {
+                    "SystemId": "AT_Ice_King_Ultimate_Warning_Line",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "Origin",
+                    "PositionOffset": {
+                      "Y": 0
+                    }
+                  }
+                ],
+                "WorldSoundEventId": "SFX_Skeleton_Praetorian_Search_2",
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "FrostUltimateFire",
+                "WaitForAnimationToFinish": false,
+                "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Beam",
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Selector",
+              "RunTime": 0.07,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              },
+              "Selector": {
+                "Id": "Stab",
+                "TestLineOfSight": true,
+                "StartDistance": 0.0,
+                "EndDistance": 40.0,
+                "ExtendTop": 1.25,
+                "ExtendBottom": 1.25,
+                "ExtendLeft": 1.5,
+                "ExtendRight": 1.5
+              },
+              "HitEntity": {
+                "Interactions": [
+                  "AT_Ice_King_Rune_Ultimate_Tick_Hit"
+                ]
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Selector",
+              "RunTime": 0.07,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              },
+              "Selector": {
+                "Id": "Stab",
+                "TestLineOfSight": true,
+                "StartDistance": 0.0,
+                "EndDistance": 40.0,
+                "ExtendTop": 1.25,
+                "ExtendBottom": 1.25,
+                "ExtendLeft": 1.5,
+                "ExtendRight": 1.5
+              },
+              "HitEntity": {
+                "Interactions": [
+                  "AT_Ice_King_Rune_Ultimate_Tick_Hit"
+                ]
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Selector",
+              "RunTime": 0.07,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              },
+              "Selector": {
+                "Id": "Stab",
+                "TestLineOfSight": true,
+                "StartDistance": 0.0,
+                "EndDistance": 40.0,
+                "ExtendTop": 1.25,
+                "ExtendBottom": 1.25,
+                "ExtendLeft": 1.5,
+                "ExtendRight": 1.5
+              },
+              "HitEntity": {
+                "Interactions": [
+                  "AT_Ice_King_Rune_Ultimate_Tick_Hit"
+                ]
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Selector",
+              "RunTime": 0.07,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              },
+              "Selector": {
+                "Id": "Stab",
+                "TestLineOfSight": true,
+                "StartDistance": 0.0,
+                "EndDistance": 40.0,
+                "ExtendTop": 1.25,
+                "ExtendBottom": 1.25,
+                "ExtendLeft": 1.5,
+                "ExtendRight": 1.5
+              },
+              "HitEntity": {
+                "Interactions": [
+                  "AT_Ice_King_Rune_Ultimate_Tick_Hit"
+                ]
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Selector",
+              "RunTime": 0.07,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              },
+              "Selector": {
+                "Id": "Stab",
+                "TestLineOfSight": true,
+                "StartDistance": 0.0,
+                "EndDistance": 40.0,
+                "ExtendTop": 1.25,
+                "ExtendBottom": 1.25,
+                "ExtendLeft": 1.5,
+                "ExtendRight": 1.5
+              },
+              "HitEntity": {
+                "Interactions": [
+                  "AT_Ice_King_Rune_Ultimate_Tick_Hit"
+                ]
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Selector",
+              "RunTime": 0.07,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              },
+              "Selector": {
+                "Id": "Stab",
+                "TestLineOfSight": true,
+                "StartDistance": 0.0,
+                "EndDistance": 40.0,
+                "ExtendTop": 1.25,
+                "ExtendBottom": 1.25,
+                "ExtendLeft": 1.5,
+                "ExtendRight": 1.5
+              },
+              "HitEntity": {
+                "Interactions": [
+                  "AT_Ice_King_Rune_Ultimate_Tick_Hit"
+                ]
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.06,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Beam",
+              "Lifetime": 0.6,
+              "Pierce": true,
+              "Distance": 45
+            },
+            {
+              "Type": "Selector",
+              "RunTime": 0.07,
+              "Effects": {
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              },
+              "Selector": {
+                "Id": "Stab",
+                "TestLineOfSight": true,
+                "StartDistance": 0.0,
+                "EndDistance": 40.0,
+                "ExtendTop": 1.25,
+                "ExtendBottom": 1.25,
+                "ExtendLeft": 1.5,
+                "ExtendRight": 1.5
+              },
+              "HitEntity": {
+                "Interactions": [
+                  "AT_Ice_King_Rune_Ultimate_Final_Hit"
+                ]
+              }
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.8,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "FrostUltimateRecovery",
+                "WaitForAnimationToFinish": false,
+                "MovementEffects": {
+                  "DisableAll": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "TriggerCooldown",
+              "UseAbilityCooldown": true
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "ChangeStat",
+              "UseAbilityCost": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

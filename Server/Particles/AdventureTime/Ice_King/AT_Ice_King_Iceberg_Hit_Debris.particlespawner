@@ -1,0 +1,169 @@
+{
+  "RenderMode": "Erosion",
+  "EmitOffset": {
+    "X": {
+      "Min": 0.5,
+      "Max": 1.5
+    },
+    "Y": {
+      "Min": 0
+    },
+    "Z": {
+      "Min": 0.5,
+      "Max": 1.5
+    }
+  },
+  "ParticleRotationInfluence": "BillboardVelocity",
+  "LinearFiltering": false,
+  "LightInfluence": 0.8,
+  "ParticleRotateWithSpawner": false,
+  "TrailSpawnerPositionMultiplier": 1.0,
+  "TrailSpawnerRotationMultiplier": 1.0,
+  "MaxConcurrentParticles": 20,
+  "ParticleLifeSpan": {
+    "Min": 0.5,
+    "Max": 2.5
+  },
+  "SpawnRate": {
+    "Min": 60,
+    "Max": 60
+  },
+  "Attractors": [
+    {
+      "RadialAxis": {
+        "X": 0,
+        "Y": 1,
+        "Z": 0
+      },
+      "RadialTangentImpulse": -1.2,
+      "LinearAcceleration": {
+        "Y": -20
+      },
+      "LinearImpulse": {
+        "Y": 8
+      }
+    }
+  ],
+  "Particle": {
+    "Texture": "Particles/Textures/Shapes/Fragment_Earth_GS.png",
+    "ScaleRatioConstraint": "Preserved",
+    "Animation": {
+      "0": {
+        "FrameIndex": {
+          "Min": 0,
+          "Max": 0
+        },
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Min": 1,
+            "Max": 1
+          }
+        },
+        "Rotation": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          },
+          "Y": {
+            "Min": 0,
+            "Max": 0
+          },
+          "Z": {
+            "Min": 0,
+            "Max": 0
+          }
+        },
+        "Opacity": 1
+      },
+      "10": {
+        "Opacity": 1
+      },
+      "30": {
+        "Opacity": 0.9
+      },
+      "95": {
+        "Scale": {
+          "X": {
+            "Min": 0.5,
+            "Max": 0.5
+          },
+          "Y": {
+            "Min": 0.2,
+            "Max": 0.3
+          }
+        }
+      },
+      "100": {
+        "Scale": {
+          "X": {
+            "Min": 0.01,
+            "Max": 0.01
+          },
+          "Y": {
+            "Min": 0.01,
+            "Max": 0.01
+          }
+        },
+        "Opacity": 0
+      }
+    },
+    "UVOption": "RandomFlipU",
+    "InitialAnimationFrame": {
+      "Rotation": {
+        "X": {
+          "Min": 0,
+          "Max": 360
+        },
+        "Y": {
+          "Min": 90,
+          "Max": 90
+        },
+        "Z": {
+          "Min": 360,
+          "Max": 0
+        }
+      },
+      "Scale": {
+        "X": {
+          "Min": 0.4,
+          "Max": 0.7
+        },
+        "Y": {
+          "Min": 0.4,
+          "Max": 0.7
+        }
+      },
+      "Opacity": 1,
+      "FrameIndex": {
+        "Min": 0,
+        "Max": 0
+      },
+      "Color": "#7eaada"
+    },
+    "FrameSize": {
+      "Width": 32,
+      "Height": 32
+    }
+  },
+  "SpawnBurst": true,
+  "TotalParticles": {
+    "Min": 20,
+    "Max": 20
+  },
+  "UseEmitDirection": true,
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 2,
+      "Max": 4
+    }
+  },
+  "ParticleCollision": {
+    "BlockType": "All",
+    "Action": "Linger"
+  },
+  "$Comment": "Copy of vanilla Stalactite_Hit_Debris recoloured to ice/snow for the Ice King's iceberg landing (2026-10-22: the vanilla stalactite hit was earth-coloured)."
+}

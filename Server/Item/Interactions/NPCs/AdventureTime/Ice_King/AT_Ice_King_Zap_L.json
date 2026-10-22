@@ -1,0 +1,43 @@
+{
+  "$Comment": "Zap, LEFT hand (2026-10-21: the zap alternates hands): AT_Ice_King_Zap with ZapCastL (art: Zap_Throw mirrored, arm out at frame 15). Same projectile config: the bolt leaves at X 0 (in front of his face) for both hands, as the ice ray's _L config, because the Attack root holds one AimingReference (the right zap's) and the aim is corrected for that spawn point on both throws; a bolt at -X would fly beside the target. No AimingReference tag here (server: 'Has too many AimingReference tags').",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+    "ItemAnimationId": "ZapCastL",
+    "Particles": [
+      {
+        "PositionOffset": {
+          "X": 1,
+          "Y": 0,
+          "Z": 0
+        },
+        "RotationOffset": {
+          "Pitch": 0,
+          "Roll": 0,
+          "Yaw": 0
+        },
+        "TargetNodeName": "Handle",
+        "SystemId": "Impact_Ice"
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.0
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.0
+      }
+    ]
+  },
+  "RunTime": 0.35,
+  "Next": {
+    "Type": "Projectile",
+    "Config": "Projectile_Config_AT_Ice_King_Zap",
+    "RunTime": 0.25,
+    "Effects": {}
+  }
+}

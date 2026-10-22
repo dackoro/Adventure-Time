@@ -1,0 +1,79 @@
+{
+  "$Comment": "Phase 4 henchman (2026-10-22: in phase 4 the king's attacks should hurt his henchmen too): exact copy of AT_Gunter_Minion with AT_Ice_King_Ice_Body_Half (50 % Ice resistance) instead of AT_Ice_King_Ice_Body (100 %), so the enraged king's ice hurts it at half. Same name, look and behaviour; if AT_Gunter_Minion changes, copy it again and swap the effect back. Original comment: Gunter summoned by the Ice King: hostile, unlike the neutral AT_Gunter. Variant of vanilla Template_Predator built like the vanilla Fox (bite attack and InteractionVars); attack: Root_AT_Gunter_Attack alternates AT_Gunter_Attack_1/_2 (the fox Fox_Bite hit with the custom Attack / Attack2 animations, set AT_Gunter); damage from the Bite_Damage var below. 2026-10-21 (playtest: flank me, don't all come from the same angle): combat movement of vanilla Wolf_Black (also a Template_Predator Variant without CAE): CombatDirectWeight 0 (never charge straight in, was 5), CombatStrafeWeight 10 (was 5: circle left/right around the player), CombatBackOffAfterAttack true with CombatBackOffDistanceRange [3, 5] (step back after a bite; max must stay under CombatBehaviorDistance), CombatBehaviorDistance 6 (was 5), CombatMovingRelativeSpeed 0.6 (slower while circling, was 0.8). 2026-10-21 (playtest: mostly wing slaps): Root_AT_Gunter_Attack walks a 14-step order of Slap/Slap2/headbutt (AT_Gunter_Attack_2)/belly lunge (AT_Gunter_Attack_1), each with its own hit (AT_Gunter_Slap/Belly/Headbutt_Damage: 5/9/13), so the Bite_Damage var below is no longer used by his attacks (kept for anything inheriting Fox_Bite). Not CombatTurns: it only works inside one flock, and summoned Gunters have none (joining the king's flock would make the king's ray hold fire when a Gunter is in the line). 2026-10-21 (Gunter bowling): AdditionalCombatBehaviorMacroElement = Component_AT_Gunter_Slide, a belly slide at the player picked now and then among his combat movements (3-6 blocks away). 2026-10-22 (playtest: defend the king like a pack): FlockArray set, which turns on Template_Predator's 'Flock_Attack' listener while Idle/asleep: the king's beacon (payload = whoever hit him) makes them lock that attacker and fight (LockedTarget, Combat.Maybe). Side effect, also wanted: henchmen flock together, and when one engages the rest join (vanilla pack behaviour). Already fighting someone, they keep their target. 2026-10-22, reverted the same day: with FlockArray set they stopped attacking the player while he hit the king. Template_Predator's flock logic made the members follow and target their flock leader, and the king's Flock_Attack beacon sent them to the random Combat.Maybe check (ChanceToBeAlertedWhenFlockAlerted 70) on every hit, back to Idle, where the target is cleared. FlockArray removed; they detect players on their own as before. The king's beacon stays harmless (nobody listens to it now). 2026-10-22 (playtest: sometimes the king hits the Gunters first and they hit him back, that must never happen): DisableDamageGroups [Self, AT_Ice_King_Group]. The victim's list makes vanilla cancel damage from those groups (NPCDamageSystems.FilterDamageSystem -> CombatSupport.getCanCauseDamage) unless the attacker's running Attack has DamageFriendlies (the king's do, so his ultimate still hurts them), and the Damage sensor that locks the attacker (Template_Predator, Friendly false) skips attackers in those groups (SensorDamage), so a henchman never targets the king for a hit. Their own attacks also hold fire with the king in the line (ActionAttack AvoidFriendlyFire).",
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "AT_Gunter",
+    "DropList": "Empty",
+    "MaxHealth": 25,
+    "MaxSpeed": 6,
+    "WanderRadius": 6,
+    "ViewRange": 20,
+    "HearingRange": 12,
+    "AbsoluteDetectionRange": 20,
+    "AlertedRange": 25,
+    "AlertedTime": [
+      0.5,
+      1
+    ],
+    "MaintainDistanceWhileAlerted": false,
+    "FleeIfNotThreatened": false,
+    "TimidDuringDay": false,
+    "IsMemory": false,
+    "Attack": "Root_AT_Gunter_Attack",
+    "AttackDistance": 2,
+    "CombatBehaviorDistance": 6,
+    "CombatDirectWeight": 0,
+    "CombatStrafeWeight": 10,
+    "CombatBackOffAfterAttack": true,
+    "ChaseRelativeSpeed": 1,
+    "CombatMovingRelativeSpeed": 0.6,
+    "AlwaysSleepAtNight": false,
+    "_InteractionVars": {
+      "Bite_Damage": {
+        "Interactions": [
+          {
+            "Parent": "Fox_Bite_Damage",
+            "DamageCalculator": {
+              "Type": "Absolute",
+              "BaseDamage": {
+                "Physical": 6
+              },
+              "RandomPercentageModifier": 0.2
+            },
+            "DamageEffects": {
+              "Knockback": {
+                "Force": 1
+              }
+            }
+          }
+        ]
+      }
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    },
+    "_CombatConfig": {
+      "EntityEffects": [
+        "Immunity_Slow",
+        "Immunity_Freeze",
+        "AT_Ice_King_Ice_Body_Half"
+      ]
+    },
+    "CombatBackOffDistanceRange": [
+      3,
+      5
+    ],
+    "AdditionalCombatBehaviorMacroElement": "Component_AT_Gunter_Slide",
+    "DisableDamageGroups": [
+      "Self",
+      "AT_Ice_King_Group"
+    ]
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.AT_Gunter.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

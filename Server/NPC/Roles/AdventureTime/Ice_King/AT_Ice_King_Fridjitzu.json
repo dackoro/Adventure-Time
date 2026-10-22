@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice King, phase 3 (Fridjitzu; was AT_Ice_King_Enraged until 2026-10-21): the ground role again, hostile for good, faster, with CAE_AT_Ice_King_Fridjitzu (shorter cooldowns). The encounter switches to it under 45% health (ChangeTargetRole), and to the flying AT_Ice_King_Air_Enraged under 20%. MaxHealth must match the other phase roles (vanilla Gobliterator transition template comment). Fridjitzu (2026-10-21, own design): he holds AT_Ice_King_Nunchucks and fights close (DesiredAttackDistanceRange 2-5, was 6-10; CombatFleeIfTooCloseDistance 1, was 2), with the FridjitzuCombo of the CAE instead of the scepter swing. Appearance AT_Ice_King_Wrapped (2026-10-21): the same model with the beard wrapped over his mouth (Beard_Wrapped). EquipOnEnter and WrappedBeardOnEnter (Template_AT_Ice_King) put the nunchucks in his hand and the wrapped beard on when the encounter switches him here: a role change never runs the Weapons setup. 2026-10-21: AlertedAnimation PhaseChange, so the start of this phase plays the phase-change animation (he passes through Alerted after every role change).",
+  "$Comment": "Ice King, phase 3 (Fridjitzu; was AT_Ice_King_Enraged until 2026-10-21): the ground role again, hostile for good, faster, with CAE_AT_Ice_King_Fridjitzu (shorter cooldowns). The encounter switches to it under 45% health (ChangeTargetRole), and to the flying AT_Ice_King_Air_Enraged under 20%. MaxHealth must match the other phase roles (vanilla Gobliterator transition template comment). Fridjitzu (2026-10-21, own design): he holds AT_Ice_King_Nunchucks and fights close (DesiredAttackDistanceRange 2-5, was 6-10; CombatFleeIfTooCloseDistance 1, was 2), with the FridjitzuCombo of the CAE instead of the scepter swing. Appearance AT_Ice_King_Wrapped (2026-10-21): the same model with the beard wrapped over his mouth (Beard_Wrapped). EquipOnEnter and WrappedBeardOnEnter (Template_AT_Ice_King) put the nunchucks in his hand and the wrapped beard on when the encounter switches him here: a role change never runs the Weapons setup. 2026-10-21: AlertedAnimation PhaseChange, so the start of this phase plays the phase-change animation (he passes through Alerted after every role change). 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Phase3_Transform when he enters the role, VO_Phase3_Ninja 2.6 s later.",
   "Type": "Variant",
   "Reference": "Template_AT_Ice_King",
   "Parameters": {
@@ -69,6 +69,14 @@
       15,
       20
     ],
-    "AlertedAnimation": "PhaseChange"
+    "AlertedAnimation": "PhaseChange",
+    "AlertedVoice": true,
+    "AlertedVoiceSound": "SFX_AT_Ice_King_VO_Phase3_Transform",
+    "AlertedVoiceSecond": true,
+    "AlertedVoiceSecondSound": "SFX_AT_Ice_King_VO_Phase3_Ninja",
+    "AlertedVoiceSecondDelay": [
+      2.6,
+      2.6
+    ]
   }
 }

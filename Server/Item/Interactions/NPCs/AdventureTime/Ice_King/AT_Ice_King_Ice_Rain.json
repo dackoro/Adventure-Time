@@ -1,109 +1,117 @@
 {
-  "$Comment": "Ice rain (2026-10-21, concept 'ANYBODY?!': shoots ice bolts into the sky and many icebergs fall around in an area). 1.5 s charge with the hand glow, a bolt shot almost straight up (Projectile_Config_AT_Ice_King_Ice_Rain_Up, IgnorePitch so the offset is from level), then the beacon AT_Ice_King_Ice_Rain: the encounter drops 10 shards around every player in range in three waves (Stalactite_Ground_Indicator under each). Without the encounter only the bolt happens. Animation: own IDs IceRainCharging / IceRainCast (2026-10-21). 2026-10-21 (playtest: one bolt into the sky per icicle; the single slow bolt looked lame): after the charge, IceRainVolley (art: a looping throw, right hand up at 0.067 s, left at 0.217 s, every 0.3 s) and 10 sky bolts 0.15 s apart in step with it, right/left by turns (Projectile_Config_AT_Ice_King_Ice_Rain_Up_R/_L), first at 0.067 s; then the beacon (the encounter drops the 10 icicles in three waves) and 0.4 s of IceRainCast. 2026-10-21 (art: IceRainVolley is now exactly 10 throws, one every 1/6 s = 5 server ticks, the looping one drifted): bolts every 0.1667 s after the 0.067 s lead, in step with the throws; each bolt step plays SFX_Staff_Ice_Shoot (Effects WorldSoundEventId) so every bolt is heard leaving the hand (the projectile's LaunchWorldSoundEventId was not heard for an NPC). 2026-10-21 (art): the per-bolt step sound is removed again; each bolt sounds once through its projectile config's LaunchWorldSoundEventId (it plays twice otherwise).",
+  "$Comment": "Ice rain (2026-10-21, concept 'ANYBODY?!': shoots ice bolts into the sky and many icebergs fall around in an area). 1.5 s charge with the hand glow, a bolt shot almost straight up (Projectile_Config_AT_Ice_King_Ice_Rain_Up, IgnorePitch so the offset is from level), then the beacon AT_Ice_King_Ice_Rain: the encounter drops 10 shards around every player in range in three waves (Stalactite_Ground_Indicator under each). Without the encounter only the bolt happens. Animation: own IDs IceRainCharging / IceRainCast (2026-10-21). 2026-10-21 (playtest: one bolt into the sky per icicle; the single slow bolt looked lame): after the charge, IceRainVolley (art: a looping throw, right hand up at 0.067 s, left at 0.217 s, every 0.3 s) and 10 sky bolts 0.15 s apart in step with it, right/left by turns (Projectile_Config_AT_Ice_King_Ice_Rain_Up_R/_L), first at 0.067 s; then the beacon (the encounter drops the 10 icicles in three waves) and 0.4 s of IceRainCast. 2026-10-21 (art: IceRainVolley is now exactly 10 throws, one every 1/6 s = 5 server ticks, the looping one drifted): bolts every 0.1667 s after the 0.067 s lead, in step with the throws; each bolt step plays SFX_Staff_Ice_Shoot (Effects WorldSoundEventId) so every bolt is heard leaving the hand (the projectile's LaunchWorldSoundEventId was not heard for an NPC). 2026-10-21 (art): the per-bolt step sound is removed again; each bolt sounds once through its projectile config's LaunchWorldSoundEventId (it plays twice otherwise). 2026-10-22 sounds: SFX_AT_Ice_King_VO_Charge when the charge starts, on a 0 s step of its own (the charge step keeps SFX_Staff_Ice_Shoot; one sound per Effects). 2026-10-22 sounds: SFX_AT_Ice_King_VO_Anybody ('ANYBODY?!', the attack's original concept) as the volley into the sky starts.",
   "Type": "Simple",
-  "RunTime": 1.5,
+  "RunTime": 0,
   "Effects": {
-    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-    "ItemAnimationId": "IceRainCharging",
-    "WorldSoundEventId": "SFX_Staff_Ice_Shoot",
-    "Particles": [
-      {
-        "SystemId": "AT_Ice_King_Summon_Energy",
-        "TargetEntityPart": "Entity",
-        "TargetNodeName": "R-Hand",
-        "Scale": 1.0
-      },
-      {
-        "SystemId": "AT_Ice_King_Summon_Energy",
-        "TargetEntityPart": "Entity",
-        "TargetNodeName": "L-Hand",
-        "Scale": 1.0
-      }
-    ]
+    "WorldSoundEventId": "SFX_AT_Ice_King_VO_Charge"
   },
   "Next": {
-    "Type": "Serial",
-    "Interactions": [
-      {
-        "Type": "Simple",
-        "RunTime": 0.067,
-        "Effects": {
-          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "IceRainVolley"
-        }
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "Projectile",
-        "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
-        "IgnorePitch": true,
-        "RunTime": 0.1667
-      },
-      {
-        "Type": "SendBeacon",
-        "Message": "AT_Ice_King_Ice_Rain"
-      },
-      {
-        "Type": "Simple",
-        "Effects": {
-          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "IceRainCast"
+    "Type": "Simple",
+    "RunTime": 1.5,
+    "Effects": {
+      "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+      "ItemAnimationId": "IceRainCharging",
+      "WorldSoundEventId": "SFX_Staff_Ice_Shoot",
+      "Particles": [
+        {
+          "SystemId": "AT_Ice_King_Summon_Energy",
+          "TargetEntityPart": "Entity",
+          "TargetNodeName": "R-Hand",
+          "Scale": 1.0
         },
-        "RunTime": 0.4
-      }
-    ]
+        {
+          "SystemId": "AT_Ice_King_Summon_Energy",
+          "TargetEntityPart": "Entity",
+          "TargetNodeName": "L-Hand",
+          "Scale": 1.0
+        }
+      ]
+    },
+    "Next": {
+      "Type": "Serial",
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0.067,
+          "Effects": {
+            "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+            "ItemAnimationId": "IceRainVolley",
+            "WorldSoundEventId": "SFX_AT_Ice_King_VO_Anybody"
+          }
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_R",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Ice_Rain_Up_L",
+          "IgnorePitch": true,
+          "RunTime": 0.1667
+        },
+        {
+          "Type": "SendBeacon",
+          "Message": "AT_Ice_King_Ice_Rain"
+        },
+        {
+          "Type": "Simple",
+          "Effects": {
+            "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+            "ItemAnimationId": "IceRainCast"
+          },
+          "RunTime": 0.4
+        }
+      ]
+    }
   }
 }

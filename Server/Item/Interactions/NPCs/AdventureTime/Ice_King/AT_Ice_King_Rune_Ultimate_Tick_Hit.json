@@ -1,0 +1,25 @@
+{
+  "$Comment": "Ultimate rune beam tick (2026-10-22): as AT_Ice_King_Frost_Ultimate_Tick: 8 ice, no frost.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 8
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageAttribute": "Damage",
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break"
+      }
+    }
+  ]
+}

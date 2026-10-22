@@ -1,10 +1,13 @@
 {
-  "$Comment": "Rare freezing variant of AT_Ice_King_Lightning_Fall. Spawned by the Ice King encounter on the ground under a player (like AT_Ice_King_Iceberg_Fall).",
+  "$Comment": "Rare freezing variant of AT_Ice_King_Lightning_Fall. Spawned by the Ice King encounter on the ground under a player (like AT_Ice_King_Iceberg_Fall). 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_The_King ('THE KINGGG!', 1.30 s, the electric spark at its end) at the start; the wait before the bolt is 0.47 s (was 0.1) and the encounter spawns this 0.37 s earlier (Delay 0.93, was 1.3), so the spark lands with the bolt: 0.47 + 0.83 s flight = 1.30 s.",
   "Type": "Simple",
-  "RunTime": 0.1,
+  "RunTime": 0.47,
   "Next": {
     "Type": "Projectile",
     "Config": "Projectile_Config_AT_Ice_King_Lightning_Freezing",
     "RunTime": 1
+  },
+  "Effects": {
+    "WorldSoundEventId": "SFX_AT_Ice_King_VO_The_King"
   }
 }

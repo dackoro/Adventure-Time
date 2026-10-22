@@ -1,0 +1,16 @@
+{
+  "$Comment": "Ice King sound (2026-10-22, voice clips from Oh Bubblegum): \"Anybody?!\" during the ice rain, while he shoots the bolts into the sky (the attack's original concept). One of three takes, never the same twice in a row.",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Voice/AT_Ice_King_VO_Anybody_1.ogg",
+        "Sounds/AdventureTime/Ice_King/Voice/AT_Ice_King_VO_Anybody_2.ogg",
+        "Sounds/AdventureTime/Ice_King/Voice/AT_Ice_King_VO_Anybody_3.ogg"
+      ],
+      "RoundRobinHistorySize": 1
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Loud",
+  "PreventSoundInterruption": true
+}

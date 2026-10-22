@@ -1,0 +1,13 @@
+{
+  "$Comment": "Ice King sound (2026-10-22, voice clips): Death on the ground (phases 1 and 3): \"I'm sorry! I'm sorry! They were just touching me on the body! I'm sorry!\". Files: Common/Sounds/AdventureTime/Ice_King. Volume in dB; Parent sets how far it is heard.",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Voice/AT_Ice_King_VO_Death_Ground.ogg"
+      ]
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Loud",
+  "PreventSoundInterruption": true
+}

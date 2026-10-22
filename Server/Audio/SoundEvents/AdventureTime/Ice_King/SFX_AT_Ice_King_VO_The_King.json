@@ -1,0 +1,13 @@
+{
+  "$Comment": "Ice King sound (2026-10-22, voice clips): Giant lightning from the sky (AT_Ice_King_Lightning_Fall): \"THE KINGGG!\", its electric spark at the end lands with the bolt. Files: Common/Sounds/AdventureTime/Ice_King. Volume in dB; Parent sets how far it is heard.",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Voice/AT_Ice_King_VO_The_King.ogg"
+      ]
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Loud",
+  "PreventSoundInterruption": true
+}

@@ -1,5 +1,5 @@
 {
-  "$Comment": "Warmth potion: gives AT_Ice_King_Warmth for 5 min, so the Ice King's ice only slows a little instead of freezing. Meant to be the item that makes the fight winnable (later from another biome; no recipe yet: /give for tests). Structure of the vanilla Potion_Antidote; placeholder model, texture and icon are the Antidote's.",
+  "$Comment": "Warmth potion: gives AT_Ice_King_Warmth for 10 min (2026-10-22 balance, was 5), so the Ice King's ice only slows a little instead of freezing. Meant to be the item that makes the fight winnable (later from another biome; no recipe yet: /give for tests). Structure of the vanilla Potion_Antidote; 2026-10-22 (art): own look, the vanilla potion bottle with the goblin flamethrower's fire eye floating over a little lava (Common/Items/AdventureTime/Ice_King/Warmth_Potion, scripts fire_potion.py); icon AT_Ice_King_Warmth_Potion.png.",
   "TranslationProperties": {
     "Name": "server.items.AT_Ice_King_Warmth_Potion.name",
     "Description": "server.items.AT_Ice_King_Warmth_Potion.description"
@@ -20,13 +20,20 @@
       }
     }
   },
-  "Icon": "Icons/ItemsGenerated/Weapon_Bomb_Potion_Poison.png",
-  "Model": "Items/Weapons/Bomb/Potion_Onion.blockymodel",
-  "Texture": "Items/Weapons/Bomb/Potion_Onion_Poison.png",
+  "Icon": "Icons/ItemsGenerated/AT_Ice_King/AT_Ice_King_Warmth_Potion.png",
+  "Model": "Items/AdventureTime/Ice_King/Warmth_Potion/Warmth_Potion.blockymodel",
+  "Texture": "Items/AdventureTime/Ice_King/Warmth_Potion/Warmth_Potion_Texture.png",
   "IconProperties": {
-    "Scale": 0.75,
-    "Translation": [ -13, -12 ],
-    "Rotation": [ 12.5, 12.5, 315 ]
+    "Scale": 0.8,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -10
+    ]
   },
   "Consumable": true,
   "Interactions": {

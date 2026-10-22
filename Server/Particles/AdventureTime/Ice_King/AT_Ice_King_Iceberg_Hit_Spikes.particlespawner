@@ -1,0 +1,132 @@
+{
+  "Particle": {
+    "Texture": "Particles/Textures/Shapes/Fragment_GS_Fade.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 0.1,
+            "Max": 0.1
+          },
+          "Y": {
+            "Max": 0.1,
+            "Min": 0.1
+          }
+        }
+      },
+      "3": {
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Max": 1,
+            "Min": 1
+          }
+        }
+      },
+      "90": {
+        "Opacity": 1,
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Max": 1,
+            "Min": 1
+          }
+        }
+      },
+      "100": {
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 0.1,
+            "Max": 0.1
+          },
+          "Y": {
+            "Max": 0.1,
+            "Min": 0.1
+          }
+        }
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 0.5,
+          "Max": 1
+        },
+        "Y": {
+          "Min": 1,
+          "Max": 5
+        }
+      },
+      "Opacity": 1,
+      "Color": "#88b1dd",
+      "Rotation": {
+        "X": {
+          "Min": -40,
+          "Max": -20
+        }
+      },
+      "FrameIndex": {
+        "Max": 3
+      }
+    },
+    "FrameSize": {
+      "Width": 32,
+      "Height": 32
+    },
+    "ScaleRatioConstraint": "None"
+  },
+  "SpawnRate": {
+    "Min": 22,
+    "Max": 22
+  },
+  "SpawnBurst": true,
+  "MaxConcurrentParticles": 50,
+  "TotalParticles": {
+    "Min": 30,
+    "Max": 30
+  },
+  "ParticleLifeSpan": {
+    "Min": 3,
+    "Max": 3
+  },
+  "RenderMode": "Erosion",
+  "EmitOffset": {
+    "X": {
+      "Max": 2.5,
+      "Min": 1.65
+    },
+    "Z": {
+      "Max": 2.5,
+      "Min": 1.65
+    }
+  },
+  "ParticleRotationInfluence": "Velocity",
+  "UseEmitDirection": true,
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 0.1,
+      "Max": 0.1
+    }
+  },
+  "Attractors": [
+    {
+      "DampingMultiplier": {
+        "X": 0.5,
+        "Y": 0.5,
+        "Z": 0.5
+      }
+    }
+  ],
+  "CameraOffset": -0.24,
+  "ParticleRotateWithSpawner": true,
+  "LightInfluence": 0.8,
+  "$Comment": "Copy of vanilla Stalactite_Hit_Spikes recoloured to ice/snow for the Ice King's iceberg landing (2026-10-22: the vanilla stalactite hit was earth-coloured)."
+}

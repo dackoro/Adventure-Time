@@ -1,5 +1,5 @@
 {
-  "$Comment": "What the Ice King's ice does to a player under AT_Ice_King_Warmth: a short, mild slow (x0.9 instead of x0.75) and no freeze. Copy of AT_Ice_King_Slow.",
+  "$Comment": "What the Ice King's ice does to a player under AT_Ice_King_Warmth: a short, mild slow (x0.9 instead of x0.75) and no freeze. Copy of AT_Ice_King_Slow. Snowflakes (2026-10-22: the step before the freeze): Particles AT_Ice_King_Slow_Weak_Snow (lighter than the freeze's Effect_Snow), FirstPersonParticles AT_Ice_King_Slow_Snow_FP (low, keeps the view clear). No ModelVFX on purpose: renewing this effect would drop the freeze shell.",
   "ApplyConditions": [
     {
       "Id": "HasEffect",
@@ -8,15 +8,27 @@
     }
   ],
   "Tags": {
-    "Element": ["Water"]
+    "Element": [
+      "Water"
+    ]
   },
   "ApplicationEffects": {
     "EntityTopTint": "#7fdcff",
     "EntityBottomTint": "#bff4ff",
-    "HorizontalSpeedMultiplier": 0.9
+    "HorizontalSpeedMultiplier": 0.9,
+    "Particles": [
+      {
+        "SystemId": "AT_Ice_King_Slow_Weak_Snow"
+      }
+    ],
+    "FirstPersonParticles": [
+      {
+        "SystemId": "AT_Ice_King_Slow_Snow_FP"
+      }
+    ]
   },
   "Duration": 1.5,
   "OverlapBehavior": "Overwrite",
   "Debuff": true,
-  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Staff_Frost.png"
+  "StatusEffectIcon": "Icons/ItemsGenerated/AT_Ice_King/AT_Ice_King_Slow_Weak.png"
 }

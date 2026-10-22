@@ -1,0 +1,103 @@
+{
+  "$Comment": "Sky Lightning rune (2026-10-22): the king's ice lightning strike (giant ray, LaunchForce 30 = about 0.83 s from 25 blocks) without the stuck bolt NPC.",
+  "Model": "AT_Ice_King_Ray_Giant",
+  "SpawnRotationOffset": {
+    "Pitch": -90,
+    "Roll": 0
+  },
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 100,
+    "TerminalVelocityWater": 30,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "LaunchForce": 30,
+  "Interactions": {
+    "ProjectileHit": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3,
+            "SizeAttribute": "AoeScale"
+          },
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Rune_Lightning_Hit"
+            ]
+          },
+          "Effects": {
+            "WorldSoundEventId": "SFX_Ice_Break",
+            "Particles": [
+              {
+                "SystemId": "AT_Ice_King_Lightning",
+                "TargetEntityPart": "Entity"
+              },
+              {
+                "SystemId": "Ability_Ice_Explosion",
+                "TargetEntityPart": "Entity",
+                "Scale": 1.0
+              }
+            ]
+          },
+          "RunTime": 0.05
+        },
+        {
+          "Type": "Simple",
+          "RunTime": 0.4
+        },
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3,
+            "SizeAttribute": "AoeScale"
+          },
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Rune_Lightning_Hit"
+            ]
+          },
+          "Effects": {
+            "WorldSoundEventId": "SFX_Ice_Break",
+            "Particles": [
+              {
+                "SystemId": "AT_Ice_King_Lightning",
+                "TargetEntityPart": "Entity"
+              },
+              {
+                "SystemId": "Ability_Ice_Explosion",
+                "TargetEntityPart": "Entity",
+                "Scale": 1.0
+              }
+            ]
+          },
+          "RunTime": 0.05
+        },
+        {
+          "Type": "Simple",
+          "RunTime": 0.4
+        },
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    }
+  },
+  "SpawnOffset": {
+    "Z": 25
+  },
+  "UseModelScale": true,
+  "ProjectileSoundEventId": "SFX_Stalactite_Falling_Whistle"
+}

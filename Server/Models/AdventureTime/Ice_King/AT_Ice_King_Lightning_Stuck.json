@@ -1,0 +1,57 @@
+{
+  "$Comment": "Giant ice lightning stuck in the ground after the EncLightning strike (2026-10-22: stay embedded a few seconds like the iceberg). The king's ice bolt pointing straight down, a third underground (Ice_Ray_Stuck), same scale as the falling AT_Ice_King_Ray_Giant. Spawn slams it in; Despawn melts it into the ground or shatters it, at random like the iceberg pillar. Small sky-blue light. For a role like AT_Ice_King_Ice_Pillar. 2026-10-22 (playtest: the stuck model wasn't big and didn't look like lightning): now a real 3D ice lightning bolt, ~5 blocks of fullbright zigzag boxes, at scale 1. 2026-10-22 take 3 (playtest: base it on the king's 2D ice bolt, in 3D, much bigger): the king's ray picture extruded into a voxel bolt (thicker in the core), its own texture, scale 18 (~9 blocks). 2026-10-22 take 3b (scale 18 blew the impact particles up to screen size; now built 18x inside, model scale 1) take 3 (playtest: base it on the king's 2D ice bolt, in 3D, much bigger): the king's ray picture extruded into a voxel bolt (thicker in the core), its own texture, scale 1 (~9 blocks). take 3c: own texture Ice_Lightning_Voxel.png (ray picture + a solid copy for the box sides, which showed holes). 2026-10-22 (playtest: the bolt flickered or vanished with some camera angles): HitBox was 0.12 x 0.35 at the ground while the bolt is ~9 blocks tall, and the client seems to cull an entity by its hitbox, so it is now a thin column X/Z +-0.3, Y 0..8 (mechanics OK: thin so it barely shields the player from arrows and the king's rays for its 3 s).",
+  "Model": "NPC/AdventureTime/Ice_King/Ray/Ice_Lightning_Bolt.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Ray/Ice_Lightning_Voxel.png",
+  "EyeHeight": 0.5,
+  "HitBox": {
+    "Max": {
+      "X": 0.3,
+      "Y": 8,
+      "Z": 0.3
+    },
+    "Min": {
+      "X": -0.3,
+      "Y": 0,
+      "Z": -0.3
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1,
+  "Icon": "Icons/ModelsGenerated/Void_Anomaly_Crystal.png",
+  "Light": {
+    "Color": "#8cf",
+    "Radius": 2
+  },
+  "AnimationSets": {
+    "Spawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Ray/Lightning_Stuck_Spawn.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Despawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Ray/Lightning_Stuck_Melt.blockyanim",
+          "Looping": false,
+          "Weight": 1
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Ray/Lightning_Stuck_Shatter.blockyanim",
+          "Looping": false,
+          "Weight": 1
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Ray/Lightning_Stuck_Shatter.blockyanim",
+          "Looping": false
+        }
+      ]
+    }
+  }
+}

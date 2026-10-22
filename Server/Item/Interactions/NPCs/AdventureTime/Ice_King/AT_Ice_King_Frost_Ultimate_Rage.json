@@ -1,5 +1,5 @@
 {
-  "$Comment": "Rage ultimate (2026-10-21: keep the base ultimate as it is, fixed; the rage one follows you). Exact copy of AT_Ice_King_Frost_Ultimate (same charge, same 7 Stab hit boxes of 0.37 s, same hit roots Root_AT_Ice_King_Frost_Ultimate_Tick/_Final, same animations), only the aim effect differs: AT_Ice_King_Beam_Focus_Rage instead of AT_Ice_King_Beam_Focus, so the beam sweeps after the player. If the base ultimate changes, copy it again and put the _Rage effect back. Base snapshot: backups/ice-king-ultimate-base-2026-10-21. 2026-10-21 (playtest: much longer range, so he can hit me from the sky or across the field): each Stab box reaches 60 blocks (EndDistance, was 24). The box sweeps from 0 to 60 blocks within each 0.37 s tick (StabSelector), and still needs line of sight. 2026-10-21 (playtest: it aimed at my feet): starts with AT_Ice_King_Beam_Charge on himself for the 1.8 s charge + re-aim, so his head aims at the target's eyes (Template_AT_Ice_King, HeadMotion Watch) and the beam locks onto the body. 2026-10-21 (playtest: the ultimate freezes everything, allies too, without hurting them): every Stab box hits PLAYERS with the damaging root (HitEntityRules, Player matcher) and everything else (his Gunters and snowmen, other mobs) with Root_AT_Ice_King_Frost_Ultimate_Freeze_Only: frozen, no damage. 2026-10-21 (playtest: hurt every creature but ice creatures, and freeze them all, only with the ultimate): non-players now get Root_AT_Ice_King_Frost_Ultimate_Mob_Tick/_Final (AT_Ice_King_Freeze_Ultimate, which ignores Immunity_Freeze, + the ice damage, which the king's ice creatures resist with AT_Ice_King_Ice_Body). The freeze-only root is gone. 2026-10-21 (playtest: the base ultimate in phase 1, the rage one in phase 4): used by the flying enraged phase on its own timer (Component_AT_Ice_King_Air_Enraged_Combat), so it has no MovementEffects (a movement lock on a flier is untested); AT_Ice_King_Beam_Focus_Rage (speed x0.2) already slows his flight and turning while it fires, and the component's casting rule turns his body to his aim. Phase 1 keeps the base ultimate. 2026-10-21 (playtest: light the ground under the beam): before each hit box a light carrier projectile (Projectile_Config_AT_Ice_King_Beam_Light, invisible, light radius 6, no damage) flies down the beam, so the ground along it stays lit while it fires. 2026-10-21 (playtest: the light went on far past the end of the beam): each light projectile despawns after 0.95 s (ProjectileInteraction Lifetime); at its ~60 blocks/s that is about the beam's 60 blocks. Lower it if the light still overshoots the tip. 2026-10-21 (playtest: warn the player, the phase 4 ultimate chases him): it starts with AT_Ice_King_Ultimate_Warning on himself (deep red glow for the 1.8 s charge) and the beacon AT_Ice_King_Ultimate (the encounter's phase 4 puts a red warning circle under every player), and the charge plays the Gobliterator arena horn (SFX_Gobliterator_Arena_Horn) instead of the skeleton call.",
+  "$Comment": "Rage ultimate (2026-10-21: keep the base ultimate as it is, fixed; the rage one follows you). Exact copy of AT_Ice_King_Frost_Ultimate (same charge, same 7 Stab hit boxes of 0.37 s, same hit roots Root_AT_Ice_King_Frost_Ultimate_Tick/_Final, same animations), only the aim effect differs: AT_Ice_King_Beam_Focus_Rage instead of AT_Ice_King_Beam_Focus, so the beam sweeps after the player. If the base ultimate changes, copy it again and put the _Rage effect back. Base snapshot: backups/ice-king-ultimate-base-2026-10-21. 2026-10-21 (playtest: much longer range, so he can hit me from the sky or across the field): each Stab box reaches 60 blocks (EndDistance, was 24). The box sweeps from 0 to 60 blocks within each 0.37 s tick (StabSelector), and still needs line of sight. 2026-10-21 (playtest: it aimed at my feet): starts with AT_Ice_King_Beam_Charge on himself for the 1.8 s charge + re-aim, so his head aims at the target's eyes (Template_AT_Ice_King, HeadMotion Watch) and the beam locks onto the body. 2026-10-21 (playtest: the ultimate freezes everything, allies too, without hurting them): every Stab box hits PLAYERS with the damaging root (HitEntityRules, Player matcher) and everything else (his Gunters and snowmen, other mobs) with Root_AT_Ice_King_Frost_Ultimate_Freeze_Only: frozen, no damage. 2026-10-21 (playtest: hurt every creature but ice creatures, and freeze them all, only with the ultimate): non-players now get Root_AT_Ice_King_Frost_Ultimate_Mob_Tick/_Final (AT_Ice_King_Freeze_Ultimate, which ignores Immunity_Freeze, + the ice damage, which the king's ice creatures resist with AT_Ice_King_Ice_Body). The freeze-only root is gone. 2026-10-21 (playtest: the base ultimate in phase 1, the rage one in phase 4): used by the flying enraged phase on its own timer (Component_AT_Ice_King_Air_Enraged_Combat), so it has no MovementEffects (a movement lock on a flier is untested); AT_Ice_King_Beam_Focus_Rage (speed x0.2) already slows his flight and turning while it fires, and the component's casting rule turns his body to his aim. Phase 1 keeps the base ultimate. 2026-10-21 (playtest: light the ground under the beam): before each hit box a light carrier projectile (Projectile_Config_AT_Ice_King_Beam_Light, invisible, light radius 6, no damage) flies down the beam, so the ground along it stays lit while it fires. 2026-10-21 (playtest: the light went on far past the end of the beam): each light projectile despawns after 0.95 s (ProjectileInteraction Lifetime); at its ~60 blocks/s that is about the beam's 60 blocks. Lower it if the light still overshoots the tip. 2026-10-21 (playtest: warn the player, the phase 4 ultimate chases him): it starts with AT_Ice_King_Ultimate_Warning on himself (deep red glow for the 1.8 s charge) and the beacon AT_Ice_King_Ultimate (the encounter's phase 4 puts a red warning circle under every player), and the charge plays the Gobliterator arena horn (SFX_Gobliterator_Arena_Horn) instead of the skeleton call. 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Charge when the charge starts (the warning horn moved to the first step, where the warning starts), VO_Scream_Long when the beam fires, Frost_Ultimate_Pulse on each of the 7 beam pulses. 2026-10-22: the warning horn moved from the first step to the start of the charge (with VO_Charge), wanted: it exactly as he starts casting. 2026-10-22: a particle beam (AT_Ice_King_Ultimate_Beam) was tried on the fire step and dropped (preferred: the model beam); the Frost_Beam attachment, hanging from Chest, is the beam again. 2026-10-22: aim tracer during the charge (six Projectile_Config_AT_Ice_King_Aim_Tracer shots, one every 0.3 s), see the first Projectile step.",
   "Type": "ApplyEffect",
   "EffectId": "AT_Ice_King_Ultimate_Warning",
   "Entity": "User",
@@ -14,292 +14,557 @@
       "Duration": 1.8,
       "Next": {
         "Type": "Simple",
-        "RunTime": 1.2,
+        "$Comment": "2026-10-22 (playtest: the horn exactly when he starts casting): SFX_Gobliterator_Arena_Horn on a 0 s step right before the charge, so it plays with VO_Charge.",
+        "RunTime": 0,
         "Effects": {
-          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-          "ItemAnimationId": "FrostUltimateCharging",
-          "WorldSoundEventId": "SFX_Gobliterator_Arena_Horn",
-          "Particles": [
-            {
-              "SystemId": "AT_Ice_King_Summon_Energy",
-              "TargetEntityPart": "Entity",
-              "TargetNodeName": "R-Hand",
-              "Scale": 1.6
-            },
-            {
-              "SystemId": "AT_Ice_King_Summon_Energy",
-              "TargetEntityPart": "Entity",
-              "TargetNodeName": "L-Hand",
-              "Scale": 1.6
-            }
-          ]
+          "WorldSoundEventId": "SFX_Gobliterator_Arena_Horn"
         },
         "Next": {
-          "Type": "Simple",
-          "RunTime": 0.6,
-          "$Comment": "Re-aim: he turns toward the target before the beam fires.",
-          "Effects": {
-            "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-            "ItemAnimationId": "FrostUltimateCharging",
-            "Particles": [
-              {
-                "SystemId": "AT_Ice_King_Summon_Energy",
-                "TargetEntityPart": "Entity",
-                "TargetNodeName": "R-Hand",
-                "Scale": 1.6
-              },
-              {
-                "SystemId": "AT_Ice_King_Summon_Energy",
-                "TargetEntityPart": "Entity",
-                "TargetNodeName": "L-Hand",
-                "Scale": 1.6
-              }
-            ]
-          },
+          "Type": "Projectile",
+          "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+          "RunTime": 0,
+          "Lifetime": 0.95,
           "Next": {
-            "Type": "ApplyEffect",
-            "$Comment": "Rage ultimate: the beam follows the player (AT_Ice_King_Beam_Focus_Rage: head turn x0.2, body matches the head).",
-            "EffectId": "AT_Ice_King_Beam_Focus_Rage",
-            "Entity": "User",
-            "Duration": 3.1,
+            "Type": "Simple",
+            "RunTime": 0.1,
+            "Effects": {
+              "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+              "ItemAnimationId": "FrostUltimateCharging",
+              "WorldSoundEventId": "SFX_AT_Ice_King_VO_Charge",
+              "Particles": [
+                {
+                  "SystemId": "AT_Ice_King_Summon_Energy",
+                  "TargetEntityPart": "Entity",
+                  "TargetNodeName": "R-Hand",
+                  "Scale": 1.6
+                },
+                {
+                  "SystemId": "AT_Ice_King_Summon_Energy",
+                  "TargetEntityPart": "Entity",
+                  "TargetNodeName": "L-Hand",
+                  "Scale": 1.6
+                }
+              ]
+            },
             "Next": {
               "Type": "Projectile",
-              "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+              "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
               "RunTime": 0,
+              "Lifetime": 0.95,
               "Next": {
-                "Type": "Selector",
-                "RunTime": 0.37,
+                "Type": "Simple",
+                "RunTime": 0.1,
                 "Effects": {
                   "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-                  "ItemAnimationId": "FrostUltimateFire",
-                  "WorldSoundEventId": "SFX_Staff_Ice_Shoot"
+                  "ItemAnimationId": "FrostUltimateCharging"
                 },
-                "Selector": {
-                  "Id": "Stab",
-                  "TestLineOfSight": true,
-                  "StartDistance": 0.0,
-                  "EndDistance": 60.0,
-                  "ExtendTop": 1.25,
-                  "ExtendBottom": 1.25,
-                  "ExtendLeft": 1.5,
-                  "ExtendRight": 1.5
-                },
-                "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
-                "HitEntityRules": [
-                  {
-                    "Matchers": [
-                      {
-                        "Type": "Player"
-                      }
-                    ],
-                    "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
-                  }
-                ],
                 "Next": {
                   "Type": "Projectile",
-                  "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                  "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
                   "RunTime": 0,
+                  "Lifetime": 0.95,
                   "Next": {
-                    "Type": "Selector",
-                    "RunTime": 0.37,
-                    "Effects": {},
-                    "Selector": {
-                      "Id": "Stab",
-                      "TestLineOfSight": true,
-                      "StartDistance": 0.0,
-                      "EndDistance": 60.0,
-                      "ExtendTop": 1.25,
-                      "ExtendBottom": 1.25,
-                      "ExtendLeft": 1.5,
-                      "ExtendRight": 1.5
+                    "Type": "Simple",
+                    "RunTime": 0.1,
+                    "Effects": {
+                      "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                      "ItemAnimationId": "FrostUltimateCharging"
                     },
-                    "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
-                    "HitEntityRules": [
-                      {
-                        "Matchers": [
-                          {
-                            "Type": "Player"
-                          }
-                        ],
-                        "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
-                      }
-                    ],
                     "Next": {
                       "Type": "Projectile",
-                      "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                      "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
                       "RunTime": 0,
+                      "Lifetime": 0.95,
                       "Next": {
-                        "Type": "Selector",
-                        "RunTime": 0.37,
-                        "Effects": {},
-                        "Selector": {
-                          "Id": "Stab",
-                          "TestLineOfSight": true,
-                          "StartDistance": 0.0,
-                          "EndDistance": 60.0,
-                          "ExtendTop": 1.25,
-                          "ExtendBottom": 1.25,
-                          "ExtendLeft": 1.5,
-                          "ExtendRight": 1.5
+                        "Type": "Simple",
+                        "RunTime": 0.1,
+                        "Effects": {
+                          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                          "ItemAnimationId": "FrostUltimateCharging"
                         },
-                        "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
-                        "HitEntityRules": [
-                          {
-                            "Matchers": [
-                              {
-                                "Type": "Player"
-                              }
-                            ],
-                            "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
-                          }
-                        ],
                         "Next": {
                           "Type": "Projectile",
-                          "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                          "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
                           "RunTime": 0,
+                          "Lifetime": 0.95,
                           "Next": {
-                            "Type": "Selector",
-                            "RunTime": 0.37,
-                            "Effects": {},
-                            "Selector": {
-                              "Id": "Stab",
-                              "TestLineOfSight": true,
-                              "StartDistance": 0.0,
-                              "EndDistance": 60.0,
-                              "ExtendTop": 1.25,
-                              "ExtendBottom": 1.25,
-                              "ExtendLeft": 1.5,
-                              "ExtendRight": 1.5
+                            "Type": "Simple",
+                            "RunTime": 0.1,
+                            "Effects": {
+                              "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                              "ItemAnimationId": "FrostUltimateCharging"
                             },
-                            "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
-                            "HitEntityRules": [
-                              {
-                                "Matchers": [
-                                  {
-                                    "Type": "Player"
-                                  }
-                                ],
-                                "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
-                              }
-                            ],
                             "Next": {
                               "Type": "Projectile",
-                              "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                              "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
                               "RunTime": 0,
+                              "Lifetime": 0.95,
                               "Next": {
-                                "Type": "Selector",
-                                "RunTime": 0.37,
-                                "Effects": {},
-                                "Selector": {
-                                  "Id": "Stab",
-                                  "TestLineOfSight": true,
-                                  "StartDistance": 0.0,
-                                  "EndDistance": 60.0,
-                                  "ExtendTop": 1.25,
-                                  "ExtendBottom": 1.25,
-                                  "ExtendLeft": 1.5,
-                                  "ExtendRight": 1.5
+                                "Type": "Simple",
+                                "RunTime": 0.1,
+                                "Effects": {
+                                  "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                  "ItemAnimationId": "FrostUltimateCharging"
                                 },
-                                "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
-                                "HitEntityRules": [
-                                  {
-                                    "Matchers": [
-                                      {
-                                        "Type": "Player"
-                                      }
-                                    ],
-                                    "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
-                                  }
-                                ],
                                 "Next": {
                                   "Type": "Projectile",
-                                  "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                                  "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
                                   "RunTime": 0,
+                                  "Lifetime": 0.95,
                                   "Next": {
-                                    "Type": "Selector",
-                                    "RunTime": 0.37,
-                                    "Effects": {},
-                                    "Selector": {
-                                      "Id": "Stab",
-                                      "TestLineOfSight": true,
-                                      "StartDistance": 0.0,
-                                      "EndDistance": 60.0,
-                                      "ExtendTop": 1.25,
-                                      "ExtendBottom": 1.25,
-                                      "ExtendLeft": 1.5,
-                                      "ExtendRight": 1.5
+                                    "Type": "Simple",
+                                    "RunTime": 0.1,
+                                    "Effects": {
+                                      "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                      "ItemAnimationId": "FrostUltimateCharging"
                                     },
-                                    "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
-                                    "HitEntityRules": [
-                                      {
-                                        "Matchers": [
-                                          {
-                                            "Type": "Player"
-                                          }
-                                        ],
-                                        "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
-                                      }
-                                    ],
                                     "Next": {
                                       "Type": "Projectile",
-                                      "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                                      "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
                                       "RunTime": 0,
+                                      "Lifetime": 0.95,
                                       "Next": {
-                                        "Type": "Selector",
-                                        "RunTime": 0.37,
-                                        "Effects": {},
-                                        "Selector": {
-                                          "Id": "Stab",
-                                          "TestLineOfSight": true,
-                                          "StartDistance": 0.0,
-                                          "EndDistance": 60.0,
-                                          "ExtendTop": 1.25,
-                                          "ExtendBottom": 1.25,
-                                          "ExtendLeft": 1.5,
-                                          "ExtendRight": 1.5
+                                        "Type": "Simple",
+                                        "RunTime": 0.1,
+                                        "Effects": {
+                                          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                          "ItemAnimationId": "FrostUltimateCharging"
                                         },
-                                        "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Final",
-                                        "HitEntityRules": [
-                                          {
-                                            "Matchers": [
-                                              {
-                                                "Type": "Player"
-                                              }
-                                            ],
-                                            "Next": "Root_AT_Ice_King_Frost_Ultimate_Final"
-                                          }
-                                        ],
                                         "Next": {
-                                          "Type": "Simple",
-                                          "RunTime": 1.2,
-                                          "$Comment": "Recovery: stays still, the window to punish him.",
-                                          "Effects": {
-                                            "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
-                                            "ItemAnimationId": "FrostUltimateRecovery"
+                                          "Type": "Projectile",
+                                          "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                          "RunTime": 0,
+                                          "Lifetime": 0.95,
+                                          "Next": {
+                                            "Type": "Simple",
+                                            "RunTime": 0.1,
+                                            "Effects": {
+                                              "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                              "ItemAnimationId": "FrostUltimateCharging"
+                                            },
+                                            "Next": {
+                                              "Type": "Projectile",
+                                              "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                              "RunTime": 0,
+                                              "Lifetime": 0.95,
+                                              "Next": {
+                                                "Type": "Simple",
+                                                "RunTime": 0.1,
+                                                "Effects": {
+                                                  "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                  "ItemAnimationId": "FrostUltimateCharging"
+                                                },
+                                                "Next": {
+                                                  "Type": "Projectile",
+                                                  "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                                  "RunTime": 0,
+                                                  "Lifetime": 0.95,
+                                                  "Next": {
+                                                    "Type": "Simple",
+                                                    "RunTime": 0.1,
+                                                    "Effects": {
+                                                      "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                      "ItemAnimationId": "FrostUltimateCharging"
+                                                    },
+                                                    "Next": {
+                                                      "Type": "Projectile",
+                                                      "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                                      "RunTime": 0,
+                                                      "Lifetime": 0.95,
+                                                      "Next": {
+                                                        "Type": "Simple",
+                                                        "RunTime": 0.1,
+                                                        "Effects": {
+                                                          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                          "ItemAnimationId": "FrostUltimateCharging"
+                                                        },
+                                                        "Next": {
+                                                          "Type": "Projectile",
+                                                          "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                                          "RunTime": 0,
+                                                          "Lifetime": 0.95,
+                                                          "Next": {
+                                                            "Type": "Simple",
+                                                            "RunTime": 0.1,
+                                                            "Effects": {
+                                                              "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                              "ItemAnimationId": "FrostUltimateCharging",
+                                                              "Particles": [
+                                                                {
+                                                                  "SystemId": "AT_Ice_King_Summon_Energy",
+                                                                  "TargetEntityPart": "Entity",
+                                                                  "TargetNodeName": "R-Hand",
+                                                                  "Scale": 1.6
+                                                                },
+                                                                {
+                                                                  "SystemId": "AT_Ice_King_Summon_Energy",
+                                                                  "TargetEntityPart": "Entity",
+                                                                  "TargetNodeName": "L-Hand",
+                                                                  "Scale": 1.6
+                                                                }
+                                                              ]
+                                                            },
+                                                            "Next": {
+                                                              "Type": "Projectile",
+                                                              "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                                              "RunTime": 0,
+                                                              "Lifetime": 0.95,
+                                                              "Next": {
+                                                                "Type": "Simple",
+                                                                "RunTime": 0.1,
+                                                                "Effects": {
+                                                                  "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                                  "ItemAnimationId": "FrostUltimateCharging"
+                                                                },
+                                                                "Next": {
+                                                                  "Type": "Projectile",
+                                                                  "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                                                  "RunTime": 0,
+                                                                  "Lifetime": 0.95,
+                                                                  "Next": {
+                                                                    "Type": "Simple",
+                                                                    "RunTime": 0.1,
+                                                                    "Effects": {
+                                                                      "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                                      "ItemAnimationId": "FrostUltimateCharging"
+                                                                    },
+                                                                    "Next": {
+                                                                      "Type": "Projectile",
+                                                                      "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                                                      "RunTime": 0,
+                                                                      "Lifetime": 0.95,
+                                                                      "Next": {
+                                                                        "Type": "Simple",
+                                                                        "RunTime": 0.1,
+                                                                        "Effects": {
+                                                                          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                                          "ItemAnimationId": "FrostUltimateCharging"
+                                                                        },
+                                                                        "Next": {
+                                                                          "Type": "Projectile",
+                                                                          "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                                                          "RunTime": 0,
+                                                                          "Lifetime": 0.95,
+                                                                          "Next": {
+                                                                            "Type": "Simple",
+                                                                            "RunTime": 0.1,
+                                                                            "Effects": {
+                                                                              "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                                              "ItemAnimationId": "FrostUltimateCharging"
+                                                                            },
+                                                                            "Next": {
+                                                                              "Type": "Projectile",
+                                                                              "Config": "Projectile_Config_AT_Ice_King_Aim_Tracer",
+                                                                              "RunTime": 0,
+                                                                              "Lifetime": 0.95,
+                                                                              "Next": {
+                                                                                "Type": "Simple",
+                                                                                "RunTime": 0.1,
+                                                                                "Effects": {
+                                                                                  "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                                                  "ItemAnimationId": "FrostUltimateCharging"
+                                                                                },
+                                                                                "Next": {
+                                                                                  "Type": "ApplyEffect",
+                                                                                  "$Comment": "Rage ultimate: the beam follows the player (AT_Ice_King_Beam_Focus_Rage: head turn x0.2, body matches the head).",
+                                                                                  "EffectId": "AT_Ice_King_Beam_Focus_Rage",
+                                                                                  "Entity": "User",
+                                                                                  "Duration": 3.1,
+                                                                                  "Next": {
+                                                                                    "Type": "Projectile",
+                                                                                    "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                                                                                    "RunTime": 0,
+                                                                                    "Next": {
+                                                                                      "Type": "Selector",
+                                                                                      "RunTime": 0.37,
+                                                                                      "Effects": {
+                                                                                        "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                                                        "ItemAnimationId": "FrostUltimateFire",
+                                                                                        "WorldSoundEventId": "SFX_AT_Ice_King_VO_Scream_Long"
+                                                                                      },
+                                                                                      "Selector": {
+                                                                                        "Id": "Stab",
+                                                                                        "TestLineOfSight": true,
+                                                                                        "StartDistance": 0.0,
+                                                                                        "EndDistance": 60.0,
+                                                                                        "ExtendTop": 1.25,
+                                                                                        "ExtendBottom": 1.25,
+                                                                                        "ExtendLeft": 1.5,
+                                                                                        "ExtendRight": 1.5
+                                                                                      },
+                                                                                      "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
+                                                                                      "HitEntityRules": [
+                                                                                        {
+                                                                                          "Matchers": [
+                                                                                            {
+                                                                                              "Type": "Player"
+                                                                                            }
+                                                                                          ],
+                                                                                          "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
+                                                                                        }
+                                                                                      ],
+                                                                                      "Next": {
+                                                                                        "Type": "Projectile",
+                                                                                        "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                                                                                        "RunTime": 0,
+                                                                                        "Next": {
+                                                                                          "Type": "Selector",
+                                                                                          "RunTime": 0.37,
+                                                                                          "Effects": {},
+                                                                                          "Selector": {
+                                                                                            "Id": "Stab",
+                                                                                            "TestLineOfSight": true,
+                                                                                            "StartDistance": 0.0,
+                                                                                            "EndDistance": 60.0,
+                                                                                            "ExtendTop": 1.25,
+                                                                                            "ExtendBottom": 1.25,
+                                                                                            "ExtendLeft": 1.5,
+                                                                                            "ExtendRight": 1.5
+                                                                                          },
+                                                                                          "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
+                                                                                          "HitEntityRules": [
+                                                                                            {
+                                                                                              "Matchers": [
+                                                                                                {
+                                                                                                  "Type": "Player"
+                                                                                                }
+                                                                                              ],
+                                                                                              "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
+                                                                                            }
+                                                                                          ],
+                                                                                          "Next": {
+                                                                                            "Type": "Projectile",
+                                                                                            "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                                                                                            "RunTime": 0,
+                                                                                            "Next": {
+                                                                                              "Type": "Selector",
+                                                                                              "RunTime": 0.37,
+                                                                                              "Effects": {},
+                                                                                              "Selector": {
+                                                                                                "Id": "Stab",
+                                                                                                "TestLineOfSight": true,
+                                                                                                "StartDistance": 0.0,
+                                                                                                "EndDistance": 60.0,
+                                                                                                "ExtendTop": 1.25,
+                                                                                                "ExtendBottom": 1.25,
+                                                                                                "ExtendLeft": 1.5,
+                                                                                                "ExtendRight": 1.5
+                                                                                              },
+                                                                                              "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
+                                                                                              "HitEntityRules": [
+                                                                                                {
+                                                                                                  "Matchers": [
+                                                                                                    {
+                                                                                                      "Type": "Player"
+                                                                                                    }
+                                                                                                  ],
+                                                                                                  "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
+                                                                                                }
+                                                                                              ],
+                                                                                              "Next": {
+                                                                                                "Type": "Projectile",
+                                                                                                "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                                                                                                "RunTime": 0,
+                                                                                                "Next": {
+                                                                                                  "Type": "Selector",
+                                                                                                  "RunTime": 0.37,
+                                                                                                  "Effects": {},
+                                                                                                  "Selector": {
+                                                                                                    "Id": "Stab",
+                                                                                                    "TestLineOfSight": true,
+                                                                                                    "StartDistance": 0.0,
+                                                                                                    "EndDistance": 60.0,
+                                                                                                    "ExtendTop": 1.25,
+                                                                                                    "ExtendBottom": 1.25,
+                                                                                                    "ExtendLeft": 1.5,
+                                                                                                    "ExtendRight": 1.5
+                                                                                                  },
+                                                                                                  "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
+                                                                                                  "HitEntityRules": [
+                                                                                                    {
+                                                                                                      "Matchers": [
+                                                                                                        {
+                                                                                                          "Type": "Player"
+                                                                                                        }
+                                                                                                      ],
+                                                                                                      "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
+                                                                                                    }
+                                                                                                  ],
+                                                                                                  "Next": {
+                                                                                                    "Type": "Projectile",
+                                                                                                    "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                                                                                                    "RunTime": 0,
+                                                                                                    "Next": {
+                                                                                                      "Type": "Selector",
+                                                                                                      "RunTime": 0.37,
+                                                                                                      "Effects": {},
+                                                                                                      "Selector": {
+                                                                                                        "Id": "Stab",
+                                                                                                        "TestLineOfSight": true,
+                                                                                                        "StartDistance": 0.0,
+                                                                                                        "EndDistance": 60.0,
+                                                                                                        "ExtendTop": 1.25,
+                                                                                                        "ExtendBottom": 1.25,
+                                                                                                        "ExtendLeft": 1.5,
+                                                                                                        "ExtendRight": 1.5
+                                                                                                      },
+                                                                                                      "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
+                                                                                                      "HitEntityRules": [
+                                                                                                        {
+                                                                                                          "Matchers": [
+                                                                                                            {
+                                                                                                              "Type": "Player"
+                                                                                                            }
+                                                                                                          ],
+                                                                                                          "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
+                                                                                                        }
+                                                                                                      ],
+                                                                                                      "Next": {
+                                                                                                        "Type": "Projectile",
+                                                                                                        "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                                                                                                        "RunTime": 0,
+                                                                                                        "Next": {
+                                                                                                          "Type": "Selector",
+                                                                                                          "RunTime": 0.37,
+                                                                                                          "Effects": {},
+                                                                                                          "Selector": {
+                                                                                                            "Id": "Stab",
+                                                                                                            "TestLineOfSight": true,
+                                                                                                            "StartDistance": 0.0,
+                                                                                                            "EndDistance": 60.0,
+                                                                                                            "ExtendTop": 1.25,
+                                                                                                            "ExtendBottom": 1.25,
+                                                                                                            "ExtendLeft": 1.5,
+                                                                                                            "ExtendRight": 1.5
+                                                                                                          },
+                                                                                                          "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Tick",
+                                                                                                          "HitEntityRules": [
+                                                                                                            {
+                                                                                                              "Matchers": [
+                                                                                                                {
+                                                                                                                  "Type": "Player"
+                                                                                                                }
+                                                                                                              ],
+                                                                                                              "Next": "Root_AT_Ice_King_Frost_Ultimate_Tick"
+                                                                                                            }
+                                                                                                          ],
+                                                                                                          "Next": {
+                                                                                                            "Type": "Projectile",
+                                                                                                            "Config": "Projectile_Config_AT_Ice_King_Beam_Light",
+                                                                                                            "RunTime": 0,
+                                                                                                            "Next": {
+                                                                                                              "Type": "Selector",
+                                                                                                              "RunTime": 0.37,
+                                                                                                              "Effects": {},
+                                                                                                              "Selector": {
+                                                                                                                "Id": "Stab",
+                                                                                                                "TestLineOfSight": true,
+                                                                                                                "StartDistance": 0.0,
+                                                                                                                "EndDistance": 60.0,
+                                                                                                                "ExtendTop": 1.25,
+                                                                                                                "ExtendBottom": 1.25,
+                                                                                                                "ExtendLeft": 1.5,
+                                                                                                                "ExtendRight": 1.5
+                                                                                                              },
+                                                                                                              "HitEntity": "Root_AT_Ice_King_Frost_Ultimate_Mob_Final",
+                                                                                                              "HitEntityRules": [
+                                                                                                                {
+                                                                                                                  "Matchers": [
+                                                                                                                    {
+                                                                                                                      "Type": "Player"
+                                                                                                                    }
+                                                                                                                  ],
+                                                                                                                  "Next": "Root_AT_Ice_King_Frost_Ultimate_Final"
+                                                                                                                }
+                                                                                                              ],
+                                                                                                              "Next": {
+                                                                                                                "Type": "Simple",
+                                                                                                                "RunTime": 1.2,
+                                                                                                                "$Comment": "Recovery: stays still, the window to punish him.",
+                                                                                                                "Effects": {
+                                                                                                                  "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                                                                                                  "ItemAnimationId": "FrostUltimateRecovery"
+                                                                                                                }
+                                                                                                              }
+                                                                                                            },
+                                                                                                            "Lifetime": 0.95,
+                                                                                                            "Effects": {
+                                                                                                              "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Ultimate_Pulse"
+                                                                                                            }
+                                                                                                          }
+                                                                                                        },
+                                                                                                        "Lifetime": 0.95,
+                                                                                                        "Effects": {
+                                                                                                          "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Ultimate_Pulse"
+                                                                                                        }
+                                                                                                      }
+                                                                                                    },
+                                                                                                    "Lifetime": 0.95,
+                                                                                                    "Effects": {
+                                                                                                      "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Ultimate_Pulse"
+                                                                                                    }
+                                                                                                  }
+                                                                                                },
+                                                                                                "Lifetime": 0.95,
+                                                                                                "Effects": {
+                                                                                                  "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Ultimate_Pulse"
+                                                                                                }
+                                                                                              }
+                                                                                            },
+                                                                                            "Lifetime": 0.95,
+                                                                                            "Effects": {
+                                                                                              "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Ultimate_Pulse"
+                                                                                            }
+                                                                                          }
+                                                                                        },
+                                                                                        "Lifetime": 0.95,
+                                                                                        "Effects": {
+                                                                                          "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Ultimate_Pulse"
+                                                                                        }
+                                                                                      }
+                                                                                    },
+                                                                                    "Lifetime": 0.95,
+                                                                                    "Effects": {
+                                                                                      "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Ultimate_Pulse"
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
                                           }
                                         }
-                                      },
-                                      "Lifetime": 0.95
+                                      }
                                     }
-                                  },
-                                  "Lifetime": 0.95
+                                  }
                                 }
-                              },
-                              "Lifetime": 0.95
+                              }
                             }
-                          },
-                          "Lifetime": 0.95
+                          }
                         }
-                      },
-                      "Lifetime": 0.95
+                      }
                     }
-                  },
-                  "Lifetime": 0.95
+                  }
                 }
-              },
-              "Lifetime": 0.95
+              }
             }
-          }
+          },
+          "$Comment": "Aim tracer (2026-10-22): the 1.8 s charge (was Simple 1.2 + Simple 0.6, same animation and hand particles at 0 and 1.2 s, VO_Charge at the start) is now six 0.3 s waits, each after a Projectile_Config_AT_Ice_King_Aim_Tracer shot along his aim: a red line that follows his aim to the player. 2026-10-22 v2 (art pass: the tracer is now the laser itself, a 7.5-block fullbright needle reaching ahead of the projectile; the first version's particle dashes lay flat when he aimed down): one shot every 0.1 s (18 over the 1.8 s charge, 7.5 blocks at 70 b/s), so the needles touch end to end in one continuous line. Hand particles at 0 and 1.2 s, VO_Charge at the start, as before."
         }
       }
     }

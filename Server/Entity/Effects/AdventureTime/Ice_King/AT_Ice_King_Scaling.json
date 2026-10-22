@@ -1,0 +1,6 @@
+{
+  "$Comment": "Marker (2026-10-22 multiplayer): put on the Ice King for 1.5 s together with a health scale + top-up. While it lasts, AT_Ice_King_Encounter's Waiting rules (fight start under 99 % health, resume the phase that matches his health) skip him: between the max going up and the top-up landing his health share drops (3000/4000 = 75 %), which would start the fight or jump to phase 2. No visuals, no stats.",
+  "Duration": 1.5,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

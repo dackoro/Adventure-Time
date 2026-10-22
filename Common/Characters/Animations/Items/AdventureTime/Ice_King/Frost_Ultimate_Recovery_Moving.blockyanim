@@ -109,10 +109,10 @@
         {
           "time": 0,
           "delta": {
-            "x": 0.0513,
+            "x": 0,
             "y": 0,
             "z": 0,
-            "w": 0.99868
+            "w": 1
           },
           "interpolationType": "smooth"
         },
@@ -137,10 +137,10 @@
         {
           "time": 0,
           "delta": {
-            "x": -0.05234,
+            "x": 0,
             "y": 0,
             "z": 0,
-            "w": 0.99863
+            "w": 1
           },
           "interpolationType": "smooth"
         },

@@ -1,0 +1,21 @@
+{
+  "$Comment": "Ice King sound (2026-10-22, voice clips): Each cold pulse of the frost ultimate while it lasts. Files: Common/Sounds/AdventureTime/Ice_King. Volume in dB; Parent sets how far it is heard.",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Effects/AT_Ice_King_Frost_Ultimate_Pulse_1.ogg",
+        "Sounds/AdventureTime/Ice_King/Effects/AT_Ice_King_Frost_Ultimate_Pulse_2.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -1.5,
+        "MaxPitch": 1.5,
+        "MinVolume": -1,
+        "MaxVolume": 0.5
+      },
+      "RoundRobinHistorySize": 1
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Moderate",
+  "MaxInstance": 8
+}

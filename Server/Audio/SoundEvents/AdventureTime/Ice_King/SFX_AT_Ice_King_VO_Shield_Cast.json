@@ -1,0 +1,17 @@
+{
+  "$Comment": "Ice King sound (2026-10-22, voice clips): he hides in his ice shield with a scared gasp (playtest: something worried when he hides in it). Play it when the shield starts (AT_Ice_King_Ice_Shield cast).",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King/Voice/AT_Ice_King_VO_Shield_Cast.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -1,
+        "MaxPitch": 1
+      }
+    }
+  ],
+  "Volume": 0,
+  "Parent": "SFX_Attn_Loud",
+  "PreventSoundInterruption": true
+}

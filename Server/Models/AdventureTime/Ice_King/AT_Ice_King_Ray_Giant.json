@@ -1,0 +1,23 @@
+{
+  "$Comment": "Giant ice ray for the encounter's sky strike (2026-10-22: EncLightning should look like the king's rays but giant; it was a block that suddenly appeared in the red zone). Same model, texture, glow, trail and IceBall particle as AT_Ice_King_Ray (the king's zigzag ice bolt), at 6 times the size (Min/MaxScale; the game scales the hitbox with it) and with a stronger sky-blue light (Radius 8) so it lights the ground as it comes down. Meant as the model of the falling projectile, pointing down. 2026-10-22 (playtest: far too big, it covered his whole view): the IceBall glow particle and the Arrow trail are gone (they scale with the model, and at x6 the glow was a white cloud over the screen); scale 3.5, light radius 6. 2026-10-22 (playtest: the light was immense and the model too small): scale 3.5 -> 6, Light radius 6 -> 3 (radius 6 lit a ~10-block circle on the ground). It no longer carries particles, so the bigger scale doesn't blind. 2026-10-22 (playtest: the stuck model wasn't big and didn't look like lightning): now a real 3D ice lightning bolt, ~5 blocks of fullbright zigzag boxes (the same bolt lying along +Z, tip first), at scale 1. 2026-10-22 take 3 (playtest: base it on the king's 2D ice bolt, in 3D, much bigger): the king's ray picture extruded into a voxel bolt (thicker in the core), its own texture, scale 18 (~9 blocks). 2026-10-22 take 3b (scale 18 blew the impact particles up to screen size; now built 18x inside, model scale 1) take 3 (playtest: base it on the king's 2D ice bolt, in 3D, much bigger): the king's ray picture extruded into a voxel bolt (thicker in the core), its own texture, scale 1 (~9 blocks). take 3c: own texture Ice_Lightning_Voxel.png (ray picture + a solid copy for the box sides, which showed holes).",
+  "Model": "NPC/AdventureTime/Ice_King/Ray/Ice_Lightning_Bolt_Fall.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Ray/Ice_Lightning_Voxel.png",
+  "HitBox": {
+    "Max": {
+      "X": 0.1,
+      "Y": 0.1,
+      "Z": 0.1
+    },
+    "Min": {
+      "X": -0.1,
+      "Y": -0.1,
+      "Z": -0.1
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1,
+  "Light": {
+    "Color": "#8cf",
+    "Radius": 3
+  }
+}

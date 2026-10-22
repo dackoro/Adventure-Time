@@ -1,0 +1,109 @@
+{
+  "$Comment": "Iceberg rune (2026-10-22): the king's falling iceberg (25 blocks up, 2.3-block circle) faster (LaunchForce 25, about 1 s) and without his ice pillar.",
+  "Model": "AT_Ice_King_Iceberg",
+  "SpawnRotationOffset": {
+    "Pitch": -90,
+    "Roll": 0
+  },
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 100,
+    "TerminalVelocityWater": 30,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "LaunchForce": 25,
+  "Interactions": {
+    "ProjectileHit": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3,
+            "SizeAttribute": "AoeScale"
+          },
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Rune_Iceberg_Hit"
+            ]
+          },
+          "Effects": {
+            "WorldSoundEventId": "SFX_AT_Ice_King_Iceberg_Impact",
+            "Particles": [
+              {
+                "SystemId": "AT_Ice_King_Iceberg_Hit",
+                "TargetEntityPart": "Entity",
+                "Scale": 0.35,
+                "RotationOffset": {
+                  "Pitch": -90
+                },
+                "Color": "#9FD8FF",
+                "PositionOffset": {
+                  "Z": 0.2
+                }
+              }
+            ]
+          },
+          "RunTime": 0.05
+        },
+        {
+          "Type": "Simple",
+          "RunTime": 0.4
+        },
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3,
+            "SizeAttribute": "AoeScale"
+          },
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Rune_Iceberg_Hit"
+            ]
+          },
+          "Effects": {
+            "WorldSoundEventId": "SFX_AT_Ice_King_Iceberg_Impact",
+            "Particles": [
+              {
+                "SystemId": "AT_Ice_King_Iceberg_Hit",
+                "TargetEntityPart": "Entity",
+                "Scale": 0.35,
+                "RotationOffset": {
+                  "Pitch": -90
+                },
+                "Color": "#9FD8FF",
+                "PositionOffset": {
+                  "Z": 0.2
+                }
+              }
+            ]
+          },
+          "RunTime": 0.05
+        },
+        {
+          "Type": "Simple",
+          "RunTime": 0.4
+        },
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    }
+  },
+  "SpawnOffset": {
+    "Z": 25
+  },
+  "UseModelScale": true,
+  "ProjectileSoundEventId": "SFX_Stalactite_Falling_Whistle"
+}

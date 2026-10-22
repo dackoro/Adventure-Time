@@ -1,0 +1,53 @@
+{
+  "$Comment": "CAE ability: the king raises his hands 1.2 s, then sends the beacon AT_Ice_King_Iceberg. The encounter (AT_Ice_King_Encounter) hears it and drops icebergs on every player, as the vanilla Gobliterator Club_Slam sends Stalactite_Trigger. Without an encounter placed nothing falls. 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+    "ItemAnimationId": "IcebergCharging",
+    "WorldSoundEventId": "SFX_Staff_Ice_Shoot",
+    "Particles": [
+      {
+        "SystemId": "Impact_Ice",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.5
+      },
+      {
+        "SystemId": "Impact_Ice",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.5
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.0
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.0
+      }
+    ]
+  },
+  "RunTime": 1.2,
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "SendBeacon",
+        "Message": "AT_Ice_King_Iceberg"
+      },
+      {
+        "Type": "Simple",
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "IcebergCast"
+        },
+        "RunTime": 0.4
+      }
+    ]
+  }
+}

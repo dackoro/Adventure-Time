@@ -1,0 +1,72 @@
+{
+  "$Comment": "Copy of vanilla Ability_Frost_Freeze with a status icon that exists (the vanilla UI/StatusEffects/Icon_Slow.png is missing from Assets.zip 0.7.2). Not applied while the target has AT_Ice_King_Warmth (the warmth potion). ApplyConditions are checked every tick, not only on apply (LivingEntityEffectSystem removes an active effect whose conditions fail), so drinking the potion also ends a freeze. The immunity window after a freeze (AT_Ice_King_Freeze_Guard, 2026-10-21) is checked by the attacks instead (an EffectCondition before each freeze): here it would remove the freeze the moment the guard lands. 2026-10-21 : an ice block encases the frozen player while the freeze lasts, then shatters: ModelOverride = the Ice_Block (grows out of the ground on Spawn, cracks and breaks on Despawn), drawn over the entity like the shield bubble (no collision). The ModelVFX Freeze shell stays under it. Every freeze of the fight (5th frost stack, freezing ray/iceberg/lightning, snowman hug) uses this effect. Screen effect (2026-10-21): the vanilla snow overlay ScreenEffects/Snow.png on the frozen player's screen while it lasts, the one vanilla Status/Stun uses (other vanilla overlays: Fire, Water, Poison, Sand, Immune).",
+  "ApplyConditions": [
+    {
+      "Id": "HasEffect",
+      "EffectId": "Immunity_Freeze",
+      "Inverse": true
+    },
+    {
+      "Id": "HasEffect",
+      "EffectId": "AT_Ice_King_Warmth",
+      "Inverse": true
+    }
+  ],
+  "Tags": {
+    "Element": [
+      "Water"
+    ]
+  },
+  "ApplicationEffects": {
+    "EntityTopTint": "#e3fbff",
+    "EntityBottomTint": "#80ecff",
+    "ModelVFXId": "Freeze",
+    "Particles": [
+      {
+        "SystemId": "Effect_Snow"
+      },
+      {
+        "SystemId": "Effect_Snow_Impact"
+      }
+    ],
+    "HorizontalSpeedMultiplier": 0.0,
+    "MovementEffects": {
+      "DisableAll": true
+    },
+    "AbilityEffects": {
+      "Disabled": [
+        "Primary",
+        "Secondary",
+        "Ability1",
+        "Ability3"
+      ]
+    },
+    "ScreenEffect": "ScreenEffects/Snow.png"
+  },
+  "Duration": 1.5,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": true,
+  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Staff_Frost.png",
+  "ModelOverride": {
+    "Model": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block.blockymodel",
+    "Texture": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Texture.png",
+    "AnimationSets": {
+      "Spawn": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Spawn.blockyanim",
+            "Looping": false
+          }
+        ]
+      },
+      "Despawn": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Despawn.blockyanim",
+            "Looping": false
+          }
+        ]
+      }
+    }
+  }
+}

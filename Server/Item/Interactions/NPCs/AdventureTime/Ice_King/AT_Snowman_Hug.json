@@ -1,0 +1,46 @@
+{
+  "$Comment": "Snowman hug (2026-10-21: 'the hug has no animation, nobody can tell he is hugging'). Was Parent Fox_Bite: a 0.167 s fox wind-up and a fox-sized reach (2 blocks), so on the 2.5-block snowman the 0.5 s Hug animation (set AT_Snowman, 30 frames) was cut as soon as the bite ended. Now his own steps, same layout as vanilla Fox_Bite: 0.35 s wind-up with the Hug animation (arms wrap forward, furious face), the hit (Horizontal selector reaching 3 blocks, 1.5 above and 0.5 below his body line; Bite_Damage var from AT_Snowman_Minion = weak hit + 2 s freeze), then 0.6 s holding the hug. Tune the reach with EndDistance (and the role's AttackDistance), the timing with the RunTimes.",
+  "Type": "Simple",
+  "RunTime": 0.35,
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Snowman",
+    "ItemAnimationId": "Hug"
+  },
+  "Next": {
+    "Type": "Selector",
+    "RunTime": 0.15,
+    "Effects": {
+      "WorldSoundEventId": "SFX_NPC_Unarmed_Swing"
+    },
+    "Selector": {
+      "Id": "Horizontal",
+      "Direction": "ToLeft",
+      "TestLineOfSight": true,
+      "ExtendTop": 1.5,
+      "ExtendBottom": 0.5,
+      "StartDistance": 0.5,
+      "EndDistance": 3,
+      "Length": 90,
+      "RollOffset": 90,
+      "YawStartOffset": -45
+    },
+    "HitEntity": {
+      "Interactions": [
+        {
+          "Type": "Replace",
+          "DefaultValue": {
+            "Interactions": [
+              "Fox_Bite_Damage"
+            ]
+          },
+          "Var": "Bite_Damage"
+        }
+      ]
+    },
+    "Next": {
+      "Type": "Simple",
+      "$Comment": "Hold the hug so the animation plays out.",
+      "RunTime": 0.6
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "$Comment": "Last bolt of the burst from the LEFT hand (2026-10-21, air burst: both hands throw together, so the last throw fires a final bolt from each hand). Same as Projectile_Config_AT_Ice_King_Frost_Beam_Final (Parent: 20 Ice + push), spawn mirrored to the left hand. 2026-10-21 (playtest: some bolts went into the ground in front of a short target): SpawnOffset Y is 0. HeadMotionAim corrects its aim for the spawn point with ProjectileComponent.computeStartOffset, which subtracts SpawnOffset.Y (it takes +Y as DOWN), while the spawn itself (ProjectileConfig.getCalculatedOffset) adds it (+Y = up). With Y -0.45 (hand height) the aim thought the bolt left 0.45 ABOVE the eyes while it left 0.45 BELOW, so it flew about 0.9 below the aim line. Only Y 0 agrees on both sides; X (side) agrees, so the hand side stays. 2026-10-21: X ±0.2 (was ±0.45). The burst roots have no AimingReference, so the aim makes no side correction and every bolt flies parallel to the aim line, X blocks to the side; at 0.45 a bolt could pass beside a thin target (a player is 0.65 wide).",
+  "Parent": "Projectile_Config_AT_Ice_King_Frost_Beam_Final",
+  "SpawnOffset": {
+    "X": -0.2,
+    "Y": 0.0,
+    "Z": -0.7
+  }
+}

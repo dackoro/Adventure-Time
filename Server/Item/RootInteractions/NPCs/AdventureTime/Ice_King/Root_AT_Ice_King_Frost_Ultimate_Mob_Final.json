@@ -1,0 +1,6 @@
+{
+  "$Comment": "Ultimate beam on non-players (freeze through immunity + ice damage): AT_Ice_King_Frost_Ultimate_Mob_Final. Own root file, like Root_AT_Ice_King_Frost_Ultimate_Tick.",
+  "Interactions": [
+    "AT_Ice_King_Frost_Ultimate_Mob_Final"
+  ]
+}

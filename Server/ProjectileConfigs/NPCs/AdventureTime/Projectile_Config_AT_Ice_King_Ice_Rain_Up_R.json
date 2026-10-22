@@ -1,0 +1,9 @@
+{
+  "$Comment": "Ice rain sky bolt from the RIGHT hand (2026-10-21: one bolt into the sky per icicle; the IceRainVolley throws right and left by turns, the hand up and out to the side). Same bolt as Projectile_Config_AT_Ice_King_Ice_Rain_Up (Parent: almost straight up, cosmetic), spawned 0.5 blocks to his right (the hand at the throw's peak is about 0.53 out). Y and Z 0: the offset is turned by the bolt's own pitch (80 deg up), so only the side offset keeps its meaning.",
+  "Parent": "Projectile_Config_AT_Ice_King_Ice_Rain_Up",
+  "SpawnOffset": {
+    "X": 0.5,
+    "Y": 0.0,
+    "Z": 0.0
+  }
+}

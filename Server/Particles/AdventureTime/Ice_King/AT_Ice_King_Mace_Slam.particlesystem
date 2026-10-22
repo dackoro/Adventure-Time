@@ -1,0 +1,135 @@
+{
+  "CullDistance": 128,
+  "IsImportant": true,
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Impact_Glow",
+      "PositionOffset": {
+        "Y": 0.1
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Impact_Sparks",
+      "PositionOffset": {
+        "Y": -1
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Impact_Sparks_Flying",
+      "PositionOffset": {
+        "Y": -2.5
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Impact_Debris",
+      "PositionOffset": {
+        "Y": 0.1
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Impact_Cracks_Linger",
+      "PositionOffset": {
+        "Y": 0.02
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Impact_Debris_Linger",
+      "PositionOffset": {
+        "Y": -0.5
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Impact_Debris_Linger2",
+      "PositionOffset": {
+        "Y": -0.5
+      },
+      "StartDelay": 0.15
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Impact_Debris_Linger3",
+      "PositionOffset": {
+        "Y": -0.5
+      },
+      "StartDelay": 0.3
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Shockwave_Ring",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "StartDelay": 0.01
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Shockwave_Debris",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "StartDelay": 0.01
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Shockwave_Debris2",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "StartDelay": 0.01
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Shockwave_Burst",
+      "PositionOffset": {
+        "Y": 0.1
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Shockwave_Burst_Distortion",
+      "PositionOffset": {
+        "Y": 0.1
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Shockwave_Dust",
+      "PositionOffset": {
+        "Y": 0.1
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Shockwave_Dust_Linger",
+      "PositionOffset": {
+        "Y": 0.02
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Shockwave_Distortion",
+      "PositionOffset": {
+        "Y": 0.1
+      }
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Mace_Slam_Shockwave_Distortion_BB",
+      "RotationOffset": {
+        "Pitch": 90
+      },
+      "PositionOffset": {
+        "Y": 0.1
+      }
+    },
+    {
+      "SpawnerId": "Iceball_Ice_Fragments",
+      "PositionOffset": {
+        "Y": 0.3
+      }
+    },
+    {
+      "SpawnerId": "Iceball_Frostground",
+      "PositionOffset": {
+        "Y": 0.05
+      }
+    },
+    {
+      "SpawnerId": "Block_Break_Snow_Flakes_Up",
+      "PositionOffset": {
+        "Y": 0.3
+      }
+    }
+  ],
+  "LifeSpan": 3
+}

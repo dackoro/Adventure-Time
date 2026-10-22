@@ -1,0 +1,504 @@
+{
+  "Type": "Component",
+  "Class": "Instruction",
+  "Interface": "Hytale.Instruction.Combat",
+  "Parameters": {},
+  "Content": {
+    "$Comment": "Air phase (AT_Ice_King_Air) extra combat behaviour, plugged into the vanilla Template_Flying_Aggressive hook CombatAdditionalBehaviorComponent. 1) Health regen off once (as the vanilla boss templates). 2) Every 25 s (first after 15 s), while at most 8 Gunters are within 30 blocks (10 with the 2 new ones), summon 2 Gunters: repeating timer + Not Mob sensor + Spawn action, the vanilla Scarak_Broodmother louse pattern. 2026-10-21: circles around the player (AT_CIRCLE, radius 16) instead of hovering over his head.",
+    "Continue": true,
+    "Sensor": {
+      "Type": "Any"
+    },
+    "Instructions": [
+      {
+        "$Comment": "2026-10-21: phase-change animation (AT_Ice_King model set PhaseChange, Status slot) once when he reaches combat in this role. The flying template's Alerted state plays a fixed Alerted animation, so the air roles shorten AlertedTime and this one plays right after it.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "Any",
+          "Once": true
+        },
+        "Actions": [
+          {
+            "Type": "PlayAnimation",
+            "Slot": "Status",
+            "Animation": "PhaseChange"
+          }
+        ]
+      },
+      {
+        "$Comment": "AT_CIRCLE 1/2: move the leash point onto the target every tick (target within 60 blocks; 40 until 2026-10-21, past it the leash point stayed behind and the soft leash pulled him away) (SetLeashPosition ToTarget), so WanderInCircle below circles around the player, not around where the king spawned (BodyMotionWanderInCircle.getReferencePoint = NPCEntity.getLeashPoint).",
+        "Continue": true,
+        "Sensor": {
+          "Type": "Target",
+          "Range": 60
+        },
+        "Actions": [
+          {
+            "Type": "SetLeashPosition",
+            "ToTarget": true
+          }
+        ]
+      },
+      {
+        "$Comment": "2026-10-21 (playtest: the ray still went where he was not): while he casts, turn the body toward the target. The circle already stops during a cast, but the template Seek that took over does nothing inside CombatSeekStopDistance, and a flier then keeps flying straight (MotionControllerFly, MinAirSpeed), so the head (Camera yaw +-60 from the body) still could not reach the player. MatchLook sets the body yaw to the head yaw every tick (BodyMotionMatchLook), so the body chases the aiming head until it faces the player; the first body motion of the tick wins, so it beats the Seek. Flight turn 180 deg/s, the ray leaves 0.8 s into the cast.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Target",
+              "Range": 60
+            },
+            {
+              "Type": "Self",
+              "Filters": [
+                {
+                  "Type": "IsExecutingInteraction"
+                }
+              ]
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "MatchLook"
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": false
+        }
+      },
+      {
+        "$Comment": "AT_CIRCLE 2/2: fly around the player in a 16-block circle at the combat altitude instead of the template's Seek, which came to a stop right over his head. The first body motion asked for in a tick wins (MotionContextSupport.setNextBodyMotionStep), and this component runs before the template's basic combat, so the Seek is skipped while the template's OverrideAltitude and ranged Attack still run. Continue, so the timers below still run. Same motion as the template's idle WanderInCircle (straight pieces of at least 2 s, turns up to 60 degrees). Farther than 30 blocks the template's Seek brings him back.",
+        "Continue": true,
+        "Sensor": {
+          "$Comment": "2026-10-21: not while he casts (Self IsExecutingInteraction, as vanilla Template_Skeleton_Elite_Phase_2). An NPC fires where its head looks (ProjectileInteraction -> TargetUtil.getLook), and the head can only turn 45 degrees from the body (MotionControllerBase.calculateYaw; the AT_Ice_King model, Parent Skeleton/Player, has no Camera yaw range). Circling, his body points along the circle, about 90 degrees away from the player, so the rays went 45 degrees off into the ground. While casting the template Seek takes over and turns him toward the target.",
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Target",
+              "Range": 30
+            },
+            {
+              "Type": "Not",
+              "Sensor": {
+                "Type": "Self",
+                "Filters": [
+                  {
+                    "Type": "IsExecutingInteraction"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "BodyMotion": {
+          "Type": "WanderInCircle",
+          "Radius": 18,
+          "MaxHeadingChange": 90,
+          "MinWalkTime": 1,
+          "RelativeSpeed": 0.8
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0,
+          "Deflection": false
+        }
+      },
+      {
+        "Continue": true,
+        "Sensor": {
+          "Type": "Any",
+          "Once": true
+        },
+        "Actions": [
+          {
+            "Type": "SetHealthRegen",
+            "EnableRegen": false
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_Summon",
+            "StartValueRange": [
+              15,
+              15
+            ],
+            "RestartValueRange": [
+              25,
+              25
+            ],
+            "Repeating": true
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Summon"
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_Zap",
+            "StartValueRange": [
+              2,
+              2
+            ],
+            "RestartValueRange": [
+              4,
+              4
+            ],
+            "Repeating": true
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Zap"
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_Burst",
+            "StartValueRange": [
+              12,
+              12
+            ],
+            "RestartValueRange": [
+              20,
+              20
+            ],
+            "Repeating": true
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Burst"
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_Burst_Single",
+            "StartValueRange": [
+              6,
+              6
+            ],
+            "RestartValueRange": [
+              16,
+              16
+            ],
+            "Repeating": true
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Burst_Single"
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_RayBoth",
+            "StartValueRange": [
+              3,
+              3
+            ],
+            "RestartValueRange": [
+              5,
+              5
+            ],
+            "Repeating": true
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_RayBoth"
+          },
+          {
+            "Type": "TimerStart",
+            "Name": "AT_Ice_King_Air_Sword",
+            "StartValueRange": [
+              15,
+              15
+            ],
+            "RestartValueRange": [
+              20,
+              20
+            ],
+            "Repeating": true
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Sword"
+          }
+        ]
+      },
+      {
+        "$Comment": "Air two-arm ice burst (2026-10-21: two different attacks, both on the ground and in the air): both arms, two bolts per throw (AT_Ice_King_Frost_Beam_Air), every 20 s (first after 12 s) when the target is within 24 blocks in sight. Same pattern as the Zap.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Target",
+              "Range": 24,
+              "Filters": [
+                {
+                  "Type": "LineOfSight"
+                }
+              ]
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Burst",
+              "TimeRemainingRange": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0
+        },
+        "Actions": [
+          {
+            "Type": "Attack",
+            "Attack": "Root_AT_Ice_King_Frost_Beam_Air",
+            "AimingTimeRange": [
+              0.3,
+              0.4
+            ]
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Burst"
+          }
+        ]
+      },
+      {
+        "$Comment": "Air one-arm ice burst (2026-10-21: quick shots one after another, L R L R L R): AT_Ice_King_Frost_Beam_Air_Single, every 16 s (first after 6 s) when the target is within 24 blocks in sight. Same pattern as the Zap.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Target",
+              "Range": 24,
+              "Filters": [
+                {
+                  "Type": "LineOfSight"
+                }
+              ]
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Burst_Single",
+              "TimeRemainingRange": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0
+        },
+        "Actions": [
+          {
+            "Type": "Attack",
+            "Attack": "Root_AT_Ice_King_Frost_Beam_Air_Single",
+            "AimingTimeRange": [
+              0.3,
+              0.4
+            ]
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Burst_Single"
+          }
+        ]
+      },
+      {
+        "$Comment": "Two-hand ice throw in the air (2026-10-21: separate attack, the most common throw): AT_Ice_King_Ice_Ray_Both every 5 s (first after 3 s) when the target is within 24 blocks in sight. Same pattern as the Zap; the Attack action starts nothing while another attack runs.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Target",
+              "Range": 24,
+              "Filters": [
+                {
+                  "Type": "LineOfSight"
+                }
+              ]
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_RayBoth",
+              "TimeRemainingRange": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0
+        },
+        "Actions": [
+          {
+            "Type": "Attack",
+            "Attack": "Root_AT_Ice_King_Ice_Ray_Both",
+            "AimingTimeRange": [
+              0.2,
+              0.3
+            ]
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_RayBoth"
+          }
+        ]
+      },
+      {
+        "$Comment": "Ice sword dive (2026-10-21, concept attack 5): AT_Ice_King_Ice_Sword_Dive every 20 s (first after 15 s) when the target is within 22 blocks in sight: he summons the sword, swoops at the player and chops. Same pattern as the Zap. 2026-10-21 (playtest: the sword only in the nunchuck phase; in the air it took too long to come down and swung far from the player): Enabled false.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Target",
+              "Range": 22,
+              "Filters": [
+                {
+                  "Type": "LineOfSight"
+                }
+              ]
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Sword",
+              "TimeRemainingRange": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0
+        },
+        "Actions": [
+          {
+            "Type": "Attack",
+            "Attack": "Root_AT_Ice_King_Ice_Sword_Dive",
+            "AimingTimeRange": [
+              0.2,
+              0.3
+            ]
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Sword"
+          }
+        ],
+        "Enabled": false
+      },
+      {
+        "$Comment": "Zap (2026-10-21): quick weak ice bolt every 4 s (first after 2 s) when the target is within 30 blocks in sight. Same pattern as the enraged freezing ray: And(Target, Timer) + HeadMotion Aim + Attack. The Attack action starts nothing while another attack runs, so it never overlaps the normal ray.",
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "Type": "Target",
+              "Range": 30,
+              "Filters": [
+                {
+                  "Type": "LineOfSight"
+                }
+              ]
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Zap",
+              "TimeRemainingRange": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "HeadMotion": {
+          "Type": "Aim",
+          "HitProbability": 1,
+          "Spread": 0
+        },
+        "Actions": [
+          {
+            "Type": "Attack",
+            "Attack": "Root_AT_Ice_King_Zap",
+            "AimingTimeRange": [
+              0.2,
+              0.3
+            ]
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Zap"
+          }
+        ]
+      },
+      {
+        "Continue": true,
+        "Sensor": {
+          "Type": "And",
+          "Sensors": [
+            {
+              "$Comment": "Summon only while 0-8 Gunters are within 30 blocks: 2 more makes 10 at most. Count sensor format of vanilla Test_Count_Sheep.",
+              "Type": "Count",
+              "Count": [
+                0,
+                8
+              ],
+              "Range": [
+                0,
+                30
+              ],
+              "IncludeGroups": [
+                "Gunters"
+              ]
+            },
+            {
+              "Type": "Timer",
+              "Name": "AT_Ice_King_Air_Summon",
+              "TimeRemainingRange": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "Actions": [
+          {
+            "Type": "Spawn",
+            "Kind": "AT_Gunter_Minion",
+            "SpawnAngle": 360,
+            "FanOut": true,
+            "CountRange": [
+              2,
+              2
+            ],
+            "DelayRange": [
+              0,
+              0
+            ]
+          },
+          {
+            "Type": "TimerRestart",
+            "Name": "AT_Ice_King_Air_Summon"
+          }
+        ]
+      }
+    ]
+  }
+}

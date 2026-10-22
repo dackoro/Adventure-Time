@@ -1,0 +1,6 @@
+{
+  "$Comment": "Invisible hit counter of the Ice King's ice shield (2026-10-21: the shield breaks after X seconds or X hits, whichever comes first): 4 hit(s) taken while AT_Ice_King_Ice_Shield is on. Template_AT_Ice_King / the air enraged component move it up one step per hit (Damage sensor); the 5th hit puts AT_Ice_King_Shield_Broken, which makes AT_Ice_King_Ice_Shield burst early. Cleared when the shield starts and when it bursts.",
+  "Duration": 6,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

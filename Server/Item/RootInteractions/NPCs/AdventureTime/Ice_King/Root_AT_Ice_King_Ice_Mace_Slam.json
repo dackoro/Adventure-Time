@@ -1,0 +1,11 @@
+{
+  "$Comment": "Ice mace slam root (ground phase 1), started by the CAE (IceMaceSlam).",
+  "Interactions": [
+    "AT_Ice_King_Ice_Mace_Slam"
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

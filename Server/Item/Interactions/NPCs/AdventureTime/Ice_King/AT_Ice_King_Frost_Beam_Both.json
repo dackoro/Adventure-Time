@@ -1,0 +1,166 @@
+{
+  "$Comment": "Ground two-arm ice burst (2026-10-21: the two-arm burst on the ground too, picked at random against the one-arm burst). Copy of AT_Ice_King_Frost_Beam_Air with the ground burst's 1.6 s charge, standing still the whole time (MovementEffects DisableAll, as AT_Ice_King_Frost_Beam) and 1 s recovery: 4 throws FrostBeamFireBoth 0.25 s apart, a bolt from each hand per throw, the last pair _Final/_Final_L (push). 6 x 8 + 2 x 20 = 88 Ice, 8 frost stacks if all hit. CAE action IceBurstBoth. 2026-10-21: the charge is FrostBeamChargingBoth (hands beside the head), only before the two-hand throws; FrostBeamCharging is the one-hand wind-up again.",
+  "Type": "Simple",
+  "RunTime": 1.6,
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+    "ItemAnimationId": "FrostBeamChargingBoth",
+    "WorldSoundEventId": "SFX_Skeleton_Praetorian_Search_2",
+    "Particles": [
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.4
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.4
+      }
+    ],
+    "MovementEffects": {
+      "DisableAll": true
+    }
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireBoth",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
+        "RunTime": 0,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireBoth",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
+        "RunTime": 0,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireBoth",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
+        "RunTime": 0,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireBoth",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_Final",
+        "RunTime": 0,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_Final_L",
+        "RunTime": 0.3,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Simple",
+        "$Comment": "Short pause after the burst.",
+        "RunTime": 1.0,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      }
+    ]
+  }
+}

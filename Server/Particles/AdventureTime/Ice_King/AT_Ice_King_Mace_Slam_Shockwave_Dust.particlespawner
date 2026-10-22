@@ -1,0 +1,88 @@
+{
+  "RenderMode": "BlendLinear",
+  "ParticleRotationInfluence": "None",
+  "LinearFiltering": true,
+  "MaxConcurrentParticles": 3,
+  "ParticleLifeSpan": {
+    "Min": 0.33,
+    "Max": 0.5
+  },
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "ParticleCollision": {
+    "BlockType": "Solid",
+    "Action": "Linger"
+  },
+  "Particle": {
+    "Texture": "Particles/Textures/Basic/Ball6.png",
+    "ScaleRatioConstraint": "OneToOne",
+    "SoftParticles": "Disable",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Color": "#e8f8fc",
+        "Scale": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          }
+        }
+      },
+      "30": {
+        "Opacity": 1,
+        "Color": "#b9e2f7"
+      },
+      "50": {
+        "Opacity": 1
+      },
+      "70": {
+        "Opacity": 0.2
+      },
+      "100": {
+        "Opacity": 0,
+        "Color": "#6884b0",
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          }
+        }
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 4,
+          "Max": 4
+        }
+      },
+      "Opacity": 0.5,
+      "Rotation": {
+        "X": {
+          "Min": 90,
+          "Max": 90
+        }
+      }
+    },
+    "UVOption": "RandomFlipUV"
+  },
+  "IsLowRes": false,
+  "Shape": "Sphere",
+  "UVMotion": {
+    "Texture": "Particles/Textures/UVMotion/FlowMapSplash.png",
+    "Strength": 15,
+    "Scale": 1,
+    "StrengthCurveType": "IncreaseLinear",
+    "AddRandomUVOffset": true,
+    "SpeedY": 0.05
+  },
+  "SpawnRate": {
+    "Min": 3,
+    "Max": 3
+  },
+  "TotalParticles": {
+    "Min": 3,
+    "Max": 3
+  },
+  "SpawnBurst": true
+}

@@ -1,0 +1,82 @@
+{
+  "$Comment": "Rare freezing variant of Projectile_Config_AT_Ice_King_Lightning (its hit also freezes 1.5 s). Ice lightning strike from the storm: the falling-iceberg setup (spawned on the ground, SpawnOffset Z 25 along a -90 pitch) but very fast (LaunchForce 80, about 0.3 s) with the small vanilla Ice_Bolt model. The encounter shows the 2.2 s vanilla Stalactite_Ground_Indicator first and spawns this 1.9 s later. On landing: the ice-blue AT_Ice_King_Lightning bolt, SFX_Ice_Break (a WorldSoundEventId must be mono; the thunder is stereo, so the encounter plays it), 2.3-block AOECircle on every entity.",
+  "Model": "Ice_Bolt",
+  "SpawnRotationOffset": {
+    "Pitch": -90,
+    "Roll": 0
+  },
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 100,
+    "TerminalVelocityWater": 30,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "LaunchForce": 80,
+  "Interactions": {
+    "ProjectileHit": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3
+          },
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Lightning_Damage_Freezing"
+            ]
+          },
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "AT_Ice_King_Lightning",
+                "TargetEntityPart": "Entity"
+              }
+            ],
+            "WorldSoundEventId": "SFX_Ice_Break"
+          },
+          "RunTime": 0.05
+        },
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3
+          },
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Lightning_Damage_Freezing"
+            ]
+          },
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "AT_Ice_King_Lightning",
+                "TargetEntityPart": "Entity"
+              }
+            ],
+            "WorldSoundEventId": "SFX_Ice_Break"
+          },
+          "RunTime": 0.05
+        },
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    }
+  },
+  "SpawnOffset": {
+    "Z": 25
+  },
+  "UseModelScale": true
+}

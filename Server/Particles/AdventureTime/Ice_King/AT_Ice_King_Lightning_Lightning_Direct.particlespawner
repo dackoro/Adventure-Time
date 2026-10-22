@@ -1,0 +1,73 @@
+{
+  "ParticleLifeSpan": {
+    "Min": 1,
+    "Max": 1
+  },
+  "SpawnRate": {
+    "Min": 1,
+    "Max": 1
+  },
+  "Particle": {
+    "Texture": "Particles/Textures/Weather/Void_Lightning_Direct.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Color": "#ffffff"
+      },
+      "5": {
+        "Color": "#ffffff",
+        "Opacity": 0
+      },
+      "15": {
+        "Color": "#ffffff",
+        "Opacity": 1
+      },
+      "40": {
+        "Opacity": 0,
+        "Color": "#002040"
+      },
+      "100": {
+        "Opacity": 0,
+        "Color": "#000000"
+      }
+    },
+    "InitialAnimationFrame": {
+      "Opacity": 0.136,
+      "FrameIndex": {
+        "Min": 0,
+        "Max": 3
+      },
+      "Scale": {
+        "X": {
+          "Min": 20,
+          "Max": 20
+        },
+        "Y": {
+          "Min": 20,
+          "Max": 20
+        }
+      }
+    },
+    "FrameSize": {
+      "Width": 64,
+      "Height": 128
+    },
+    "SoftParticles": "Disable",
+    "ScaleRatioConstraint": "OneToOne",
+    "UVOption": "RandomFlipU"
+  },
+  "Shape": "Sphere",
+  "TotalParticles": {
+    "Min": 1,
+    "Max": 1
+  },
+  "ParticleRotationInfluence": "BillboardY",
+  "RenderMode": "Erosion",
+  "TrailSpawnerRotationMultiplier": 1,
+  "TrailSpawnerPositionMultiplier": 1,
+  "UseEmitDirection": true,
+  "ParticleRotateWithSpawner": false,
+  "MaxConcurrentParticles": 1,
+  "SpawnBurst": true,
+  "$Comment": "Ice-blue copy of vanilla Dungeon_Goblin_Void_Strike_Lightning_Direct (purple colours turned blue; everything else unchanged)."
+}

@@ -1,0 +1,22 @@
+{
+  "$Comment": "Ice King loot: his crown, always. Item AT_Ice_King_Crown (model and texture = the king Head attachment). Format of vanilla Drop_Bear_Grizzly.",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": {
+              "ItemId": "AT_Ice_King_Crown",
+              "QuantityMin": 1,
+              "QuantityMax": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

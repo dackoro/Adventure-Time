@@ -1,0 +1,11 @@
+{
+  "$Comment": "Ice rain root (bolt into the sky, then the encounter drops shards around the players).",
+  "Interactions": [
+    "AT_Ice_King_Ice_Rain"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

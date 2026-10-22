@@ -1,0 +1,11 @@
+{
+  "$Comment": "Ice burst variant root (2026-10-21, one-arm and two-arm bursts picked at random): AT_Ice_King_Frost_Beam_Both. Started by an NPC Attack action, so it carries the Attack tag.",
+  "Interactions": [
+    "AT_Ice_King_Frost_Beam_Both"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

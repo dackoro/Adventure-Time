@@ -1,0 +1,124 @@
+{
+  "RenderMode": "Erosion",
+  "ParticleRotationInfluence": "BillboardVelocity",
+  "ParticleLifeSpan": {
+    "Min": 1,
+    "Max": 2
+  },
+  "ParticleRotateWithSpawner": false,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "Particle": {
+    "Texture": "Particles/Textures/Basic/Spark_Direction.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Color": "#ffffff"
+      },
+      "5": {
+        "Color": "#ffffff",
+        "Opacity": 0
+      },
+      "15": {
+        "Color": "#ffffff",
+        "Opacity": 1
+      },
+      "40": {
+        "Opacity": 0.5,
+        "Color": "#2979ae"
+      },
+      "70": {
+        "Color": "#005cb9",
+        "Opacity": 0.5
+      },
+      "100": {
+        "Opacity": 0,
+        "Color": "#000000"
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 0.7,
+          "Max": 0.9
+        },
+        "Y": {
+          "Min": 0.7,
+          "Max": 0.9
+        }
+      },
+      "Opacity": 1
+    },
+    "ScaleRatioConstraint": "Preserved",
+    "UVOption": "RandomFlipU",
+    "SoftParticles": "Disable"
+  },
+  "Shape": "Sphere",
+  "TotalParticles": {
+    "Min": 50,
+    "Max": 50
+  },
+  "SpawnRate": {
+    "Min": 250,
+    "Max": 250
+  },
+  "UVMotion": {
+    "Texture": "Particles/Textures/UVMotion/FlowMapSwirl.png",
+    "SpeedX": 0.01,
+    "SpeedY": 0.02,
+    "Strength": 2,
+    "Scale": 1,
+    "AddRandomUVOffset": true
+  },
+  "LinearFiltering": true,
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 4,
+      "Max": 6
+    },
+    "Yaw": {
+      "Min": 0,
+      "Max": 360
+    },
+    "Pitch": {
+      "Min": 0,
+      "Max": 45
+    }
+  },
+  "Attractors": [
+    {
+      "Radius": 1,
+      "DampingMultiplier": {
+        "X": 1.2,
+        "Y": 1.1,
+        "Z": 1.2
+      },
+      "LinearAcceleration": {
+        "Y": 0.3
+      },
+      "RadialTangentAcceleration": 6,
+      "RadialAxis": {
+        "Y": 20
+      }
+    },
+    {
+      "LinearAcceleration": {
+        "Y": 0.2
+      },
+      "RadialTangentAcceleration": -6,
+      "RadialAxis": {
+        "Y": 20
+      },
+      "DampingMultiplier": {
+        "X": 0.9,
+        "Z": 0.9,
+        "Y": 0.9
+      }
+    }
+  ],
+  "ParticleCollision": {
+    "BlockType": "Solid"
+  },
+  "MaxConcurrentParticles": 50,
+  "$Comment": "Ice-blue copy of vanilla Dungeon_Goblin_Void_Strike_Sparks (purple colours turned blue; everything else unchanged)."
+}

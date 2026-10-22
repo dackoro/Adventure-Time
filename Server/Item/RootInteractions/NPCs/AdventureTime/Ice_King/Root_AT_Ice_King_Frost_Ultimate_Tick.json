@@ -1,0 +1,6 @@
+{
+  "$Comment": "Hit of each normal beam tick of the ultimate (HitEntity of the Stab selectors in AT_Ice_King_Frost_Ultimate). Its own root file, as vanilla does (Battleaxe_Swing_Down_Frontflip_Damage), instead of an inline HitEntity root: 2026-10-21 the inline roots of the ticks went missing after hot reloads ('Missing root interaction ..._HitEntity' in the log) and those ticks hit nobody.",
+  "Interactions": [
+    "AT_Ice_King_Frost_Ultimate_Tick"
+  ]
+}

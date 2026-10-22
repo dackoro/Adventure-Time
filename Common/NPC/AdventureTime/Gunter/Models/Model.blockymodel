@@ -800,170 +800,277 @@
                         },
                         {
                           "id": "25",
-                          "name": "Beak",
+                          "name": "Bill",
                           "position": {"x": 0, "y": -1.51522, "z": 11.34862},
-                          "orientation": {"x": 0, "y": 0.38268, "z": 0, "w": 0.92388},
+                          "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
                           "shape": {
-                            "type": "box",
+                            "type": "none",
                             "offset": {"x": -1, "y": 0, "z": 1},
                             "stretch": {"x": 1, "y": 1, "z": 1},
                             "settings": {
-                              "isPiece": false,
-                              "size": {"x": 6, "y": 2, "z": 6}
+                              "isPiece": false
                             },
-                            "textureLayout": {
-                              "back": {
-                                "offset": {"x": 122, "y": 24},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 0
-                              },
-                              "right": {
-                                "offset": {"x": 116, "y": 24},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 0
-                              },
-                              "front": {
-                                "offset": {"x": 110, "y": 24},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 0
-                              },
-                              "left": {
-                                "offset": {"x": 104, "y": 24},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 0
-                              },
-                              "top": {
-                                "offset": {"x": 110, "y": 18},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 0
-                              },
-                              "bottom": {
-                                "offset": {"x": 116, "y": 18},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 0
-                              }
-                            },
+                            "textureLayout": {},
                             "unwrapMode": "custom",
                             "visible": true,
                             "doubleSided": false,
                             "shadingMode": "flat"
-                          }
+                          },
+                          "children": [
+                            {
+                              "id": "26",
+                              "name": "Bill-Upper",
+                              "position": {"x": 1, "y": -0.08478, "z": -1.34862},
+                              "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
+                              "shape": {
+                                "type": "none",
+                                "offset": {"x": 0, "y": 0, "z": 0},
+                                "stretch": {"x": 1, "y": 1, "z": 1},
+                                "settings": {
+                                  "isPiece": false
+                                },
+                                "textureLayout": {},
+                                "unwrapMode": "custom",
+                                "visible": true,
+                                "doubleSided": false,
+                                "shadingMode": "flat"
+                              },
+                              "children": [
+                                {
+                                  "id": "27",
+                                  "name": "Bill-Upper--C1",
+                                  "position": {"x": 0.87278, "y": 0.99288, "z": 3.19335},
+                                  "orientation": {"x": 0.04632, "y": 0.00377, "z": 0.00555, "w": 0.9989},
+                                  "shape": {
+                                    "type": "box",
+                                    "offset": {"x": -0.91246, "y": 0.49168, "z": -1.40685},
+                                    "stretch": {"x": 1, "y": 1, "z": 1},
+                                    "settings": {
+                                      "isPiece": false,
+                                      "size": {"x": 4, "y": 3, "z": 4},
+                                      "isStaticBox": true
+                                    },
+                                    "textureLayout": {
+                                      "back": {
+                                        "offset": {"x": 115, "y": 70},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "right": {
+                                        "offset": {"x": 88, "y": 70},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "front": {
+                                        "offset": {"x": 77, "y": 70},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "left": {
+                                        "offset": {"x": 92, "y": 70},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "top": {
+                                        "offset": {"x": 77, "y": 64},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "bottom": {
+                                        "offset": {"x": 91, "y": 68},
+                                        "mirror": {"x": false, "y": true},
+                                        "angle": 0
+                                      }
+                                    },
+                                    "unwrapMode": "custom",
+                                    "visible": true,
+                                    "doubleSided": false,
+                                    "shadingMode": "flat"
+                                  }
+                                },
+                                {
+                                  "id": "28",
+                                  "name": "Bill-Upper-Tip--C2",
+                                  "position": {"x": 0.87278, "y": 0.99288, "z": 3.19335},
+                                  "orientation": {"x": 0.04632, "y": 0.00377, "z": 0.00555, "w": 0.9989},
+                                  "shape": {
+                                    "type": "box",
+                                    "offset": {"x": -0.94442, "y": 0.01347, "z": 2.59296},
+                                    "stretch": {"x": 1, "y": 1, "z": 1},
+                                    "settings": {
+                                      "isPiece": false,
+                                      "size": {"x": 4, "y": 2, "z": 4},
+                                      "isStaticBox": true
+                                    },
+                                    "textureLayout": {
+                                      "back": {
+                                        "offset": {"x": 115, "y": 71},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "right": {
+                                        "offset": {"x": 88, "y": 71},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "front": {
+                                        "offset": {"x": 77, "y": 71},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "left": {
+                                        "offset": {"x": 92, "y": 71},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "top": {
+                                        "offset": {"x": 77, "y": 64},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "bottom": {
+                                        "offset": {"x": 91, "y": 68},
+                                        "mirror": {"x": false, "y": true},
+                                        "angle": 0
+                                      }
+                                    },
+                                    "unwrapMode": "custom",
+                                    "visible": true,
+                                    "doubleSided": false,
+                                    "shadingMode": "flat"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "29",
+                              "name": "Bill-Lower",
+                              "position": {"x": 1, "y": -0.08478, "z": -1.34862},
+                              "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
+                              "shape": {
+                                "type": "none",
+                                "offset": {"x": 0, "y": 0, "z": 0},
+                                "stretch": {"x": 1, "y": 1, "z": 1},
+                                "settings": {
+                                  "isPiece": false
+                                },
+                                "textureLayout": {},
+                                "unwrapMode": "custom",
+                                "visible": true,
+                                "doubleSided": false,
+                                "shadingMode": "flat"
+                              },
+                              "children": [
+                                {
+                                  "id": "30",
+                                  "name": "Bill-Lower--C1",
+                                  "position": {"x": 0.87278, "y": 0.99288, "z": 3.19335},
+                                  "orientation": {"x": 0.04632, "y": 0.00377, "z": 0.00555, "w": 0.9989},
+                                  "shape": {
+                                    "type": "box",
+                                    "offset": {"x": -0.94481, "y": -2.50811, "z": -1.39077},
+                                    "stretch": {"x": 1, "y": 1, "z": 1},
+                                    "settings": {
+                                      "isPiece": false,
+                                      "size": {"x": 4, "y": 3, "z": 4},
+                                      "isStaticBox": true
+                                    },
+                                    "textureLayout": {
+                                      "back": {
+                                        "offset": {"x": 115, "y": 70},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "right": {
+                                        "offset": {"x": 88, "y": 70},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "front": {
+                                        "offset": {"x": 77, "y": 70},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "left": {
+                                        "offset": {"x": 92, "y": 70},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "top": {
+                                        "offset": {"x": 77, "y": 64},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "bottom": {
+                                        "offset": {"x": 91, "y": 68},
+                                        "mirror": {"x": false, "y": true},
+                                        "angle": 0
+                                      }
+                                    },
+                                    "unwrapMode": "custom",
+                                    "visible": true,
+                                    "doubleSided": false,
+                                    "shadingMode": "flat"
+                                  }
+                                },
+                                {
+                                  "id": "31",
+                                  "name": "Bill-Lower-Tip--C2",
+                                  "position": {"x": 0.87278, "y": 0.99288, "z": 3.19335},
+                                  "orientation": {"x": 0.04632, "y": 0.00377, "z": 0.00555, "w": 0.9989},
+                                  "shape": {
+                                    "type": "box",
+                                    "offset": {"x": -0.97676, "y": -1.98632, "z": 2.60905},
+                                    "stretch": {"x": 1, "y": 1, "z": 1},
+                                    "settings": {
+                                      "isPiece": false,
+                                      "size": {"x": 4, "y": 2, "z": 4},
+                                      "isStaticBox": true
+                                    },
+                                    "textureLayout": {
+                                      "back": {
+                                        "offset": {"x": 115, "y": 70},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "right": {
+                                        "offset": {"x": 88, "y": 70},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "front": {
+                                        "offset": {"x": 77, "y": 70},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "left": {
+                                        "offset": {"x": 92, "y": 70},
+                                        "mirror": {"x": true, "y": false},
+                                        "angle": 0
+                                      },
+                                      "top": {
+                                        "offset": {"x": 77, "y": 64},
+                                        "mirror": {"x": false, "y": false},
+                                        "angle": 0
+                                      },
+                                      "bottom": {
+                                        "offset": {"x": 91, "y": 68},
+                                        "mirror": {"x": false, "y": true},
+                                        "angle": 0
+                                      }
+                                    },
+                                    "unwrapMode": "custom",
+                                    "visible": true,
+                                    "doubleSided": false,
+                                    "shadingMode": "flat"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
                         },
                         {
-                          "id": "26",
-                          "name": "Beak2",
-                          "position": {"x": 0, "y": -3.51522, "z": 12.34862},
-                          "orientation": {"x": -0.08052, "y": -0.38123, "z": 0.03335, "w": 0.92036},
-                          "shape": {
-                            "type": "box",
-                            "offset": {"x": 0, "y": 0, "z": 0},
-                            "stretch": {"x": 1, "y": 1, "z": 1},
-                            "settings": {
-                              "isPiece": false,
-                              "size": {"x": 6, "y": 2, "z": 6}
-                            },
-                            "textureLayout": {
-                              "back": {
-                                "offset": {"x": 128, "y": 35},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 180
-                              },
-                              "right": {
-                                "offset": {"x": 110, "y": 35},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 180
-                              },
-                              "front": {
-                                "offset": {"x": 116, "y": 35},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 180
-                              },
-                              "left": {
-                                "offset": {"x": 122, "y": 35},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 180
-                              },
-                              "top": {
-                                "offset": {"x": 122, "y": 33},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 180
-                              },
-                              "bottom": {
-                                "offset": {"x": 116, "y": 33},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 180
-                              }
-                            },
-                            "unwrapMode": "custom",
-                            "visible": true,
-                            "doubleSided": false,
-                            "shadingMode": "flat"
-                          }
-                        },
-                        {
-                          "id": "27",
-                          "name": "Beak3",
-                          "position": {"x": 0, "y": -0.51522, "z": 11.34862},
-                          "orientation": {"x": 0.46194, "y": 0.19134, "z": -0.33141, "w": 0.80011},
-                          "shape": {
-                            "type": "box",
-                            "offset": {"x": 0, "y": 0, "z": 0},
-                            "stretch": {"x": 1, "y": 1, "z": 1},
-                            "settings": {
-                              "isPiece": false,
-                              "size": {"x": 5, "y": 5, "z": 8}
-                            },
-                            "textureLayout": {
-                              "left": {
-                                "offset": {"x": 96, "y": 18},
-                                "mirror": {"x": false, "y": true},
-                                "angle": 90
-                              },
-                              "top": {
-                                "offset": {"x": 96, "y": 18},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 0
-                              }
-                            },
-                            "unwrapMode": "custom",
-                            "visible": true,
-                            "doubleSided": false,
-                            "shadingMode": "flat"
-                          }
-                        },
-                        {
-                          "id": "28",
-                          "name": "Beak4",
-                          "position": {"x": 0, "y": -6.5, "z": 7},
-                          "orientation": {"x": 0, "y": 0, "z": -0.38268, "w": 0.92388},
-                          "shape": {
-                            "type": "box",
-                            "offset": {"x": 0, "y": 3.25, "z": 0},
-                            "stretch": {"x": 1, "y": 1, "z": 1},
-                            "settings": {
-                              "isPiece": false,
-                              "size": {"x": 5, "y": 5, "z": 8}
-                            },
-                            "textureLayout": {
-                              "right": {
-                                "offset": {"x": 96, "y": 35},
-                                "mirror": {"x": false, "y": false},
-                                "angle": 270
-                              },
-                              "bottom": {
-                                "offset": {"x": 96, "y": 35},
-                                "mirror": {"x": false, "y": true},
-                                "angle": 0
-                              }
-                            },
-                            "unwrapMode": "custom",
-                            "visible": true,
-                            "doubleSided": false,
-                            "shadingMode": "flat"
-                          }
-                        },
-                        {
-                          "id": "29",
+                          "id": "32",
                           "name": "R-Eyebrow-Attachment",
                           "position": {"x": -9, "y": 3.5, "z": 13},
                           "orientation": {"x": 0, "y": 0, "z": -0.13053, "w": 0.99144},
@@ -982,7 +1089,7 @@
                           }
                         },
                         {
-                          "id": "30",
+                          "id": "33",
                           "name": "R-Eye",
                           "position": {"x": -7, "y": 0.48478, "z": 12.44862},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -1009,7 +1116,7 @@
                           }
                         },
                         {
-                          "id": "31",
+                          "id": "34",
                           "name": "L-Eye",
                           "position": {"x": 7, "y": -3.5, "z": 12.1},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -1036,7 +1143,7 @@
                           }
                         },
                         {
-                          "id": "32",
+                          "id": "35",
                           "name": "L-Eyebrow-Attachment",
                           "position": {"x": 9, "y": 3.5, "z": 13},
                           "orientation": {"x": 0, "y": 0, "z": 0.13053, "w": 0.99144},
@@ -1055,7 +1162,7 @@
                           }
                         },
                         {
-                          "id": "33",
+                          "id": "36",
                           "name": "Head2",
                           "position": {"x": 0, "y": -4.5, "z": 11.62673},
                           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},

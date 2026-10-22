@@ -1,0 +1,6 @@
+{
+  "$Comment": "Ultimate charge aim (2026-10-21: the ultimate aimed at my feet, not my body). Put on the king for the 1.8 s charge + re-aim of AT_Ice_King_Frost_Ultimate(_Rage). While it is on, Template_AT_Ice_King aims his head with HeadMotion Watch (target position + the target's eye height, HeadMotionWatch) instead of the CAE's Aim, which aims at the point of the target's hitbox nearest to his own eye height (HeadMotionAim clamps the target Y into the hitbox): with the player above him that was the player's feet. No other effect; his turn speed is normal.",
+  "Duration": 1.8,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

@@ -1,0 +1,33 @@
+{
+  "$Comment": "Gunter's right wing slap (2026-10-21). The vanilla Fox_Bite written out (its HitEntity is the role's Bite_Damage var, the same for every attack, so each attack names its own hit): Slap animation of set AT_Gunter, 0.25 s before the hit window (Slap/Attack timing from the art pass), then a 0.167 s Horizontal selector 0.5-2 blocks in front, then 0.167 s padding. Hit: Root_AT_Gunter_Slap_Damage.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Gunter",
+    "ItemAnimationId": "Slap"
+  },
+  "RunTime": 0.25,
+  "Next": {
+    "Type": "Selector",
+    "Effects": {
+      "WorldSoundEventId": "SFX_NPC_Unarmed_Swing"
+    },
+    "RunTime": 0.167,
+    "Selector": {
+      "Id": "Horizontal",
+      "Direction": "ToLeft",
+      "TestLineOfSight": true,
+      "ExtendTop": 0.5,
+      "ExtendBottom": 0.5,
+      "StartDistance": 0.5,
+      "EndDistance": 2,
+      "Length": 30,
+      "RollOffset": 90,
+      "YawStartOffset": -15
+    },
+    "HitEntity": "Root_AT_Gunter_Slap_Damage",
+    "Next": {
+      "Type": "Simple",
+      "RunTime": 0.167
+    }
+  }
+}

@@ -1,0 +1,3723 @@
+{
+  "$Comment": "Ice King mini-boss fight. Place it once with /encounter add AT_Ice_King_Encounter near the king. Waiting: the king is neutral; the first hit (health under 99%) starts the fight (hostile AT_Ice_King_Fight, boss bar, music, snow storm; they stay for every phase). Phase_1 ground (AT_Ice_King_Fight, CAE) -> 70% -> Phase_2 air (AT_Ice_King_Air, icebergs every 8 s) -> 45% -> Phase_3 Fridjitzu on the ground (AT_Ice_King_Fridjitzu, nunchucks) -> 20% -> Phase_4 enraged in the air (AT_Ice_King_Air_Enraged, icebergs every 5 s, lightning every 6-10 s). Built from vanilla Example_Boss and the Gobliterator encounter macros. 2026-10-21 reset fix: Player range 80, king Mob sensors 80, the 'king still alive' Target 120, Waiting resumes the phase that matches his health, Done goes back to Waiting with any living king. 2026-10-21: the cosmetic far lightning ('Thunder snow, far', a bolt 22-30 blocks from a player every 6-12 s) was removed (playtest: it looked like attacks fired away from him). The real lightning attack with its ground warning stays. 2026-10-21: every phase also answers the beacon AT_Ice_King_Ice_Rain (ice rain: 10 shards around each player).",
+  "Class": "EncounterManager",
+  "Type": "Generic",
+  "Debug": "DisplayState",
+  "StartState": "Waiting",
+  "Instructions": [
+    {
+      "Sensor": {
+        "Type": "Player",
+        "Range": 80,
+        "Collector": {
+          "Type": "EncounterMembers"
+        },
+        "$Comment": "2026-10-21: 80 (was 40). Everything below only runs while a player is this close to the encounter marker, and players farther away lose the boss bar. 40 froze the phases when the fight drifted off (the ground roles leash at 80)."
+      },
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Waiting"
+          },
+          "Instructions": [
+            {
+              "$Comment": "2026-10-21: after a reset (hot reload of this file, chunk reload, server restart, or the Done state below) the encounter starts again here while the king is already hurt. Go straight to the phase his health belongs to, lowest first: before this every reset put him back in the phase 1 role. Keep these numbers equal to the phase thresholds below (0.2 / 0.45 / 0.7).",
+              "Sensor": {
+                "Type": "Mob",
+                "Range": 80,
+                "LockOnTarget": true,
+                "Rebind": true,
+                "LockedTargetSlot": "King",
+                "Filters": [
+                  {
+                    "Type": "NPCGroup",
+                    "IncludeGroups": [
+                      "AT_Ice_King_Group"
+                    ]
+                  },
+                  {
+                    "Type": "Stat",
+                    "StatTarget": "Value",
+                    "RelativeTo": "Health",
+                    "Stat": "Health",
+                    "RelativeToTarget": "Max",
+                    "ValueRange": [
+                      0,
+                      0.2
+                    ]
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "ChangeTargetRole",
+                  "Role": "AT_Ice_King_Air_Enraged"
+                },
+                {
+                  "Type": "SetEncounterBossBar",
+                  "Name": "server.npcRoles.AT_Ice_King.name"
+                },
+                {
+                  "Type": "StartEncounterMusic",
+                  "MusicContainer": "AT_Ice_King_Battle_Music"
+                },
+                {
+                  "Type": "SetEncounterWeather",
+                  "Weather": "Zone3_Snow_Storm",
+                  "TransitionSeconds": 7
+                },
+                {
+                  "Type": "State",
+                  "State": "Phase_4"
+                }
+              ]
+            },
+            {
+              "$Comment": "Resume in phase 3 (Fridjitzu).",
+              "Sensor": {
+                "Type": "Mob",
+                "Range": 80,
+                "LockOnTarget": true,
+                "Rebind": true,
+                "LockedTargetSlot": "King",
+                "Filters": [
+                  {
+                    "Type": "NPCGroup",
+                    "IncludeGroups": [
+                      "AT_Ice_King_Group"
+                    ]
+                  },
+                  {
+                    "Type": "Stat",
+                    "StatTarget": "Value",
+                    "RelativeTo": "Health",
+                    "Stat": "Health",
+                    "RelativeToTarget": "Max",
+                    "ValueRange": [
+                      0,
+                      0.45
+                    ]
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "ChangeTargetRole",
+                  "Role": "AT_Ice_King_Fridjitzu"
+                },
+                {
+                  "Type": "SetEncounterBossBar",
+                  "Name": "server.npcRoles.AT_Ice_King.name"
+                },
+                {
+                  "Type": "StartEncounterMusic",
+                  "MusicContainer": "AT_Ice_King_Battle_Music"
+                },
+                {
+                  "Type": "SetEncounterWeather",
+                  "Weather": "Zone3_Snow_Storm",
+                  "TransitionSeconds": 7
+                },
+                {
+                  "Type": "State",
+                  "State": "Phase_3"
+                }
+              ]
+            },
+            {
+              "$Comment": "Resume in phase 2 (air).",
+              "Sensor": {
+                "Type": "Mob",
+                "Range": 80,
+                "LockOnTarget": true,
+                "Rebind": true,
+                "LockedTargetSlot": "King",
+                "Filters": [
+                  {
+                    "Type": "NPCGroup",
+                    "IncludeGroups": [
+                      "AT_Ice_King_Group"
+                    ]
+                  },
+                  {
+                    "Type": "Stat",
+                    "StatTarget": "Value",
+                    "RelativeTo": "Health",
+                    "Stat": "Health",
+                    "RelativeToTarget": "Max",
+                    "ValueRange": [
+                      0,
+                      0.7
+                    ]
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "ChangeTargetRole",
+                  "Role": "AT_Ice_King_Air"
+                },
+                {
+                  "Type": "SetEncounterBossBar",
+                  "Name": "server.npcRoles.AT_Ice_King.name"
+                },
+                {
+                  "Type": "StartEncounterMusic",
+                  "MusicContainer": "AT_Ice_King_Battle_Music"
+                },
+                {
+                  "Type": "SetEncounterWeather",
+                  "Weather": "Zone3_Snow_Storm",
+                  "TransitionSeconds": 7
+                },
+                {
+                  "Type": "State",
+                  "State": "Phase_2"
+                }
+              ]
+            },
+            {
+              "$Comment": "The king took damage: start the fight (phase 1). Keep it last: the neutral king at full health also waits here.",
+              "Sensor": {
+                "Type": "Mob",
+                "Range": 80,
+                "LockOnTarget": true,
+                "Rebind": true,
+                "LockedTargetSlot": "King",
+                "Filters": [
+                  {
+                    "Type": "NPCGroup",
+                    "IncludeGroups": [
+                      "AT_Ice_King_Group"
+                    ]
+                  },
+                  {
+                    "Type": "Stat",
+                    "StatTarget": "Value",
+                    "RelativeTo": "Health",
+                    "Stat": "Health",
+                    "RelativeToTarget": "Max",
+                    "ValueRange": [
+                      0,
+                      0.99
+                    ]
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "ChangeTargetRole",
+                  "Role": "AT_Ice_King_Fight"
+                },
+                {
+                  "Type": "SetEncounterBossBar",
+                  "Name": "server.npcRoles.AT_Ice_King.name"
+                },
+                {
+                  "Type": "StartEncounterMusic",
+                  "MusicContainer": "AT_Ice_King_Battle_Music"
+                },
+                {
+                  "Type": "SetEncounterWeather",
+                  "Weather": "Zone3_Snow_Storm",
+                  "TransitionSeconds": 7
+                },
+                {
+                  "Type": "State",
+                  "State": "Phase_1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Phase_1"
+          },
+          "Instructions": [
+            {
+              "$Comment": "Frost patch on the ground near each player every 2 s (the weather cannot whiten the ground; AT_Ice_King_Frost_Ground lives about 15 s).",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40,
+                "MultiTarget": true
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        2,
+                        2
+                      ]
+                    },
+                    {
+                      "Type": "Random",
+                      "Actions": [
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              7,
+                              0,
+                              3
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -6,
+                              0,
+                              6
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              4,
+                              0,
+                              -8
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -8,
+                              0,
+                              -4
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              10,
+                              0,
+                              -2
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -3,
+                              0,
+                              9
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Ice lightning attack on one player every 10-16 s: the 2.2 s vanilla Stalactite_Ground_Indicator under them, then (Delay 1.9 s, as Example_Boss SpawnInteraction Delay) a very fast strike (Projectile_Config_AT_Ice_King_Lightning, ~0.3 s) that lands as the warning ends.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        10,
+                        16
+                      ]
+                    },
+                    {
+                      "Type": "ProjectToGround",
+                      "Actions": [
+                        {
+                          "Type": "ForEach",
+                          "Actions": [
+                            {
+                              "Type": "SpawnParticles",
+                              "PositionSource": "Sensor",
+                              "ParticleSystem": "Stalactite_Ground_Indicator"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "ForEach",
+                          "IsolatePerTarget": true,
+                          "Actions": [
+                            {
+                              "$Comment": "15% of lightning strikes also freeze 1.5 s on hit.",
+                              "Type": "Random",
+                              "Actions": [
+                                {
+                                  "Weight": 85,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Lightning_Fall",
+                                    "OrientationSource": "Absolute",
+                                    "Delay": [
+                                      1.9,
+                                      1.9
+                                    ]
+                                  }
+                                },
+                                {
+                                  "Weight": 15,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Lightning_Fall_Freezing",
+                                    "OrientationSource": "Absolute",
+                                    "Delay": [
+                                      1.9,
+                                      1.9
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        2.2,
+                        2.2
+                      ]
+                    },
+                    {
+                      "Type": "PlaySound",
+                      "SoundEventId": "SFX_Global_Weather_Thunder"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "The king's Iceberg ability sends this beacon: drop one iceberg on every player in range.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Beacon",
+                "Range": 40,
+                "Message": "AT_Ice_King_Iceberg"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Player",
+                    "Range": 40,
+                    "MultiTarget": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "ProjectToGround",
+                      "Actions": [
+                        {
+                          "Type": "ForEach",
+                          "Actions": [
+                            {
+                              "Type": "SpawnParticles",
+                              "PositionSource": "Sensor",
+                              "ParticleSystem": "Stalactite_Ground_Indicator"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "ForEach",
+                          "IsolatePerTarget": true,
+                          "Actions": [
+                            {
+                              "$Comment": "15% of icebergs also freeze 1.5 s on hit.",
+                              "Type": "Random",
+                              "Actions": [
+                                {
+                                  "Weight": 85,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Iceberg_Fall",
+                                    "OrientationSource": "Absolute"
+                                  }
+                                },
+                                {
+                                  "Weight": 15,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Iceberg_Fall_Freezing",
+                                    "OrientationSource": "Absolute"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Ice rain (2026-10-21): the king's AT_Ice_King_Ice_Rain sends this beacon. 10 shards around every player in range, within 6 blocks, in three waves (Delay 0 / 0.4 / 0.8 s), each with the Stalactite_Ground_Indicator under it; a shard falls about 1.25 s (Projectile_Config_AT_Ice_King_Ice_Rain), so all land while the 2.2 s warnings are still on the ground. Move out of the marked spots. Offset/delay pattern of the vanilla-style AdjustPosition + ProjectToGround + SpawnInteraction Delay used by the other attacks here.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Beacon",
+                "Range": 40,
+                "Message": "AT_Ice_King_Ice_Rain"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Player",
+                    "Range": 80,
+                    "MultiTarget": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        5,
+                        0,
+                        1
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -3,
+                        0,
+                        -4
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        2,
+                        0,
+                        4
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -5,
+                        0,
+                        2
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        3,
+                        0,
+                        -5
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -1,
+                        0,
+                        6
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        6,
+                        0,
+                        -3
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -6,
+                        0,
+                        -1
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        1,
+                        0,
+                        -2
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Under 70%: he takes off (air phase).",
+              "Sensor": {
+                "Type": "Mob",
+                "Range": 80,
+                "LockOnTarget": true,
+                "Rebind": true,
+                "LockedTargetSlot": "King",
+                "Filters": [
+                  {
+                    "Type": "NPCGroup",
+                    "IncludeGroups": [
+                      "AT_Ice_King_Group"
+                    ]
+                  },
+                  {
+                    "Type": "Stat",
+                    "StatTarget": "Value",
+                    "RelativeTo": "Health",
+                    "Stat": "Health",
+                    "RelativeToTarget": "Max",
+                    "ValueRange": [
+                      0,
+                      0.7
+                    ]
+                  },
+                  {
+                    "Type": "Not",
+                    "Filter": {
+                      "Type": "IsExecutingInteraction"
+                    }
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "ChangeTargetRole",
+                  "Role": "AT_Ice_King_Air"
+                },
+                {
+                  "Type": "SetEncounterBossBar",
+                  "Name": "server.npcRoles.AT_Ice_King.name"
+                },
+                {
+                  "Type": "State",
+                  "State": "Phase_2"
+                }
+              ]
+            },
+            {
+              "$Comment": "King still alive and within 120 blocks of the marker: stay in this phase. 2026-10-21: 120 (was 60): a king that flew or was led more than 60 blocks away counted as dead, the next branch cleared the boss bar and the encounter stopped changing phases for good.",
+              "Sensor": {
+                "Type": "Target",
+                "Range": 120,
+                "TargetSlot": "King"
+              },
+              "Actions": [
+                {
+                  "Type": "Nothing"
+                }
+              ]
+            },
+            {
+              "$Comment": "Empty slot: the king died (or left). End the fight.",
+              "Actions": [
+                {
+                  "Type": "ClearEncounterBossBar"
+                },
+                {
+                  "Type": "ClearEncounterWeather"
+                },
+                {
+                  "Type": "StopEncounterMusic"
+                },
+                {
+                  "Type": "ReleaseTarget",
+                  "TargetSlot": "King"
+                },
+                {
+                  "Type": "State",
+                  "State": "Done"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Phase_2"
+          },
+          "Instructions": [
+            {
+              "$Comment": "Frost patch on the ground near each player every 2 s (the weather cannot whiten the ground; AT_Ice_King_Frost_Ground lives about 15 s).",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40,
+                "MultiTarget": true
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        2,
+                        2
+                      ]
+                    },
+                    {
+                      "Type": "Random",
+                      "Actions": [
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              7,
+                              0,
+                              3
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -6,
+                              0,
+                              6
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              4,
+                              0,
+                              -8
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -8,
+                              0,
+                              -4
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              10,
+                              0,
+                              -2
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -3,
+                              0,
+                              9
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Ice lightning attack on one player every 10-16 s: the 2.2 s vanilla Stalactite_Ground_Indicator under them, then (Delay 1.9 s, as Example_Boss SpawnInteraction Delay) a very fast strike (Projectile_Config_AT_Ice_King_Lightning, ~0.3 s) that lands as the warning ends.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        10,
+                        16
+                      ]
+                    },
+                    {
+                      "Type": "ProjectToGround",
+                      "Actions": [
+                        {
+                          "Type": "ForEach",
+                          "Actions": [
+                            {
+                              "Type": "SpawnParticles",
+                              "PositionSource": "Sensor",
+                              "ParticleSystem": "Stalactite_Ground_Indicator"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "ForEach",
+                          "IsolatePerTarget": true,
+                          "Actions": [
+                            {
+                              "$Comment": "15% of lightning strikes also freeze 1.5 s on hit.",
+                              "Type": "Random",
+                              "Actions": [
+                                {
+                                  "Weight": 85,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Lightning_Fall",
+                                    "OrientationSource": "Absolute",
+                                    "Delay": [
+                                      1.9,
+                                      1.9
+                                    ]
+                                  }
+                                },
+                                {
+                                  "Weight": 15,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Lightning_Fall_Freezing",
+                                    "OrientationSource": "Absolute",
+                                    "Delay": [
+                                      1.9,
+                                      1.9
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        2.2,
+                        2.2
+                      ]
+                    },
+                    {
+                      "Type": "PlaySound",
+                      "SoundEventId": "SFX_Global_Weather_Thunder"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Drop an iceberg on every player every 8 s (pattern of vanilla Example_Boss Phase_2).",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40,
+                "MultiTarget": true
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        8,
+                        8
+                      ]
+                    },
+                    {
+                      "Type": "ProjectToGround",
+                      "Actions": [
+                        {
+                          "Type": "ForEach",
+                          "Actions": [
+                            {
+                              "Type": "SpawnParticles",
+                              "PositionSource": "Sensor",
+                              "ParticleSystem": "Stalactite_Ground_Indicator"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "ForEach",
+                          "IsolatePerTarget": true,
+                          "Actions": [
+                            {
+                              "$Comment": "15% of icebergs also freeze 1.5 s on hit.",
+                              "Type": "Random",
+                              "Actions": [
+                                {
+                                  "Weight": 85,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Iceberg_Fall",
+                                    "OrientationSource": "Absolute"
+                                  }
+                                },
+                                {
+                                  "Weight": 15,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Iceberg_Fall_Freezing",
+                                    "OrientationSource": "Absolute"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Ice rain (2026-10-21): the king's AT_Ice_King_Ice_Rain sends this beacon. 10 shards around every player in range, within 6 blocks, in three waves (Delay 0 / 0.4 / 0.8 s), each with the Stalactite_Ground_Indicator under it; a shard falls about 1.25 s (Projectile_Config_AT_Ice_King_Ice_Rain), so all land while the 2.2 s warnings are still on the ground. Move out of the marked spots. Offset/delay pattern of the vanilla-style AdjustPosition + ProjectToGround + SpawnInteraction Delay used by the other attacks here.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Beacon",
+                "Range": 40,
+                "Message": "AT_Ice_King_Ice_Rain"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Player",
+                    "Range": 80,
+                    "MultiTarget": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        5,
+                        0,
+                        1
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -3,
+                        0,
+                        -4
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        2,
+                        0,
+                        4
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -5,
+                        0,
+                        2
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        3,
+                        0,
+                        -5
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -1,
+                        0,
+                        6
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        6,
+                        0,
+                        -3
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -6,
+                        0,
+                        -1
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        1,
+                        0,
+                        -2
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Under 45%: he lands and fights Fridjitzu with the ice nunchucks (phase 3).",
+              "Sensor": {
+                "Type": "Mob",
+                "Range": 80,
+                "LockOnTarget": true,
+                "Rebind": true,
+                "LockedTargetSlot": "King",
+                "Filters": [
+                  {
+                    "Type": "NPCGroup",
+                    "IncludeGroups": [
+                      "AT_Ice_King_Group"
+                    ]
+                  },
+                  {
+                    "Type": "Stat",
+                    "StatTarget": "Value",
+                    "RelativeTo": "Health",
+                    "Stat": "Health",
+                    "RelativeToTarget": "Max",
+                    "ValueRange": [
+                      0,
+                      0.45
+                    ]
+                  },
+                  {
+                    "Type": "Not",
+                    "Filter": {
+                      "Type": "IsExecutingInteraction"
+                    }
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "ChangeTargetRole",
+                  "Role": "AT_Ice_King_Fridjitzu"
+                },
+                {
+                  "Type": "SetEncounterBossBar",
+                  "Name": "server.npcRoles.AT_Ice_King.name"
+                },
+                {
+                  "Type": "State",
+                  "State": "Phase_3"
+                }
+              ]
+            },
+            {
+              "$Comment": "King still alive and within 120 blocks of the marker: stay in this phase. 2026-10-21: 120 (was 60): a king that flew or was led more than 60 blocks away counted as dead, the next branch cleared the boss bar and the encounter stopped changing phases for good.",
+              "Sensor": {
+                "Type": "Target",
+                "Range": 120,
+                "TargetSlot": "King"
+              },
+              "Actions": [
+                {
+                  "Type": "Nothing"
+                }
+              ]
+            },
+            {
+              "$Comment": "Empty slot: the king died (or left). End the fight.",
+              "Actions": [
+                {
+                  "Type": "ClearEncounterBossBar"
+                },
+                {
+                  "Type": "ClearEncounterWeather"
+                },
+                {
+                  "Type": "StopEncounterMusic"
+                },
+                {
+                  "Type": "ReleaseTarget",
+                  "TargetSlot": "King"
+                },
+                {
+                  "Type": "State",
+                  "State": "Done"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Phase_3"
+          },
+          "Instructions": [
+            {
+              "$Comment": "Frost patch on the ground near each player every 2 s (the weather cannot whiten the ground; AT_Ice_King_Frost_Ground lives about 15 s).",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40,
+                "MultiTarget": true
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        2,
+                        2
+                      ]
+                    },
+                    {
+                      "Type": "Random",
+                      "Actions": [
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              7,
+                              0,
+                              3
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -6,
+                              0,
+                              6
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              4,
+                              0,
+                              -8
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -8,
+                              0,
+                              -4
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              10,
+                              0,
+                              -2
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -3,
+                              0,
+                              9
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Ice lightning attack on one player every 10-16 s: the 2.2 s vanilla Stalactite_Ground_Indicator under them, then (Delay 1.9 s, as Example_Boss SpawnInteraction Delay) a very fast strike (Projectile_Config_AT_Ice_King_Lightning, ~0.3 s) that lands as the warning ends.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        10,
+                        16
+                      ]
+                    },
+                    {
+                      "Type": "ProjectToGround",
+                      "Actions": [
+                        {
+                          "Type": "ForEach",
+                          "Actions": [
+                            {
+                              "Type": "SpawnParticles",
+                              "PositionSource": "Sensor",
+                              "ParticleSystem": "Stalactite_Ground_Indicator"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "ForEach",
+                          "IsolatePerTarget": true,
+                          "Actions": [
+                            {
+                              "$Comment": "15% of lightning strikes also freeze 1.5 s on hit.",
+                              "Type": "Random",
+                              "Actions": [
+                                {
+                                  "Weight": 85,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Lightning_Fall",
+                                    "OrientationSource": "Absolute",
+                                    "Delay": [
+                                      1.9,
+                                      1.9
+                                    ]
+                                  }
+                                },
+                                {
+                                  "Weight": 15,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Lightning_Fall_Freezing",
+                                    "OrientationSource": "Absolute",
+                                    "Delay": [
+                                      1.9,
+                                      1.9
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        2.2,
+                        2.2
+                      ]
+                    },
+                    {
+                      "Type": "PlaySound",
+                      "SoundEventId": "SFX_Global_Weather_Thunder"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "The king's Iceberg ability sends this beacon: drop one iceberg on every player in range.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Beacon",
+                "Range": 40,
+                "Message": "AT_Ice_King_Iceberg"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Player",
+                    "Range": 40,
+                    "MultiTarget": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "ProjectToGround",
+                      "Actions": [
+                        {
+                          "Type": "ForEach",
+                          "Actions": [
+                            {
+                              "Type": "SpawnParticles",
+                              "PositionSource": "Sensor",
+                              "ParticleSystem": "Stalactite_Ground_Indicator"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "ForEach",
+                          "IsolatePerTarget": true,
+                          "Actions": [
+                            {
+                              "$Comment": "15% of icebergs also freeze 1.5 s on hit.",
+                              "Type": "Random",
+                              "Actions": [
+                                {
+                                  "Weight": 85,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Iceberg_Fall",
+                                    "OrientationSource": "Absolute"
+                                  }
+                                },
+                                {
+                                  "Weight": 15,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Iceberg_Fall_Freezing",
+                                    "OrientationSource": "Absolute"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Ice rain (2026-10-21): the king's AT_Ice_King_Ice_Rain sends this beacon. 10 shards around every player in range, within 6 blocks, in three waves (Delay 0 / 0.4 / 0.8 s), each with the Stalactite_Ground_Indicator under it; a shard falls about 1.25 s (Projectile_Config_AT_Ice_King_Ice_Rain), so all land while the 2.2 s warnings are still on the ground. Move out of the marked spots. Offset/delay pattern of the vanilla-style AdjustPosition + ProjectToGround + SpawnInteraction Delay used by the other attacks here.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Beacon",
+                "Range": 40,
+                "Message": "AT_Ice_King_Ice_Rain"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Player",
+                    "Range": 80,
+                    "MultiTarget": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        5,
+                        0,
+                        1
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -3,
+                        0,
+                        -4
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        2,
+                        0,
+                        4
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -5,
+                        0,
+                        2
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        3,
+                        0,
+                        -5
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -1,
+                        0,
+                        6
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        6,
+                        0,
+                        -3
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -6,
+                        0,
+                        -1
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        1,
+                        0,
+                        -2
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Under 20%: enraged, he takes off again and attacks with everything (phase 4).",
+              "Sensor": {
+                "Type": "Mob",
+                "Range": 80,
+                "LockOnTarget": true,
+                "Rebind": true,
+                "LockedTargetSlot": "King",
+                "Filters": [
+                  {
+                    "Type": "NPCGroup",
+                    "IncludeGroups": [
+                      "AT_Ice_King_Group"
+                    ]
+                  },
+                  {
+                    "Type": "Stat",
+                    "StatTarget": "Value",
+                    "RelativeTo": "Health",
+                    "Stat": "Health",
+                    "RelativeToTarget": "Max",
+                    "ValueRange": [
+                      0,
+                      0.2
+                    ]
+                  },
+                  {
+                    "Type": "Not",
+                    "Filter": {
+                      "Type": "IsExecutingInteraction"
+                    }
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "ChangeTargetRole",
+                  "Role": "AT_Ice_King_Air_Enraged"
+                },
+                {
+                  "Type": "SetEncounterBossBar",
+                  "Name": "server.npcRoles.AT_Ice_King.name"
+                },
+                {
+                  "Type": "State",
+                  "State": "Phase_4"
+                }
+              ]
+            },
+            {
+              "$Comment": "King still alive and within 120 blocks of the marker: stay in this phase. 2026-10-21: 120 (was 60): a king that flew or was led more than 60 blocks away counted as dead, the next branch cleared the boss bar and the encounter stopped changing phases for good.",
+              "Sensor": {
+                "Type": "Target",
+                "Range": 120,
+                "TargetSlot": "King"
+              },
+              "Actions": [
+                {
+                  "Type": "Nothing"
+                }
+              ]
+            },
+            {
+              "$Comment": "Empty slot: the king died (or left). End the fight.",
+              "Actions": [
+                {
+                  "Type": "ClearEncounterBossBar"
+                },
+                {
+                  "Type": "ClearEncounterWeather"
+                },
+                {
+                  "Type": "StopEncounterMusic"
+                },
+                {
+                  "Type": "ReleaseTarget",
+                  "TargetSlot": "King"
+                },
+                {
+                  "Type": "State",
+                  "State": "Done"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Phase_4"
+          },
+          "Instructions": [
+            {
+              "$Comment": "Frost patch on the ground near each player every 2 s (the weather cannot whiten the ground; AT_Ice_King_Frost_Ground lives about 15 s).",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40,
+                "MultiTarget": true
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        2,
+                        2
+                      ]
+                    },
+                    {
+                      "Type": "Random",
+                      "Actions": [
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              7,
+                              0,
+                              3
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -6,
+                              0,
+                              6
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              4,
+                              0,
+                              -8
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -8,
+                              0,
+                              -4
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              10,
+                              0,
+                              -2
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "Weight": 1,
+                          "Action": {
+                            "Type": "AdjustPosition",
+                            "Offset": [
+                              -3,
+                              0,
+                              9
+                            ],
+                            "Actions": [
+                              {
+                                "Type": "ProjectToGround",
+                                "Actions": [
+                                  {
+                                    "Type": "ForEach",
+                                    "Actions": [
+                                      {
+                                        "Type": "SpawnParticles",
+                                        "PositionSource": "Sensor",
+                                        "ParticleSystem": "AT_Ice_King_Frost_Ground"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Ice lightning attack on one player every 6-10 s (other phases: 10-16 s): the 2.2 s vanilla Stalactite_Ground_Indicator under them, then (Delay 1.9 s, as Example_Boss SpawnInteraction Delay) a very fast strike (Projectile_Config_AT_Ice_King_Lightning, ~0.3 s) that lands as the warning ends.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        6,
+                        10
+                      ]
+                    },
+                    {
+                      "Type": "ProjectToGround",
+                      "Actions": [
+                        {
+                          "Type": "ForEach",
+                          "Actions": [
+                            {
+                              "Type": "SpawnParticles",
+                              "PositionSource": "Sensor",
+                              "ParticleSystem": "Stalactite_Ground_Indicator"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "ForEach",
+                          "IsolatePerTarget": true,
+                          "Actions": [
+                            {
+                              "$Comment": "15% of lightning strikes also freeze 1.5 s on hit.",
+                              "Type": "Random",
+                              "Actions": [
+                                {
+                                  "Weight": 85,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Lightning_Fall",
+                                    "OrientationSource": "Absolute",
+                                    "Delay": [
+                                      1.9,
+                                      1.9
+                                    ]
+                                  }
+                                },
+                                {
+                                  "Weight": 15,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Lightning_Fall_Freezing",
+                                    "OrientationSource": "Absolute",
+                                    "Delay": [
+                                      1.9,
+                                      1.9
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        2.2,
+                        2.2
+                      ]
+                    },
+                    {
+                      "Type": "PlaySound",
+                      "SoundEventId": "SFX_Global_Weather_Thunder"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Drop an iceberg on every player every 5 s (phase 2: 8 s) (pattern of vanilla Example_Boss Phase_2).",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Player",
+                "Range": 40,
+                "MultiTarget": true
+              },
+              "Actions": [
+                {
+                  "Type": "Sequence",
+                  "Blocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        5,
+                        5
+                      ]
+                    },
+                    {
+                      "Type": "ProjectToGround",
+                      "Actions": [
+                        {
+                          "Type": "ForEach",
+                          "Actions": [
+                            {
+                              "Type": "SpawnParticles",
+                              "PositionSource": "Sensor",
+                              "ParticleSystem": "Stalactite_Ground_Indicator"
+                            }
+                          ]
+                        },
+                        {
+                          "Type": "ForEach",
+                          "IsolatePerTarget": true,
+                          "Actions": [
+                            {
+                              "$Comment": "15% of icebergs also freeze 1.5 s on hit.",
+                              "Type": "Random",
+                              "Actions": [
+                                {
+                                  "Weight": 85,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Iceberg_Fall",
+                                    "OrientationSource": "Absolute"
+                                  }
+                                },
+                                {
+                                  "Weight": 15,
+                                  "Action": {
+                                    "Type": "SpawnInteraction",
+                                    "PositionSource": "Sensor",
+                                    "Interaction": "Root_AT_Ice_King_Iceberg_Fall_Freezing",
+                                    "OrientationSource": "Absolute"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "Ice rain (2026-10-21): the king's AT_Ice_King_Ice_Rain sends this beacon. 10 shards around every player in range, within 6 blocks, in three waves (Delay 0 / 0.4 / 0.8 s), each with the Stalactite_Ground_Indicator under it; a shard falls about 1.25 s (Projectile_Config_AT_Ice_King_Ice_Rain), so all land while the 2.2 s warnings are still on the ground. Move out of the marked spots. Offset/delay pattern of the vanilla-style AdjustPosition + ProjectToGround + SpawnInteraction Delay used by the other attacks here.",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Beacon",
+                "Range": 40,
+                "Message": "AT_Ice_King_Ice_Rain"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Player",
+                    "Range": 80,
+                    "MultiTarget": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        5,
+                        0,
+                        1
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -3,
+                        0,
+                        -4
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0,
+                                    0
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        2,
+                        0,
+                        4
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -5,
+                        0,
+                        2
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        3,
+                        0,
+                        -5
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.4,
+                                    0.4
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -1,
+                        0,
+                        6
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        6,
+                        0,
+                        -3
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        -6,
+                        0,
+                        -1
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Type": "AdjustPosition",
+                      "Offset": [
+                        1,
+                        0,
+                        -2
+                      ],
+                      "Actions": [
+                        {
+                          "Type": "ProjectToGround",
+                          "Actions": [
+                            {
+                              "Type": "ForEach",
+                              "Actions": [
+                                {
+                                  "Type": "SpawnParticles",
+                                  "PositionSource": "Sensor",
+                                  "ParticleSystem": "Stalactite_Ground_Indicator"
+                                }
+                              ]
+                            },
+                            {
+                              "Type": "ForEach",
+                              "IsolatePerTarget": true,
+                              "Actions": [
+                                {
+                                  "Type": "SpawnInteraction",
+                                  "PositionSource": "Sensor",
+                                  "Interaction": "Root_AT_Ice_King_Ice_Rain_Drop",
+                                  "OrientationSource": "Absolute",
+                                  "Delay": [
+                                    0.8,
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$Comment": "King still alive and within 120 blocks of the marker: stay in this phase. 2026-10-21: 120 (was 60): a king that flew or was led more than 60 blocks away counted as dead, the next branch cleared the boss bar and the encounter stopped changing phases for good.",
+              "Sensor": {
+                "Type": "Target",
+                "Range": 120,
+                "TargetSlot": "King"
+              },
+              "Actions": [
+                {
+                  "Type": "Nothing"
+                }
+              ]
+            },
+            {
+              "$Comment": "Empty slot: the king died (or left). End the fight.",
+              "Actions": [
+                {
+                  "Type": "ClearEncounterBossBar"
+                },
+                {
+                  "Type": "ClearEncounterWeather"
+                },
+                {
+                  "Type": "StopEncounterMusic"
+                },
+                {
+                  "Type": "ReleaseTarget",
+                  "TargetSlot": "King"
+                },
+                {
+                  "Type": "State",
+                  "State": "Done"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Done"
+          },
+          "Instructions": [
+            {
+              "$Comment": "Any living king in range (a new one, or the same one coming back) restarts the encounter; Waiting resumes the right phase from his health. 2026-10-21: [0, 1] (was [0.99, 1]): health regen is off, so a hurt king never got back to 99% and the encounter stayed here for good, without boss bar or phases. A dead king is never sensed (sensors skip entities with DeathComponent), so after his death it stays Done.",
+              "Sensor": {
+                "Type": "Mob",
+                "Range": 80,
+                "LockOnTarget": true,
+                "Rebind": true,
+                "LockedTargetSlot": "King",
+                "Filters": [
+                  {
+                    "Type": "NPCGroup",
+                    "IncludeGroups": [
+                      "AT_Ice_King_Group"
+                    ]
+                  },
+                  {
+                    "Type": "Stat",
+                    "StatTarget": "Value",
+                    "RelativeTo": "Health",
+                    "Stat": "Health",
+                    "RelativeToTarget": "Max",
+                    "ValueRange": [
+                      0,
+                      1
+                    ]
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Waiting"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

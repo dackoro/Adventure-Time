@@ -1,0 +1,9 @@
+{
+  "$Comment": "Ultimate beam aim (2026-10-21: the beam follows me too fast, I must be able to outrun it, but it should still try to hit me). Put on the king himself while the giant beam fires (AT_Ice_King_Frost_Ultimate). An NPC's head turn speed is multiplied by the HorizontalSpeedMultiplier of its effects (MotionControllerBase: maxHeadRotation = interval x MaxHeadRotationSpeed x RelativeTurnSpeed x effect multiplier), and the beam's hit line follows his look, so 0.15 makes the beam sweep after the player at about a seventh of his normal turn speed. He can't walk during the beam anyway (DisableAll). Tune HorizontalSpeedMultiplier: lower = slower sweep, easier to outrun. The Duration is set by the interaction. 2026-10-21: 0.06 (was 0.15, still too fast): about 20 deg/s, slower than a player running sideways a few blocks away. Template_AT_Ice_King also stops his body motion while this effect is on. 2026-10-21 (playtest: the beam should stay where it was fired until the end, not follow me): 0.0 = his head can't turn at all (the multiplier scales both yaw and pitch, MotionControllerBase.calculateYaw/calculatePitch), so the beam keeps the direction it had after the 0.6 s re-aim. Raise it again (e.g. 0.06) for a slow sweep.",
+  "ApplicationEffects": {
+    "HorizontalSpeedMultiplier": 0.0
+  },
+  "Duration": 2.8,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

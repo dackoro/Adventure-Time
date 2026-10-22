@@ -1,0 +1,5 @@
+{
+  "$Comment": "Ice King's ice sword poses (2026-10-21): vanilla Sword (Parent) for now. When the slash entries get added, give them the king's own ThirdPersonFace (Characters/Animations/Items/AdventureTime/Ice_King/Face_Clench or Face_Shout.blockyanim): the vanilla faces move the Mouth node to cells outside the king's mouth sheet and his mouth vanishes (see AT_Ice_King_Staff).",
+  "Parent": "Sword",
+  "Animations": {}
+}

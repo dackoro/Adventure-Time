@@ -1,0 +1,6 @@
+{
+  "$Comment": "Ice mace wave hit on non-players (AT_Ice_King_Ice_Mace_Wave_Mob_Damage), own root file.",
+  "Interactions": [
+    "AT_Ice_King_Ice_Mace_Wave_Mob_Damage"
+  ]
+}

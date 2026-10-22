@@ -1,0 +1,25 @@
+{
+  "$Comment": "Gunter's wing slap (Slap/Slap2): least damage, almost no push (2026-10-21: damage headbutt > belly > slap; headbutt and belly push hard, the slap almost not). 5 physical +-20 %, Point knockback (straight away from Gunter, decompiled PointKnockback) Force 1.5 (how far), VelocityY 1.5 (how high). Sound and particle of vanilla Fox_Bite_Damage. Replaces the role's Bite_Damage var for this attack.",
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Physical": 5
+    },
+    "RandomPercentageModifier": 0.2
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Type": "Point",
+      "Force": 1.5,
+      "VelocityY": 1.5
+    },
+    "WorldSoundEventId": "SFX_Unarmed_Impact",
+    "LocalSoundEventId": "SFX_Unarmed_Impact",
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Sword_Basic"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "duration": 60,
+  "holdLastKeyframe": false,
+  "nodeAnimations": {
+    "Mouth": {
+      "position": [],
+      "orientation": [],
+      "shapeStretch": [],
+      "shapeVisible": [],
+      "shapeUvOffset": [ {
+          "time": 0,
+          "delta": {
+            "x": 29,
+            "y": 0
+          }
+        } ]
+    }
+  }
+}

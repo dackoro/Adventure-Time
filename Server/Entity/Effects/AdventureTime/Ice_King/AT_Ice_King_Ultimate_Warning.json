@@ -1,0 +1,16 @@
+{
+  "$Comment": "Rage ultimate warning on the king (2026-10-21: the phase 4 ultimate chases the player, so it must warn clearly). Put on him for the 1.8 s charge of AT_Ice_King_Frost_Ultimate_Rage: he glows deep red (EntityTopTint/EntityBottomTint, the tint format of AT_Ice_King_Freeze) with snow bursting off him, readable from the ground with him high in the air. Goes with the alarm horn at the charge start and the red ground marker the encounter puts under every player (beacon AT_Ice_King_Ultimate).",
+  "ApplicationEffects": {
+    "EntityTopTint": "#ff2a2a",
+    "EntityBottomTint": "#b00000",
+    "Particles": [
+      {
+        "SystemId": "Effect_Snow_Impact",
+        "TargetEntityPart": "Entity"
+      }
+    ]
+  },
+  "Duration": 1.8,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

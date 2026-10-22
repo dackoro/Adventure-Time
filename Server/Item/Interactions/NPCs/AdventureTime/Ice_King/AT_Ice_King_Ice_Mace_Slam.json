@@ -1,0 +1,129 @@
+{
+  "$Comment": "Ice mace slam (2026-10-21, instead of the drum solo: he takes an ice mace, slams the ground and makes waves the player must jump over). Art: hidden Ice_Mace_Held attachment shown by the IceMace* animations of set AT_Ice_King_Staff. 0.6 s IceMaceSummon (the mace grows, cocked behind his head), then 3 slams: IceMaceSlam twice and IceMaceSlamLast (impact at 0.2 s of each; the mace bursts at the end of the last). Each impact forks one AT_Ice_King_Ice_Mace_Wave (Parallel: its first entry goes on with this chain, the others run as forks, decompiled ParallelInteraction), so the waves are 0.67 s apart and several are on the field at once. He stands still the whole time (MovementEffects DisableAll). Ground phase 1 (CAE IceMaceSlam): the Staff animations tuck his staff away, which would not fit the nunchucks of phase 3. 2026-10-21 (playtest: warn the player with a red zone first): it starts with 0.7 s standing still with the vanilla Gobliterator_Slam_Warning (red circle that fills in 1.5 s, as the Gobliterator and the dungeon goblin mace slams use it; Scale 0.6, on the impact point, X -0.25 like the dungeon mace) and the Gobliterator slam charge sound, so the circle fills exactly when the first impact lands (0.7 + 0.6 summon + 0.2). About 3.2 s.",
+  "Type": "Simple",
+  "RunTime": 0.7,
+  "Effects": {
+    "WorldSoundEventId": "SFX_Gobliterator_Club_Slam_Charge",
+    "MovementEffects": {
+      "DisableAll": true
+    },
+    "Particles": [
+      {
+        "SystemId": "Gobliterator_Slam_Warning",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "Origin",
+        "Scale": 0.6,
+        "PositionOffset": {
+          "X": -0.25,
+          "Y": 0.1,
+          "Z": 1.2
+        },
+        "DetachedFromModel": true
+      }
+    ]
+  },
+  "Next": {
+    "Type": "Simple",
+    "RunTime": 0.6,
+    "Effects": {
+      "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+      "ItemAnimationId": "IceMaceSummon",
+      "WorldSoundEventId": "SFX_Staff_Ice_Shoot",
+      "MovementEffects": {
+        "DisableAll": true
+      }
+    },
+    "Next": {
+      "Type": "Simple",
+      "RunTime": 0.2,
+      "Effects": {
+        "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+        "ItemAnimationId": "IceMaceSlam",
+        "MovementEffects": {
+          "DisableAll": true
+        }
+      },
+      "Next": {
+        "Type": "Parallel",
+        "Interactions": [
+          {
+            "Interactions": [
+              {
+                "Type": "Simple",
+                "RunTime": 0.47,
+                "Effects": {
+                  "MovementEffects": {
+                    "DisableAll": true
+                  }
+                },
+                "Next": {
+                  "Type": "Simple",
+                  "RunTime": 0.2,
+                  "Effects": {
+                    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                    "ItemAnimationId": "IceMaceSlam",
+                    "MovementEffects": {
+                      "DisableAll": true
+                    }
+                  },
+                  "Next": {
+                    "Type": "Parallel",
+                    "Interactions": [
+                      {
+                        "Interactions": [
+                          {
+                            "Type": "Simple",
+                            "RunTime": 0.47,
+                            "Effects": {
+                              "MovementEffects": {
+                                "DisableAll": true
+                              }
+                            },
+                            "Next": {
+                              "Type": "Simple",
+                              "RunTime": 0.2,
+                              "Effects": {
+                                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                                "ItemAnimationId": "IceMaceSlamLast",
+                                "MovementEffects": {
+                                  "DisableAll": true
+                                }
+                              },
+                              "Next": {
+                                "Type": "Parallel",
+                                "Interactions": [
+                                  {
+                                    "Interactions": [
+                                      {
+                                        "Type": "Simple",
+                                        "RunTime": 0.67,
+                                        "Effects": {
+                                          "MovementEffects": {
+                                            "DisableAll": true
+                                          },
+                                          "WorldSoundEventId": "SFX_Ice_Break"
+                                        },
+                                        "$Comment": "Rest of IceMaceSlamLast: the mace swells and bursts at 0.4-0.47 s, then he stands up."
+                                      }
+                                    ]
+                                  },
+                                  "Root_AT_Ice_King_Ice_Mace_Wave"
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "Root_AT_Ice_King_Ice_Mace_Wave"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "Root_AT_Ice_King_Ice_Mace_Wave"
+        ]
+      }
+    }
+  }
+}

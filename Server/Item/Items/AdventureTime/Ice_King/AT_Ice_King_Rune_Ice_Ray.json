@@ -1,0 +1,36 @@
+{
+  "$Comment": "Ice ray rune: casts the Ice King's own ice ray (Projectile_Config_AT_Ice_King_Ray: ice damage + a frost stack). Costs 30 mana like a vanilla rune; its cast first needs 30 ice magic (stat AT_Ice_Magic), which only the Ice King crown gives, so it only works while you wear it (Ability.CostType is a fixed list, a mod stat is refused there). Structure of vanilla Rune_Fireball; placeholder look: the blank vanilla rune. No recipe yet.",
+  "TranslationProperties": {
+    "Name": "server.items.AT_Ice_King_Rune_Ice_Ray.name",
+    "Description": "server.items.AT_Ice_King_Rune_Ice_Ray.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Rune_Empty.png",
+  "Quality": "Epic",
+  "ItemLevel": 25,
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "Model": "Items/Runes/Rune_Ability.blockymodel",
+  "Texture": "Items/Runes/Rune_Textures/Rune_Ability_Blank.png",
+  "PlayerAnimationsId": "Item",
+  "IconProperties": {
+    "Scale": 0.75,
+    "Rotation": [ 0, 30, 15 ],
+    "Translation": [ 4, -18 ]
+  },
+  "MaxStack": 1,
+  "Scale": 0.8,
+  "ItemSoundSetId": "ISS_Items_Gems",
+  "Ability": {
+    "Slot": "Core",
+    "Cooldown": 3,
+    "Cost": 30,
+    "CostType": "Mana",
+    "AbilityKeywords": [
+      "Damage",
+      "Elemental",
+      "Projectile"
+    ],
+    "Cast": "Root_AT_Ice_King_Rune_Ice_Ray"
+  }
+}

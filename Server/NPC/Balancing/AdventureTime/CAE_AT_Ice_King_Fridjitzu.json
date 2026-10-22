@@ -1,0 +1,475 @@
+{
+  "Type": "CombatActionEvaluator",
+  "$Comment": "Ice King, phase 3 (Fridjitzu, AT_Ice_King_Fridjitzu; was CAE_AT_Ice_King_Enraged until 2026-10-21): same actions as CAE_AT_Ice_King with shorter cooldowns, no health gate on the summon, and the FridjitzuCombo instead of the scepter swing.",
+  "EntityEffects": [
+    "Immunity_Slow",
+    "Immunity_Freeze",
+    "AT_Ice_King_Ice_Body"
+  ],
+  "TargetMemoryDuration": 60,
+  "CombatActionEvaluator": {
+    "RunConditions": [
+      {
+        "$Comment": "Think again soon after the last action ends (about 1 s).",
+        "Type": "TimeSinceLastUsed",
+        "Curve": {
+          "ResponseCurve": "Linear",
+          "XRange": [
+            0,
+            2
+          ]
+        }
+      },
+      {
+        "Type": "Randomiser",
+        "MinValue": 0.8,
+        "MaxValue": 1
+      }
+    ],
+    "MinRunUtility": 0.5,
+    "MinActionUtility": 0.01,
+    "AvailableActions": {
+      "MeleeHit": {
+        "Type": "Ability",
+        "Description": "Swing the scepter at a close target. 2026-10-21: renamed ScepterHit -> MeleeHit (he holds no scepter; his close-range swing). The interaction/root keep their old file names (AT_Ice_King_Scepter_Hit).",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          1,
+          3
+        ],
+        "PostExecuteDistanceRange": [
+          6,
+          9
+        ],
+        "FailureTimeout": 2,
+        "Ability": "Root_AT_Ice_King_Scepter_Hit",
+        "SubState": "Default",
+        "WeightCoefficient": 2,
+        "InteractionVars": {
+          "Scepter_Hit_Damage": {
+            "Interactions": [
+              {
+                "Parent": "AT_Ice_King_Scepter_Hit_Damage",
+                "DamageCalculator": {
+                  "Type": "Absolute",
+                  "BaseDamage": {
+                    "Physical": 22
+                  },
+                  "RandomPercentageModifier": 0.2
+                }
+              }
+            ]
+          }
+        },
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 2
+            }
+          },
+          {
+            "$Comment": "Only within 4 blocks.",
+            "Type": "TargetDistance",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 1,
+              "FinalState": 0,
+              "SwitchPoint": 4
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.6,
+            "MaxValue": 1
+          }
+        ],
+        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game)."
+      },
+      "FridjitzuCombo": {
+        "Type": "Ability",
+        "Description": "Fridjitzu: 3-hit combo with the ice nunchucks (left, right, charged spin that adds a frost stack).",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          1,
+          3.5
+        ],
+        "PostExecuteDistanceRange": [
+          2,
+          4
+        ],
+        "FailureTimeout": 3,
+        "Ability": "Root_AT_Ice_King_Fridjitzu",
+        "SubState": "Default",
+        "WeightCoefficient": 3,
+        "InteractionVars": {
+          "Fridjitzu_Hit_Damage": {
+            "Interactions": [
+              {
+                "Parent": "AT_Ice_King_Fridjitzu_Hit_Damage",
+                "DamageCalculator": {
+                  "Type": "Absolute",
+                  "BaseDamage": {
+                    "Physical": 10
+                  },
+                  "RandomPercentageModifier": 0.2
+                }
+              }
+            ]
+          },
+          "Fridjitzu_Final_Damage": {
+            "Interactions": [
+              "AT_Ice_King_Fridjitzu_Final_Damage"
+            ]
+          }
+        },
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 3
+            }
+          },
+          {
+            "$Comment": "Only within 4 blocks.",
+            "Type": "TargetDistance",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 1,
+              "FinalState": 0,
+              "SwitchPoint": 4
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.6,
+            "MaxValue": 1
+          }
+        ],
+        "$Comment": "Phase 3 melee instead of ScepterHit (kept in AvailableActions, out of the ActionSet). He stays close after it (PostExecuteDistanceRange 2-4): a brawler now, not a mage. Damage of hits 1-2 here; hit 3 is AT_Ice_King_Fridjitzu_Final_Damage, also given here as Fridjitzu_Final_Damage: an NPC attack never uses a Replace's DefaultValue (log: Missing replacement interactions ... for var Fridjitzu_Final_Damage)."
+      },
+      "IceRay": {
+        "Type": "Ability",
+        "Description": "Cast an ice bolt that slows the target. Punishes keeping the distance.",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          6,
+          12
+        ],
+        "PostExecuteDistanceRange": [
+          7,
+          11
+        ],
+        "FailureTimeout": 3,
+        "RequireAiming": true,
+        "Ability": "Root_AT_Ice_King_Ice_Ray",
+        "SubState": "Default",
+        "WeightCoefficient": 4,
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 5
+            }
+          },
+          {
+            "$Comment": "Better the farther the target: 0 at 3 blocks, 1 at 15.",
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "Linear",
+              "XRange": [
+                3,
+                15
+              ]
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.7,
+            "MaxValue": 1
+          }
+        ]
+      },
+      "IceNova": {
+        "Type": "Ability",
+        "Description": "Ground warning, then a freezing burst around the king. Answer to a target that stays close and keeps hitting.",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          0,
+          4
+        ],
+        "PostExecuteDistanceRange": [
+          6,
+          9
+        ],
+        "FailureTimeout": 3,
+        "Ability": "Root_AT_Ice_King_Ice_Nova",
+        "SubState": "Default",
+        "WeightCoefficient": 8,
+        "InteractionVars": {
+          "Ice_Nova_Damage": {
+            "$Comment": "Required: the Replace DefaultValue is not used for NPCs (SEVERE 'Missing replacement interactions' without this). Plain id form as the Skeleton_Elite Shield_Guard_End var.",
+            "Interactions": [
+              "AT_Ice_King_Ice_Nova_Damage"
+            ]
+          }
+        },
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 10
+            }
+          },
+          {
+            "$Comment": "Only within 4 blocks.",
+            "Type": "TargetDistance",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 1,
+              "FinalState": 0,
+              "SwitchPoint": 4
+            }
+          },
+          {
+            "$Comment": "Any recent combat damage raises it, more damage = closer to 1 (InverseExponential over 0-15, as the Skeleton_Elite ShieldBlock over 0-10). The evaluator clears recent damage after each run.",
+            "Type": "RecentSustainedDamage",
+            "Sources": [
+              "Combat"
+            ],
+            "Curve": {
+              "ResponseCurve": "InverseExponential",
+              "XRange": [
+                0,
+                15
+              ]
+            }
+          }
+        ]
+      },
+      "Iceberg": {
+        "Type": "Ability",
+        "Description": "Raise the hands and call the icebergs: sends the beacon AT_Ice_King_Iceberg, the encounter drops one on every player. Punishes standing still.",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          3,
+          20
+        ],
+        "PostExecuteDistanceRange": [
+          6,
+          10
+        ],
+        "FailureTimeout": 3,
+        "Ability": "Root_AT_Ice_King_Iceberg_Cast",
+        "SubState": "Default",
+        "WeightCoefficient": 5,
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 12
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.6,
+            "MaxValue": 1
+          }
+        ]
+      },
+      "Summon": {
+        "Type": "Ability",
+        "Description": "Summon 2 Gunters (up to 10 nearby). Root_AT_Ice_King_Summon_Fridjitzu: the phase 1 summon with nunchuck animations, so he keeps holding them right (2026-10-21).",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          3,
+          20
+        ],
+        "PostExecuteDistanceRange": [
+          6,
+          10
+        ],
+        "FailureTimeout": 3,
+        "Ability": "Root_AT_Ice_King_Summon_Fridjitzu",
+        "SubState": "Default",
+        "WeightCoefficient": 3,
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 20
+            }
+          },
+          {
+            "$Comment": "1 while fewer than 9 Gunters (group Gunters) are within 30 blocks, 0 from 9 on: 2 more makes 10 at most.",
+            "Type": "NearbyCount",
+            "NPCGroup": "Gunters",
+            "Range": 30,
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 1,
+              "FinalState": 0,
+              "SwitchPoint": 9
+            }
+          }
+        ]
+      },
+      "IceRayFreezing": {
+        "Type": "Ability",
+        "Description": "Rare ice ray whose hit also freezes 1.5 s. Same conditions as IceRay, weight 1 (the minimum the engine accepts; IceRay has 4) and a lower Randomiser (0.2-0.8 instead of 0.7-1), so roughly 1 ray in 7 is this one.",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          6,
+          12
+        ],
+        "PostExecuteDistanceRange": [
+          7,
+          11
+        ],
+        "FailureTimeout": 3,
+        "RequireAiming": true,
+        "Ability": "Root_AT_Ice_King_Ice_Ray_Freezing",
+        "SubState": "Default",
+        "WeightCoefficient": 1,
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 5
+            }
+          },
+          {
+            "$Comment": "Better the farther the target: 0 at 3 blocks, 1 at 15.",
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "Linear",
+              "XRange": [
+                3,
+                15
+              ]
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.2,
+            "MaxValue": 0.8
+          }
+        ]
+      },
+      "IceRayBoth": {
+        "Type": "Ability",
+        "Description": "Two-hand ice throw (2026-10-21: a separate attack, the most common of his throws): 0.6 s charge, one throw with both hands, a bolt from each (2 x 8 Ice, 2 frost stacks). Every 4 s at most, weight 6 (the one-hand IceRay has 4), so it comes up more often than the one-hand ray.",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          4,
+          16
+        ],
+        "PostExecuteDistanceRange": [
+          7,
+          11
+        ],
+        "FailureTimeout": 3,
+        "RequireAiming": true,
+        "Ability": "Root_AT_Ice_King_Ice_Ray_Both",
+        "SubState": "Default",
+        "WeightCoefficient": 6,
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 4
+            },
+            "$Comment": "Every 4 s at most."
+          },
+          {
+            "$Comment": "Better the farther the target: 0 at 3 blocks, 1 at 15.",
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "Linear",
+              "XRange": [
+                3,
+                15
+              ]
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.7,
+            "MaxValue": 1
+          }
+        ]
+      },
+      "IceSwordSlash": {
+        "Type": "Ability",
+        "Description": "Ice sword slash (2026-10-21, concept attack 5, ground version): 0.6 s summoning the sword, then a chop on everything within 3.5 blocks (28 ice, push, 2 frost stacks). Close range, every 12 s at most.",
+        "Target": "Hostile",
+        "AttackDistanceRange": [
+          1,
+          3.5
+        ],
+        "PostExecuteDistanceRange": [
+          6,
+          9
+        ],
+        "FailureTimeout": 2,
+        "Ability": "Root_AT_Ice_King_Ice_Sword_Slash",
+        "SubState": "Default",
+        "WeightCoefficient": 5,
+        "InteractionVars": {
+          "Scepter_Hit_Damage": {
+            "Interactions": [
+              {
+                "Parent": "AT_Ice_King_Scepter_Hit_Damage",
+                "DamageCalculator": {
+                  "Type": "Absolute",
+                  "BaseDamage": {
+                    "Physical": 22
+                  },
+                  "RandomPercentageModifier": 0.2
+                }
+              }
+            ]
+          }
+        },
+        "Conditions": [
+          {
+            "$Comment": "Every 12 s at most.",
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 12
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.6,
+            "MaxValue": 1
+          }
+        ],
+        "$Comment": "A mage: after the swing he should back off to 6-9 blocks (assumed: PostExecuteDistanceRange is where he stands after the action; to check in game)."
+      }
+    },
+    "ActionSets": {
+      "Default": {
+        "Actions": [
+          "FridjitzuCombo",
+          "IceRay",
+          "IceRayBoth",
+          "IceNova",
+          "Iceberg",
+          "Summon",
+          "IceRayFreezing",
+          "IceSwordSlash"
+        ]
+      }
+    }
+  }
+}

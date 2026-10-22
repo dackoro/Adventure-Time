@@ -1,0 +1,74 @@
+{
+  "RenderMode": "BlendAdd",
+  "ParticleRotationInfluence": "None",
+  "ParticleLifeSpan": {
+    "Min": 1.5,
+    "Max": 1.5
+  },
+  "ParticleRotateWithSpawner": false,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "Particle": {
+    "Texture": "Particles/Textures/Basic/Ball2.png",
+    "UVOption": "RandomFlipU",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Color": "#ffffff"
+      },
+      "5": {
+        "Color": "#ffffff",
+        "Opacity": 0
+      },
+      "15": {
+        "Color": "#ffffff",
+        "Opacity": 1
+      },
+      "40": {
+        "Opacity": 0,
+        "Color": "#002040"
+      },
+      "70": {
+        "Color": "#000f1e",
+        "Opacity": 0
+      },
+      "100": {
+        "Opacity": 0,
+        "Color": "#000000"
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 40,
+          "Max": 50
+        },
+        "Y": {
+          "Min": 40,
+          "Max": 50
+        }
+      },
+      "Opacity": 1,
+      "Rotation": {
+        "X": {
+          "Min": 90,
+          "Max": 90
+        }
+      }
+    },
+    "ScaleRatioConstraint": "OneToOne",
+    "SoftParticles": "Disable"
+  },
+  "Shape": "Sphere",
+  "TotalParticles": {
+    "Min": 3,
+    "Max": 3
+  },
+  "SpawnRate": {
+    "Min": 300,
+    "Max": 300
+  },
+  "LinearFiltering": true,
+  "MaxConcurrentParticles": 3,
+  "$Comment": "Ice-blue copy of vanilla Dungeon_Goblin_Void_Strike_Glow_Top (purple colours turned blue; everything else unchanged)."
+}

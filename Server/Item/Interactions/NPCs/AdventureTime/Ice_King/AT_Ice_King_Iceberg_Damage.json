@@ -1,0 +1,25 @@
+{
+  "$Comment": "Iceberg hit: ice damage, then AT_Ice_King_Slow (vanilla stalactite does 45 Command damage). Then 1 frost stack(s) through AT_Ice_King_Frost_Hit (5 stacks freeze; the warmth potion turns it into a mild slow).",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 35
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break"
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

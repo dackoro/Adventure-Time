@@ -1,0 +1,13 @@
+{
+  "$Comment": "Warmth buff from AT_Ice_King_Warmth_Potion (5 min). While it lasts the Ice King cannot freeze the player: AT_Ice_King_Freeze has an ApplyConditions entry against it, and the ray, nova and iceberg hits check it with an EffectCondition and apply only the weak slow. Fields of the vanilla Antidote buff.",
+  "Duration": 300,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Duration",
+  "Infinite": false,
+  "Debuff": false,
+  "ApplicationEffects": {
+    "EntityTopTint": "#ffb36b",
+    "EntityBottomTint": "#ff7a2e"
+  },
+  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Bomb_Potion_Poison.png"
+}

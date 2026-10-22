@@ -1,0 +1,22 @@
+{
+  "$Comment": "Shield bubble push (2026-10-21: the player must not be able to walk into the Ice King's shield). Run by every 0.5 s hold step of AT_Ice_King_Ice_Shield on everything within its AOECircle: no damage (BaseDamage 0: DamageEntityInteraction puts the knockback on the target before and apart from the damage, and a zero amount is skipped by the damage systems, decompiled 0.7.2), only a push straight out from the king (Point knockback: direction = target - king, decompiled PointKnockback) and a little up. Tune Force (how far) and VelocityY (how high).",
+  "Type": "DamageEntity",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Ice": 0
+    }
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Type": "Point",
+      "Force": 9,
+      "VelocityY": 2.5,
+      "VelocityType": "Set",
+      "VelocityConfig": {
+        "Threshold": 0.9
+      }
+    },
+    "WorldSoundEventId": "SFX_Ice_Break"
+  }
+}

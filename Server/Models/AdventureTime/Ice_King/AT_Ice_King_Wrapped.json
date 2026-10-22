@@ -1,0 +1,112 @@
+{
+  "$Comment": "Ice King in phase 3 (Fridjitzu): AT_Ice_King with the beard wrapped over his mouth (Beard_Wrapped attachment, custom model). Everything else comes from the Parent: model, texture, animations. DefaultAttachments is the whole list again because a child replaces it. AnimationSets: only the sets that differ in phase 3 (the rest come from AT_Ice_King): Animations/Fridjitzu/*_Fridjitzu copies (angry brows; animated by hand: Idle_Fridjitzu, scripts/copy-pose.py copies its brow keys to the others). Frost_Beam attachment (2026-10-21): the ultimate's giant ray, a fullbright translucent box (Frost_Beam + Frost_Beam_Core) on the Head bone, so it points where his head looks like the Stab hit box (HeadRotation), and the charge orb (Frost_Orb, its own attachment Frost_Orb.blockymodel) on the Origin bone between his hands, hidden in the model (visible false) and shown only by the FrostUltimate* staff animations with shapeVisible, like the vanilla gun Laser attachment. Ice_Sword_Held attachment (2026-10-21): the ice sword for the sword slash, piece on the R-Hand bone (socket = his R-Attachment spot), hidden in the model and shown only by the IceSword* staff animations (they also tuck the staff away with R-Attachment z -36), same trick as Frost_Orb. Ice_Mace_Held attachment (2026-10-21): the vanilla Prisma mace repainted as pure ice, for the ground-slam attack; piece on the R-Hand bone like Ice_Sword_Held, hidden in the model and shown only by the IceMace* staff animations (they also tuck the staff away with R-Attachment z -36). Ice_Sword_Held_L attachment (2026-10-21): the same ice sword on his LEFT hand (piece on L-Hand, nodes IceSwordL_*), for phase 3 where the nunchucks fill his right hand; hidden, shown only by the nunchuck set's IceSword* animations. Ice_Sword_Held (right hand, IceSword_*) stays for the staff set's sword entries, unused now.",
+  "Parent": "AT_Ice_King",
+  "DefaultAttachments": [
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Head.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Head_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Beard/Beard_Wrapped.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Beard/Beard_Wrapped_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Tunic/Tunic.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Tunic/Tunic_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Mouth.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Mouth_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Frost_Beam/Frost_Beam.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Frost_Beam/Frost_Beam_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Frost_Beam/Frost_Orb.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Frost_Beam/Frost_Beam_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Sword_Held/Ice_Sword_Held.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Sword_Held/Ice_Sword_Held_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Mace_Held/Ice_Mace_Held.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Mace_Held/Ice_Mace_Held_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Sword_Held_L/Ice_Sword_Held_L.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Sword_Held_L/Ice_Sword_Held_L_Texture.png"
+    }
+  ],
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Idle_Fridjitzu.blockyanim",
+          "Speed": 0.5
+        }
+      ]
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Walk_Fridjitzu.blockyanim",
+          "Speed": 1,
+          "SoundEventId": "SFX_Skeleton_Walk"
+        }
+      ]
+    },
+    "WalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Walk_Backward_Fridjitzu.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Run_Fridjitzu.blockyanim",
+          "Speed": 0.9,
+          "SoundEventId": "SFX_Skeleton_Run"
+        }
+      ]
+    },
+    "Sprint": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Sprint_Fridjitzu.blockyanim",
+          "Speed": 1.1,
+          "SoundEventId": "SFX_Skeleton_Run"
+        }
+      ]
+    },
+    "Alerted": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Alerted_Fridjitzu.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Skeleton_Alerted"
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Hurt_Fridjitzu.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Skeleton_Hurt"
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fridjitzu/Hurt2_Fridjitzu.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Skeleton_Hurt"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$Comment": "Rare freezing variant of AT_Ice_King_Ice_Ray_Hit: the same hit plus an instant 1.5 s freeze. Picked about 15% of the time (CAE weight for the ray, encounter Random for icebergs and lightning).",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 18
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break"
+      }
+    },
+    {
+      "$Comment": "Freeze immunity: no freeze while AT_Ice_King_Freeze_Guard is on the target; every freeze puts it for the freeze time + 5 s (6.5 s here, 2026-10-21, was 1.5 + 3). Change the immunity in the Guard Duration.",
+      "Type": "EffectCondition",
+      "Entity": "Target",
+      "EntityEffectIds": [
+        "AT_Ice_King_Freeze_Guard"
+      ],
+      "Match": "None",
+      "Next": {
+        "Type": "Serial",
+        "Interactions": [
+        {
+          "$Comment": "The rare instant freeze (1.5 s). AT_Ice_King_Freeze's ApplyConditions skip it under the warmth potion or Immunity_Freeze.",
+          "Type": "ApplyEffect",
+          "EffectId": "AT_Ice_King_Freeze",
+          "Entity": "Target",
+          "Duration": 1.5
+        },
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze_Guard",
+            "Entity": "Target",
+            "Duration": 6.5
+          }
+        ]
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

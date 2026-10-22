@@ -1,0 +1,25 @@
+{
+  "$Comment": "Gunter's headbutt (Attack2): most damage, strongest push (2026-10-21: damage headbutt > belly > slap; headbutt and belly push hard, the slap almost not). 13 physical +-20 %, Point knockback (straight away from Gunter, decompiled PointKnockback) Force 11 (how far), VelocityY 5 (how high). Sound and particle of vanilla Fox_Bite_Damage. Replaces the role's Bite_Damage var for this attack.",
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Physical": 13
+    },
+    "RandomPercentageModifier": 0.2
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Type": "Point",
+      "Force": 11,
+      "VelocityY": 5
+    },
+    "WorldSoundEventId": "SFX_Unarmed_Impact",
+    "LocalSoundEventId": "SFX_Unarmed_Impact",
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Sword_Basic"
+      }
+    ]
+  }
+}

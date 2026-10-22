@@ -1,0 +1,56 @@
+{
+  "$Comment": "Defens-ice (2026-10-21, concept): the Ice King covers himself in ice for 3 s and takes no damage (Invulnerable: the effect puts the Invulnerable component on him while it lasts). Look until art makes the bubble: the vanilla Freeze ice shell (ModelVFXId Freeze, as AT_Ice_King_Freeze) with an icy tint and snow. Given by AT_Ice_King_Ice_Shield, which ends with the shard burst. Duration here is only the default: the interaction passes its own. 2026-10-21: the bubble (Shield_Bubble.blockymodel, translucent, fullbright) shown through the effect's ModelOverride, as vanilla Ability_ChargedShot_Charge_1 shows its icicle (the field is only sent to the client, EntityEffect.toPacket; how the client draws it, over the king or instead of him, is untested). The Freeze ice shell is off so the bubble reads clearly. Spawn (pops in, 0.2 s) and Despawn (swells and vanishes) animation sets of the bubble from the art pass, as vanilla Status/Root.json gives its roots. 2026-10-21 (playtest: while he has it he should take less damage, not none): Invulnerable removed; DamageResistance 70% against Physical, Projectile and Elemental (the causes vanilla resistance effects list; DamageResistance format of AT_Ice_King_Ice_Body / vanilla Immunity_Fall). Tune Amount (1 = no damage). 2026-10-21 (playtest: red warning of the burst area that fills up until it blows): vanilla Gobliterator_Self_Destruct_Warning (red circle filling up, 'imminent' look from 3.85 s, life 5.5 s) on his feet while the shield lasts, Scale 5.05 = the burst radius 5 + 0.05 (its own comment: selector radius + 0.05). It is an effect particle, so it goes away with the shield when the burst comes early (5 hits). 2026-10-21 (playtest: the warning only right before it blows): the Self_Destruct warning is no longer on the effect; AT_Ice_King_Ice_Shield shows a short filling circle in its last 1.5 s instead. 2026-10-21 (playtest: the bubble should turn while it is up): Idle set = the Shield_Bubble_Idle (one turn about Y every 3 s, looping); Spawn also keeps turning until 8.5 s, in case the client stays on Spawn. 2026-10-21 (playtest: before it blows it should stop turning and throb): when the red warning starts the interaction swaps this effect for AT_Ice_King_Ice_Shield_Pulse; the Despawn set moved there (the burst removes that one), so clearing this one for the swap does not play it.",
+  "ApplicationEffects": {
+    "EntityTopTint": "#e3fbff",
+    "EntityBottomTint": "#80ecff",
+    "Particles": [
+      {
+        "SystemId": "Effect_Snow"
+      }
+    ]
+  },
+  "Duration": 3,
+  "OverlapBehavior": "Overwrite",
+  "ModelOverride": {
+    "Model": "NPC/AdventureTime/Ice_King/Shield/Shield_Bubble.blockymodel",
+    "Texture": "NPC/AdventureTime/Ice_King/Shield/Shield_Bubble_Texture.png",
+    "AnimationSets": {
+      "Spawn": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Shield/Shield_Bubble_Spawn.blockyanim",
+            "Looping": false
+          }
+        ]
+      },
+      "Idle": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Shield/Shield_Bubble_Idle.blockyanim",
+            "Looping": true
+          }
+        ]
+      }
+    }
+  },
+  "DamageResistance": {
+    "Physical": [
+      {
+        "Amount": 0.7,
+        "CalculationType": "Percent"
+      }
+    ],
+    "Projectile": [
+      {
+        "Amount": 0.7,
+        "CalculationType": "Percent"
+      }
+    ],
+    "Elemental": [
+      {
+        "Amount": 0.7,
+        "CalculationType": "Percent"
+      }
+    ]
+  }
+}

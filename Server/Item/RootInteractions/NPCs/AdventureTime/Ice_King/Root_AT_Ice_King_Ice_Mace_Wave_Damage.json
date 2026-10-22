@@ -1,0 +1,6 @@
+{
+  "$Comment": "Hit of the ice mace shock wave (AT_Ice_King_Ice_Mace_Wave_Damage), own root file.",
+  "Interactions": [
+    "AT_Ice_King_Ice_Mace_Wave_Damage"
+  ]
+}

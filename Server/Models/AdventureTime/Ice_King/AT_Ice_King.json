@@ -1,0 +1,591 @@
+{
+  "$Comment": "Ice King model. Camera (2026-10-21, mechanics pass request): how far the head (and body) may turn toward the target. Without it the server clamps head yaw to +-45 deg from the body (MotionControllerBase.calculateYaw), and a flier's body points along its flight path, so circling he could not face the player and his ray (fired along the head look) went off sideways. Yaw +-60 split over Head and Belly (was +-150, then +-90: his head looked wrong looking back while flying away), Pitch +-89 on Head. Vanilla Spirit_* use +-180 on Head only; if Head+Belly looks wrong, fall back to [\"Head\"]. Camera is inherited (appendInherited), so AT_Ice_King_Wrapped gets it too. AnimationSets HurtFly, DeathFly, DeathFlyImpact, HurtFall, DeathFall, HurtBurn, HurtDrown, DeathDrown (2026-10-21): own copies of the vanilla Player sets he inherited (Parent Skeleton -> Player; AnimationSets merge with the parent's), same files, blending and sounds, with the Mouth uv cells remapped to the king's 4x3 mouth sheet (player 120 -> 87 clenched teeth, 140 -> 0 open, 160 -> 29 shout): the player cells fell outside his sheet and his mouth became a red strip when hit while flying (HurtFly is picked whenever the NPC is flying, Entity.DefaultAnimations). DeathFly plays by itself for a death while flying. PhaseChange: played by the phase roles on entry; Phase_Change.blockyanim starts as a copy of Alerted to animate by hand. DeathFly is a one-shot (2026-10-21: the corpse lay on the ground still tumbling, DeathFlyImpact never plays for him): two tumbling cycles of the vanilla Death_Fly (frames 0-99, ~1.7 s), then the vanilla Death_Fly_Impact from frame 100 (crash, ends lying down), holdLastKeyframe true, Looping false; 140 frames. Frost_Beam attachment (2026-10-21): the ultimate's giant ray, a fullbright translucent box (Frost_Beam + Frost_Beam_Core) on the Head bone, so it points where his head looks like the Stab hit box (HeadRotation), and the charge orb (Frost_Orb, its own attachment Frost_Orb.blockymodel) on the Origin bone between his hands, hidden in the model (visible false) and shown only by the FrostUltimate* staff animations with shapeVisible, like the vanilla gun Laser attachment. IdlePassive without Head_Spin (2026-10-21: the skeleton's joke idle turned his head to his back); Head_Shake and Head_Look_Around stay. Own Spawn/Despawn/Laydown/Sleep/Wake (2026-10-21: the skeleton ones crawled out of the ground, crumbled and dropped the jaw): Spawn_Ice = flies down from 4 blocks up inside an ice orb (Frost_Orb node), lands and stands; Despawn_Ice = raises his arms, the ice orb forms and he flies away up; Laydown_Ice/Sleep_Ice/Wake_Ice = sits on the ground, snores (mouth open/closed, head nodding), stands up with a yawn and a stretch. Overriding them is needed: removing a set would fall back to the Skeleton parent's. Ice_Sword_Held attachment (2026-10-21): the ice sword for the sword slash, piece on the R-Hand bone (socket = his R-Attachment spot), hidden in the model and shown only by the IceSword* staff animations (they also tuck the staff away with R-Attachment z -36), same trick as Frost_Orb. Ice_Mace_Held attachment (2026-10-21): the vanilla Prisma mace repainted as pure ice, for the ground-slam attack; piece on the R-Hand bone like Ice_Sword_Held, hidden in the model and shown only by the IceMace* staff animations (they also tuck the staff away with R-Attachment z -36). Ice_Sword_Held_L attachment (2026-10-21): the same ice sword on his LEFT hand (piece on L-Hand, nodes IceSwordL_*), for phase 3 where the nunchucks fill his right hand; hidden, shown only by the nunchuck set's IceSword* animations. Ice_Sword_Held (right hand, IceSword_*) stays for the staff set's sword entries, unused now.",
+  "Parent": "Skeleton",
+  "Model": "NPC/AdventureTime/Ice_King/Models/Model.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Models/Texture.png",
+  "DefaultAttachments": [
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Head.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Head_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Beard/Beard.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Beard/Beard_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Tunic/Tunic.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Tunic/Tunic_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Mouth.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Mouth_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Frost_Beam/Frost_Beam.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Frost_Beam/Frost_Beam_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Frost_Beam/Frost_Orb.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Frost_Beam/Frost_Beam_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Sword_Held/Ice_Sword_Held.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Sword_Held/Ice_Sword_Held_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Mace_Held/Ice_Mace_Held.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Mace_Held/Ice_Mace_Held_Texture.png"
+    },
+    {
+      "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Sword_Held_L/Ice_Sword_Held_L.blockymodel",
+      "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Ice_Sword_Held_L/Ice_Sword_Held_L_Texture.png"
+    }
+  ],
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Idle.blockyanim",
+          "Speed": 0.5
+        }
+      ]
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/walk.blockyanim",
+          "Speed": 1,
+          "SoundEventId": "SFX_Skeleton_Walk"
+        }
+      ]
+    },
+    "WalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Walk_Backward.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Run.blockyanim",
+          "Speed": 0.9,
+          "SoundEventId": "SFX_Skeleton_Run"
+        }
+      ]
+    },
+    "RunBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Run_Backward.blockyanim",
+          "Speed": 0.9,
+          "SoundEventId": "SFX_Skeleton_Run"
+        }
+      ]
+    },
+    "Sprint": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Sprint.blockyanim",
+          "Speed": 1.1,
+          "SoundEventId": "SFX_Skeleton_Run"
+        }
+      ]
+    },
+    "Crouch": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Crouch.blockyanim",
+          "BlendingDuration": 0.1,
+          "Speed": 0.5
+        }
+      ]
+    },
+    "CrouchWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Crouch_Walk.blockyanim",
+          "BlendingDuration": 0.1,
+          "Speed": 0.8
+        }
+      ]
+    },
+    "CrouchWalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Crouch_Walk_Backward.blockyanim",
+          "BlendingDuration": 0.1,
+          "Speed": 0.8
+        }
+      ]
+    },
+    "Jump": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Jump.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "Speed": 0.8
+        }
+      ]
+    },
+    "JumpWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Jump.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "Speed": 0.8
+        }
+      ]
+    },
+    "JumpRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Jump_Far.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "Speed": 0.8
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Jump_Far2.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "Speed": 0.8
+        }
+      ]
+    },
+    "Fall": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Fall.blockyanim",
+          "BlendingDuration": 0.4
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Fall2.blockyanim",
+          "BlendingDuration": 0.4
+        }
+      ]
+    },
+    "Alerted": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Alerted.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Skeleton_Alerted"
+        }
+      ]
+    },
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fly/Fly_Idle.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "Fly": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fly/Fly.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "FlyBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fly/Fly_Backward.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "FlyFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Fly/Fly_Fast.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "SwimIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Idle.blockyanim"
+        }
+      ]
+    },
+    "Swim": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "SwimBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Backward.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "SwimFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Fast.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "SwimJump": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Jump.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "Speed": 0.8
+        }
+      ]
+    },
+    "SwimFloat": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Float.blockyanim"
+        }
+      ]
+    },
+    "SwimSink": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Sink.blockyanim"
+        }
+      ]
+    },
+    "SwimDive": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Dive.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "SwimDiveBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Dive_Backward.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "SwimDiveFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Dive_Fast.blockyanim",
+          "Speed": 0.6
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Swim/Swim_Dive_Fast2.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Idle.blockyanim",
+          "Speed": 0.3
+        }
+      ]
+    },
+    "FluidWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/walk.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidWalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Walk_Backward.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Run.blockyanim",
+          "Speed": 0.5
+        }
+      ]
+    },
+    "ClimbIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Climb/Climb_Idle.blockyanim",
+          "Speed": 0.5
+        }
+      ]
+    },
+    "ClimbUp": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Climb/Climb_Up.blockyanim"
+        }
+      ]
+    },
+    "ClimbDown": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Climb/Climb_Down.blockyanim"
+        }
+      ]
+    },
+    "ClimbLeft": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Climb/Climb_Left.blockyanim"
+        }
+      ]
+    },
+    "ClimbRight": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Climb/Climb_Right.blockyanim"
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Skeleton_Hurt"
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt2.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Skeleton_Hurt"
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Player_Death.blockyanim",
+          "Looping": false
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Player_Death2.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Spawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Spawn_Ice.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Despawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Despawn_Ice.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "IdlePassive": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Flavor/Head_Shake.blockyanim",
+          "Weight": 4
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Flavor/Head_Look_Around.blockyanim",
+          "Weight": 5
+        }
+      ],
+      "NextAnimationDelay": {
+        "Max": 15,
+        "Min": 5
+      }
+    },
+    "Search": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Flavor/Search.blockyanim",
+          "SoundEventId": "SFX_Skeleton_Search_2"
+        }
+      ]
+    },
+    "Sleep": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Sleep_Ice.blockyanim"
+        }
+      ]
+    },
+    "Laydown": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Laydown_Ice.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Wake": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Wake_Ice.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "HurtFly": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fly.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Hurt"
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fly2.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Hurt"
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fly3.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Hurt"
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fly4.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Hurt"
+        }
+      ]
+    },
+    "DeathFly": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Death_Fly.blockyanim",
+          "BlendingDuration": 0.6,
+          "SoundEventId": "SFX_Player_Hurt",
+          "Looping": false
+        }
+      ]
+    },
+    "DeathFlyImpact": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Death_Fly_Impact.blockyanim",
+          "BlendingDuration": 0.05,
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Death"
+        }
+      ]
+    },
+    "HurtFall": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fall.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Hurt_Fall"
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Fall2.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Hurt_Fall"
+        }
+      ]
+    },
+    "DeathFall": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Death_Fall.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Death"
+        },
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Death_Fall2.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Death"
+        }
+      ]
+    },
+    "HurtBurn": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Burn.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Hurt_Burn"
+        }
+      ]
+    },
+    "HurtDrown": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Hurt_Drown.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Hurt_Drowning"
+        }
+      ]
+    },
+    "DeathDrown": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Damage/Death_Drown.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Player_Death_Drown"
+        }
+      ]
+    },
+    "PhaseChange": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Animations/Default/Phase_Change.blockyanim",
+          "Looping": false
+        }
+      ]
+    }
+  },
+  "Icon": "Icons/ModelsGenerated/Skeleton_Frost_Archmage.png",
+  "Camera": {
+    "Yaw": {
+      "AngleRange": {
+        "Min": -60,
+        "Max": 60
+      },
+      "TargetNodes": [
+        "Head",
+        "Belly"
+      ]
+    },
+    "Pitch": {
+      "AngleRange": {
+        "Min": -89,
+        "Max": 89
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    }
+  }
+}

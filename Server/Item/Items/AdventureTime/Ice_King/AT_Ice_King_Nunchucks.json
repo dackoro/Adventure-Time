@@ -1,0 +1,19 @@
+{
+  "$Comment": "Ice King's ice nunchucks, held by AT_Ice_King_Fridjitzu (phase 3) through its Weapons. NPC-only: not in any drop list and no Interactions of its own (the attack is Root_AT_Ice_King_Fridjitzu, chosen by CAE_AT_Ice_King_Fridjitzu). Model/Texture: Common/Items/AdventureTime/Ice_King/Nunchucks/, a copy of the vanilla Steel_Flail (rusty texture) to rework in Blockbench; placeholder Icon: the vanilla flail one, until the nunchuck model is done (keep the flail's node names so the flail animations work). 2026-10-21: an item \"Animation\" (idle sway, Nunchucks_Idle.blockyanim) was tried and taken out the same minute the nunchucks stopped showing on the king; kept on disk, not referenced.",
+  "TranslationProperties": {
+    "Name": "server.items.AT_Ice_King_Nunchucks.name"
+  },
+  "Categories": [
+    "Items.Weapons"
+  ],
+  "Quality": "Epic",
+  "ItemLevel": 30,
+  "Icon": "Icons/ItemsGenerated/Weapon_Club_Steel_Flail_Rusty.png",
+  "Model": "Items/AdventureTime/Ice_King/Nunchucks/Nunchucks.blockymodel",
+  "Texture": "Items/AdventureTime/Ice_King/Nunchucks/Nunchucks_Texture.png",
+  "PlayerAnimationsId": "AT_Ice_King_Nunchucks",
+  "UsePlayerAnimations": true,
+  "Utility": {
+    "Compatible": true
+  }
+}

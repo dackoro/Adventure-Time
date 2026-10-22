@@ -1,0 +1,6 @@
+{
+  "$Comment": "Invisible flag on the Ice King (2026-10-21: the single ice ray is thrown with one hand, sometimes the right, sometimes the left). AT_Ice_King_Ice_Ray(_Freezing) checks it: without it he throws with the RIGHT hand and puts it on; with it he throws with the LEFT hand and clears it, so the hands alternate cast after cast. The interaction system has no random pick, and an effect flag is the pattern that already works on the king (freeze guard). Duration set by the interaction (60 s: after a long pause he starts again with the right).",
+  "Duration": 60,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

@@ -1,0 +1,11 @@
+{
+  "$Comment": "Two-hand ice throw root (AT_Ice_King_Ice_Ray_Both): one quick throw, a bolt from each hand. Started by the CAE (ground) and the air components (Attack action), so it carries the Attack tag.",
+  "Interactions": [
+    "AT_Ice_King_Ice_Ray_Both"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

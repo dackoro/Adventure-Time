@@ -1,0 +1,95 @@
+{
+  "RenderMode": "BlendLinear",
+  "ParticleRotationInfluence": "None",
+  "ParticleLifeSpan": {
+    "Min": 2,
+    "Max": 2.5
+  },
+  "ParticleRotateWithSpawner": false,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "Particle": {
+    "Texture": "Particles/Textures/Rnd/Smoke_Floor_Big.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Color": "#7da3cb",
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          }
+        }
+      },
+      "10": {
+        "Opacity": 0
+      },
+      "20": {
+        "Opacity": 1
+      },
+      "75": {},
+      "100": {
+        "Opacity": 0,
+        "Color": "#6884b0",
+        "Scale": {
+          "X": {
+            "Min": 1.2,
+            "Max": 1.2
+          }
+        }
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 5,
+          "Max": 7
+        }
+      },
+      "Opacity": 0.3,
+      "Rotation": {
+        "X": {
+          "Min": 90,
+          "Max": 90
+        },
+        "Y": {
+          "Min": 0,
+          "Max": 360
+        }
+      }
+    },
+    "ScaleRatioConstraint": "OneToOne",
+    "UVOption": "None",
+    "SoftParticles": "Disable"
+  },
+  "Shape": "Sphere",
+  "TotalParticles": {
+    "Min": 1,
+    "Max": 1
+  },
+  "SpawnRate": {
+    "Min": 1,
+    "Max": 1
+  },
+  "UVMotion": {
+    "Texture": "Particles/Textures/UVMotion/FlowMapSmoke.png",
+    "SpeedX": 0.01,
+    "SpeedY": 0.02,
+    "Strength": 25,
+    "Scale": 4,
+    "AddRandomUVOffset": true,
+    "StrengthCurveType": "IncreaseLinear"
+  },
+  "LinearFiltering": true,
+  "MaxConcurrentParticles": 1,
+  "Attractors": [
+    {
+      "DampingMultiplier": {
+        "X": 0.8,
+        "Y": 0.8,
+        "Z": 0.8
+      }
+    }
+  ],
+  "SpawnBurst": true
+}

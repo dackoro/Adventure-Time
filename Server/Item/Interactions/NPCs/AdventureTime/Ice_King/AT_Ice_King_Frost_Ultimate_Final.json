@@ -1,0 +1,61 @@
+{
+  "$Comment": "Ultimate beam last tick: 24 ice damage, a strong push away and up, 1 frost stack. A full beam (6 ticks + this) is 6 x 12 + 24 = 96 damage. Then a 2.5 s freeze (guarded).",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 24
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break",
+        "Knockback": {
+          "Force": 14,
+          "RelativeX": 0,
+          "RelativeZ": -1,
+          "VelocityY": 6,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        }
+      }
+    },
+    "AT_Ice_King_Frost_Hit",
+    {
+      "$Comment": "2026-10-21 (playtest: the beam should also freeze): the last tick freezes 2.5 s, unless the freeze guard is on (same pattern as the other freezing hits).",
+      "Type": "EffectCondition",
+      "Entity": "Target",
+      "EntityEffectIds": [
+        "AT_Ice_King_Freeze_Guard"
+      ],
+      "Match": "None",
+      "Next": {
+        "Type": "Serial",
+        "Interactions": [
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze",
+            "Entity": "Target",
+            "Duration": 2.5
+          },
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze_Guard",
+            "Entity": "Target",
+            "Duration": 7.5
+          }
+        ]
+      }
+    }
+  ]
+}

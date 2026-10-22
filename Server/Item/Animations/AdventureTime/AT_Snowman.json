@@ -1,0 +1,11 @@
+{
+  "$Comment": "Snowman henchman's attack (AT_Snowman_Minion, interaction AT_Snowman_Hug): Hug = the hug, a placeholder in Ice_King/Snowman/Animations/Hug.blockyanim to animate by hand. Parent Fox_Default like AT_Gunter: a set without Parent must give WiggleWeights (FAIL: Can not be null).",
+  "Parent": "Fox_Default",
+  "Animations": {
+    "Hug": {
+      "ThirdPerson": "NPC/AdventureTime/Ice_King/Snowman/Animations/Hug.blockyanim",
+      "Speed": 1,
+      "Looping": false
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "Particle": {
+    "Texture": "Particles/Textures/Basic/Star.png",
+    "Animation": {
+      "0": {
+        "Opacity": 1,
+        "Scale": {
+          "X": {
+            "Min": 0.1,
+            "Max": 0.1
+          }
+        },
+        "Color": "#e8f8fc"
+      },
+      "100": {
+        "Opacity": 0,
+        "Color": "#a4d3f1",
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          }
+        }
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 8,
+          "Max": 8
+        }
+      },
+      "Opacity": 1
+    },
+    "ScaleRatioConstraint": "OneToOne"
+  },
+  "SpawnRate": {
+    "Min": 100,
+    "Max": 100
+  },
+  "MaxConcurrentParticles": 10,
+  "TotalParticles": {
+    "Min": 10,
+    "Max": 10
+  },
+  "ParticleLifeSpan": {
+    "Min": 0.2,
+    "Max": 0.2
+  },
+  "RenderMode": "BlendAdd",
+  "ParticleRotationInfluence": "BillboardY",
+  "ParticleRotateWithSpawner": true,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "LinearFiltering": true,
+  "UseEmitDirection": true,
+  "EmitOffset": {
+    "X": {
+      "Min": 0.1,
+      "Max": 0.1
+    },
+    "Z": {
+      "Min": 0.1,
+      "Max": 0.1
+    }
+  }
+}

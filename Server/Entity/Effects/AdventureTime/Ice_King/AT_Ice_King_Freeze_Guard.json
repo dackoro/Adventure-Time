@@ -1,0 +1,5 @@
+{
+  "$Comment": "Freeze immunity window (2026-10-21: a frozen player who kept getting hit was frozen again and again). Every freeze also puts this on the target for the freeze time + 3 s (the Duration each ApplyEffect gives), and every freezing attack checks it first (EffectCondition Match None before its ApplyEffect AT_Ice_King_Freeze). Not an ApplyConditions on the freeze: those are re-checked every tick and would end the freeze at once. OverlapBehavior Ignore: a new freeze attempt during the window does not lengthen it. Invisible, no icon (as vanilla Immunity_Freeze, which is only Infinite). To change the immunity time, change the Duration where the freeze is applied (freeze time + immunity).",
+  "Duration": 4.5,
+  "OverlapBehavior": "Ignore"
+}

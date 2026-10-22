@@ -1,0 +1,6 @@
+{
+  "$Comment": "Hit of Gunter's wing slap (Slap/Slap2) (AT_Gunter_Slap_Damage), own root file for the attack's HitEntity.",
+  "Interactions": [
+    "AT_Gunter_Slap_Damage"
+  ]
+}

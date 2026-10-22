@@ -1,0 +1,10 @@
+{
+  "$Comment": "Spawned by the Ice King encounter on the ground under each player (copy of vanilla Falling_Stalactite).",
+  "Type": "Simple",
+  "RunTime": 0.1,
+  "Next": {
+    "Type": "Projectile",
+    "Config": "Projectile_Config_AT_Ice_King_Iceberg",
+    "RunTime": 2
+  }
+}

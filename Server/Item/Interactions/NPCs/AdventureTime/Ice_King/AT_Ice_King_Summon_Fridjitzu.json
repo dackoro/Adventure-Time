@@ -1,0 +1,51 @@
+{
+  "$Comment": "Phase 3 (Fridjitzu) copy of AT_Ice_King_Summon (2026-10-21: in the summon he should hold the nunchucks as in his other animations). The staff cast set (AT_Ice_King_Staff) posed his arm for a staff, so the nunchucks sat wrong in his hand. Same summon (circle, hand glow, 2 s still, bolt down that spawns 2 Gunters), but with the nunchuck set AT_Ice_King_Nunchucks: SpinSwingLeftCharging (looping spin overhead, shout face) while he calls, SpinSwingLeftCharged (the spin swing, clenched face) when the bolt goes down. Used by CAE_AT_Ice_King_Fridjitzu through Root_AT_Ice_King_Summon_Fridjitzu. 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+    "ItemAnimationId": "SpinSwingLeftCharging",
+    "WorldSoundEventId": "SFX_Skeleton_Praetorian_Search_2",
+    "Particles": [
+      {
+        "SystemId": "AT_Ice_King_Summon_Ground",
+        "TargetEntityPart": "Entity",
+        "DetachedFromModel": true
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.0
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.0
+      }
+    ],
+    "MovementEffects": {
+      "DisableAll": true
+    }
+  },
+  "RunTime": 2.0,
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+          "ItemAnimationId": "SpinSwingLeftCharged",
+          "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact"
+        }
+      },
+      {
+        "$Comment": "SpawnNPC needs a target block, which an NPC attack never has, so it failed silently and no Gunter came out (2026-10-21). The bolt hits the ground at his feet and its ProjectileMiss runs the SpawnNPC.",
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Summon",
+        "RunTime": 0.3
+      }
+    ]
+  }
+}

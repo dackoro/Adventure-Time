@@ -1,0 +1,57 @@
+{
+  "$Comment": "Ice King's ice ray: the vanilla Ice_Bolt projectile with Projectile_Config_Ice_Bolt physics and the king's own hit.",
+  "Model": "AT_Ice_King_Ray",
+  "LaunchForce": 40,
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 3,
+    "TerminalVelocityAir": 55,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "SpawnOffset": {
+    "X": 0.2,
+    "Y": 0.0,
+    "Z": 1.0
+  },
+  "LaunchWorldSoundEventId": "SFX_Staff_Ice_Shoot",
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        "AT_Ice_King_Ice_Ray_Hit",
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Ice_Break",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Ice"
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  }
+}

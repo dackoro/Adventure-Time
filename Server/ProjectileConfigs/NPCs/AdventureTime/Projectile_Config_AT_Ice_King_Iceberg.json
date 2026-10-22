@@ -1,0 +1,92 @@
+{
+  "$Comment": "Falling iceberg. Copy of vanilla Projectile_Config_Stalactite: spawned on the ground by the encounter (SpawnInteraction), SpawnOffset Z 25 along a -90 pitch puts it 25 blocks up, it falls at LaunchForce 13 (about 2 s) with no gravity, and hits every entity in a 2.3-block circle (HitEntity as the nova; ice creatures with AT_Ice_King_Ice_Body take no damage and Immunity_Freeze stops the freeze) (the vanilla stalactite range, so the vanilla Stalactite_Ground_Indicator telegraph matches it).",
+  "Model": "AT_Ice_King_Iceberg",
+  "SpawnRotationOffset": {
+    "Pitch": -90,
+    "Roll": 0
+  },
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 50,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "LaunchForce": 13,
+  "Interactions": {
+    "ProjectileHit": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3
+          },
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Iceberg_Damage"
+            ]
+          }
+        },
+        "Weapon_Stick_Fire_Projectile_Despawn_Delay",
+        "Weapon_Stick_Fire_Projectile_Despawn"
+      ]
+    },
+    "ProjectileMiss": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3
+          },
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "Falling_Stalactite_Hit",
+                "TargetEntityPart": "Entity",
+                "Scale": 0.35,
+                "RotationOffset": {
+                  "Pitch": -90
+                },
+                "Color": "#9FD8FF",
+                "PositionOffset": {
+                  "Z": 0.2
+                }
+              }
+            ],
+            "WorldSoundEventId": "SFX_Ice_Break"
+          },
+          "RunTime": 0.05,
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Iceberg_Damage"
+            ]
+          }
+        },
+        {
+          "$Comment": "Leave an ice pillar where it landed: cover against arrows and rays, breakable, melts after 10 s. Single-entity SpawnNPC form of vanilla Block_Coffin_Open, AllowMidAirSpawn from Cocoon_Spider_Cave_Spawn. The pillar hitbox reaches 1.7 below its origin and the iceberg ends half buried, so offsets 0 and 1.8 failed with 'there isn't enough space' (2026-10-19); at 3.5 it spawns in the air and its Fly controller lowers it to 1.7 over the ground. 2026-10-21 (playtest: the pillars float far above the ground): SpawnOffset Y 1 (was 3.5 = half a block over the hit block). The 3.5 dated from the old hitbox that reached 1.7 below the origin; the pillar hitbox now starts at the feet (Y 0..0.78 x2.5), and its Fly controller with BodyMotion Nothing does not bring it down, so it stayed where it spawned.",
+          "Type": "SpawnNPC",
+          "EntityId": "AT_Ice_King_Ice_Pillar",
+          "SpawnChance": 1.0,
+          "SpawnOffset": {
+            "X": 0,
+            "Y": 1,
+            "Z": 0
+          },
+          "AllowMidAirSpawn": true
+        },
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    }
+  },
+  "SpawnOffset": {
+    "Z": 25
+  },
+  "UseModelScale": true,
+  "ProjectileSoundEventId": "SFX_Stalactite_Falling_Whistle"
+}

@@ -1,0 +1,40 @@
+{
+  "$Comment": "Ice King's ice ray projectile: the vanilla Ice_Bolt model asset (same quads, IceBall glow and Arrow trail) with a repainted texture, a zigzag bolt as in the show. 2026-10-21 (playtest: sky-blue glow on the crystals): its quads are fullbright (Ice_Ray.blockymodel shadingMode, so the texture shows at full brightness at night too) and it carries a sky-blue Light (#8cf = red 8, green 12, blue 15 of 15, like block light; Radius in blocks).",
+  "Model": "NPC/AdventureTime/Ice_King/Ray/Ice_Ray.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Ray/Ice_Ray_Texture.png",
+  "HitBox": {
+    "Max": {
+      "X": 0.1,
+      "Y": 0.1,
+      "Z": 0.1
+    },
+    "Min": {
+      "X": -0.1,
+      "Y": -0.1,
+      "Z": -0.1
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1,
+  "Particles": [
+    {
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "SystemId": "IceBall",
+      "TargetNodeName": ""
+    }
+  ],
+  "Trails": [
+    {
+      "TargetNodeName": "Ice_Bolt01",
+      "TrailId": "Arrow"
+    }
+  ],
+  "Light": {
+    "Color": "#8cf",
+    "Radius": 2
+  }
+}

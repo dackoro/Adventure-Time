@@ -1,0 +1,59 @@
+{
+  "$Comment": "Defens-ice burst hit: the shield shatters into shards. 15 ice damage, a push away and up, then 2 frost stacks through AT_Ice_King_Frost_Hit (5 stacks freeze; the warmth potion turns it into a mild slow). Knockback format of AT_Ice_King_Ice_Nova_Damage. 2026-10-21 (playtest: the shield burst must not be another nova): 'I defend and push you away': 8 ice damage (was 15), a much stronger push (Force 18, up 7; was 9 / 3) and a 1 s freeze (freeze guard respected, then 3 s immune) instead of the 2 frost stacks. The nova stays the strong close-range punish.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 8
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "Knockback": {
+          "Force": 18,
+          "RelativeX": 0,
+          "RelativeZ": -1,
+          "VelocityY": 7,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        },
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break"
+      }
+    },
+    {
+      "Type": "EffectCondition",
+      "Entity": "Target",
+      "EntityEffectIds": [
+        "AT_Ice_King_Freeze_Guard"
+      ],
+      "Match": "None",
+      "Next": {
+        "Type": "Serial",
+        "Interactions": [
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze",
+            "Entity": "Target",
+            "Duration": 1
+          },
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Freeze_Guard",
+            "Entity": "Target",
+            "Duration": 4
+          }
+        ]
+      }
+    }
+  ]
+}

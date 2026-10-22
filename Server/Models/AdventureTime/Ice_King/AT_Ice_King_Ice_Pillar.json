@@ -1,0 +1,25 @@
+{
+  "$Comment": "Ice pillar left where an iceberg lands. 2026-10-21 (playtest): same look as the falling iceberg (AT_Ice_King_Iceberg: vanilla Stalactite_Falling model with the iceberg texture, scale 2.5) until the giant ice spike model is done; it was the vanilla Anomaly_Shard_Void crystal before. HitBox and blue light unchanged. 2026-10-21 (playtest: stuck in the ground tip down, as it falls, and no wobble): the shape is Iceberg_Pillar.blockymodel, the fullbright iceberg copy turned tip down (base box rotated 180 degrees about X) with its root 50 units up, so about 0.7 block of the tip sits under the ground; no AnimationSets (the falling wobble Stalactite_Fall_Idle is gone). HitBox: from the feet to the top at x2.5 (about 1.2 x 2 blocks); the game scales the box with the model (the old box at x2.5 needed 3 x 7.5 blocks free, so every pillar failed to spawn: 'there isn't enough space').",
+  "Model": "NPC/AdventureTime/Ice_King/Iceberg/Iceberg_Pillar.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Iceberg/Iceberg_Texture.png",
+  "EyeHeight": 1.0,
+  "HitBox": {
+    "Max": {
+      "X": 0.24,
+      "Y": 0.78,
+      "Z": 0.24
+    },
+    "Min": {
+      "X": -0.24,
+      "Y": 0,
+      "Z": -0.24
+    }
+  },
+  "MinScale": 2.5,
+  "MaxScale": 2.5,
+  "Icon": "Icons/ModelsGenerated/Void_Anomaly_Crystal.png",
+  "Light": {
+    "Color": "#9df",
+    "Radius": 2
+  }
+}

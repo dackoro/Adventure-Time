@@ -1,0 +1,83 @@
+{
+  "$Comment": "The Ice King's crown, dropped on death (Drop_AT_Ice_King). Its Model is Crown_Item.blockymodel: a copy of the king's own Head attachment (Common/NPC/AdventureTime/Ice_King/Models/Attachments/Head.*, same texture) plus a gold lid (Crown-Lid) 4.5 units over the crown base, because a player's hair showed through the open top. After editing Head.blockymodel, rebuild the copy: python scripts/crown-lid.py <Attachments>/Head.blockymodel <Attachments>/Crown_Item.blockymodel 4.5. The king's skeleton has the player rig (Parent Player), so the piece fits a player head. Fields copied from vanilla Armor_Iron_Head without its Recipe (loot only). Icon: Icons/ItemsGenerated/AT_Ice_King/AT_Ice_King_Crown.png, rendered from that Head model with the Mob Battle ModelThumbnail renderer (scratchpad tools/icon64.py: crop, 58 px, 64x64 canvas). Gives 100 ice magic (stat AT_Ice_Magic) for the ice runes.",
+  "TranslationProperties": {
+    "Name": "server.items.AT_Ice_King_Crown.name"
+  },
+  "Quality": "Epic",
+  "ItemLevel": 30,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "ISS_Armor_Heavy",
+  "Categories": [
+    "Items.Armors"
+  ],
+  "Icon": "Icons/ItemsGenerated/AT_Ice_King/AT_Ice_King_Crown.png",
+  "IconProperties": {
+    "Rotation": [
+      29.815,
+      41.065,
+      15.19
+    ],
+    "Scale": 0.5,
+    "Translation": [
+      -2.7,
+      -12.9
+    ]
+  },
+  "Model": "NPC/AdventureTime/Ice_King/Models/Attachments/Crown_Item.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Models/Attachments/Head_Texture.png",
+  "Interactions": {
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    },
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    }
+  },
+  "Armor": {
+    "ArmorSlot": "Head",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "EarAccessory",
+      "Ear",
+      "Haircut",
+      "HeadAccessory"
+    ],
+    "DamageResistance": {
+      "Ice": [
+        {
+          "Amount": 0.15,
+          "CalculationType": "Percent"
+        }
+      ]
+    },
+    "StatModifiers": {
+      "Health": [
+        {
+          "Amount": 10,
+          "CalculationType": "Additive"
+        }
+      ],
+      "AT_Ice_Magic": [
+        {
+          "Amount": 100,
+          "CalculationType": "Additive"
+        }
+      ]
+    }
+  },
+  "MaxDurability": 200,
+  "DurabilityLossOnHit": 0.5,
+  "Tags": {
+    "Type": [
+      "Armor"
+    ]
+  }
+}

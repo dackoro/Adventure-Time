@@ -1,0 +1,15 @@
+{
+  "$Comment": "Frost patch system (one spawner). Spawned by AT_Ice_King_Encounter around the players.",
+  "Spawners": [
+    {
+      "SpawnerId": "AT_Ice_King_Frost_Ground",
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0.02,
+        "Z": 0
+      }
+    }
+  ],
+  "LifeSpan": 16,
+  "IsImportant": false
+}

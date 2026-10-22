@@ -1,0 +1,11 @@
+{
+  "$Comment": "Snowman melee: the hug (freezes on hit).",
+  "Interactions": [
+    "AT_Snowman_Hug"
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

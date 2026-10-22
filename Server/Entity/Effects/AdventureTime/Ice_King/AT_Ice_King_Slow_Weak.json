@@ -1,0 +1,22 @@
+{
+  "$Comment": "What the Ice King's ice does to a player under AT_Ice_King_Warmth: a short, mild slow (x0.9 instead of x0.75) and no freeze. Copy of AT_Ice_King_Slow.",
+  "ApplyConditions": [
+    {
+      "Id": "HasEffect",
+      "EffectId": "Immunity_Slow",
+      "Inverse": true
+    }
+  ],
+  "Tags": {
+    "Element": ["Water"]
+  },
+  "ApplicationEffects": {
+    "EntityTopTint": "#7fdcff",
+    "EntityBottomTint": "#bff4ff",
+    "HorizontalSpeedMultiplier": 0.9
+  },
+  "Duration": 1.5,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": true,
+  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Staff_Frost.png"
+}

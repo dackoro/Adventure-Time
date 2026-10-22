@@ -140,7 +140,7 @@
     "IdlePassive": {
       "Animations": [
         {
-          "Animation": "NPC/AdventureTime/Gunter/Animations/Flavor/Toot.blockyanim",
+          "Animation": "NPC/AdventureTime/Gunter/Animations/Default/Idle.blockyanim",
           "Looping": false,
           "SoundEventId": "SFX_AT_Gunter_Quack"
         }

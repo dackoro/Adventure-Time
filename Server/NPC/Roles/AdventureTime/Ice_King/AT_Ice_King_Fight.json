@@ -1,0 +1,70 @@
+{
+  "$Comment": "Ice King, phase 1 once the fight started: AT_Ice_King (same CAE_AT_Ice_King) but hostile for good, so he does not calm down and wander off ('?' Search) when the player stops hitting. AT_Ice_King_Encounter switches to it on the first hit (ChangeTargetRole). Without an encounter the neutral AT_Ice_King fights on its own. 2026-10-21: AlertedAnimation PhaseChange, so the start of this phase plays the phase-change animation (he passes through Alerted after every role change).",
+  "Type": "Variant",
+  "Reference": "Template_AT_Ice_King",
+  "Parameters": {
+    "ApplySeparation": {
+      "Value": false,
+      "Description": "When set to false, NPCs wont try to avoid each other or player."
+    },
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.AT_Ice_King.name",
+      "Description": "Translation key for NPC name display"
+    }
+  },
+  "Modify": {
+    "Appearance": "AT_Ice_King",
+    "Weapons": [],
+    "DropList": "Drop_AT_Ice_King",
+    "AttitudeGroup": "Empty",
+    "DefaultPlayerAttitude": "Hostile",
+    "DisableDamageGroups": [
+      "Self"
+    ],
+    "MaxHealth": 3000,
+    "KnockbackScale": 0.1,
+    "MaxSpeed": 6,
+    "RunThreshold": 1,
+    "ViewRange": 25,
+    "ViewSector": 360,
+    "HearingRange": 12,
+    "AlertedRange": 30,
+    "AlertedTime": [
+      1,
+      1
+    ],
+    "WakingPeriod": [
+      0,
+      24
+    ],
+    "WakingIdleBehaviorComponent": "Component_Instruction_Stationary_Idle",
+    "AttackDistance": 12,
+    "DesiredAttackDistanceRange": [
+      6,
+      10
+    ],
+    "CombatFleeIfTooCloseDistance": 2,
+    "CombatBehaviorDistance": 12,
+    "TargetRange": 12,
+    "ChaseRelativeSpeed": 1,
+    "CombatMovingRelativeSpeed": 0.8,
+    "LeashMinPlayerDistance": 6,
+    "DeathAnimationTime": 3,
+    "UseCombatActionEvaluator": true,
+    "_CombatConfig": "CAE_AT_Ice_King",
+    "ApplySeparation": {
+      "Compute": "ApplySeparation"
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    },
+    "TargetPlayersOnly": true,
+    "AbsoluteDetectionRange": 30,
+    "LeashDistance": 80,
+    "LeashTimer": [
+      15,
+      20
+    ],
+    "AlertedAnimation": "PhaseChange"
+  }
+}

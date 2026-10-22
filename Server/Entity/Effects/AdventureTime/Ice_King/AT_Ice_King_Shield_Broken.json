@@ -1,0 +1,6 @@
+{
+  "$Comment": "Invisible flag: the Ice King's ice shield took its 5th hit (2026-10-21). AT_Ice_King_Ice_Shield checks it every 0.5 s of the hold and bursts at once when it is on. Cleared by the burst.",
+  "Duration": 6,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

@@ -1,0 +1,11 @@
+{
+  "$Comment": "Defens-ice root (ice shield, then shard burst). The Attack tag is required: an NPC Attack action refuses a root without it ('Is not marked with the Attack tag').",
+  "Interactions": [
+    "AT_Ice_King_Ice_Shield"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

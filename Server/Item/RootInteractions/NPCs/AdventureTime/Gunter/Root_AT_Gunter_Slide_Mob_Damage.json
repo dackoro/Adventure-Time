@@ -1,0 +1,6 @@
+{
+  "$Comment": "Gunter belly-slide hit on non-players (AT_Gunter_Slide_Mob_Damage), own root file.",
+  "Interactions": [
+    "AT_Gunter_Slide_Mob_Damage"
+  ]
+}

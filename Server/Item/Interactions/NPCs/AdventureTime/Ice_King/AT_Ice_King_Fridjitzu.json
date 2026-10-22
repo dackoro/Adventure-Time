@@ -1,0 +1,150 @@
+{
+  "$Comment": "Hit 1: swing to the left. RunTime = wind-up before the hit (vanilla flail 0.289, a bit slower to read it)",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+    "ItemAnimationId": "SwingLeft"
+  },
+  "RunTime": 0.35,
+  "Next": {
+    "Type": "Selector",
+    "$Comment": "Hit window",
+    "RunTime": 0.2,
+    "Effects": {
+      "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+    },
+    "Selector": {
+      "Id": "Horizontal",
+      "Direction": "ToLeft",
+      "TestLineOfSight": true,
+      "ExtendTop": 1.0,
+      "ExtendBottom": 1.0,
+      "StartDistance": 0.3,
+      "EndDistance": 3.5,
+      "Length": 120,
+      "RollOffset": 15,
+      "YawStartOffset": -60.0
+    },
+    "HitEntity": {
+      "Interactions": [
+        {
+          "Type": "Replace",
+          "DefaultValue": {
+            "Interactions": [
+              "AT_Ice_King_Fridjitzu_Hit_Damage"
+            ]
+          },
+          "Var": "Fridjitzu_Hit_Damage"
+        }
+      ]
+    },
+    "Next": {
+      "Type": "Simple",
+      "$Comment": "Pad between hits",
+      "RunTime": 0.15,
+      "Next": {
+        "Type": "Simple",
+        "$Comment": "Hit 2: swing back to the right",
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+          "ItemAnimationId": "SwingRight"
+        },
+        "RunTime": 0.3,
+        "Next": {
+          "Type": "Selector",
+          "$Comment": "Hit window",
+          "RunTime": 0.2,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+          },
+          "Selector": {
+            "Id": "Horizontal",
+            "Direction": "ToRight",
+            "TestLineOfSight": true,
+            "ExtendTop": 1.0,
+            "ExtendBottom": 1.0,
+            "StartDistance": 0.3,
+            "EndDistance": 3.5,
+            "Length": 120,
+            "RollOffset": 15,
+            "YawStartOffset": -60.0
+          },
+          "HitEntity": {
+            "Interactions": [
+              {
+                "Type": "Replace",
+                "DefaultValue": {
+                  "Interactions": [
+                    "AT_Ice_King_Fridjitzu_Hit_Damage"
+                  ]
+                },
+                "Var": "Fridjitzu_Hit_Damage"
+              }
+            ]
+          },
+          "Next": {
+            "Type": "Simple",
+            "$Comment": "Pad between hits",
+            "RunTime": 0.15,
+            "Next": {
+              "Type": "Simple",
+              "$Comment": "Hit 3: wind up the spin (the tell: the player can step back here)",
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+                "ItemAnimationId": "SpinSwingLeftCharging"
+              },
+              "RunTime": 0.45,
+              "Next": {
+                "Type": "Simple",
+                "$Comment": "Hit 3: the spin itself",
+                "Effects": {
+                  "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+                  "ItemAnimationId": "SpinSwingLeftCharged"
+                },
+                "RunTime": 0.09,
+                "Next": {
+                  "Type": "Selector",
+                  "$Comment": "Hit window",
+                  "RunTime": 0.2,
+                  "Effects": {
+                    "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+                  },
+                  "Selector": {
+                    "Id": "Horizontal",
+                    "Direction": "ToLeft",
+                    "TestLineOfSight": true,
+                    "ExtendTop": 1.0,
+                    "ExtendBottom": 1.0,
+                    "StartDistance": 0.3,
+                    "EndDistance": 3.5,
+                    "Length": 180,
+                    "RollOffset": 75,
+                    "YawStartOffset": -90.0
+                  },
+                  "HitEntity": {
+                    "Interactions": [
+                      {
+                        "Type": "Replace",
+                        "DefaultValue": {
+                          "Interactions": [
+                            "AT_Ice_King_Fridjitzu_Final_Damage"
+                          ]
+                        },
+                        "Var": "Fridjitzu_Final_Damage"
+                      }
+                    ]
+                  },
+                  "Next": {
+                    "Type": "Simple",
+                    "$Comment": "Recovery after the combo: the opening to punish him",
+                    "RunTime": 0.5
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

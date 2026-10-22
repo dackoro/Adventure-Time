@@ -1,0 +1,6 @@
+{
+  "$Comment": "Hit of Gunter's belly lunge (Attack) (AT_Gunter_Belly_Damage), own root file for the attack's HitEntity.",
+  "Interactions": [
+    "AT_Gunter_Belly_Damage"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$Comment": "Ice sword dive root (air phases), started by an Attack action.",
+  "Interactions": [
+    "AT_Ice_King_Ice_Sword_Dive"
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$Comment": "Scepter swing. Same shape as vanilla Skeleton_Elite_Sword_Swing_Left. RunTime 0.5 = prepare delay, a first guess for the placeholder Staff animation.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+    "ItemAnimationId": "SwingLeft"
+  },
+  "RunTime": 0.5,
+  "Next": {
+    "Type": "Selector",
+    "RunTime": 0.15,
+    "Effects": {
+      "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+    },
+    "Selector": {
+      "Id": "Horizontal",
+      "Direction": "ToLeft",
+      "TestLineOfSight": true,
+      "ExtendTop": 1.0,
+      "ExtendBottom": 1.0,
+      "StartDistance": 0.5,
+      "EndDistance": 3.5,
+      "Length": 160,
+      "RollOffset": 30,
+      "YawStartOffset": -80
+    },
+    "HitEntity": {
+      "Interactions": [
+        {
+          "Type": "Replace",
+          "DefaultValue": {
+            "Interactions": [
+              "AT_Ice_King_Scepter_Hit_Damage"
+            ]
+          },
+          "Var": "Scepter_Hit_Damage"
+        }
+      ]
+    },
+    "Next": {
+      "Type": "Simple",
+      "$Comment": "Pad the interaction length",
+      "RunTime": 0.45
+    }
+  }
+}

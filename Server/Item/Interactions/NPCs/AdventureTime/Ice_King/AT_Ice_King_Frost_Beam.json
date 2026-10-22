@@ -1,0 +1,138 @@
+{
+  "$Comment": "Frost beam 'Ice... KING!' (2026-10-21: a powerful attack that does a lot of damage, like the Souls-like bosses; concept: charges a ray of frost, beam of ice energy in front of him, stops in his tracks and is vulnerable, multi-hit, a freeze stack each hit, launch on the last). 1.6 s charge standing still with a strong hand glow and the ground warning sound, then 5 bolts 0.22 s apart, each drawing an ice beam from his right hand (Projectile_Config_AT_Ice_King_Frost_Beam x4, _Final with the push), then 1 s still. 52 damage and 5 frost stacks if all hit. Animation: own IDs FrostBeamCharging / FrostBeamFire (2026-10-21). Ground phase 1 only (CAE_AT_Ice_King FrostBeam): a movement lock on a flier is untested. 2026-10-21 : each bolt is a hand throw, alternating right/left (FrostBeamFire / FrostBeamFireL, 0.25 s each at Speed 2): R, L, R, L, R, and each bolt leaves from the throwing hand (Projectile_Config_AT_Ice_King_Frost_Beam = right, _L = left, _Final = right). Bolts 0.25 s apart (was 0.22) to match one throw each; the shoot sound is the projectile's own LaunchWorldSoundEventId. 2026-10-21 (playtest: the burst = quick shots one after another alternating L R L R L R; the two-hand burst is a separate attack): 6 throws L, R, L, R, L, R (FrostBeamFireL / FrostBeamFire), one bolt from the throwing hand each, the last (right) with the push (_Final); the charge is FrostBeamChargingL (left arm back), matching the first throw. 5 x 8 + 20 = 60 Ice, 6 frost stacks if all hit.",
+  "Type": "Simple",
+  "RunTime": 1.6,
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+    "ItemAnimationId": "FrostBeamChargingL",
+    "WorldSoundEventId": "SFX_Skeleton_Praetorian_Search_2",
+    "Particles": [
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.4
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.4
+      }
+    ],
+    "MovementEffects": {
+      "DisableAll": true
+    }
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireL",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFire",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
+        "RunTime": 0.25
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireL",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFire",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
+        "RunTime": 0.25
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireL",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFire",
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_Final",
+        "RunTime": 0.3
+      },
+      {
+        "Type": "Simple",
+        "$Comment": "Recovery: stays still 1 s after the beam, the window to punish him.",
+        "RunTime": 1.0,
+        "Effects": {
+          "MovementEffects": {
+            "DisableAll": true
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "RenderMode": "BlendAdd",
+  "ParticleRotationInfluence": "None",
+  "ParticleLifeSpan": {
+    "Min": 0.7,
+    "Max": 0.7
+  },
+  "ParticleRotateWithSpawner": false,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "Particle": {
+    "Texture": "Particles/Textures/Basic/Ring2.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Color": "#ffffff",
+        "Scale": {
+          "Y": {
+            "Min": 0.1,
+            "Max": 0.1
+          },
+          "X": {
+            "Min": 0.1,
+            "Max": 0.1
+          }
+        }
+      },
+      "5": {
+        "Color": "#ffffff",
+        "Opacity": 0
+      },
+      "15": {
+        "Color": "#ffffff",
+        "Opacity": 1
+      },
+      "40": {
+        "Opacity": 0.5,
+        "Color": "#346e85"
+      },
+      "70": {
+        "Color": "#000f1e",
+        "Opacity": 0
+      },
+      "100": {
+        "Opacity": 0,
+        "Color": "#000000",
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Min": 1,
+            "Max": 1
+          }
+        }
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 7,
+          "Max": 10
+        },
+        "Y": {
+          "Min": 7,
+          "Max": 10
+        }
+      },
+      "Opacity": 0.6,
+      "Rotation": {
+        "X": {
+          "Min": 90,
+          "Max": 90
+        },
+        "Y": {
+          "Min": 0,
+          "Max": 360
+        }
+      }
+    },
+    "ScaleRatioConstraint": "OneToOne",
+    "UVOption": "None",
+    "SoftParticles": "Disable"
+  },
+  "Shape": "Sphere",
+  "TotalParticles": {
+    "Min": 3,
+    "Max": 3
+  },
+  "SpawnRate": {
+    "Min": 50,
+    "Max": 50
+  },
+  "UVMotion": {
+    "Texture": "Particles/Textures/UVMotion/FlowMapSwirl.png",
+    "SpeedX": 0.01,
+    "SpeedY": 0.02,
+    "Strength": 2,
+    "Scale": 1,
+    "AddRandomUVOffset": true
+  },
+  "LinearFiltering": true,
+  "MaxConcurrentParticles": 3,
+  "$Comment": "Ice-blue copy of vanilla Dungeon_Goblin_Void_Strike_Shockwave_Fast (purple colours turned blue; everything else unchanged)."
+}

@@ -1,0 +1,106 @@
+{
+  "$Comment": "Air ice burst (2026-10-21: in the air each throw uses BOTH arms and fires two small bolts at once, one from each hand). 1.2 s charge (FrostBeamCharging, both hands raised beside the head) with the hand glow, then 4 throws 0.25 s apart, each FrostBeamFireBoth + a bolt from each hand in the same tick (Projectile RunTime 0 then the left one with the throw's 0.25 s): Projectile_Config_AT_Ice_King_Frost_Beam (right) / _L (left), the last pair _Final / _Final_L (push). 6 x 8 + 2 x 20 = 88 Ice and 8 frost stacks if every bolt hits (the ground burst: 52, 5 stacks). No MovementEffects: a movement lock on a flier is untested, and the air combat component already stops the circle and turns his body to his aim while he casts (MatchLook rule). Used by Component_AT_Ice_King_Air_Combat and _Air_Enraged_Combat on their own timers. 2026-10-21: the charge is FrostBeamChargingBoth (hands beside the head), only before the two-hand throws; FrostBeamCharging is the one-hand wind-up again.",
+  "Type": "Simple",
+  "RunTime": 1.2,
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+    "ItemAnimationId": "FrostBeamChargingBoth",
+    "WorldSoundEventId": "SFX_Skeleton_Praetorian_Search_2",
+    "Particles": [
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.4
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.4
+      }
+    ]
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireBoth"
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
+        "RunTime": 0
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireBoth"
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
+        "RunTime": 0
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireBoth"
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam",
+        "RunTime": 0
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_L",
+        "RunTime": 0.25
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "FrostBeamFireBoth"
+        }
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_Final",
+        "RunTime": 0
+      },
+      {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Frost_Beam_Final_L",
+        "RunTime": 0.3
+      },
+      {
+        "Type": "Simple",
+        "$Comment": "Short pause after the burst.",
+        "RunTime": 0.6
+      }
+    ]
+  }
+}

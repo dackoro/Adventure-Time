@@ -1,0 +1,11 @@
+{
+  "$Comment": "Gunter's belly slide root, started by Component_AT_Gunter_Slide.",
+  "Interactions": [
+    "AT_Gunter_Slide"
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "$Comment": "Summon bolt (2026-10-21): the king fires it straight down at his feet at the end of the summon cast, and where it hits the ground 2 AT_Gunter_Minion come out 2-4 blocks around. Why a projectile: SpawnNPC is a block interaction (SimpleBlockInteraction.tick0 needs the context's TARGET_BLOCK, else it fails silently), and only a client click, a projectile hit, a charge or BlockHitInteraction set one: an NPC attack (ActionAttack, forInteraction) and an encounter SpawnInteraction host never do. A projectile hitting a block does (StandardPhysicsProvider), which is why the iceberg's pillar spawns. SpawnRotationOffset Pitch -90 turns the launch straight down (as the iceberg's), the ray model is the bolt.",
+  "Model": "AT_Ice_King_Ray",
+  "SpawnRotationOffset": {
+    "Pitch": -90,
+    "Roll": 0
+  },
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 50,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "LaunchForce": 25,
+  "SpawnOffset": {
+    "Z": 0.5
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Interactions": [
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "Falling_Stalactite_Hit",
+                "TargetEntityPart": "Entity",
+                "Scale": 0.35,
+                "RotationOffset": {
+                  "Pitch": -90
+                },
+                "Color": "#9FD8FF",
+                "PositionOffset": {
+                  "Z": 0.2
+                }
+              }
+            ],
+            "WorldSoundEventId": "SFX_Ice_Break"
+          },
+          "RunTime": 0.05
+        },
+        {
+          "$Comment": "2026-10-21 (playtest: the Gunters came out buried in the floor). Spawn point = the hit block's centre + SpawnOffset Y 0.5 = his feet on the block's top, then 2-4 blocks away at a random angle, at that same height (SpawnNPCInteraction.spawnSingleNPC). Before, CenterHitboxOnPosition lowered him by half his hitbox (NPCPlugin.canSpawnAtExactPosition subtracts the box's middle) and RequireFullCubeClearance false let him spawn inside steps and slabs (only full cubes counted), so on a step a Gunter ended up inside it. Now every block counts, and a spot that is not clear (a step, a wall) makes the server look for ground in the column 1-4 blocks closer to the king (AlternateSpawnMaxSearchDistance, spawnNPCWithColumnProbe: searches 16 blocks up and down); that search only runs with AllowMidAirSpawn false. A spot over a dip is still clear, so he spawns there and drops.",
+          "Type": "SpawnNPC",
+          "SpawnChance": 1.0,
+          "WeightedEntityIds": [
+            {
+              "Id": "AT_Gunter_Minion",
+              "Weight": 1,
+              "CountRange": [
+                2,
+                2
+              ]
+            }
+          ],
+          "DistanceRange": [
+            2,
+            4
+          ],
+          "SpawnOffset": {
+            "X": 0,
+            "Y": 0.5,
+            "Z": 0
+          },
+          "RequireFullCubeClearance": true,
+          "CenterHitboxOnPosition": false,
+          "AllowMidAirSpawn": false,
+          "SpawnState": "Alerted",
+          "AlternateSpawnMaxSearchDistance": 4
+        },
+        {
+          "$Comment": "2026-10-21 (concept 'SNOW MEN'): 1-2 snowman henchmen (AT_Snowman_Minion) come out with the Gunters, 3-5 blocks away. They are slow, freeze on a hug and melt in about 20 s, so the Gunter cap of the CAE does not count them. 2026-10-21: same placement fix as the Gunters (feet on the block top, every block counts, ground search 1-4 blocks closer to the king when blocked).",
+          "Type": "SpawnNPC",
+          "SpawnChance": 1.0,
+          "WeightedEntityIds": [
+            {
+              "Id": "AT_Snowman_Minion",
+              "Weight": 1,
+              "CountRange": [
+                1,
+                2
+              ]
+            }
+          ],
+          "DistanceRange": [
+            3,
+            5
+          ],
+          "SpawnOffset": {
+            "X": 0,
+            "Y": 0.5,
+            "Z": 0
+          },
+          "RequireFullCubeClearance": true,
+          "CenterHitboxOnPosition": false,
+          "AllowMidAirSpawn": false,
+          "SpawnState": "Alerted",
+          "AlternateSpawnMaxSearchDistance": 4
+        },
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    }
+  }
+}

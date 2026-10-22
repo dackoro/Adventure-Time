@@ -1,0 +1,11 @@
+{
+  "$Comment": "Air ice burst root (both hands, two bolts per throw): AT_Ice_King_Frost_Beam_Air. Started by the air combat components (Attack action), so it carries the Attack tag.",
+  "Interactions": [
+    "AT_Ice_King_Frost_Beam_Air"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

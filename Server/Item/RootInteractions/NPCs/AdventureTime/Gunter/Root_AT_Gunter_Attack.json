@@ -1,0 +1,31 @@
+{
+  "$Comment": "Gunter's melee attack (2026-10-21: almost always the wing slaps, the headbutt and the belly lunge now and then). Interactions have no random pick (no Random type in the catalog), so a Chaining walks a fixed 14-step order, one step per attack: 10 slaps alternating wings (71 %), 2 headbutts (14 %, AT_Gunter_Attack_2) and 2 belly lunges (14 %, AT_Gunter_Attack_1), spread so they don't come in a row. ChainingAllowance 15: after 15 s without attacking he starts again from the first step. Damage per attack: AT_Gunter_Slap/Belly/Headbutt_Damage. Chaining as vanilla Root_NPC_Bear_Grizzly_Attack.",
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "GunterAttacks",
+      "ChainingAllowance": 15,
+      "Next": [
+        "AT_Gunter_Slap",
+        "AT_Gunter_Slap2",
+        "AT_Gunter_Slap",
+        "AT_Gunter_Attack_2",
+        "AT_Gunter_Slap2",
+        "AT_Gunter_Slap",
+        "AT_Gunter_Attack_1",
+        "AT_Gunter_Slap2",
+        "AT_Gunter_Slap",
+        "AT_Gunter_Slap2",
+        "AT_Gunter_Slap",
+        "AT_Gunter_Attack_2",
+        "AT_Gunter_Slap2",
+        "AT_Gunter_Attack_1"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

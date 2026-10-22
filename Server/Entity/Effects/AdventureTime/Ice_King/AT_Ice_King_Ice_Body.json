@@ -1,0 +1,13 @@
+{
+  "$Comment": "Ice creatures (the Ice King and his summoned Gunters): fully resistant to Ice damage. Given through the role CombatConfig EntityEffects next to the vanilla Immunity_Freeze and Immunity_Slow (pattern of vanilla Goblin_Burner / Toad_Rhino_Magma with Immunity_Fire). The king's ray, nova and icebergs hit every entity in their way; only creatures with these effects shrug them off. DamageResistance format of vanilla Immunity_Fall.",
+  "Infinite": true,
+  "DamageResistance": {
+    "Ice": [
+      {
+        "Amount": 1.0,
+        "CalculationType": "Percent"
+      }
+    ]
+  },
+  "OverlapBehavior": "Overwrite"
+}

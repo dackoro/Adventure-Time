@@ -1,0 +1,80 @@
+{
+  "$Comment": "Ice rain shard (2026-10-21): the falling iceberg, faster and weaker and without the pillar. Spawned 25 blocks up like the iceberg, LaunchForce 20 (iceberg 13) = about 1.25 s of fall, so even the last wave lands while the 2.2 s Stalactite_Ground_Indicator is still on the ground. Hit circle 2.3 (matches the indicator), AT_Ice_King_Ice_Rain_Damage.",
+  "Model": "AT_Ice_King_Iceberg",
+  "SpawnRotationOffset": {
+    "Pitch": -90,
+    "Roll": 0
+  },
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 50,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "LaunchForce": 20,
+  "Interactions": {
+    "ProjectileHit": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3
+          },
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Ice_Rain_Damage"
+            ]
+          }
+        },
+        "Weapon_Stick_Fire_Projectile_Despawn_Delay",
+        "Weapon_Stick_Fire_Projectile_Despawn"
+      ]
+    },
+    "ProjectileMiss": {
+      "Interactions": [
+        {
+          "Type": "Selector",
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 2.3
+          },
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "Falling_Stalactite_Hit",
+                "TargetEntityPart": "Entity",
+                "Scale": 0.35,
+                "RotationOffset": {
+                  "Pitch": -90
+                },
+                "Color": "#9FD8FF",
+                "PositionOffset": {
+                  "Z": 0.2
+                }
+              }
+            ],
+            "WorldSoundEventId": "SFX_Ice_Break"
+          },
+          "RunTime": 0.05,
+          "HitEntity": {
+            "Interactions": [
+              "AT_Ice_King_Ice_Rain_Damage"
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity"
+        }
+      ]
+    }
+  },
+  "SpawnOffset": {
+    "Z": 25
+  },
+  "UseModelScale": true,
+  "ProjectileSoundEventId": "SFX_Stalactite_Falling_Whistle"
+}

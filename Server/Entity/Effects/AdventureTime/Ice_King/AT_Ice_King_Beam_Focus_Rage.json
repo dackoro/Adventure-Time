@@ -1,0 +1,9 @@
+{
+  "$Comment": "Rage ultimate aim (2026-10-21: the base ultimate stays fixed; the rage one follows you). Put on the king while AT_Ice_King_Frost_Ultimate_Rage fires. His head turn speed is multiplied by HorizontalSpeedMultiplier (MotionControllerBase, yaw and pitch), and Template_AT_Ice_King makes his body match his head (BodyMotion MatchLook) while this is on, so the beam sweeps after the player. 0.2 = about a fifth of his normal head speed (~65 deg/s): it keeps up with a player running sideways far away, close up you can still get out. Raise it = harder to outrun, 0 = fixed like the base ultimate. Duration set by the interaction (3.1 s, the whole fire).",
+  "ApplicationEffects": {
+    "HorizontalSpeedMultiplier": 0.2
+  },
+  "Duration": 3.1,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

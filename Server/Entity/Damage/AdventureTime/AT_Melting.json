@@ -1,0 +1,6 @@
+{
+  "$Comment": "Ice King snowman melting (2026-10-21: melt only when his time runs out, fall apart when killed). The damage cause of AT_Snowman_Melting. When it deals the killing blow, the death animation is DeathAnimationId Despawn (the melt; the server picks the death animation from the killing cause: Entity.DefaultAnimations.getDeathAnimationIds), while a kill by the player (Physical, Ice...) keeps Death (falls apart). Parent/Inherits Environment like vanilla Drowning, so resistances to Physical, Elemental or Ice don't stop it.",
+  "Parent": "Environment",
+  "Inherits": "Environment",
+  "DeathAnimationId": "Despawn"
+}

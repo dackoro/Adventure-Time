@@ -1,0 +1,14 @@
+{
+  "$Comment": "Gunter belly-slide hit on non-players (2026-10-21, tested against Mob Battle's dummy: it never got hit). Ice creatures (AT_Ice_King_Ice_Body: the king, the other Gunters, the snowmen) get nothing, like the mace waves; every other mob gets the player hit (AT_Gunter_Slide_Damage: 8 physical, flung like a bowling pin).",
+  "Type": "EffectCondition",
+  "Entity": "Target",
+  "EntityEffectIds": [
+    "AT_Ice_King_Ice_Body"
+  ],
+  "Match": "All",
+  "Next": {
+    "Type": "Simple",
+    "RunTime": 0
+  },
+  "Failed": "AT_Gunter_Slide_Damage"
+}

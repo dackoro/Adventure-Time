@@ -1,0 +1,6 @@
+{
+  "$Comment": "Shield bubble push (AT_Ice_King_Ice_Shield_Push), own root file like Root_AT_Ice_King_Ice_Sword_Hit.",
+  "Interactions": [
+    "AT_Ice_King_Ice_Shield_Push"
+  ]
+}

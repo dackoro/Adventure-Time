@@ -1,0 +1,6 @@
+{
+  "$Comment": "Hit of Gunter's belly slide (AT_Gunter_Slide_Damage), own root file.",
+  "Interactions": [
+    "AT_Gunter_Slide_Damage"
+  ]
+}

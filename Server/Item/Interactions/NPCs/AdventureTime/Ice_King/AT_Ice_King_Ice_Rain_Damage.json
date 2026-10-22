@@ -1,0 +1,25 @@
+{
+  "$Comment": "Ice rain shard hit (2026-10-21): 12 ice damage (a full iceberg does 35) and 1 frost stack through AT_Ice_King_Frost_Hit. Many shards fall, so each one is weak. Tune BaseDamage.Ice.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 12
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break"
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

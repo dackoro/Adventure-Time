@@ -1,0 +1,6 @@
+{
+  "$Comment": "Damage cause of the Ice King's ultimate beam on creatures (2026-10-21: the ultimate hurts everything, his own ice creatures too, to feel powerful and chaotic). Parent/Inherits Elemental, NOT Ice: the Gunters and snowmen carry AT_Ice_King_Ice_Body (100 % Ice resistance), which stops every other ice attack of his but not this one. Used by AT_Ice_King_Frost_Ultimate_Mob_Tick/_Final (the beam on non-players); players still take Ice from the normal ticks.",
+  "Parent": "Elemental",
+  "Inherits": "Elemental",
+  "DeathMessageKey": "server.general.deathCause.elemental"
+}

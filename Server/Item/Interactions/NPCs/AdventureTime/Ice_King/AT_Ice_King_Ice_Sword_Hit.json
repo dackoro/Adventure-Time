@@ -1,0 +1,36 @@
+{
+  "$Comment": "Ice sword slash hit (2026-10-21, concept attack 5): 28 ice damage, a push away and a little up, and 2 frost stacks (AT_Ice_King_Frost_Hit). Used by AT_Ice_King_Ice_Sword_Dive (air) and AT_Ice_King_Ice_Sword_Slash (ground). Knockback format of AT_Ice_King_Ice_Nova_Damage.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 28
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "Knockback": {
+          "Force": 10,
+          "RelativeX": 0,
+          "RelativeZ": -1,
+          "VelocityY": 3,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        },
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break"
+      }
+    },
+    "AT_Ice_King_Frost_Hit",
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

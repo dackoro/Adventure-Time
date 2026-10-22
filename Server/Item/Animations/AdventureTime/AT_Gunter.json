@@ -1,0 +1,36 @@
+{
+  "$Comment": "Gunter's attack (AT_Gunter_Minion, Melee_Start var). Attack.blockyanim starts as a copy of the vanilla fox Bite (30 frames; it keys Pelvis, Chest, thighs and arms, which the penguin also has) to animate by hand. Parent Fox_Default: a set without Parent must give WiggleWeights (FAIL: Can not be null), so it inherits the fox one. Attack2 (2026-10-21): the second attack; Root_AT_Gunter_Attack alternates Attack and Attack2. Attack = belly lunge, Attack2 = headbutt. Slap / Slap2 (2026-10-21: mostly wing slaps): a crouch, a hop of about a third of a block and a slap with the right / left wing, 30 frames, the wing crossing his front at frame 16 (Fox_Bite timing with RunTime 0.25: hit window frames 15-25). SlideStart / Slide (2026-10-21: Gunter bowling, a short belly-slide charge in a straight line): SlideStart = crouch, hop forward and flop onto the belly (14 frames, holds the lying pose); Slide = lying on the belly with the head up looking ahead, wings back and out, feet trailing, a small wobble (24-frame loop, same pose at both ends).",
+  "Parent": "Fox_Default",
+  "Animations": {
+    "Attack": {
+      "ThirdPerson": "NPC/AdventureTime/Gunter/Animations/Attack/Attack.blockyanim",
+      "Speed": 1,
+      "Looping": false
+    },
+    "Attack2": {
+      "ThirdPerson": "NPC/AdventureTime/Gunter/Animations/Attack/Attack2.blockyanim",
+      "Speed": 1,
+      "Looping": false
+    },
+    "Slap": {
+      "ThirdPerson": "NPC/AdventureTime/Gunter/Animations/Attack/Slap.blockyanim",
+      "Speed": 1,
+      "Looping": false
+    },
+    "Slap2": {
+      "ThirdPerson": "NPC/AdventureTime/Gunter/Animations/Attack/Slap2.blockyanim",
+      "Speed": 1,
+      "Looping": false
+    },
+    "SlideStart": {
+      "ThirdPerson": "NPC/AdventureTime/Gunter/Animations/Attack/Slide_Start.blockyanim",
+      "Speed": 1,
+      "Looping": false
+    },
+    "Slide": {
+      "ThirdPerson": "NPC/AdventureTime/Gunter/Animations/Attack/Slide.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    }
+  }
+}

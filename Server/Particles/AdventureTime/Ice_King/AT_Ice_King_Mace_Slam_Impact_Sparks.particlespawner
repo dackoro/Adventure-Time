@@ -1,0 +1,139 @@
+{
+  "RenderMode": "Erosion",
+  "ParticleRotationInfluence": "Velocity",
+  "LinearFiltering": true,
+  "ParticleRotateWithSpawner": true,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "MaxConcurrentParticles": 40,
+  "ParticleLifeSpan": {
+    "Min": 0.2,
+    "Max": 0.5
+  },
+  "SpawnRate": {
+    "Min": 40,
+    "Max": 40
+  },
+  "Particle": {
+    "Texture": "Particles/Textures/Basic/Glow.png",
+    "ScaleRatioConstraint": "None",
+    "Animation": {
+      "0": {
+        "Scale": {
+          "X": {
+            "Min": 0.1,
+            "Max": 0.1
+          },
+          "Y": {
+            "Min": 0.1,
+            "Max": 0.1
+          }
+        },
+        "Color": "#e8f8fc",
+        "Opacity": 1.0
+      },
+      "10": {
+        "Color": "#e8f8fc",
+        "Opacity": 1.0,
+        "Scale": {
+          "X": {
+            "Min": 1.0,
+            "Max": 1.0
+          },
+          "Y": {
+            "Min": 20.0,
+            "Max": 20.0
+          }
+        }
+      },
+      "15": {
+        "Opacity": 1.0,
+        "Scale": {
+          "X": {
+            "Min": 1.0,
+            "Max": 1.0
+          },
+          "Y": {
+            "Min": 10.0,
+            "Max": 10.0
+          }
+        }
+      },
+      "40": {
+        "Scale": {
+          "X": {
+            "Min": 1.0,
+            "Max": 1.0
+          },
+          "Y": {
+            "Min": 1.5,
+            "Max": 2.0
+          }
+        },
+        "Color": "#daf2fb",
+        "Opacity": 1.0
+      },
+      "80": {
+        "Opacity": 0.0
+      },
+      "100": {
+        "Opacity": 0.0,
+        "Scale": {
+          "X": {
+            "Min": 0.0,
+            "Max": 0.0
+          },
+          "Y": {
+            "Min": 0.0,
+            "Max": 0.0
+          }
+        }
+      }
+    },
+    "UVOption": "None",
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 0.06,
+          "Max": 0.08
+        },
+        "Y": {
+          "Min": 0.3,
+          "Max": 0.4
+        }
+      },
+      "Opacity": 1.0,
+      "Color": "#e8f8fc"
+    }
+  },
+  "SpawnBurst": true,
+  "TotalParticles": {
+    "Min": 40,
+    "Max": 40
+  },
+  "Shape": "Sphere",
+  "InitialVelocity": {
+    "Yaw": {
+      "Min": 0,
+      "Max": 360
+    },
+    "Speed": {
+      "Min": 0.1,
+      "Max": 0.1
+    },
+    "Pitch": {
+      "Min": -20,
+      "Max": 20
+    }
+  },
+  "EmitOffset": {
+    "X": {
+      "Min": 0.1,
+      "Max": 0.1
+    },
+    "Z": {
+      "Min": 0.1,
+      "Max": 0.1
+    }
+  }
+}

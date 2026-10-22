@@ -1,0 +1,71 @@
+{
+  "$Comment": "Gunter bowling as an extra combat behaviour (2026-10-21). Plugged into AT_Gunter_Minion through Template_Predator's AdditionalCombatBehaviorMacroElement: the template picks one of its combat movements at random every 5 s (Random, ExecuteFor 5) by weight (strafe 10 for Gunter); this one has Weight 3 (~1 pick in 4-5) and only when the player is 3-6 blocks away and in sight. When picked: aim at the player, Root_AT_Gunter_Slide once, then wait out the 5 s (Timeout 4), so at most one slide per pick. Untested in game: no vanilla file uses this interface, built from the template's slot (Interfaces Null / CombatBehavior, parameters CombatBehaviorDistance and ChaseRelativeSpeed).",
+  "Type": "Component",
+  "Class": "Instruction",
+  "Interface": "Hytale.Instruction.CombatBehavior",
+  "Parameters": {
+    "CombatBehaviorDistance": {
+      "Value": 6,
+      "Description": "Distance at which the NPC is doing combat behaviours (from the template)"
+    },
+    "ChaseRelativeSpeed": {
+      "Value": 1,
+      "Description": "Chase speed (from the template, unused here)"
+    },
+    "SlideWeight": {
+      "Value": 3,
+      "Description": "Weight of the slide among the combat movements (Gunter's strafe is 10)"
+    }
+  },
+  "Content": {
+    "Weight": {
+      "Compute": "SlideWeight"
+    },
+    "Sensor": {
+      "Type": "And",
+      "Sensors": [
+        {
+          "Type": "Target",
+          "Range": {
+            "Compute": "CombatBehaviorDistance"
+          },
+          "Filters": [
+            {
+              "Type": "LineOfSight"
+            }
+          ]
+        },
+        {
+          "Type": "Not",
+          "Sensor": {
+            "Type": "Target",
+            "Range": 3
+          }
+        }
+      ]
+    },
+    "HeadMotion": {
+      "Type": "Aim",
+      "HitProbability": 1,
+      "Spread": 0
+    },
+    "ActionsBlocking": true,
+    "Actions": [
+      {
+        "Type": "Attack",
+        "Attack": "Root_AT_Gunter_Slide",
+        "AimingTimeRange": [
+          0.2,
+          0.3
+        ]
+      },
+      {
+        "Type": "Timeout",
+        "Delay": [
+          4,
+          4
+        ]
+      }
+    ]
+  }
+}

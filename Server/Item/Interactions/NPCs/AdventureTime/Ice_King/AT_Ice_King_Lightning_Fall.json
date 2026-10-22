@@ -1,0 +1,10 @@
+{
+  "$Comment": "Spawned by the Ice King encounter on the ground under a player (like AT_Ice_King_Iceberg_Fall).",
+  "Type": "Simple",
+  "RunTime": 0.1,
+  "Next": {
+    "Type": "Projectile",
+    "Config": "Projectile_Config_AT_Ice_King_Lightning",
+    "RunTime": 1
+  }
+}

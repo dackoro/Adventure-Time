@@ -1,0 +1,11 @@
+{
+  "$Comment": "Phase 3 summon root: AT_Ice_King_Summon_Fridjitzu (nunchuck animations instead of the staff cast). Called by CAE_AT_Ice_King_Fridjitzu's Summon.",
+  "Interactions": [
+    "AT_Ice_King_Summon_Fridjitzu"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

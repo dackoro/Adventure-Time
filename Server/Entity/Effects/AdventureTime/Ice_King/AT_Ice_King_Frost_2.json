@@ -1,0 +1,24 @@
+{
+  "$Comment": "Ice King frost stack 2 of 5: x0.8 speed for 20 s, refreshed by every new hit. Only one stack effect is active at a time: AT_Ice_King_Frost_Hit clears it and puts the next one; the 5th hit clears it and freezes. Slow fields of AT_Ice_King_Slow.",
+  "ApplyConditions": [
+    {
+      "Id": "HasEffect",
+      "EffectId": "Immunity_Slow",
+      "Inverse": true
+    }
+  ],
+  "Tags": {
+    "Element": [
+      "Water"
+    ]
+  },
+  "ApplicationEffects": {
+    "EntityTopTint": "#9fe6ff",
+    "EntityBottomTint": "#cdf6ff",
+    "HorizontalSpeedMultiplier": 0.8
+  },
+  "Duration": 20.0,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": true,
+  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Staff_Frost.png"
+}

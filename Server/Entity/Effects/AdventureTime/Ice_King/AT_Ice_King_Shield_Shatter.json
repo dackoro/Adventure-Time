@@ -1,0 +1,28 @@
+{
+  "$Comment": "Ice shield shattering (2026-10-21: the shield only vanished, it needs an explosion). Put on the king for 0.6 s in the burst of AT_Ice_King_Ice_Shield, right after the bubble effect is removed: the Shield_Shatter.blockymodel (17 bubble shards, the bubble's texture) drawn over him like the bubble (ModelOverride), playing Shield_Shatter.blockyanim (shards fly 2-2.5 blocks out, tumble, shrink, gone by 0.5 s). The same animation in Spawn and Idle because which set the client plays for an override is not known yet.",
+  "Duration": 0.6,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false,
+  "ModelOverride": {
+    "Model": "NPC/AdventureTime/Ice_King/Shield/Shield_Shatter.blockymodel",
+    "Texture": "NPC/AdventureTime/Ice_King/Shield/Shield_Shatter_Texture.png",
+    "AnimationSets": {
+      "Spawn": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Shield/Shield_Shatter.blockyanim",
+            "Looping": false
+          }
+        ]
+      },
+      "Idle": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Shield/Shield_Shatter.blockyanim",
+            "Looping": false
+          }
+        ]
+      }
+    }
+  }
+}

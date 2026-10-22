@@ -1,0 +1,56 @@
+{
+  "$Comment": "Shield warning look (2026-10-21: before it blows the bubble should stop turning and throb, growing and shrinking fast). AT_Ice_King_Ice_Shield (the interaction) swaps the shield effect for this one when the red warning starts: it applies this, then clears AT_Ice_King_Ice_Shield; the burst clears this one. Same bubble, tint, snow and 70 % DamageResistance as AT_Ice_King_Ice_Shield. No Spawn set (it must not pop in again: it takes over the same bubble). Idle = Shield_Bubble_Pulse (art pass, 1.5 s loop): no turning, the bubble and its caps throb, beats speeding up from 18 to 6 frames apart and swelling from x1.08 to x1.17 toward the burst. The Despawn set (swells and vanishes) lives here now, since this is the effect the burst removes; AT_Ice_King_Ice_Shield has no Despawn any more, so the swap does not play it. Untested in game: whether the client swaps the two overrides without a visible jump.",
+  "ApplicationEffects": {
+    "EntityTopTint": "#e3fbff",
+    "EntityBottomTint": "#80ecff",
+    "Particles": [
+      {
+        "SystemId": "Effect_Snow"
+      }
+    ]
+  },
+  "Duration": 4,
+  "OverlapBehavior": "Overwrite",
+  "ModelOverride": {
+    "Model": "NPC/AdventureTime/Ice_King/Shield/Shield_Bubble.blockymodel",
+    "Texture": "NPC/AdventureTime/Ice_King/Shield/Shield_Bubble_Texture.png",
+    "AnimationSets": {
+      "Idle": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Shield/Shield_Bubble_Pulse.blockyanim",
+            "Looping": true
+          }
+        ]
+      },
+      "Despawn": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Shield/Shield_Bubble_Despawn.blockyanim",
+            "Looping": false
+          }
+        ]
+      }
+    }
+  },
+  "DamageResistance": {
+    "Physical": [
+      {
+        "Amount": 0.7,
+        "CalculationType": "Percent"
+      }
+    ],
+    "Projectile": [
+      {
+        "Amount": 0.7,
+        "CalculationType": "Percent"
+      }
+    ],
+    "Elemental": [
+      {
+        "Amount": 0.7,
+        "CalculationType": "Percent"
+      }
+    ]
+  }
+}

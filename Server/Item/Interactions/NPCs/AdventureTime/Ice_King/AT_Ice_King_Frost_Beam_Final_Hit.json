@@ -1,0 +1,35 @@
+{
+  "$Comment": "Frost beam final hit: 20 ice damage, a strong push away and up (knockback format of the ice nova), 1 frost stack. Total of a full beam: 4 x 8 + 20 = 52 damage.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 20
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break",
+        "Knockback": {
+          "Force": 14,
+          "RelativeX": 0,
+          "RelativeZ": -1,
+          "VelocityY": 5,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        }
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

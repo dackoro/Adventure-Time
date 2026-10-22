@@ -1,0 +1,11 @@
+{
+  "$Comment": "Ultimate root: the giant ice beam 'Ice... KING!'.",
+  "Interactions": [
+    "AT_Ice_King_Frost_Ultimate"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

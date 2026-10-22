@@ -1,0 +1,136 @@
+{
+  "$Comment": "Ice sword combo on the ground (2026-10-21, same as AT_Ice_King_Ice_Sword_Dive without flying): 0.6 s IceSwordSummon standing still, then IceSwordSwing1, IceSwordSwing2 (12 ice, 1 frost each, hit at 0.167 s) and the IceSwordSlash chop (28 ice, 2 frost), each started by a flat step at the player (ApplyForce 9 for the first, 5 for the others). Arcs in front of him only, no round explosion. CAE IceSwordSlash (phases 1 and 3), close range. 2026-10-21 (playtest: the sword in the hand opposite the nunchucks): only phase 3 uses it now, so every step plays the left-hand versions in set AT_Ice_King_Nunchucks (hidden Ice_Sword_Held_L on L-Hand, nunchucks stay in the right hand), same names and timing as the staff ones.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "Simple",
+      "RunTime": 0.6,
+      "Effects": {
+        "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+        "ItemAnimationId": "IceSwordSummon",
+        "MovementEffects": {
+          "DisableAll": true
+        },
+        "WorldSoundEventId": "SFX_Staff_Ice_Shoot"
+      }
+    },
+    {
+      "Type": "ApplyForce",
+      "Direction": {
+        "X": 0,
+        "Y": 0,
+        "Z": -1
+      },
+      "AdjustVertical": false,
+      "Force": 9,
+      "RunTime": 0.1,
+      "Effects": {
+        "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+        "ItemAnimationId": "IceSwordSwing1"
+      }
+    },
+    {
+      "Type": "Selector",
+      "RunTime": 0.15,
+      "Effects": {
+        "WorldSoundEventId": "SFX_Golem_Frost_Swing"
+      },
+      "Selector": {
+        "Id": "Horizontal",
+        "Direction": "ToLeft",
+        "TestLineOfSight": true,
+        "ExtendTop": 1.0,
+        "ExtendBottom": 3.0,
+        "StartDistance": 0.5,
+        "EndDistance": 5.0,
+        "Length": 120,
+        "YawStartOffset": -60.0
+      },
+      "HitEntity": "Root_AT_Ice_King_Ice_Sword_Swing_Hit"
+    },
+    {
+      "Type": "Simple",
+      "RunTime": 0.2
+    },
+    {
+      "Type": "ApplyForce",
+      "Direction": {
+        "X": 0,
+        "Y": 0,
+        "Z": -1
+      },
+      "AdjustVertical": false,
+      "Force": 5,
+      "RunTime": 0.1,
+      "Effects": {
+        "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+        "ItemAnimationId": "IceSwordSwing2"
+      }
+    },
+    {
+      "Type": "Selector",
+      "RunTime": 0.15,
+      "Effects": {
+        "WorldSoundEventId": "SFX_Golem_Frost_Swing"
+      },
+      "Selector": {
+        "Id": "Horizontal",
+        "Direction": "ToRight",
+        "TestLineOfSight": true,
+        "ExtendTop": 1.0,
+        "ExtendBottom": 3.0,
+        "StartDistance": 0.5,
+        "EndDistance": 5.0,
+        "Length": 120,
+        "YawStartOffset": -60.0
+      },
+      "HitEntity": "Root_AT_Ice_King_Ice_Sword_Swing_Hit"
+    },
+    {
+      "Type": "Simple",
+      "RunTime": 0.2
+    },
+    {
+      "Type": "ApplyForce",
+      "Direction": {
+        "X": 0,
+        "Y": 0,
+        "Z": -1
+      },
+      "AdjustVertical": false,
+      "Force": 5,
+      "RunTime": 0.15,
+      "Effects": {
+        "ItemPlayerAnimationsId": "AT_Ice_King_Nunchucks",
+        "ItemAnimationId": "IceSwordSlash"
+      }
+    },
+    {
+      "Type": "Selector",
+      "RunTime": 0.1,
+      "Effects": {
+        "WorldSoundEventId": "SFX_Skeleton_Elite_Flow_Slash_End_Whoosh"
+      },
+      "Selector": {
+        "Id": "Horizontal",
+        "Direction": "ToRight",
+        "TestLineOfSight": true,
+        "ExtendTop": 1.0,
+        "ExtendBottom": 3.0,
+        "StartDistance": 0.5,
+        "EndDistance": 5.5,
+        "Length": 90,
+        "YawStartOffset": -45.0
+      },
+      "HitEntity": "Root_AT_Ice_King_Ice_Sword_Hit"
+    },
+    {
+      "Type": "Simple",
+      "RunTime": 0.42,
+      "$Comment": "Rest of IceSwordSlash: the sword shatters at 0.37-0.4 s, the staff comes back at 0.6 s.",
+      "Effects": {
+        "WorldSoundEventId": "SFX_Ice_Break"
+      }
+    }
+  ]
+}

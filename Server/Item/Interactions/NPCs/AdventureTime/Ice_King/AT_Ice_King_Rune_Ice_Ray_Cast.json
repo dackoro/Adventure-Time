@@ -1,0 +1,67 @@
+{
+  "$Comment": "Crown gate: needs 30 ice magic (AT_Ice_Magic, only the Ice King crown raises its max). StatsCondition with Costs as vanilla Stat_Check. Then the normal mana cost check of the rune.",
+  "Type": "StatsCondition",
+  "Costs": {
+    "AT_Ice_Magic": 30
+  },
+  "Failed": "Ability_Cast_Fail",
+  "Next": {
+    "Type": "StatsCondition",
+    "UseAbilityCost": true,
+    "Failed": "Ability_Cast_Fail",
+    "Next": {
+      "Type": "Parallel",
+      "Interactions": [
+        {
+          "Interactions": [
+            {
+              "Type": "Simple",
+              "RunTime": 0.5,
+              "HorizontalSpeedMultiplier": 0.6,
+              "Effects": {
+                "ItemPlayerAnimationsId": "Sword",
+                "ItemAnimationId": "StabDashCharging",
+                "WaitForAnimationToFinish": false,
+                "ClearAnimationOnFinish": true,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "R-Hand",
+                    "Scale": 0.6
+                  }
+                ]
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Ray",
+              "Lifetime": 0.5,
+              "Effects": {
+                "ItemPlayerAnimationsId": "Sword",
+                "ItemAnimationId": "StabDashCharged",
+                "WorldSoundEventId": "SFX_Staff_Ice_Shoot"
+              }
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "TriggerCooldown",
+              "UseAbilityCooldown": true
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "ChangeStat",
+              "UseAbilityCost": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

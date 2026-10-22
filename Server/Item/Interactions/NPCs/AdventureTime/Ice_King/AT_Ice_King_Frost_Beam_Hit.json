@@ -1,0 +1,25 @@
+{
+  "$Comment": "Frost beam hit 1-4 (2026-10-21, concept 'Ice... KING!'): 8 ice damage and 1 frost stack each. With the final hit that is 5 stacks in a row, so a full beam freezes (unless the freeze guard or the warmth potion is on). Tune BaseDamage.Ice.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 8
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break"
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

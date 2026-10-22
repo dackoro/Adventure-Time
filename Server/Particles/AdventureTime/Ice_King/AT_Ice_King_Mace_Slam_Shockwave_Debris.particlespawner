@@ -1,0 +1,172 @@
+{
+  "Particle": {
+    "Texture": "Particles/Textures/Splash/Sand_Splash.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Color": "#e0f4fb",
+        "Rotation": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          }
+        },
+        "Scale": {
+          "X": {
+            "Min": 0.1,
+            "Max": 0.1
+          },
+          "Y": {
+            "Max": 0.1,
+            "Min": 0.1
+          }
+        }
+      },
+      "3": {
+        "Scale": {
+          "X": {
+            "Min": 0.25,
+            "Max": 0.25
+          },
+          "Y": {
+            "Max": 2,
+            "Min": 2
+          }
+        },
+        "Opacity": 1,
+        "Color": "#e0f4fb"
+      },
+      "8": {
+        "Scale": {
+          "Y": {
+            "Min": 1.3,
+            "Max": 1.3
+          },
+          "X": {
+            "Min": 0.3,
+            "Max": 0.3
+          }
+        }
+      },
+      "16": {
+        "Scale": {
+          "Y": {
+            "Max": 1,
+            "Min": 1
+          }
+        },
+        "Rotation": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          }
+        }
+      },
+      "32": {
+        "Color": "#7ea4cc"
+      },
+      "90": {
+        "Opacity": 1,
+        "Rotation": {
+          "X": {
+            "Min": -50,
+            "Max": -50
+          }
+        },
+        "Scale": {
+          "X": {
+            "Min": 3,
+            "Max": 3
+          }
+        }
+      },
+      "100": {
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 3,
+            "Max": 3
+          },
+          "Y": {
+            "Max": 0,
+            "Min": 0
+          }
+        },
+        "Color": "#7292ba"
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 4,
+          "Max": 5
+        },
+        "Y": {
+          "Min": 1.75,
+          "Max": 2.5
+        }
+      },
+      "Opacity": 1,
+      "Rotation": {
+        "X": {
+          "Min": -20,
+          "Max": -40
+        }
+      },
+      "FrameIndex": {
+        "Max": 4
+      }
+    },
+    "ScaleRatioConstraint": "None",
+    "UVOption": "FlipV",
+    "FrameSize": {
+      "Width": 64,
+      "Height": 32
+    }
+  },
+  "SpawnRate": {
+    "Min": 50,
+    "Max": 50
+  },
+  "MaxConcurrentParticles": 50,
+  "TotalParticles": {
+    "Min": 50,
+    "Max": 50
+  },
+  "ParticleLifeSpan": {
+    "Min": 2,
+    "Max": 2
+  },
+  "RenderMode": "Erosion",
+  "ParticleRotationInfluence": "Velocity",
+  "UseEmitDirection": true,
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 22,
+      "Max": 24
+    }
+  },
+  "ParticleRotateWithSpawner": true,
+  "EmitOffset": {
+    "X": {
+      "Min": 0.1,
+      "Max": 0.1
+    },
+    "Z": {
+      "Min": 0.1,
+      "Max": 0.1
+    }
+  },
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "UVMotion": {
+    "Texture": "Particles/Textures/UVMotion/FlowMap3.png",
+    "AddRandomUVOffset": true,
+    "SpeedX": 0.1,
+    "SpeedY": 2,
+    "Strength": 10,
+    "Scale": 1.5
+  },
+  "SpawnBurst": true,
+  "CameraOffset": -0.24
+}

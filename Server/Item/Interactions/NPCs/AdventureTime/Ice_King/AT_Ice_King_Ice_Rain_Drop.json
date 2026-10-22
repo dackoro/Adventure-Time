@@ -1,0 +1,10 @@
+{
+  "$Comment": "One ice rain shard, spawned by the encounter on the ground (copy of AT_Ice_King_Iceberg_Fall with the faster, weaker shard).",
+  "Type": "Simple",
+  "RunTime": 0.1,
+  "Next": {
+    "Type": "Projectile",
+    "Config": "Projectile_Config_AT_Ice_King_Ice_Rain",
+    "RunTime": 1.5
+  }
+}

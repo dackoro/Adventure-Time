@@ -1,0 +1,79 @@
+{
+  "IsImportant": true,
+  "Spawners": [
+    {
+      "PositionOffset": {
+        "Y": 35
+      },
+      "FixedRotation": true,
+      "SpawnerId": "AT_Ice_King_Lightning_Lightning"
+    },
+    {
+      "PositionOffset": {
+        "Y": 35
+      },
+      "FixedRotation": true,
+      "SpawnerId": "AT_Ice_King_Lightning_Lightning_Direct"
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Lightning_Glow_Top",
+      "PositionOffset": {
+        "Y": 75
+      },
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Lightning_Glow_Bottom",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Lightning_Shockwave",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Lightning_Shockwave_Distortion",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Lightning_Shockwave_Distortion2",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Lightning_Shockwave_Fast",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Lightning_Sparks",
+      "PositionOffset": {
+        "Y": 0.1
+      },
+      "FixedRotation": true
+    },
+    {
+      "SpawnerId": "AT_Ice_King_Lightning_Impact_Burnt",
+      "PositionOffset": {
+        "Y": 0.08
+      },
+      "FixedRotation": true,
+      "StartDelay": 1.5
+    }
+  ],
+  "LifeSpan": 5,
+  "CullDistance": 128,
+  "$Comment": "Ice King lightning bolt: ice-blue copy of vanilla Dungeon_Goblin_Void_Strike (the purple void bolt confused the player)."
+}

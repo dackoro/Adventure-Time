@@ -1,0 +1,133 @@
+{
+  "$Comment": "Ice King's snowman henchman (2026-10-21): BASE made of simple blocks to finish by hand in Blockbench (nodes Origin > Pelvis > Belly > Head > Nose/L-Eye/R-Eye, Belly > L-Arm > L-Hand, R-Arm > R-Hand; front = +z). 160 units tall = 2.5 blocks since 2026-10-21 (was 80: wanted him much taller; geometry and texture doubled, the face kept small). Animations are placeholders: Idle/Walk/Run loops, Hug = the hug attack (play it from the attack interaction or PlayAnimation by this set name), Hurt, Death = melt (squash, held), Spawn = rises out of the snow (held). Laydown/Sleep/Wake (2026-10-21, asked by Template_Predator): slumps forward, breathes, stands back up. Face (2026-10-21): Mouth (node Mouth, 18x8 quad) and L-Eye/R-Eye (4x4 quads) change by shapeUvOffset: mouth cells x 0 neutral, 18 open, 36 small o, 54 furious; eye cells x 0 normal, 4 angry (texture rows y 320 / 336 / 344). Walk = arms swing + mouth open/small; Hug = arms wrap forward + furious mouth and angry eyes; Death (killed) = falls apart (belly tips over, head rolls off face up); Despawn = melts (play it when the melting timer runs out).",
+  "Model": "NPC/AdventureTime/Ice_King/Snowman/Models/Model.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Snowman/Models/Texture.png",
+  "EyeHeight": 2.3,
+  "CrouchOffset": -0.1,
+  "HitBox": {
+    "Min": {
+      "X": -0.6,
+      "Y": 0,
+      "Z": -0.6
+    },
+    "Max": {
+      "X": 0.6,
+      "Y": 2.5,
+      "Z": 0.6
+    }
+  },
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Idle.blockyanim"
+        }
+      ]
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Walk.blockyanim"
+        }
+      ]
+    },
+    "WalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Walk.blockyanim"
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Run.blockyanim"
+        }
+      ]
+    },
+    "Sprint": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Run.blockyanim"
+        }
+      ]
+    },
+    "Alerted": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Idle.blockyanim"
+        }
+      ]
+    },
+    "Hug": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Hug.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Hurt.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Death.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Spawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Spawn.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Fall": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Idle.blockyanim"
+        }
+      ]
+    },
+    "Laydown": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Laydown.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Sleep": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Sleep.blockyanim"
+        }
+      ]
+    },
+    "Wake": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Wake.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Despawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/AdventureTime/Ice_King/Snowman/Animations/Despawn.blockyanim",
+          "Looping": false
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$Comment": "Ice King's night crystal held in the off hand (2026-10-21: like the skeletons' night torch, but he raises his hand forward and an ice crystal floats over it, lighting the way). Parent Torch: the vanilla torch set keys only L-Arm, L-Forearm and L-Hand, so these replace the left arm while the rest of him animates as usual. Pose: hand forward and a little to his left at chest height (hand about x 31, y 83, z 28), wrist turned so the crystal floats straight above it beside his face. Idle 2 s / Walk 1 s / Run 0.5 s add a small bob (3 / 5 / 8 degrees). Everything else (jumps, swims, climbs, swings) falls back to the torch's.",
+  "Parent": "Torch",
+  "Animations": {
+    "Idle": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Idle.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    },
+    "Walk": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Walk.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    },
+    "WalkBackward": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Walk.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    },
+    "Run": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Run.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    },
+    "RunBackward": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Run.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    },
+    "Sprint": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Run.blockyanim",
+      "Speed": 1.2,
+      "Looping": true
+    },
+    "FlyIdle": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Idle.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    },
+    "Fly": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Walk.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    },
+    "FlyBackward": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Walk.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    },
+    "FlyFast": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Crystal_Run.blockyanim",
+      "Speed": 1,
+      "Looping": true
+    }
+  }
+}

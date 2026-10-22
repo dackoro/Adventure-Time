@@ -1,0 +1,8 @@
+{
+  "AudioCategory": "AudioCat_Music_In_Game",
+  "Type": "SingleTrack",
+  "NameTranslationKey": "server_no_translation.music.AT_Ice_King_Battle_Music.name",
+  "Track": "Music/Zone1/Z1D_Goblin_Boss_Battle.ogg",
+  "Volume": 6,
+  "LoopCount": 0
+}

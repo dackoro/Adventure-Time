@@ -1,0 +1,69 @@
+{
+  "$Comment": "Gunter bowling (2026-10-21, show idea: 'let's do Gunter's'): SlideStart (0.23 s: crouch, hop, flop onto the belly), then a straight belly slide at the player: one push forward (ApplyForce Set, Force 14, low ground friction so he glides a few blocks; built like the vanilla Skeleton_Burnt_Praetorian_Charge) while the Slide loop plays, and for 0.8 s everything within 1.6 blocks of him is hit once (AOECircle; players only, so the king and the other Gunters are not). Untested in game: how far Force 14 carries him (bigger = farther), and whether Template_Predator's own movement brakes him. 2026-10-21 (tested with /hitdetection: the slide stopped ~4 blocks out and never reached a target 3-6 blocks away; mobs were never hit): Force 14 -> 22 and GroundResistance 0.94 -> 0.96 (less friction, ~6-7 blocks, a guess scaled from the 4 he saw), hit window 0.8 -> 1.0 s, and non-players are hit too (Root_AT_Gunter_Slide_Mob_Damage, which skips ice creatures).",
+  "Type": "Simple",
+  "RunTime": 0.23,
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Gunter",
+    "ItemAnimationId": "SlideStart",
+    "WorldSoundEventId": "SFX_NPC_Unarmed_Swing"
+  },
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 1.0,
+            "Effects": {
+              "ItemPlayerAnimationsId": "AT_Gunter",
+              "ItemAnimationId": "Slide"
+            },
+            "Selector": {
+              "Id": "AOECircle",
+              "Range": 1.6
+            },
+            "HitEntityRules": [
+              {
+                "Matchers": [
+                  {
+                    "Type": "Player"
+                  }
+                ],
+                "Next": "Root_AT_Gunter_Slide_Damage"
+              }
+            ],
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.2,
+              "$Comment": "Lies there a moment before getting up."
+            },
+            "HitEntity": "Root_AT_Gunter_Slide_Mob_Damage"
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "ApplyForce",
+            "ChangeVelocityType": "Set",
+            "Force": 22,
+            "Direction": {
+              "X": 0,
+              "Y": 0.1,
+              "Z": -1
+            },
+            "VelocityConfig": {
+              "AirResistance": 0.99,
+              "AirResistanceMax": 0.98,
+              "GroundResistance": 0.96,
+              "GroundResistanceMax": 0.7,
+              "Threshold": 3.0,
+              "Style": "Linear"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

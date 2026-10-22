@@ -1,0 +1,23 @@
+{
+  "$Comment": "Light carrier for the ultimate's beam (2026-10-21: the ultimate should light the ground like the normal attacks). The beam is an attachment on the king and an attachment carries no light, so the light rides on invisible projectiles fired along the beam: Beam_Light.blockymodel is one hidden 1-unit quad, nothing shows. Light: the ice ray's sky blue (#8cf), Radius 8 blocks (the ray uses 2; 6 at first, raised to 8 when the projectile moved 2.5 blocks above the beam so it flies over heads: a plain projectile stops on the first entity it touches); a stream of them flying down the beam lights the ground under it. Tune Radius (bigger = wider lit strip) and Color.",
+  "Model": "NPC/AdventureTime/Ice_King/Ray/Beam_Light.blockymodel",
+  "Texture": "NPC/AdventureTime/Ice_King/Ray/Ice_Ray_Texture.png",
+  "HitBox": {
+    "Max": {
+      "X": 0.1,
+      "Y": 0.1,
+      "Z": 0.1
+    },
+    "Min": {
+      "X": -0.1,
+      "Y": -0.1,
+      "Z": -0.1
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1,
+  "Light": {
+    "Color": "#8cf",
+    "Radius": 8
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "$Comment": "Hit of the ice sword slash (AT_Ice_King_Ice_Sword_Hit), own root file like Root_AT_Ice_King_Frost_Ultimate_Tick.",
+  "Interactions": [
+    "AT_Ice_King_Ice_Sword_Hit"
+  ]
+}

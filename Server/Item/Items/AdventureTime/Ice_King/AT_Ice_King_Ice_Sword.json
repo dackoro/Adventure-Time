@@ -1,0 +1,13 @@
+{
+  "$Comment": "Ice King's ice sword (2026-10-21) for the Siiick Slash: NPC-only weapon like AT_Ice_King_Nunchucks, not in any drop list. Model = BASE of simple blocks to finish by hand; node chain copied from the vanilla Iron sword (R-Attachment > Origin_Projectile > Origin_Blade > Origin_Item > Handle: positions add up to 0, so the grip sits in the hand), blade nodes named like vanilla (Pommel, Crossguard, Sword Base/Middle/Tip). Placeholder icon: the vanilla cobalt sword. No TranslationProperties yet (the name key goes in both server.lang when the item gets a name). PlayerAnimationsId AT_Ice_King_Ice_Sword (Parent Sword).",
+  "Categories": [
+    "Items.Weapons"
+  ],
+  "Quality": "Epic",
+  "ItemLevel": 30,
+  "Icon": "Icons/ItemsGenerated/Weapon_Sword_Cobalt.png",
+  "Model": "Items/AdventureTime/Ice_King/Ice_Sword/Ice_Sword.blockymodel",
+  "Texture": "Items/AdventureTime/Ice_King/Ice_Sword/Ice_Sword_Texture.png",
+  "PlayerAnimationsId": "AT_Ice_King_Ice_Sword",
+  "UsePlayerAnimations": true
+}

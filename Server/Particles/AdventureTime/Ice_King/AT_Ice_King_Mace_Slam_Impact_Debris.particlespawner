@@ -1,0 +1,172 @@
+{
+  "Particle": {
+    "Texture": "Particles/Textures/Shapes/Fragment_GS_Fade.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 0.1,
+            "Max": 0.1
+          },
+          "Y": {
+            "Max": 0.1,
+            "Min": 0.1
+          }
+        },
+        "Color": "#e0f4fb",
+        "Rotation": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          }
+        }
+      },
+      "3": {
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Max": 1,
+            "Min": 1
+          }
+        },
+        "Opacity": 1
+      },
+      "12": {
+        "Color": "#e0f4fb"
+      },
+      "20": {
+        "Rotation": {
+          "X": {
+            "Min": 0,
+            "Max": 0
+          }
+        }
+      },
+      "30": {
+        "Scale": {
+          "X": {
+            "Min": 1.5,
+            "Max": 1.5
+          },
+          "Y": {
+            "Max": 3,
+            "Min": 3
+          }
+        },
+        "Opacity": 1
+      },
+      "50": {
+        "Opacity": 0.5,
+        "Color": "#9dcdef"
+      },
+      "80": {
+        "Rotation": {
+          "X": {
+            "Min": -70,
+            "Max": -70
+          }
+        },
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Min": 0.5,
+            "Max": 0.5
+          }
+        },
+        "Color": "#566fa2"
+      },
+      "100": {
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Max": 0,
+            "Min": 0
+          }
+        },
+        "Color": "#566fa2"
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 3,
+          "Max": 3
+        },
+        "Y": {
+          "Min": 3,
+          "Max": 3
+        }
+      },
+      "Opacity": 1,
+      "FrameIndex": {
+        "Max": 3
+      },
+      "Rotation": {
+        "X": {
+          "Min": -20,
+          "Max": -40
+        }
+      }
+    },
+    "FrameSize": {
+      "Width": 32,
+      "Height": 32
+    },
+    "ScaleRatioConstraint": "None"
+  },
+  "SpawnRate": {
+    "Min": 200,
+    "Max": 200
+  },
+  "MaxConcurrentParticles": 20,
+  "TotalParticles": {
+    "Min": 20,
+    "Max": 20
+  },
+  "ParticleLifeSpan": {
+    "Min": 1,
+    "Max": 1
+  },
+  "RenderMode": "BlendLinear",
+  "ParticleRotationInfluence": "Velocity",
+  "UseEmitDirection": true,
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 2,
+      "Max": 2
+    }
+  },
+  "ParticleRotateWithSpawner": true,
+  "EmitOffset": {
+    "X": {
+      "Min": 1.2,
+      "Max": 1.2
+    },
+    "Z": {
+      "Min": 1.2,
+      "Max": 1.2
+    }
+  },
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "UVMotion": {
+    "Texture": "Particles/Textures/UVMotion/FlowMap4.png",
+    "AddRandomUVOffset": true,
+    "SpeedX": 0.1,
+    "SpeedY": 1,
+    "Strength": 3,
+    "Scale": 1.5
+  }
+}

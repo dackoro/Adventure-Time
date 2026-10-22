@@ -1,0 +1,43 @@
+{
+  "$Comment": "One ice mace shock wave (2026-10-21): the vanilla Gobliterator club slam shockwave (Goblin_Gobliterator_Club_Slam_Shockwave_Selector): a Donut ring that grows from 0 to 50 blocks over 2.25 s (about 22 blocks/s), 2 wide and 2 high from 1 block under his feet, so a jump clears it. Centred where the mace head lands (~1.2 blocks in front of him; selector forward is -Z, particle forward is +Z, as in the vanilla file). Players get Root_AT_Ice_King_Ice_Mace_Wave_Damage (HitEntityRules Player); every other mob Root_AT_Ice_King_Ice_Mace_Wave_Mob_Damage, which skips his ice creatures (AT_Ice_King_Ice_Body) so they are not launched (2026-10-21: hit every mob, as the ultimate). Particle: AT_Ice_King_Mace_Slam, the ice copy of the vanilla Gobliterator_Slam (only colours changed, so its ring grows exactly with this Donut). Started as a fork (Parallel) by AT_Ice_King_Ice_Mace_Slam, so several waves run at once.",
+  "Type": "Selector",
+  "RunTime": 2.25,
+  "Effects": {
+    "Particles": [
+      {
+        "SystemId": "AT_Ice_King_Mace_Slam",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "Origin",
+        "PositionOffset": {
+          "X": 0,
+          "Y": 0,
+          "Z": 1.2
+        },
+        "DetachedFromModel": true
+      }
+    ],
+    "WorldSoundEventId": "SFX_Gobliterator_Club_Slam_Impact"
+  },
+  "Selector": {
+    "Id": "Donut",
+    "Height": 2,
+    "Width": 2,
+    "MaxRadius": 50,
+    "Offset": {
+      "X": 0,
+      "Y": -1,
+      "Z": -1.2
+    }
+  },
+  "HitEntity": "Root_AT_Ice_King_Ice_Mace_Wave_Mob_Damage",
+  "HitEntityRules": [
+    {
+      "Matchers": [
+        {
+          "Type": "Player"
+        }
+      ],
+      "Next": "Root_AT_Ice_King_Ice_Mace_Wave_Damage"
+    }
+  ]
+}

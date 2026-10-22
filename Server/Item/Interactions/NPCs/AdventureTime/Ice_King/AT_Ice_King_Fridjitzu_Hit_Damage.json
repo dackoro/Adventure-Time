@@ -1,0 +1,25 @@
+{
+  "$Comment": "Fridjitzu combo, hits 1 and 2: physical damage of the ice nunchucks (format of AT_Ice_King_Scepter_Hit_Damage). The CAE can change it with the Fridjitzu_Hit_Damage var.",
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "BaseDamage": {
+      "Physical": 10
+    }
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Type": "Directional",
+      "Force": 0.3,
+      "RelativeX": 0,
+      "RelativeZ": -1,
+      "VelocityY": 0.4,
+      "VelocityType": "Set"
+    },
+    "WorldSoundEventId": "SFX_Ice_Break",
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Ice"
+      }
+    ]
+  }
+}

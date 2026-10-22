@@ -1,0 +1,60 @@
+{
+  "$Comment": "Ice rain launch bolt (2026-10-21): the king shoots it into the sky before the rain (cosmetic, no hit interaction beyond removing itself). SpawnRotationOffset Pitch 80 on top of a level aim (the interaction uses IgnorePitch) = almost straight up. 2026-10-21 (playtest: not every bolt of the bursts and the rain was heard): launch sound SFX_AT_Ice_King_Bolt_Shot (art: the staff shot cut to 0.6 s, 12 at once) instead of the vanilla SFX_Staff_Ice_Shoot (2.5 s, only 5 at once, so later quick bolts were silent). The _L/_R children inherit it.",
+  "Model": "AT_Ice_King_Ray",
+  "LaunchForce": 60,
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 55,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "SpawnOffset": {
+    "X": 0.2,
+    "Y": 0.0,
+    "Z": 1.0
+  },
+  "LaunchWorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot",
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Ice_Break",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Ice"
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  },
+  "SpawnRotationOffset": {
+    "Pitch": 80,
+    "Roll": 0
+  }
+}

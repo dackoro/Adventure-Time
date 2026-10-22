@@ -1,0 +1,43 @@
+{
+  "$Comment": "Light carrier of the ultimate beam (2026-10-21: the ultimate should light the ground like the normal attacks). An attachment carries no light, so AT_Ice_King_Frost_Ultimate(_Rage) fires one of these along the beam at every hit box (every 0.37 s): the invisible model AT_Ice_King_Beam_Light with a sky blue Light of radius 6. Fast and straight (no gravity), no damage: on any hit or miss it just removes itself. Leaves from the same point as the ice ray (eye height, in front of the face), along his look like the beam. 2026-10-21 (playtest: only the first blocks of the beam lit up): a plain projectile STOPS on the first entity it touches whatever its interactions say (StandardPhysicsTickSystem: entity contact -> INACTIVE; only ability projectiles with PierceProjectile fly through, and JSON can't give that), so the light died on the player in the beam or on a Gunter. Now it flies 2.5 blocks ABOVE the beam line (SpawnOffset Y 2.5; this projectile has no aim correction, so the offset just shifts it up), over heads and small bumps, and its light (radius 6) still reaches the ground under the beam.",
+  "Model": "AT_Ice_King_Beam_Light",
+  "LaunchForce": 70,
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 60,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "SpawnOffset": {
+    "X": 0.0,
+    "Y": 2.5,
+    "Z": -0.7
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  }
+}

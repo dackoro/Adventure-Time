@@ -1,0 +1,14 @@
+{
+  "$Comment": "Ice mace wave hit on non-players (2026-10-21: the waves hit every mob too, his ice creatures shrug them off as with the ultimate). An ice creature (AT_Ice_King_Ice_Body: the king's Gunters, snowmen) gets nothing: its Ice resistance would cancel the damage, but the knockback is put on the target before and apart from the damage (DamageEntityInteraction), so it would still be launched. Every other mob gets the player hit (AT_Ice_King_Ice_Mace_Wave_Damage: 14 ice, thrown up, 1 frost).",
+  "Type": "EffectCondition",
+  "Entity": "Target",
+  "EntityEffectIds": [
+    "AT_Ice_King_Ice_Body"
+  ],
+  "Match": "All",
+  "Next": {
+    "Type": "Simple",
+    "RunTime": 0
+  },
+  "Failed": "AT_Ice_King_Ice_Mace_Wave_Damage"
+}

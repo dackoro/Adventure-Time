@@ -1,0 +1,16 @@
+{
+  "$Comment": "Feedback when a hit lands on the Ice King's shield (2026-10-21: show that the hit counted). Put on him for 0.3 s by every counted hit (the shield hit counter rules in Template_AT_Ice_King and the air enraged component): a white-blue flash and an ice impact burst.",
+  "ApplicationEffects": {
+    "EntityTopTint": "#ffffff",
+    "EntityBottomTint": "#9fe8ff",
+    "Particles": [
+      {
+        "SystemId": "Impact_Ice",
+        "TargetEntityPart": "Entity"
+      }
+    ]
+  },
+  "Duration": 0.3,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

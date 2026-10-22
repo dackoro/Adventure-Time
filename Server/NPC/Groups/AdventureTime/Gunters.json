@@ -1,0 +1,6 @@
+{
+  "$Comment": "Every Gunter (roles named AT_Gunter*). The Ice King's Summon (CAE NearbyCount) uses it to summon only when no Gunter is around.",
+  "IncludeRoles": [
+    "AT_Gunter*"
+  ]
+}

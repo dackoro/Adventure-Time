@@ -1,0 +1,32 @@
+{
+  "$Comment": "Ice mace shock wave hit (2026-10-21: waves you have to jump over). 14 ice +-10 %, thrown up and a little away (Point knockback = straight out from the king, Force 5, VelocityY 7) and 1 frost stack. Tune BaseDamage / Force / VelocityY.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "Parent": "DamageEntityParent",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 14
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "Knockback": {
+          "Type": "Point",
+          "Force": 5,
+          "VelocityY": 7
+        },
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Ice_Break",
+        "CameraEffect": "Impact_Strong"
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

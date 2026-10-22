@@ -1,0 +1,46 @@
+{
+  "$Comment": "Zap (2026-10-21: a ray toward the player with little damage; concept 'ZAP!... AGAIN'): short 0.35 s charge with the hand glow, then Projectile_Config_AT_Ice_King_Zap (fast, straight, 8 damage). Animation: own ID ZapCast (2026-10-21). Used by CAE_AT_Ice_King (Zap) and the air combat components.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+    "ItemAnimationId": "ZapCast",
+    "Particles": [
+      {
+        "PositionOffset": {
+          "X": 1,
+          "Y": 0,
+          "Z": 0
+        },
+        "RotationOffset": {
+          "Pitch": 0,
+          "Roll": 0,
+          "Yaw": 0
+        },
+        "TargetNodeName": "Handle",
+        "SystemId": "Impact_Ice"
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.0
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.0
+      }
+    ]
+  },
+  "RunTime": 0.35,
+  "Next": {
+    "Type": "Projectile",
+    "Config": "Projectile_Config_AT_Ice_King_Zap",
+    "RunTime": 0.25,
+    "Effects": {},
+    "Tags": {
+      "AimingReference": []
+    }
+  }
+}

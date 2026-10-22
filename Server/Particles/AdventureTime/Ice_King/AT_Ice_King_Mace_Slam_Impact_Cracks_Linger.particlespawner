@@ -1,0 +1,64 @@
+{
+  "Particle": {
+    "Texture": "Particles/Textures/Rnd/ImpactCrater_GS.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Color": "#e0f4fb"
+      },
+      "3": {
+        "Opacity": 1,
+        "Color": "#e0f4fb"
+      },
+      "20": {
+        "Color": "#95c7ed"
+      },
+      "35": {
+        "Color": "#7799c1"
+      },
+      "84": {},
+      "90": {
+        "Opacity": 1
+      },
+      "100": {
+        "Opacity": 0,
+        "Color": "#566fa2"
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 1,
+          "Max": 1
+        }
+      },
+      "Opacity": 1,
+      "Rotation": {
+        "X": {
+          "Min": 90,
+          "Max": 90
+        }
+      }
+    },
+    "ScaleRatioConstraint": "OneToOne"
+  },
+  "SpawnRate": {
+    "Min": 100,
+    "Max": 100
+  },
+  "MaxConcurrentParticles": 1,
+  "TotalParticles": {
+    "Min": 1,
+    "Max": 1
+  },
+  "ParticleLifeSpan": {
+    "Min": 2.6,
+    "Max": 2.6
+  },
+  "RenderMode": "Erosion",
+  "ParticleRotationInfluence": "None",
+  "UseEmitDirection": true,
+  "ParticleRotateWithSpawner": true,
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1
+}

@@ -1,0 +1,20 @@
+{
+  "$Comment": "Ice King bolt launch for rapid volleys (2026-10-21: in the bursts and the ice rain not every bolt was heard). Vanilla SFX_Staff_Ice_Shoot is 2.5 s long with MaxInstance 5, so from the 6th quick bolt on new plays were dropped while the first ones still rang. This is the same shot cut to 0.6 s with a fade (Ice_King_Bolt_Shot.ogg, mono), with room for 12 at once. MaxInstance = how many can sound together; Volume in dB like the vanilla one.",
+  "AudioCategory": "AudioCat_Magic_Staff",
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AdventureTime/Ice_King_Bolt_Shot.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": -1.8,
+        "MaxPitch": 1.65,
+        "MinVolume": -0.9,
+        "MaxVolume": 0.8
+      }
+    }
+  ],
+  "MaxInstance": 12,
+  "Volume": -1.96,
+  "Parent": "SFX_Attn_Loud"
+}

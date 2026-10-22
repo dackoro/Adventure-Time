@@ -1,0 +1,72 @@
+{
+  "$Comment": "Snowman henchman summoned by the Ice King with the Gunters (2026-10-21, concept 'SNOW MEN': slow, his hug freezes at once, melts after a while). Variant of vanilla Template_Predator like AT_Gunter_Minion. Slow (MaxSpeed 3), weak (40 HP); the hug (Root_AT_Snowman_Hug, Fox_Bite window) does 3 damage and freezes 2 s (AT_Snowman_Hug_Freeze, freeze guard respected). AT_Snowman_Melting in CombatConfig EntityEffects melts him in about 20 s (2 fire damage a second). Model AT_Snowman (placeholder). 2026-10-21 (playtest: they walk too fast): MaxSpeed 2 (was 3), ChaseRelativeSpeed and CombatMovingRelativeSpeed 0.8 (were 1). 2026-10-21: 2.5 blocks tall now (art): AttackDistance 2.6 (was 1.8) and CombatBehaviorDistance 5 (4) to match the longer hug reach (AT_Snowman_Hug EndDistance 3).",
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "AT_Snowman",
+    "DropList": "Empty",
+    "MaxHealth": 40,
+    "MaxSpeed": 2,
+    "WanderRadius": 6,
+    "ViewRange": 20,
+    "HearingRange": 12,
+    "AbsoluteDetectionRange": 20,
+    "AlertedRange": 25,
+    "AlertedTime": [
+      0.5,
+      1
+    ],
+    "MaintainDistanceWhileAlerted": false,
+    "FleeIfNotThreatened": false,
+    "TimidDuringDay": false,
+    "IsMemory": false,
+    "Attack": "Root_AT_Snowman_Hug",
+    "AttackDistance": 2.6,
+    "CombatBehaviorDistance": 5,
+    "CombatDirectWeight": 10,
+    "CombatStrafeWeight": 0,
+    "CombatBackOffAfterAttack": false,
+    "ChaseRelativeSpeed": 0.8,
+    "CombatMovingRelativeSpeed": 0.8,
+    "AlwaysSleepAtNight": false,
+    "_InteractionVars": {
+      "Bite_Damage": {
+        "Interactions": [
+          {
+            "Parent": "Fox_Bite_Damage",
+            "DamageCalculator": {
+              "Type": "Absolute",
+              "BaseDamage": {
+                "Physical": 3
+              },
+              "RandomPercentageModifier": 0.2
+            },
+            "DamageEffects": {
+              "Knockback": {
+                "Force": 0.5
+              }
+            }
+          },
+          "AT_Snowman_Hug_Freeze"
+        ]
+      }
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    },
+    "_CombatConfig": {
+      "EntityEffects": [
+        "Immunity_Slow",
+        "Immunity_Freeze",
+        "AT_Ice_King_Ice_Body",
+        "AT_Snowman_Melting"
+      ]
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.AT_Snowman.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

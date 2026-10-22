@@ -1,0 +1,20 @@
+{
+  "$Comment": "Ice magic: the energy the Ice King's crown gives (AT_Ice_King_Crown raises its Max with Armor.StatModifiers). Max 0 without the crown, so the ice runes (CostType AT_Ice_Magic) fail. Fills 2 points every 0.3 s. Format of vanilla Entity/Stats/Mana.json.",
+  "InitialValue": 0,
+  "Min": 0,
+  "Max": 0,
+  "Shared": false,
+  "ResetType": "MaxValue",
+  "Regenerating": [
+    {
+      "Interval": 0.3,
+      "Amount": 2,
+      "RegenType": "Additive",
+      "Conditions": [
+        {
+          "Id": "Alive"
+        }
+      ]
+    }
+  ]
+}

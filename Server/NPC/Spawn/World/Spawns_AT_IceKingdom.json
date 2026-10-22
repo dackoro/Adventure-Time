@@ -1,7 +1,14 @@
 {
+  "$Comment": "Ice Kingdom fauna. LightRanges SkyLight 60-100 (2026-10-21: Gunters spawned underground): the whole biome, caves included, is one environment (Env_AT_IceKingdom), so without it they also spawned in the caves under it; SkyLight is how open to the sky a spot is, 0-100 (low in a cave). Vanilla keeps cave fauna apart with its own Env_*_Caves environments instead.",
   "Environments": [
     "Env_AT_IceKingdom"
   ],
+  "LightRanges": {
+    "SkyLight": [
+      60,
+      100
+    ]
+  },
   "NPCs": [
     {
       "Weight": 30,

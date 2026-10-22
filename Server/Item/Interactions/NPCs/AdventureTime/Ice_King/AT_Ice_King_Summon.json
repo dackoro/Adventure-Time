@@ -1,0 +1,51 @@
+{
+  "$Comment": "CAE ability: 2 s summoning cast standing still (vanilla Skeleton_Burnt_Praetorian_Summon look), then a bolt straight down (Projectile_Config_AT_Ice_King_Summon) whose ground hit spawns 2 AT_Gunter_Minion 2-4 blocks around. Summon circle and hand glow: AT_Ice_King_Summon_Ground/_Energy, ice-blue copies of the vanilla Praetorian ones (2026-10-21). 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+    "ItemAnimationId": "SummonGuntersCharging",
+    "WorldSoundEventId": "SFX_Skeleton_Praetorian_Search_2",
+    "Particles": [
+      {
+        "SystemId": "AT_Ice_King_Summon_Ground",
+        "TargetEntityPart": "Entity",
+        "DetachedFromModel": true
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.0
+      },
+      {
+        "SystemId": "AT_Ice_King_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.0
+      }
+    ],
+    "MovementEffects": {
+      "DisableAll": true
+    }
+  },
+  "RunTime": 2.0,
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "Effects": {
+          "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+          "ItemAnimationId": "SummonGuntersCast",
+          "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact"
+        }
+      },
+      {
+        "$Comment": "SpawnNPC needs a target block, which an NPC attack never has, so it failed silently and no Gunter came out (2026-10-21). The bolt hits the ground at his feet and its ProjectileMiss runs the SpawnNPC.",
+        "Type": "Projectile",
+        "Config": "Projectile_Config_AT_Ice_King_Summon",
+        "RunTime": 0.3
+      }
+    ]
+  }
+}

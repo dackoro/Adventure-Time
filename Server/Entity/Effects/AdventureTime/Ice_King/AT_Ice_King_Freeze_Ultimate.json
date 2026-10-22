@@ -1,0 +1,67 @@
+{
+  "$Comment": "The ultimate's freeze (2026-10-21: the ultimate freezes everything, even his ice creatures, but hurts no ice creature; his other ice attacks still never freeze them). Copy of AT_Ice_King_Freeze (same ice block, shell, screen overlay, movement and ability locks) WITHOUT the Immunity_Freeze apply condition, so it also lands on the Gunters, snowmen and the king's other ice allies, which carry vanilla Immunity_Freeze (role CombatConfig EntityEffects) and are skipped by every normal freeze. The warmth potion still stops it. Only used by AT_Ice_King_Frost_Ultimate_Mob_Tick/_Final (the beam on non-players); players get the normal freeze from the frost stacks and the last tick. If AT_Ice_King_Freeze changes, copy it again and drop the Immunity_Freeze condition.",
+  "ApplyConditions": [
+    {
+      "Id": "HasEffect",
+      "EffectId": "AT_Ice_King_Warmth",
+      "Inverse": true
+    }
+  ],
+  "Tags": {
+    "Element": [
+      "Water"
+    ]
+  },
+  "ApplicationEffects": {
+    "EntityTopTint": "#e3fbff",
+    "EntityBottomTint": "#80ecff",
+    "ModelVFXId": "Freeze",
+    "Particles": [
+      {
+        "SystemId": "Effect_Snow"
+      },
+      {
+        "SystemId": "Effect_Snow_Impact"
+      }
+    ],
+    "HorizontalSpeedMultiplier": 0.0,
+    "MovementEffects": {
+      "DisableAll": true
+    },
+    "AbilityEffects": {
+      "Disabled": [
+        "Primary",
+        "Secondary",
+        "Ability1",
+        "Ability3"
+      ]
+    },
+    "ScreenEffect": "ScreenEffects/Snow.png"
+  },
+  "Duration": 1.5,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": true,
+  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Staff_Frost.png",
+  "ModelOverride": {
+    "Model": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block.blockymodel",
+    "Texture": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Texture.png",
+    "AnimationSets": {
+      "Spawn": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Spawn.blockyanim",
+            "Looping": false
+          }
+        ]
+      },
+      "Despawn": {
+        "Animations": [
+          {
+            "Animation": "NPC/AdventureTime/Ice_King/Freeze/Ice_Block_Despawn.blockyanim",
+            "Looping": false
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$Comment": "Light ice sword swing hit (2026-10-21: a few sword hits instead of one explosion): the first two swings of the sword combo. 12 ice damage, a short push away and 1 frost stack. The last chop uses AT_Ice_King_Ice_Sword_Hit (28).",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Ice": 12
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "Knockback": {
+          "Force": 4,
+          "RelativeX": 0,
+          "RelativeZ": -1,
+          "VelocityY": 1.5,
+          "VelocityType": "Set",
+          "VelocityConfig": {
+            "Threshold": 0.9
+          }
+        },
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ],
+        "WorldSoundEventId": "SFX_Golem_Frost_Swing_Impact"
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$Comment": "Snowman henchman lifetime (2026-10-21, concept 'SNOW MEN': the snowmen melt after a limited time). Given for good through the role's CombatConfig EntityEffects (as the Gunter's immunities): 2 fire damage every second (format of vanilla Burn: DamageCalculator + DamageCalculatorCooldown), so a 40 HP snowman melts in about 20 s, sooner if hit, and dies with his Death animation (the melt). Fire, not Ice: AT_Ice_King_Ice_Body only stops ice damage. Tune BaseDamage.Fire (lifetime = MaxHealth / damage). 2026-10-21: damage cause AT_Melting (was Fire): its DeathAnimationId Despawn makes a melt kill play the melting animation, while a kill by the player keeps Death (falls apart).",
+  "Infinite": true,
+  "DamageCalculatorCooldown": 1,
+  "DamageCalculator": {
+    "BaseDamage": {
+      "AT_Melting": 2
+    }
+  },
+  "OverlapBehavior": "Overwrite",
+  "Debuff": false
+}

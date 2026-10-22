@@ -1,0 +1,20 @@
+{
+  "$Comment": "Ice King's night crystal (2026-10-21: instead of the skeletons' night torch, he raises his hand and an ice crystal floats over it, lighting the way). NPC-only off-hand item, meant for the role's OffHand list with NighttimeOffhandSlot (the vanilla Template_Intelligent night-torch mechanism). Model: three fullbright ice shards floating 24 units over the left palm (Ice_Crystal.blockymodel; root L-Attachment, Holder = the vanilla torch handle's turn). Animation: the crystal turns about its long axis and bobs (2 s loop). Light: the held light (used because Model is set), sky blue like the ice ray; Radius in blocks. Placeholder icon: the vanilla cyan crystal fragments. No TranslationProperties (NPC-only).",
+  "Categories": [
+    "Furniture.Lighting"
+  ],
+  "Quality": "Rare",
+  "Icon": "Icons/ItemsGenerated/Ingredient_Crystal_Fragments_Cyan.png",
+  "Model": "Items/AdventureTime/Ice_King/Ice_Crystal/Ice_Crystal.blockymodel",
+  "Texture": "Items/AdventureTime/Ice_King/Ice_Crystal/Ice_Crystal_Texture.png",
+  "Animation": "Items/AdventureTime/Ice_King/Ice_Crystal/Ice_Crystal_Idle.blockyanim",
+  "PlayerAnimationsId": "AT_Ice_King_Ice_Crystal",
+  "UsePlayerAnimations": true,
+  "Utility": {
+    "Usable": true
+  },
+  "Light": {
+    "Color": "#8cf",
+    "Radius": 8
+  }
+}

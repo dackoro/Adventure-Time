@@ -1,0 +1,141 @@
+{
+  "Particle": {
+    "Texture": "Particles/Textures/Shapes/Fragment_GS_Fade.png",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 0.1,
+            "Max": 0.1
+          },
+          "Y": {
+            "Max": 0.1,
+            "Min": 0.1
+          }
+        },
+        "Color": "#e0f4fb"
+      },
+      "3": {
+        "Opacity": 1,
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Max": 1,
+            "Min": 1
+          }
+        },
+        "Color": "#e0f4fb"
+      },
+      "21": {
+        "Color": "#9dcdef"
+      },
+      "42": {
+        "Color": "#6480ad"
+      },
+      "70": {
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Min": 1,
+            "Max": 1
+          }
+        }
+      },
+      "90": {
+        "Opacity": 1
+      },
+      "100": {
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 1,
+            "Max": 1
+          },
+          "Y": {
+            "Max": 0.1,
+            "Min": 0.1
+          }
+        },
+        "Color": "#566fa2"
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 2,
+          "Max": 2
+        },
+        "Y": {
+          "Min": 5,
+          "Max": 5
+        }
+      },
+      "Opacity": 1,
+      "FrameIndex": {
+        "Max": 3
+      },
+      "Rotation": {
+        "X": {
+          "Min": -24,
+          "Max": -32
+        }
+      }
+    },
+    "FrameSize": {
+      "Width": 32,
+      "Height": 32
+    },
+    "ScaleRatioConstraint": "None"
+  },
+  "SpawnRate": {
+    "Min": 200,
+    "Max": 200
+  },
+  "MaxConcurrentParticles": 20,
+  "TotalParticles": {
+    "Min": 20,
+    "Max": 20
+  },
+  "ParticleLifeSpan": {
+    "Min": 2.5,
+    "Max": 2.5
+  },
+  "RenderMode": "Erosion",
+  "ParticleRotationInfluence": "Velocity",
+  "UseEmitDirection": true,
+  "ParticleRotateWithSpawner": true,
+  "EmitOffset": {
+    "X": {
+      "Min": 0.4,
+      "Max": 0.4
+    },
+    "Z": {
+      "Min": 0.4,
+      "Max": 0.4
+    }
+  },
+  "TrailSpawnerPositionMultiplier": 1,
+  "TrailSpawnerRotationMultiplier": 1,
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 0.1,
+      "Max": 0.1
+    }
+  },
+  "Attractors": [
+    {
+      "DampingMultiplier": {
+        "X": 0.5,
+        "Y": 0.5,
+        "Z": 0.5
+      }
+    }
+  ]
+}

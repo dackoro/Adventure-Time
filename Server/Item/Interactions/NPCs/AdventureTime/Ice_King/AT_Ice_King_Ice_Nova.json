@@ -1,0 +1,103 @@
+{
+  "$Comment": "Ice nova. Branch 1: 1.5 s ground warning, then an instant AOECircle of 4.5 blocks. Branch 2: the king stays still for 3 s (a window to punish him). Built like vanilla Goblin_Feastmaster_Slam. Visuals sized to the hit (playtest: the ice did not cover the circle): warning Scale 4.55 = radius + 0.05 (the vanilla Feastmaster_Slam_Warning comment; an AOECircle has no Width); IceBall_Explosion Scale 3 (its Iceball_Frostground decal grows to x2 of the system scale; Scale 2 looked smaller than the hit). 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge. 2026-10-21 (playtest: no nova while the shield is up, so two explosions never come one second apart): wrapped in an EffectCondition: with AT_Ice_King_Ice_Shield on him the nova does nothing (it still counts as used, so it waits its cooldown).",
+  "Type": "EffectCondition",
+  "Entity": "User",
+  "EntityEffectIds": [
+    "AT_Ice_King_Ice_Shield"
+  ],
+  "Match": "None",
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "Effects": {
+              "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+              "ItemAnimationId": "IceNovaCharging",
+              "Particles": [
+                {
+                  "SystemId": "Feastmaster_Slam_Warning",
+                  "TargetEntityPart": "Entity",
+                  "TargetNodeName": "Origin",
+                  "DetachedFromModel": true,
+                  "Scale": 4.55
+                },
+                {
+                  "SystemId": "AT_Ice_King_Summon_Energy",
+                  "TargetEntityPart": "Entity",
+                  "TargetNodeName": "R-Hand",
+                  "Scale": 1.0
+                },
+                {
+                  "SystemId": "AT_Ice_King_Summon_Energy",
+                  "TargetEntityPart": "Entity",
+                  "TargetNodeName": "L-Hand",
+                  "Scale": 1.0
+                }
+              ]
+            },
+            "RunTime": 1.5,
+            "Next": {
+              "Type": "Selector",
+              "RunTime": 0.1,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemAnimationId": "IceNovaBlast",
+                "WorldSoundEventId": "SFX_Ice_Break",
+                "Particles": [
+                  {
+                    "SystemId": "IceBall_Explosion",
+                    "TargetEntityPart": "Entity",
+                    "DetachedFromModel": true,
+                    "Scale": 3
+                  }
+                ]
+              },
+              "Selector": {
+                "Id": "AOECircle",
+                "Range": 4.5
+              },
+              "HitEntity": {
+                "Interactions": [
+                  {
+                    "Type": "Replace",
+                    "DefaultValue": {
+                      "Interactions": [
+                        "AT_Ice_King_Ice_Nova_Damage"
+                      ]
+                    },
+                    "Var": "Ice_Nova_Damage"
+                  }
+                ]
+              },
+              "Next": {
+                "Type": "Simple",
+                "$Comment": "Pad the interaction length",
+                "RunTime": 0.3
+              }
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 3,
+            "Effects": {
+              "MovementEffects": {
+                "DisableAll": true
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "Failed": {
+    "Type": "Simple",
+    "RunTime": 0
+  }
+}

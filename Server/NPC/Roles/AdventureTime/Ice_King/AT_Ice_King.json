@@ -1,0 +1,63 @@
+{
+  "$Comment": "Ice King mini-boss, step 1: combat role driven by the Combat Action Evaluator (CAE_AT_Ice_King). Built like the vanilla Skeleton_Elite. Placeholder appearance until the custom model exists.",
+  "Type": "Variant",
+  "Reference": "Template_AT_Ice_King",
+  "Parameters": {
+    "ApplySeparation": {
+      "Value": false,
+      "Description": "When set to false, NPCs wont try to avoid each other or player."
+    },
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.AT_Ice_King.name",
+      "Description": "Translation key for NPC name display"
+    }
+  },
+  "Modify": {
+    "Appearance": "AT_Ice_King",
+    "Weapons": [],
+    "DropList": "Drop_AT_Ice_King",
+    "AttitudeGroup": "Empty",
+    "DefaultPlayerAttitude": "Neutral",
+    "DisableDamageGroups": [
+      "Self"
+    ],
+    "MaxHealth": 3000,
+    "KnockbackScale": 0.1,
+    "MaxSpeed": 6,
+    "RunThreshold": 1,
+    "ViewRange": 25,
+    "ViewSector": 270,
+    "HearingRange": 12,
+    "AlertedRange": 30,
+    "AlertedTime": [
+      1,
+      1
+    ],
+    "WakingPeriod": [
+      0,
+      24
+    ],
+    "WakingIdleBehaviorComponent": "Component_Instruction_Stationary_Idle",
+    "AttackDistance": 12,
+    "DesiredAttackDistanceRange": [
+      6,
+      10
+    ],
+    "CombatFleeIfTooCloseDistance": 2,
+    "CombatBehaviorDistance": 12,
+    "TargetRange": 12,
+    "ChaseRelativeSpeed": 1,
+    "CombatMovingRelativeSpeed": 0.8,
+    "LeashMinPlayerDistance": 6,
+    "DeathAnimationTime": 3,
+    "UseCombatActionEvaluator": true,
+    "_CombatConfig": "CAE_AT_Ice_King",
+    "ApplySeparation": {
+      "Compute": "ApplySeparation"
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    },
+    "SwitchRoleOnHit": true
+  }
+}

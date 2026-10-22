@@ -1,0 +1,74 @@
+{
+  "RenderMode": "BlendLinear",
+  "ParticleLifeSpan": {
+    "Min": 9,
+    "Max": 9
+  },
+  "SpawnRate": {
+    "Min": 2,
+    "Max": 2
+  },
+  "Particle": {
+    "Texture": "Particles/Textures/Circles/Portal_Inside_Contrast.png",
+    "UVOption": "RandomFlipUV",
+    "Animation": {
+      "0": {
+        "Opacity": 0,
+        "Color": "#000000"
+      },
+      "30": {
+        "Opacity": 1
+      },
+      "80": {
+        "Color": "#000000",
+        "Opacity": 1
+      },
+      "100": {
+        "Opacity": 0,
+        "Color": "#000000"
+      }
+    },
+    "InitialAnimationFrame": {
+      "Scale": {
+        "X": {
+          "Min": 2,
+          "Max": 2
+        },
+        "Y": {
+          "Min": 2,
+          "Max": 2
+        }
+      },
+      "Opacity": 0.75,
+      "Rotation": {
+        "X": {
+          "Min": 90,
+          "Max": 90
+        },
+        "Y": {
+          "Min": 0,
+          "Max": 360
+        }
+      }
+    },
+    "ScaleRatioConstraint": "OneToOne",
+    "SoftParticles": "Disable"
+  },
+  "Shape": "Sphere",
+  "TotalParticles": {
+    "Min": 2,
+    "Max": 2
+  },
+  "UVMotion": {
+    "Texture": "Particles/Textures/UVMotion/FlowMapSwirl.png",
+    "AddRandomUVOffset": true,
+    "SpeedX": 0,
+    "SpeedY": 0,
+    "Strength": 2,
+    "Scale": 1
+  },
+  "IsLowRes": true,
+  "MaxConcurrentParticles": 2,
+  "SpawnBurst": true,
+  "$Comment": "Ice-blue copy of vanilla Dungeon_Goblin_Void_Strike_Impact_Burnt (purple colours turned blue; everything else unchanged)."
+}

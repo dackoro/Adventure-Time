@@ -1,2 +1,11 @@
 npcRoles.AT_Gunter.name = Gunter
 npcRoles.AT_Snow_Leopard.name = Snow Leopard
+npcRoles.AT_Ice_King.name = Ice King
+npcRoles.AT_Ice_King_Ice_Pillar.name = Ice Pillar
+items.AT_Ice_King_Crown.name = Ice King's Crown
+items.AT_Ice_King_Nunchucks.name = Ice King's Ice Nunchucks
+items.AT_Ice_King_Warmth_Potion.name = Warmth Potion
+items.AT_Ice_King_Warmth_Potion.description = Keeps you warm for 5 minutes: the Ice King's magic can't freeze you, it only slows you a little.
+items.AT_Ice_King_Rune_Ice_Ray.name = Ice Ray Rune
+items.AT_Ice_King_Rune_Ice_Ray.description = Casts the Ice King's ice ray. Needs ice magic: only works while you wear the Ice King's Crown.
+npcRoles.AT_Snowman.name = Snowman Henchman

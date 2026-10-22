@@ -1,0 +1,76 @@
+{
+  "$Comment": "Warmth potion: gives AT_Ice_King_Warmth for 5 min, so the Ice King's ice only slows a little instead of freezing. Meant to be the item that makes the fight winnable (later from another biome; no recipe yet: /give for tests). Structure of the vanilla Potion_Antidote; placeholder model, texture and icon are the Antidote's.",
+  "TranslationProperties": {
+    "Name": "server.items.AT_Ice_King_Warmth_Potion.name",
+    "Description": "server.items.AT_Ice_King_Warmth_Potion.description"
+  },
+  "Quality": "Rare",
+  "ItemLevel": 25,
+  "Categories": [
+    "Items.Consumables"
+  ],
+  "PlayerAnimationsId": {
+    "Parent": "Item",
+    "Animations": {
+      "Consume": {
+        "FirstPerson": "Characters/Animations/Items/Main_Handed/Item/Attacks/Drink/Drink_FPS.blockyanim",
+        "ThirdPerson": "Characters/Animations/Items/Main_Handed/Item/Attacks/Drink/Drink.blockyanim",
+        "Speed": 1,
+        "Looping": true
+      }
+    }
+  },
+  "Icon": "Icons/ItemsGenerated/Weapon_Bomb_Potion_Poison.png",
+  "Model": "Items/Weapons/Bomb/Potion_Onion.blockymodel",
+  "Texture": "Items/Weapons/Bomb/Potion_Onion_Poison.png",
+  "IconProperties": {
+    "Scale": 0.75,
+    "Translation": [ -13, -12 ],
+    "Rotation": [ 12.5, 12.5, 315 ]
+  },
+  "Consumable": true,
+  "Interactions": {
+    "Secondary": "Root_Secondary_Consume_Potion"
+  },
+  "InteractionVars": {
+    "Effect": {
+      "Interactions": [
+        {
+          "Type": "ApplyEffect",
+          "EffectId": "AT_Ice_King_Warmth"
+        }
+      ]
+    },
+    "ConsumeSFX": {
+      "Interactions": [
+        {
+          "Parent": "Consume_SFX",
+          "Effects": {
+            "LocalSoundEventId": "SFX_Health_Potion_Low_Drink"
+          }
+        }
+      ]
+    },
+    "ConsumedSFX": {
+      "Interactions": [
+        {
+          "Parent": "Consumed_SFX",
+          "Effects": {
+            "LocalSoundEventId": "SFX_Potion_Drink_Success"
+          }
+        }
+      ]
+    }
+  },
+  "MaxStack": 10,
+  "Tags": {
+    "Type": [
+      "Consumable"
+    ]
+  },
+  "Light": {
+    "Radius": 1,
+    "Color": "#f72"
+  },
+  "DropOnDeath": true
+}

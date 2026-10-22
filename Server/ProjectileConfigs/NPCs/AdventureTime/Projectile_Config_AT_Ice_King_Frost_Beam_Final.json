@@ -1,0 +1,57 @@
+{
+  "$Comment": "Frost beam final bolt (2026-10-21): fast straight bolt (LaunchForce 70, no gravity). ❌ 2026-10-21: the ProjectileSpawn AttachBeam (vanilla ChainHook pattern) crashed the world: 'Entity already contains component type BeamComponent' (AttachBeamInteraction adds the beam with commandBuffer.addComponent on the context entity, which here was the king, so the second bolt found one already). Removed; the bolts fly without a beam until another way is found. 2026-10-21 (playtest: bolts out of the throwing hand): SpawnOffset is relative to his eyes and turned by his look (ProjectileConfig.getCalculatedOffset: rotateX(pitch), rotateY(yaw)); forward is -Z (vanilla Projectile_Config_ChainHook Z -0.5), so the old Z 1.0 started the bolt a block behind his head. Right hand: X 0.45 (right), Y -0.45 (hand height), Z -0.7 (in front). If it comes out of the wrong hand in game, swap the X signs here and in _L. 2026-10-21 (playtest: some bolts went into the ground in front of a short target): SpawnOffset Y is 0. HeadMotionAim corrects its aim for the spawn point with ProjectileComponent.computeStartOffset, which subtracts SpawnOffset.Y (it takes +Y as DOWN), while the spawn itself (ProjectileConfig.getCalculatedOffset) adds it (+Y = up). With Y -0.45 (hand height) the aim thought the bolt left 0.45 ABOVE the eyes while it left 0.45 BELOW, so it flew about 0.9 below the aim line. Only Y 0 agrees on both sides; X (side) agrees, so the hand side stays. 2026-10-21: X ±0.2 (was ±0.45). The burst roots have no AimingReference, so the aim makes no side correction and every bolt flies parallel to the aim line, X blocks to the side; at 0.45 a bolt could pass beside a thin target (a player is 0.65 wide). 2026-10-21 (playtest: not every bolt of the bursts and the rain was heard): launch sound SFX_AT_Ice_King_Bolt_Shot (art: the staff shot cut to 0.6 s, 12 at once) instead of the vanilla SFX_Staff_Ice_Shoot (2.5 s, only 5 at once, so later quick bolts were silent). The _L/_R children inherit it.",
+  "Model": "AT_Ice_King_Ray",
+  "LaunchForce": 70,
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 55,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "SpawnOffset": {
+    "X": 0.2,
+    "Y": 0.0,
+    "Z": -0.7
+  },
+  "LaunchWorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot",
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        "AT_Ice_King_Frost_Beam_Final_Hit",
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Ice_Break",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Ice"
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  }
+}

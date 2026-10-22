@@ -1,0 +1,136 @@
+{
+  "$Comment": "Rare freezing variant of AT_Ice_King_Ice_Ray. Charge 0.8 s with ice sparks on the staff, then fire Projectile_Config_AT_Ice_King_Ray. Built like vanilla Goblin_Duke_Magic_1. 2026-10-21 (playtest: an effect on his hands whenever he casts): ice-blue hand glow AT_Ice_King_Summon_Energy on R-Hand and L-Hand during the charge. 2026-10-21 (thrown with one hand, sometimes right, sometimes left, like the burst): the charge uses FrostBeamCharging (hands beside the head) instead of CastSummon; then IceRayThrow (right) or IceRayThrowL (left, 0.5 s each) and the bolt from that hand (_R / _L projectile configs). The hands alternate through the AT_Ice_King_Ray_Hand_L flag (no random pick exists among interactions). The staff spark (Impact_Ice on Handle) stays in the charge. Only the right-hand projectile carries the AimingReference tag (one per Attack root). Built as a Serial [charge, hand pick] (2026-10-21) so no piece keeps the id of the old single projectile ('..._Next'): after hot reloads the server kept that id's AimingReference tag and refused the Attack root. 2026-10-21 (playtest: the charge matches the throwing hand): the hand is picked first, then FrostBeamCharging/IceRayThrow (right) or FrostBeamChargingL/IceRayThrowL (left). The Serial now holds only the hand pick, so no piece reuses an id that had the AimingReference tag before.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "EffectCondition",
+      "$Comment": "Which hand, decided BEFORE the charge so the wind-up matches the throw: with AT_Ice_King_Ray_Hand_L on him -> FrostBeamChargingL (left arm back), IceRayThrowL, left bolt, flag cleared; without it -> FrostBeamCharging (right arm back), IceRayThrow, right bolt, flag put on.",
+      "Entity": "User",
+      "EntityEffectIds": [
+        "AT_Ice_King_Ray_Hand_L"
+      ],
+      "Match": "All",
+      "Next": {
+        "Type": "ClearEntityEffect",
+        "EntityEffectId": "AT_Ice_King_Ray_Hand_L",
+        "Entity": "User",
+        "Next": {
+          "Type": "Simple",
+          "Effects": {
+            "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+            "ItemAnimationId": "FrostBeamChargingL",
+            "Particles": [
+              {
+                "PositionOffset": {
+                  "X": 1,
+                  "Y": 0,
+                  "Z": 0
+                },
+                "RotationOffset": {
+                  "Pitch": 0,
+                  "Roll": 0,
+                  "Yaw": 0
+                },
+                "TargetNodeName": "Handle",
+                "SystemId": "Impact_Ice"
+              },
+              {
+                "SystemId": "AT_Ice_King_Summon_Energy",
+                "TargetEntityPart": "Entity",
+                "TargetNodeName": "R-Hand",
+                "Scale": 1.0
+              },
+              {
+                "SystemId": "AT_Ice_King_Summon_Energy",
+                "TargetEntityPart": "Entity",
+                "TargetNodeName": "L-Hand",
+                "Scale": 1.0
+              }
+            ]
+          },
+          "RunTime": 0.8,
+          "Next": {
+            "Type": "Simple",
+            "RunTime": 0,
+            "Effects": {
+              "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+              "ItemAnimationId": "IceRayThrowL"
+            },
+            "Next": {
+              "Type": "Projectile",
+              "Config": "Projectile_Config_AT_Ice_King_Ray_Freezing_L",
+              "RunTime": 0.4,
+              "Effects": {},
+              "$Comment": "No AimingReference tag here: an NPC Attack root may hold only ONE (server: 'Has too many AimingReference tags', the whole air enraged component failed to load). The right-hand bolt carries it; both bolts fly the same, so his aim is the same either way."
+            }
+          }
+        },
+        "$Comment": "Left hand: chained with Next (not a Serial) so these pieces get new ids; after a hot reload the server kept the AimingReference tag of the old left-bolt id and refused the Attack root ('too many AimingReference tags')."
+      },
+      "Failed": {
+        "Type": "Serial",
+        "Interactions": [
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "AT_Ice_King_Ray_Hand_L",
+            "Entity": "User",
+            "Duration": 60
+          },
+          {
+            "Type": "Simple",
+            "Effects": {
+              "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+              "ItemAnimationId": "FrostBeamCharging",
+              "Particles": [
+                {
+                  "PositionOffset": {
+                    "X": 1,
+                    "Y": 0,
+                    "Z": 0
+                  },
+                  "RotationOffset": {
+                    "Pitch": 0,
+                    "Roll": 0,
+                    "Yaw": 0
+                  },
+                  "TargetNodeName": "Handle",
+                  "SystemId": "Impact_Ice"
+                },
+                {
+                  "SystemId": "AT_Ice_King_Summon_Energy",
+                  "TargetEntityPart": "Entity",
+                  "TargetNodeName": "R-Hand",
+                  "Scale": 1.0
+                },
+                {
+                  "SystemId": "AT_Ice_King_Summon_Energy",
+                  "TargetEntityPart": "Entity",
+                  "TargetNodeName": "L-Hand",
+                  "Scale": 1.0
+                }
+              ]
+            },
+            "RunTime": 0.8
+          },
+          {
+            "Type": "Simple",
+            "RunTime": 0,
+            "Effects": {
+              "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+              "ItemAnimationId": "IceRayThrow"
+            }
+          },
+          {
+            "Type": "Projectile",
+            "Config": "Projectile_Config_AT_Ice_King_Ray_Freezing_R",
+            "RunTime": 0.4,
+            "Effects": {},
+            "Tags": {
+              "AimingReference": []
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$Comment": "Frost beam root ('Ice... KING!': 1.6 s charge, 5 beam bolts, 1 s recovery).",
+  "Interactions": [
+    "AT_Ice_King_Frost_Beam"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

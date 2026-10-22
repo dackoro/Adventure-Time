@@ -1,0 +1,33 @@
+{
+  "$Comment": "Fridjitzu combo, hit 3 (the spin): bigger hit and knockback, then one frost stack through AT_Ice_King_Frost_Hit (pattern of AT_Ice_King_Ice_Ray_Hit). The CAE can change it with the Fridjitzu_Final_Damage var.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "DamageEntity",
+      "DamageCalculator": {
+        "Type": "Absolute",
+        "BaseDamage": {
+          "Physical": 16
+        },
+        "RandomPercentageModifier": 0.1
+      },
+      "DamageEffects": {
+        "Knockback": {
+          "Type": "Directional",
+          "Force": 1.2,
+          "RelativeX": 0,
+          "RelativeZ": -1,
+          "VelocityY": 1.0,
+          "VelocityType": "Set"
+        },
+        "WorldSoundEventId": "SFX_Ice_Break",
+        "WorldParticles": [
+          {
+            "SystemId": "Impact_Ice"
+          }
+        ]
+      }
+    },
+    "AT_Ice_King_Frost_Hit"
+  ]
+}

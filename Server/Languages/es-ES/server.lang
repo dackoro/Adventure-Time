@@ -1,2 +1,11 @@
 npcRoles.AT_Gunter.name = Gunter
 npcRoles.AT_Snow_Leopard.name = Leopardo de las nieves
+npcRoles.AT_Ice_King.name = Rey Helado
+npcRoles.AT_Ice_King_Ice_Pillar.name = Pilar de hielo
+items.AT_Ice_King_Crown.name = Corona del Rey Helado
+items.AT_Ice_King_Nunchucks.name = Nunchakus de hielo del Rey Helado
+items.AT_Ice_King_Warmth_Potion.name = Poción de calor
+items.AT_Ice_King_Warmth_Potion.description = Te mantiene caliente 5 minutos: la magia del Rey Helado no puede congelarte, solo te ralentiza un poco.
+items.AT_Ice_King_Rune_Ice_Ray.name = Runa del rayo de hielo
+items.AT_Ice_King_Rune_Ice_Ray.description = Lanza el rayo de hielo del Rey Helado. Necesita magia de hielo: solo funciona con la Corona del Rey Helado puesta.
+npcRoles.AT_Snowman.name = Muñeco de nieve

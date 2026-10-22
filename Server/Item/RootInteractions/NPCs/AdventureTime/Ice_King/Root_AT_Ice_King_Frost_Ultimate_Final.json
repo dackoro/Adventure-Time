@@ -1,0 +1,6 @@
+{
+  "$Comment": "Hit of the last beam tick of the ultimate (24 Ice + knockback + freeze). Own root file for the same reason as Root_AT_Ice_King_Frost_Ultimate_Tick.",
+  "Interactions": [
+    "AT_Ice_King_Frost_Ultimate_Final"
+  ]
+}

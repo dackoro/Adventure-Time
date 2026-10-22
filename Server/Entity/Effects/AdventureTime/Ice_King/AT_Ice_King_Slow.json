@@ -1,0 +1,23 @@
+{
+  "$Comment": "Copy of vanilla Ability_Frost_Slow with a status icon that exists: the vanilla one points to UI/StatusEffects/Icon_Slow.png, which is not in Assets.zip 0.7.2 (red X on the HUD).",
+  "ApplyConditions": [
+    {
+      "Id": "HasEffect",
+      "EffectId": "Immunity_Slow",
+      "Inverse": true
+    }
+  ],
+  "Tags": {
+    "Element": ["Water"]
+  },
+  "ApplicationEffects": {
+    "EntityTopTint": "#00beff",
+    "EntityBottomTint": "#00ffff",
+    "HorizontalSpeedMultiplier": 0.75,
+    "LocalSoundEventId": "SFX_Deployable_Totem_Slowing_Effect_Local"
+  },
+  "Duration": 3.0,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": true,
+  "StatusEffectIcon": "Icons/ItemsGenerated/Weapon_Staff_Frost.png"
+}

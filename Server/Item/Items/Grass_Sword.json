@@ -377,6 +377,21 @@
       ]
     }
   },
+  "Interactions": {
+    "SwapTo": {
+      "$Comment": "Equip sound (2026-10-22: it also played when switching the camera back to first person). It was the item's top-level SoundEventId, the sound of the held item model itself (vanilla uses it for the bomb fuse and the flamethrower candle), so the client played it whenever it rebuilt the held model: on equip, but also on every camera change. SwapTo runs once, when the hotbar switches to this sword (ChangeActiveSlotInteraction forks the new item's SwapTo after the switch). Only SwapTo is set here: item Interactions merge with the parent's (MapUtil.combineUnmodifiable), so Primary/Secondary/Ability1 still come from Template_Weapon_Sword.",
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldSoundEventId": "SXF_Grass_Sword_Equip",
+            "LocalSoundEventId": "SXF_Grass_Sword_Equip"
+          }
+        }
+      ]
+    }
+  },
   "MaxDurability": 0,
   "DurabilityLossOnHit": 0,
   "DurabilityLossOnDeath": false,
@@ -470,7 +485,6 @@
   "Light": {
     "Radius": 0
   },
-  "SoundEventId": "SXF_Grass_Sword_Equip",
   "Particles": [
     {
       "SystemId": "Block_Break_Grass",

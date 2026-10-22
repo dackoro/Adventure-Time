@@ -5,12 +5,13 @@
   "DefaultTransitionDistance": 32,
   "MaxBiomeEdgeDistance": 32,
   "Density": {
-    "Type": "Imported",
-    "Name": "Biome-Map"
+    "Type": "Constant",
+    "Skip": false,
+    "Value": 0
   },
   "SpawnPositions": {
     "Type": "Imported",
-    "Name": "Spawns"
+    "Name": "AT_IceKingdom_Spawns"
   },
   "Framework": [
     {
@@ -20,22 +21,36 @@
           "Name": "Spawns",
           "Positions": {
             "Type": "List",
-            "ExportAs": "Spawns",
+            "ExportAs": "AT_IceKingdom_Spawns",
             "Positions": [
               {
                 "X": 0,
-                "Y": 200,
+                "Y": -2147483648,
                 "Z": 0
               },
               {
                 "X": 30,
-                "Y": 200,
+                "Y": -2147483648,
                 "Z": 0
               },
               {
                 "X": 10,
-                "Y": 200,
+                "Y": -2147483648,
                 "Z": 20
+              }
+            ]
+          }
+        },
+        {
+          "Name": "AT_IceCastle",
+          "Positions": {
+            "Type": "List",
+            "Skip": false,
+            "Positions": [
+              {
+                "X": 0,
+                "Y": 0,
+                "Z": -160
               }
             ]
           }

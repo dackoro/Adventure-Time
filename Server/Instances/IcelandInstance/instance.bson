@@ -26,5 +26,15 @@
   },
   "IsSpawnMarkersEnabled": true,
   "DeleteOnRemove": false,
+  "Plugin": {
+    "Instance": {
+      "RemovalConditions": [
+        {
+          "Type": "IdleTimeout",
+          "TimeoutSeconds": 300
+        }
+      ]
+    }
+  },
   "Version": 2
 }

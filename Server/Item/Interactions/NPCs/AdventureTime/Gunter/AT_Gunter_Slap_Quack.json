@@ -1,0 +1,41 @@
+{
+  "$Comment": "Quack version of AT_Gunter_Slap (2026-10-22: Gunter quacks now and then when he attacks, and opens his beak): same hit and timing, animation SlapQuack (art: same body animation + Quack_Face, beak open frames 14-20), and SFX_AT_Gunter_Quack at 0.22 s. The 0.25 s wind-up is split 0.22 + 0.03 so the quack lands as the beak opens. Used by only a few steps of Root_AT_Gunter_Attack. Base comment: Gunter's right wing slap (2026-10-21). The vanilla Fox_Bite written out (its HitEntity is the role's Bite_Damage var, the same for every attack, so each attack names its own hit): Slap animation of set AT_Gunter, 0.25 s before the hit window (Slap/Attack timing from the art pass), then a 0.167 s Horizontal selector 0.5-2 blocks in front, then 0.167 s padding. Hit: Root_AT_Gunter_Slap_Damage.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "AT_Gunter",
+    "ItemAnimationId": "SlapQuack"
+  },
+  "RunTime": 0.22,
+  "Next": {
+    "Type": "Simple",
+    "$Comment": "Quack as the beak opens (Quack_Face: open at frame 14 = 0.23 s), just before the hit window.",
+    "RunTime": 0.03,
+    "Effects": {
+      "WorldSoundEventId": "SFX_AT_Gunter_Quack"
+    },
+    "Next": {
+      "Type": "Selector",
+      "Effects": {
+        "WorldSoundEventId": "SFX_NPC_Unarmed_Swing"
+      },
+      "RunTime": 0.167,
+      "Selector": {
+        "Id": "Horizontal",
+        "Direction": "ToLeft",
+        "TestLineOfSight": true,
+        "ExtendTop": 0.5,
+        "ExtendBottom": 0.5,
+        "StartDistance": 0.5,
+        "EndDistance": 2,
+        "Length": 30,
+        "RollOffset": 90,
+        "YawStartOffset": -15
+      },
+      "HitEntity": "Root_AT_Gunter_Slap_Damage",
+      "Next": {
+        "Type": "Simple",
+        "RunTime": 0.167
+      }
+    }
+  }
+}

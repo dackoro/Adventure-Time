@@ -11,9 +11,13 @@ A four-phase boss for my *Adventure Time* mod: two ground phases, two flying pha
 
 ## Try it
 
-1. Install the mod: build the jar with `.\gradlew build`, or load the release zip's folder as an asset pack.
-2. In Adventure mode, stand somewhere open and run `/npc spawn AT_Ice_King`, then `/encounter add AT_Ice_King_Encounter` next to him.
-3. Hit him to start the fight: the boss bar, music and a dark storm come up.
+1. Download `AdventureTime-IceKing-raw-files.zip` from the [release](https://github.com/dackoro/Adventure-Time/releases/tag/ice-king-showcase) and drop it, **without unzipping**, into `%APPDATA%\Hytale\UserData\Mods`. Its `manifest.json` sits at the zip root, so Hytale loads the zip as it is.
+2. In the world's **Mods** tab, enable **Adventure Time - Ice King (raw files)**, with no other Adventure Time mod enabled.
+3. In Adventure or Survival mode (not Creative), stand somewhere open and run `/npc spawn AT_Ice_King`, then `/encounter add AT_Ice_King_Encounter` next to him.
+4. Hit him to start the fight: the boss bar, music and a dark storm come up.
+5. For the Ice Kingdom biome, run `/instances spawn IcelandInstance`.
+
+To build the full mod instead (with the Grass Sword plugin), run `.\gradlew build` and copy the jar from `build\libs\`.
 
 For testing:
 - `/give <you> AT_Ice_King_Crown`: the crown the runes need.

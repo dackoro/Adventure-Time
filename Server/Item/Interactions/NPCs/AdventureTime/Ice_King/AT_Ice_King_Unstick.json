@@ -1,5 +1,0 @@
-{
-  "$Comment": "Watchdog (2026-10-22): cancels every interaction chain the king has open (vanilla InterruptInteraction, InteractionManager.cancelChains). Started by the watchdog rule in Template_AT_Ice_King / Template_AT_Ice_King_Flying when he has been running an interaction for 15 s in a row: some chain never ended in real fights (cause not found yet), and every attack rule and the encounter's phase change wait for him to run none (IsExecutingInteraction).",
-  "Type": "Interrupt",
-  "Entity": "User"
-}

@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice Sword rune cast (2026-10-22): the king's ground sword combo (AT_Ice_King_Ice_Sword_Slash): 0.4 s summon, then a step forward + light swing (80 deg, 4 blocks, 12 ice), another, and the chop (50 deg, 4.5 blocks, 28 ice, 2 stacks). Only what is in front is hit. The king's ice sword is an attachment of his model, so the sword the player sees is the overlay effect AT_Ice_King_Rune_Ice_Sword_Overlay, put on at the start. Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: the king's own AT_Ice_King_Staff animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
+  "$Comment": "Ice Sword rune cast (2026-10-22): the king's ground sword combo (AT_Ice_King_Ice_Sword_Slash): 0.4 s summon, then a step forward + light swing (80 deg, 4 blocks, 12 ice), another, and the chop (50 deg, 4.5 blocks, 28 ice, 2 stacks). Only what is in front is hit. The king's ice sword is an attachment of his model, so the sword the player sees is the overlay effect AT_Ice_King_Rune_Ice_Sword_Overlay, put on at the start. Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: AT_Ice_King_Rune_Player = the king's AT_Ice_King_Staff poses without their face animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
   "Type": "StatsCondition",
   "Costs": {
     "AT_Ice_Magic": 30
@@ -24,7 +24,7 @@
               "Type": "Simple",
               "RunTime": 0.4,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceSwordSummon",
                 "WaitForAnimationToFinish": false,
                 "WorldSoundEventId": "SFX_AT_Ice_King_Sword_Summon"
@@ -41,7 +41,7 @@
               "Force": 9,
               "RunTime": 0.1,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceSwordSwing1",
                 "WaitForAnimationToFinish": false
               }
@@ -84,7 +84,7 @@
               "Force": 5,
               "RunTime": 0.1,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceSwordSwing2",
                 "WaitForAnimationToFinish": false
               }
@@ -127,7 +127,7 @@
               "Force": 5,
               "RunTime": 0.15,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceSwordSlash",
                 "WaitForAnimationToFinish": false
               }

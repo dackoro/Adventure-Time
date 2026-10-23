@@ -1,0 +1,173 @@
+{
+  "$Comment": "Rune frost stack (2026-10-23: rune freezes without the king's laugh and longer): copy of the king's AT_Ice_King_Frost_Hit (same stacks Frost_1-4, warmth potion, freeze guard, frost-immune pillars) whose 5th-stack freeze is 4.0 s (his: 2.5) with a 9.0 s guard, through AT_Ice_King_Rune_Freeze_Prep (no laugh). Generated from his file by gen_runes.py: regenerate after he changes it.",
+  "Type": "EffectCondition",
+  "Entity": "Target",
+  "EntityEffectIds": [
+    "AT_Ice_King_Freeze"
+  ],
+  "Match": "All",
+  "Next": {
+    "Type": "Simple",
+    "RunTime": 0
+  },
+  "Failed": {
+    "Type": "EffectCondition",
+    "Entity": "Target",
+    "EntityEffectIds": [
+      "AT_Ice_King_Freeze_Ultimate"
+    ],
+    "Match": "All",
+    "Next": {
+      "Type": "Simple",
+      "RunTime": 0
+    },
+    "Failed": {
+      "Type": "EffectCondition",
+      "Entity": "Target",
+      "EntityEffectIds": [
+        "AT_Ice_King_Warmth"
+      ],
+      "Match": "None",
+      "Next": {
+        "$Comment": "Freeze guard first (2026-10-21): while AT_Ice_King_Freeze_Guard is on (frozen, or the 5 s after) no stacks build up, only the mild slow. Without this a frozen player rebuilt Frost_1..4 during the freeze and the 5th hit froze him again right after the guard ended.",
+        "Type": "EffectCondition",
+        "Entity": "Target",
+        "EntityEffectIds": [
+          "AT_Ice_King_Frost_Immune"
+        ],
+        "Match": "None",
+        "Next": {
+          "Type": "EffectCondition",
+          "Entity": "Target",
+          "EntityEffectIds": [
+            "AT_Ice_King_Frost_4"
+          ],
+          "Match": "All",
+          "Next": {
+            "Type": "Serial",
+            "Interactions": [
+              {
+                "$Comment": "Freeze immunity: no freeze while AT_Ice_King_Freeze_Guard is on the target; every freeze puts it for the freeze time + 5 s (9 s here: 4 s freeze, 2026-10-21, was 8 + 3). Change the immunity in the Guard Duration.",
+                "Type": "EffectCondition",
+                "Entity": "Target",
+                "EntityEffectIds": [
+                  "AT_Ice_King_Freeze_Guard",
+                  "AT_Ice_King_Frost_Immune"
+                ],
+                "Match": "None",
+                "Next": {
+                  "Type": "Serial",
+                  "Interactions": [
+                    "AT_Ice_King_Rune_Freeze_Prep",
+                    {
+                      "Type": "ApplyEffect",
+                      "EffectId": "AT_Ice_King_Freeze",
+                      "Entity": "Target",
+                      "Duration": 4.0
+                    },
+                    {
+                      "Type": "ApplyEffect",
+                      "EffectId": "AT_Ice_King_Freeze_Guard",
+                      "Entity": "Target",
+                      "Duration": 9.0
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "Failed": {
+            "Type": "EffectCondition",
+            "Entity": "Target",
+            "EntityEffectIds": [
+              "AT_Ice_King_Frost_3"
+            ],
+            "Match": "All",
+            "Next": {
+              "Type": "Serial",
+              "Interactions": [
+                {
+                  "Type": "ClearEntityEffect",
+                  "EntityEffectId": "AT_Ice_King_Frost_3",
+                  "Entity": "Target"
+                },
+                {
+                  "Type": "ApplyEffect",
+                  "EffectId": "AT_Ice_King_Frost_4",
+                  "Entity": "Target",
+                  "Duration": 20
+                }
+              ]
+            },
+            "Failed": {
+              "Type": "EffectCondition",
+              "Entity": "Target",
+              "EntityEffectIds": [
+                "AT_Ice_King_Frost_2"
+              ],
+              "Match": "All",
+              "Next": {
+                "Type": "Serial",
+                "Interactions": [
+                  {
+                    "Type": "ClearEntityEffect",
+                    "EntityEffectId": "AT_Ice_King_Frost_2",
+                    "Entity": "Target"
+                  },
+                  {
+                    "Type": "ApplyEffect",
+                    "EffectId": "AT_Ice_King_Frost_3",
+                    "Entity": "Target",
+                    "Duration": 20
+                  }
+                ]
+              },
+              "Failed": {
+                "Type": "EffectCondition",
+                "Entity": "Target",
+                "EntityEffectIds": [
+                  "AT_Ice_King_Frost_1"
+                ],
+                "Match": "All",
+                "Next": {
+                  "Type": "Serial",
+                  "Interactions": [
+                    {
+                      "Type": "ClearEntityEffect",
+                      "EntityEffectId": "AT_Ice_King_Frost_1",
+                      "Entity": "Target"
+                    },
+                    {
+                      "Type": "ApplyEffect",
+                      "EffectId": "AT_Ice_King_Frost_2",
+                      "Entity": "Target",
+                      "Duration": 20
+                    }
+                  ]
+                },
+                "Failed": {
+                  "Type": "ApplyEffect",
+                  "EffectId": "AT_Ice_King_Frost_1",
+                  "Entity": "Target",
+                  "Duration": 20
+                }
+              }
+            }
+          }
+        },
+        "Failed": {
+          "Type": "ApplyEffect",
+          "EffectId": "AT_Ice_King_Slow_Weak",
+          "Entity": "Target",
+          "Duration": 1.5
+        }
+      },
+      "Failed": {
+        "Type": "ApplyEffect",
+        "EffectId": "AT_Ice_King_Slow_Weak",
+        "Entity": "Target",
+        "Duration": 1.5
+      }
+    }
+  }
+}

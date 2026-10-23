@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice King's flying template (2026-10-22): a copy of vanilla Template_Flying_Aggressive (Assets.zip 0.7.3) with ONE change. In .Chase, when the target is out of line of sight, the vanilla template overrides his altitude to [0, 2] ('try chasing the target to its altitude range'). Under trees, or when Mob Battle's wand sets him to chase, that brought him down next to the player or the dummy and kept him there, and the flips between combat and chase also re-armed the 'Once' rules (looping voices, fixed with flags). Here that override uses MotionDesiredAltitudeCombat, so he keeps his combat height while he looks for the target. Used by AT_Ice_King_Air and AT_Ice_King_Air_Enraged (Reference). Everything else is vanilla; re-copy and re-apply this one change after a game update that changes the original. Second change (2026-10-22: he ended up circling right over the target, 90 degrees up): MinAirSpeed 0 (vanilla 3). While he casts, nothing moves him (the orbit waits, MatchLook only turns him to face the target), and with a minimum air speed he kept flying forward, toward the target, until he was overhead; now he hovers where he is on the ring during a cast. 2026-10-22: first instruction runs the encounter's falling attacks when it sends their beacons (the king owns the damage). 2026-10-22: watchdog rules at the top (15 s of continuous interaction -> Root_AT_Ice_King_Unstick cancels his chains, '[IceKing] watchdog' in the log).",
+  "$Comment": "Ice King's flying template (2026-10-22): a copy of vanilla Template_Flying_Aggressive (Assets.zip 0.7.3) with ONE change. In .Chase, when the target is out of line of sight, the vanilla template overrides his altitude to [0, 2] ('try chasing the target to its altitude range'). Under trees, or when Mob Battle's wand sets him to chase, that brought him down next to the player or the dummy and kept him there, and the flips between combat and chase also re-armed the 'Once' rules (looping voices, fixed with flags). Here that override uses MotionDesiredAltitudeCombat, so he keeps his combat height while he looks for the target. Used by AT_Ice_King_Air and AT_Ice_King_Air_Enraged (Reference). Everything else is vanilla; re-copy and re-apply this one change after a game update that changes the original. Second change (2026-10-22: he ended up circling right over the target, 90 degrees up): MinAirSpeed 0 (vanilla 3). While he casts, nothing moves him (the orbit waits, MatchLook only turns him to face the target), and with a minimum air speed he kept flying forward, toward the target, until he was overhead; now he hovers where he is on the ring during a cast. 2026-10-22: first instruction runs the encounter's falling attacks when it sends their beacons (the king owns the damage).",
   "Type": "Abstract",
   "Parameters": {
     "DisableDamageGroups": {
@@ -341,87 +341,6 @@
   ],
   "Instructions": [
     {
-      "$Comment": "Watchdog 1/2 (2026-10-22): while he runs no interaction, keep the busy timer at 15 s.",
-      "Continue": true,
-      "Sensor": {
-        "Type": "Not",
-        "Sensor": {
-          "Type": "Self",
-          "Filters": [
-            {
-              "Type": "IsExecutingInteraction"
-            }
-          ]
-        }
-      },
-      "Actions": [
-        {
-          "Type": "TimerStart",
-          "Name": "AT_Ice_King_Busy",
-          "StartValueRange": [
-            15,
-            15
-          ],
-          "RestartValueRange": [
-            15,
-            15
-          ],
-          "Repeating": false
-        }
-      ],
-      "Enabled": false
-    },
-    {
-      "$Comment": "Watchdog 2/2 (2026-10-22): 15 s in a row with an interaction running (longer than any of his attacks, the shield is 12 s) means a chain got stuck: cancel all his chains (Root_AT_Ice_King_Unstick, an Interrupt on himself) and log it. Some chain never ended in real fights (cause not found yet) and froze the phase change and every attack.",
-      "Continue": true,
-      "Sensor": {
-        "Type": "And",
-        "Sensors": [
-          {
-            "Type": "Self",
-            "Filters": [
-              {
-                "Type": "IsExecutingInteraction"
-              }
-            ]
-          },
-          {
-            "Type": "Timer",
-            "Name": "AT_Ice_King_Busy",
-            "TimeRemainingRange": [
-              0,
-              0
-            ]
-          }
-        ]
-      },
-      "Actions": [
-        {
-          "Type": "Attack",
-          "Attack": "Root_AT_Ice_King_Unstick",
-          "AvoidFriendlyFire": false
-        },
-        {
-          "Type": "Log",
-          "Message": "[IceKing] watchdog: cancelled a stuck interaction"
-        },
-        {
-          "Type": "TimerStart",
-          "Name": "AT_Ice_King_Busy",
-          "StartValueRange": [
-            15,
-            15
-          ],
-          "RestartValueRange": [
-            15,
-            15
-          ],
-          "Repeating": false
-        }
-      ],
-      "Enabled": false
-    },
-    {
       "$Comment": "Encounter falling attacks (2026-10-22): the encounter sends a beacon (AT_Ice_King_Drop_<phase>_<n>) when one of its lightning / iceberg / ice rain drops is due; the king runs that block, copied from AT_Ice_King_Encounter, so he owns the damage (a death reads 'killed by Ice King'). Same blocks in Template_AT_Ice_King and Template_AT_Ice_King_Flying; regenerate both together.",
       "Continue": true,
       "Sensor": {
@@ -445,10 +364,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncLightning"
-                },
                 {
                   "Type": "ProjectToGround",
                   "Actions": [
@@ -524,10 +439,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIceberg"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -593,10 +504,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIce_Rain"
-                },
                 {
                   "Type": "AdjustPosition",
                   "Offset": [
@@ -1029,10 +936,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncLightning"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -1107,10 +1010,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIceberg"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -1176,10 +1075,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIce_Rain"
-                },
                 {
                   "Type": "AdjustPosition",
                   "Offset": [
@@ -1612,10 +1507,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncLightning"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -1690,10 +1581,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIceberg"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -1759,10 +1646,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIce_Rain"
-                },
                 {
                   "Type": "AdjustPosition",
                   "Offset": [
@@ -2195,10 +2078,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncLightning"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -2273,10 +2152,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIceberg"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -2342,10 +2217,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIce_Rain"
-                },
                 {
                   "Type": "AdjustPosition",
                   "Offset": [
@@ -3112,42 +2983,6 @@
               "Actions": [
                 {
                   "Type": "Nothing"
-                }
-              ]
-            },
-            {
-              "$Comment": "Attack the target when within ranged attack distance Ice King (2026-10-22: far away the phase 4 ultimate came, close up only 'basic attacks'): OFF. This vanilla rule fired the RangedAttack (Root_AT_Ice_King_Ice_Ray) whenever the target was within RangedAttackDistance (30), with no busy check, and stepped on the component's attacks: the ultimate's Attack logged as cast every 29-30 s but its chain never started (no warning effect) while the player was within 30 blocks; with the player farther it always ran. The air components (Component_AT_Ice_King_Air_Combat / _Air_Enraged_Combat) hold all the attacks. RangedAttackDistance is still used by the state changes below, so it stays.",
-              "Enabled": false,
-              "Continue": true,
-              "Sensor": {
-                "Type": "Target",
-                "Range": {
-                  "Compute": "RangedAttackDistance"
-                },
-                "Filters": [
-                  {
-                    "Type": "LineOfSight"
-                  }
-                ]
-              },
-              "HeadMotion": {
-                "Type": "Aim",
-                "HitProbability": 1,
-                "Spread": 0,
-                "Deflection": false
-              },
-              "Actions": [
-                {
-                  "Type": "Attack",
-                  "AimingTimeRange": {
-                    "Compute": "RangedAttackAimingRange"
-                  },
-                  "Attack": {
-                    "Compute": "RangedAttack"
-                  },
-                  "AttackPauseRange": {
-                    "Compute": "RangedAttackPauseRange"
-                  }
                 }
               ]
             },

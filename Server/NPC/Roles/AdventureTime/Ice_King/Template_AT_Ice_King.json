@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice King template: a copy of vanilla Template_Intelligent (Assets.zip 0.7.x) with two boss changes, as the vanilla boss templates are copies too. 1) First instruction: SetHealthRegen false. 2) ReturnHome no longer refills health (SetStat Health 1000000 removed), so the encounter phase and the king's health stay in step. Everything else is unchanged; re-copy it when the game updates Template_Intelligent. 3) Parameter TargetPlayersOnly (vanilla Template_Void_Spawn_Entombed pattern) so the fight roles ignore NPCs that hit them (a spider dragged the king into a fight, 2026-10-19). 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Shield_Break when the 5th hit breaks the ice shield (2 rules); AlertedVoice parameters (one or two lines on entering Alerted) for the phase roles. 2026-10-22 test logger: a Log action (\"[IceKing] ...\") after every PlaySound / role change, printed to the server log. Log is rate-limited by the server to one line per second for ALL Log actions together (ActionLog atMostEvery 1 s). Sounds played by interactions (attacks) cannot log. 2026-10-22: every Attack action has DamageFriendlies true. The henchmen list the king's group in DisableDamageGroups (so they never fight back at him); with this flag his attacks still land on them as before (ultimate, stray rays), while their Damage sensor still ignores him. 2026-10-22 (playtest: switch off friendly-fire avoidance on all his attacks; if he kills his own penguins by mistake, better, a more chaotic team fight): every Attack action has AvoidFriendlyFire false (ActionAttack: with true, an entity of his own damage groups in the line made him drop the attack). 2026-10-22: first instruction runs the encounter's falling attacks when it sends their beacons (the king owns the damage). 2026-10-22: watchdog rules at the top (15 s of continuous interaction -> Root_AT_Ice_King_Unstick cancels his chains, '[IceKing] watchdog' in the log).",
+  "$Comment": "Ice King template: a copy of vanilla Template_Intelligent (Assets.zip 0.7.x) with two boss changes, as the vanilla boss templates are copies too. 1) First instruction: SetHealthRegen false. 2) ReturnHome no longer refills health (SetStat Health 1000000 removed), so the encounter phase and the king's health stay in step. Everything else is unchanged; re-copy it when the game updates Template_Intelligent. 3) Parameter TargetPlayersOnly (vanilla Template_Void_Spawn_Entombed pattern) so the fight roles ignore NPCs that hit them (a spider dragged the king into a fight, 2026-10-19). 2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Shield_Break when the 5th hit breaks the ice shield (2 rules); AlertedVoice parameters (one or two lines on entering Alerted) for the phase roles. 2026-10-22: every Attack action has DamageFriendlies true. The henchmen list the king's group in DisableDamageGroups (so they never fight back at him); with this flag his attacks still land on them as before (ultimate, stray rays), while their Damage sensor still ignores him. 2026-10-22 (playtest: switch off friendly-fire avoidance on all his attacks; if he kills his own penguins by mistake, better, a more chaotic team fight): every Attack action has AvoidFriendlyFire false (ActionAttack: with true, an entity of his own damage groups in the line made him drop the attack). 2026-10-22: first instruction runs the encounter's falling attacks when it sends their beacons (the king owns the damage).",
   "Type": "Abstract",
   "Appearance": {
     "Compute": "Appearance"
@@ -105,87 +105,6 @@
   "StartState": "Idle",
   "Instructions": [
     {
-      "$Comment": "Watchdog 1/2 (2026-10-22): while he runs no interaction, keep the busy timer at 15 s.",
-      "Continue": true,
-      "Sensor": {
-        "Type": "Not",
-        "Sensor": {
-          "Type": "Self",
-          "Filters": [
-            {
-              "Type": "IsExecutingInteraction"
-            }
-          ]
-        }
-      },
-      "Actions": [
-        {
-          "Type": "TimerStart",
-          "Name": "AT_Ice_King_Busy",
-          "StartValueRange": [
-            15,
-            15
-          ],
-          "RestartValueRange": [
-            15,
-            15
-          ],
-          "Repeating": false
-        }
-      ],
-      "Enabled": false
-    },
-    {
-      "$Comment": "Watchdog 2/2 (2026-10-22): 15 s in a row with an interaction running (longer than any of his attacks, the shield is 12 s) means a chain got stuck: cancel all his chains (Root_AT_Ice_King_Unstick, an Interrupt on himself) and log it. Some chain never ended in real fights (cause not found yet) and froze the phase change and every attack.",
-      "Continue": true,
-      "Sensor": {
-        "Type": "And",
-        "Sensors": [
-          {
-            "Type": "Self",
-            "Filters": [
-              {
-                "Type": "IsExecutingInteraction"
-              }
-            ]
-          },
-          {
-            "Type": "Timer",
-            "Name": "AT_Ice_King_Busy",
-            "TimeRemainingRange": [
-              0,
-              0
-            ]
-          }
-        ]
-      },
-      "Actions": [
-        {
-          "Type": "Attack",
-          "Attack": "Root_AT_Ice_King_Unstick",
-          "AvoidFriendlyFire": false
-        },
-        {
-          "Type": "Log",
-          "Message": "[IceKing] watchdog: cancelled a stuck interaction"
-        },
-        {
-          "Type": "TimerStart",
-          "Name": "AT_Ice_King_Busy",
-          "StartValueRange": [
-            15,
-            15
-          ],
-          "RestartValueRange": [
-            15,
-            15
-          ],
-          "Repeating": false
-        }
-      ],
-      "Enabled": false
-    },
-    {
       "$Comment": "Encounter falling attacks (2026-10-22): the encounter sends a beacon (AT_Ice_King_Drop_<phase>_<n>) when one of its lightning / iceberg / ice rain drops is due; the king runs that block, copied from AT_Ice_King_Encounter, so he owns the damage (a death reads 'killed by Ice King'). Same blocks in Template_AT_Ice_King and Template_AT_Ice_King_Flying; regenerate both together. Enabled by the EncounterDrops parameter (off on the passive AT_Ice_King: with an idle king near the fight, it caught the beacons and dropped them too).",
       "Continue": true,
       "Sensor": {
@@ -209,10 +128,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncLightning"
-                },
                 {
                   "Type": "ProjectToGround",
                   "Actions": [
@@ -288,10 +203,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIceberg"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -357,10 +268,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIce_Rain"
-                },
                 {
                   "Type": "AdjustPosition",
                   "Offset": [
@@ -793,10 +700,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncLightning"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -871,10 +774,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIceberg"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -940,10 +839,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIce_Rain"
-                },
                 {
                   "Type": "AdjustPosition",
                   "Offset": [
@@ -1376,10 +1271,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncLightning"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -1454,10 +1345,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIceberg"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -1523,10 +1410,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIce_Rain"
-                },
                 {
                   "Type": "AdjustPosition",
                   "Offset": [
@@ -1959,10 +1842,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncLightning"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -2037,10 +1916,6 @@
               },
               "Actions": [
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIceberg"
-                },
-                {
                   "Type": "ProjectToGround",
                   "Actions": [
                     {
@@ -2106,10 +1981,6 @@
                 "MultiTarget": true
               },
               "Actions": [
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing][drop] EncIce_Rain"
-                },
                 {
                   "Type": "AdjustPosition",
                   "Offset": [
@@ -2569,10 +2440,6 @@
           "SoundEventId": {
             "Compute": "AlertedVoiceSecondSound"
           }
-        },
-        {
-          "Type": "Log",
-          "Message": "[IceKing][ground phase 1/3] sound (role parameter AlertedVoiceSecondSound)"
         }
       ]
     },
@@ -2656,10 +2523,6 @@
         {
           "Type": "PlaySound",
           "SoundEventId": "SFX_AT_Ice_King_VO_Many_Players"
-        },
-        {
-          "Type": "Log",
-          "Message": "[IceKing][ground phase 1/3] sound SFX_AT_Ice_King_VO_Many_Players"
         },
         {
           "Type": "TimerRestart",
@@ -3640,10 +3503,6 @@
                   }
                 },
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing][ground phase 1/3] sound (role parameter AlertedVoiceSound)"
-                },
-                {
                   "Type": "TimerStart",
                   "Name": "AT_Ice_King_Alert_Second_Timer",
                   "StartValueRange": {
@@ -3941,10 +3800,6 @@
                         {
                           "Type": "PlaySound",
                           "SoundEventId": "SFX_AT_Ice_King_VO_Shield_Break"
-                        },
-                        {
-                          "Type": "Log",
-                          "Message": "[IceKing][ground phase 1/3] sound SFX_AT_Ice_King_VO_Shield_Break"
                         }
                       ]
                     },
@@ -4274,10 +4129,6 @@
                         {
                           "Type": "PlaySound",
                           "SoundEventId": "SFX_AT_Ice_King_VO_Shield_Break"
-                        },
-                        {
-                          "Type": "Log",
-                          "Message": "[IceKing][ground phase 1/3] sound SFX_AT_Ice_King_VO_Shield_Break"
                         }
                       ]
                     },

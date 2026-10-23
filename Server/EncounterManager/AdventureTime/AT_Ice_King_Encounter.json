@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice King mini-boss fight. Place it once with /encounter add AT_Ice_King_Encounter near the king. Waiting: the king is neutral; the first hit (health under 99%) starts the fight (hostile AT_Ice_King_Fight, boss bar, music, snow storm; they stay for every phase). Phase_1 ground (AT_Ice_King_Fight, CAE) -> 70% -> Phase_2 air (AT_Ice_King_Air, icebergs every 8 s) -> 45% -> Phase_3 Fridjitzu on the ground (AT_Ice_King_Fridjitzu, nunchucks) -> 20% -> Phase_4 enraged in the air (AT_Ice_King_Air_Enraged, icebergs every 5 s, lightning every 6-10 s). Built from vanilla Example_Boss and the Gobliterator encounter macros. 2026-10-21 reset fix: Player range 80, king Mob sensors 80, the 'king still alive' Target 120, Waiting resumes the phase that matches his health, Done goes back to Waiting with any living king. 2026-10-21: the cosmetic far lightning ('Thunder snow, far', a bolt 22-30 blocks from a player every 6-12 s) was removed (playtest: it looked like attacks fired away from him). The real lightning attack with its ground warning stays. 2026-10-21: every phase also answers the beacon AT_Ice_King_Ice_Rain (ice rain: 10 shards around each player). 2026-10-22 test logger: a Log action (\"[IceKing] ...\") after every PlaySound / role change, printed to the server log. Log is rate-limited by the server to one line per second for ALL Log actions together (ActionLog atMostEvery 1 s). Sounds played by interactions (attacks) cannot log. 2026-10-22: the falling lightning, icebergs and ice rain drops are no longer spawned here: each block became a Beacon (AT_Ice_King_Drop_*) to the king, whose templates run the same block, so the king owns the damage ('killed by Ice King' instead of an unknown cause). Timers and conditions stay here. 2026-10-22: '[IceKing] fight over' Log where the boss bar is cleared (the king died or left), so scripts/ice-king-harness.py watch closes its report.",
+  "$Comment": "Ice King mini-boss fight. Place it once with /encounter add AT_Ice_King_Encounter near the king. Waiting: the king is neutral; the first hit (health under 99%) starts the fight (hostile AT_Ice_King_Fight, boss bar, music, snow storm; they stay for every phase). Phase_1 ground (AT_Ice_King_Fight, CAE) -> 70% -> Phase_2 air (AT_Ice_King_Air, icebergs every 8 s) -> 45% -> Phase_3 Fridjitzu on the ground (AT_Ice_King_Fridjitzu, nunchucks) -> 20% -> Phase_4 enraged in the air (AT_Ice_King_Air_Enraged, icebergs every 5 s, lightning every 6-10 s). Built from vanilla Example_Boss and the Gobliterator encounter macros. 2026-10-21 reset fix: Player range 80, king Mob sensors 80, the 'king still alive' Target 120, Waiting resumes the phase that matches his health, Done goes back to Waiting with any living king. 2026-10-21: the cosmetic far lightning ('Thunder snow, far', a bolt 22-30 blocks from a player every 6-12 s) was removed (playtest: it looked like attacks fired away from him). The real lightning attack with its ground warning stays. 2026-10-21: every phase also answers the beacon AT_Ice_King_Ice_Rain (ice rain: 10 shards around each player). 2026-10-22: the falling lightning, icebergs and ice rain drops are no longer spawned here: each block became a Beacon (AT_Ice_King_Drop_*) to the king, whose templates run the same block, so the king owns the damage ('killed by Ice King' instead of an unknown cause). Timers and conditions stay here.",
   "Class": "EncounterManager",
   "Type": "Generic",
   "Debug": "DisplayState",
@@ -88,10 +88,6 @@
                   "Type": "ApplyEntityEffect",
                   "EntityEffect": "AT_Ice_King_Scaling",
                   "UseTarget": true
-                },
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing] health scaled for 2 players"
                 }
               ]
             },
@@ -162,10 +158,6 @@
                   "Type": "ApplyEntityEffect",
                   "EntityEffect": "AT_Ice_King_Scaling",
                   "UseTarget": true
-                },
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing] health scaled for 3 players"
                 }
               ]
             },
@@ -236,10 +228,6 @@
                   "Type": "ApplyEntityEffect",
                   "EntityEffect": "AT_Ice_King_Scaling",
                   "UseTarget": true
-                },
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing] health scaled for 4 players"
                 }
               ]
             },
@@ -282,10 +270,6 @@
                 {
                   "Type": "ChangeTargetRole",
                   "Role": "AT_Ice_King_Air_Enraged"
-                },
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Air_Enraged"
                 },
                 {
                   "Type": "SetEncounterBossBar",
@@ -347,10 +331,6 @@
                   "Role": "AT_Ice_King_Fridjitzu"
                 },
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Fridjitzu"
-                },
-                {
                   "Type": "SetEncounterBossBar",
                   "Name": "server.npcRoles.AT_Ice_King.name"
                 },
@@ -410,10 +390,6 @@
                   "Role": "AT_Ice_King_Air"
                 },
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Air"
-                },
-                {
                   "Type": "SetEncounterBossBar",
                   "Name": "server.npcRoles.AT_Ice_King.name"
                 },
@@ -471,10 +447,6 @@
                 {
                   "Type": "ChangeTargetRole",
                   "Role": "AT_Ice_King_Fight"
-                },
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Fight"
                 },
                 {
                   "Type": "SetEncounterBossBar",
@@ -738,10 +710,6 @@
                     {
                       "Type": "PlaySound",
                       "SoundEventId": "SFX_Global_Weather_Thunder"
-                    },
-                    {
-                      "Type": "Log",
-                      "Message": "[IceKing][encounter] sound SFX_Global_Weather_Thunder"
                     }
                   ]
                 }
@@ -845,10 +813,6 @@
                   "Role": "AT_Ice_King_Air"
                 },
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Air"
-                },
-                {
                   "Type": "SetEncounterBossBar",
                   "Name": "server.npcRoles.AT_Ice_King.name"
                 },
@@ -892,10 +856,6 @@
                   "Role": "AT_Ice_King_Air"
                 },
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Air"
-                },
-                {
                   "Type": "SetEncounterBossBar",
                   "Name": "server.npcRoles.AT_Ice_King.name"
                 },
@@ -937,10 +897,6 @@
                 {
                   "Type": "State",
                   "State": "Done"
-                },
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing] fight over"
                 }
               ]
             }
@@ -1187,10 +1143,6 @@
                     {
                       "Type": "PlaySound",
                       "SoundEventId": "SFX_Global_Weather_Thunder"
-                    },
-                    {
-                      "Type": "Log",
-                      "Message": "[IceKing][encounter] sound SFX_Global_Weather_Thunder"
                     }
                   ]
                 }
@@ -1298,10 +1250,6 @@
                   "Role": "AT_Ice_King_Fridjitzu"
                 },
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Fridjitzu"
-                },
-                {
                   "Type": "SetEncounterBossBar",
                   "Name": "server.npcRoles.AT_Ice_King.name"
                 },
@@ -1345,10 +1293,6 @@
                   "Role": "AT_Ice_King_Fridjitzu"
                 },
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Fridjitzu"
-                },
-                {
                   "Type": "SetEncounterBossBar",
                   "Name": "server.npcRoles.AT_Ice_King.name"
                 },
@@ -1390,10 +1334,6 @@
                 {
                   "Type": "State",
                   "State": "Done"
-                },
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing] fight over"
                 }
               ]
             }
@@ -1640,10 +1580,6 @@
                     {
                       "Type": "PlaySound",
                       "SoundEventId": "SFX_Global_Weather_Thunder"
-                    },
-                    {
-                      "Type": "Log",
-                      "Message": "[IceKing][encounter] sound SFX_Global_Weather_Thunder"
                     }
                   ]
                 }
@@ -1747,10 +1683,6 @@
                   "Role": "AT_Ice_King_Air_Enraged"
                 },
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Air_Enraged"
-                },
-                {
                   "Type": "SetEncounterBossBar",
                   "Name": "server.npcRoles.AT_Ice_King.name"
                 },
@@ -1794,10 +1726,6 @@
                   "Role": "AT_Ice_King_Air_Enraged"
                 },
                 {
-                  "Type": "Log",
-                  "Message": "[IceKing] phase change -> AT_Ice_King_Air_Enraged"
-                },
-                {
                   "Type": "SetEncounterBossBar",
                   "Name": "server.npcRoles.AT_Ice_King.name"
                 },
@@ -1839,10 +1767,6 @@
                 {
                   "Type": "State",
                   "State": "Done"
-                },
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing] fight over"
                 }
               ]
             }
@@ -2089,10 +2013,6 @@
                     {
                       "Type": "PlaySound",
                       "SoundEventId": "SFX_Global_Weather_Thunder"
-                    },
-                    {
-                      "Type": "Log",
-                      "Message": "[IceKing][encounter] sound SFX_Global_Weather_Thunder"
                     }
                   ]
                 }
@@ -2228,10 +2148,6 @@
                 {
                   "Type": "State",
                   "State": "Done"
-                },
-                {
-                  "Type": "Log",
-                  "Message": "[IceKing] fight over"
                 }
               ]
             }

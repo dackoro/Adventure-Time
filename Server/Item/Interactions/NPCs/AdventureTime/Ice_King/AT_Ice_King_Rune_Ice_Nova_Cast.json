@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice Nova rune cast (2026-10-22): the king's nova shortened for a player: 0.6 s charge with his warning circle (Scale 4.55 = the 4.5 radius) and hand glow, then the blast (AOECircle 4.5, his Nova_Burst particle). Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: the king's own AT_Ice_King_Staff animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
+  "$Comment": "Ice Nova rune cast (2026-10-22): the king's nova shortened for a player: 0.6 s charge with the hand glow (his red warning circle removed 2026-10-23: no red zone on the runes), then the blast (AOECircle 4.5, his Nova_Burst particle at Scale 2 like the shield rune's burst; 3 until 2026-10-23: as subtle as the shield). Circle and blast are TriggerAbilityFX world particles at the caster's feet (2026-10-23): attached particles of the caster's own chain are not drawn in first person. Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: AT_Ice_King_Rune_Player = the king's AT_Ice_King_Staff poses without their face animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
   "Type": "StatsCondition",
   "Costs": {
     "AT_Ice_Magic": 30
@@ -18,17 +18,10 @@
               "Type": "Simple",
               "RunTime": 0.6,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceNovaCharging",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
-                  {
-                    "SystemId": "AT_Ice_King_Warning_Circle",
-                    "TargetEntityPart": "Entity",
-                    "TargetNodeName": "Origin",
-                    "DetachedFromModel": true,
-                    "Scale": 4.55
-                  },
                   {
                     "SystemId": "AT_Ice_King_Summon_Energy",
                     "TargetEntityPart": "Entity",
@@ -45,21 +38,19 @@
               }
             },
             {
+              "Type": "TriggerAbilityFX",
+              "SystemId": "AT_Ice_King_Nova_Burst",
+              "Scale": 2,
+              "ScaleAttribute": "AoeScale",
+              "SoundEventId": "SFX_AT_Ice_King_Ice_Nova"
+            },
+            {
               "Type": "Selector",
               "RunTime": 0.1,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceNovaBlast",
-                "WaitForAnimationToFinish": false,
-                "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Nova",
-                "Particles": [
-                  {
-                    "SystemId": "AT_Ice_King_Nova_Burst",
-                    "TargetEntityPart": "Entity",
-                    "DetachedFromModel": true,
-                    "Scale": 3
-                  }
-                ]
+                "WaitForAnimationToFinish": false
               },
               "Selector": {
                 "Id": "AOECircle",

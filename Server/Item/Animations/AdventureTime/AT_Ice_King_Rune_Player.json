@@ -1,0 +1,253 @@
+{
+  "$Comment": "Player animation set of the Ice King runes (2026-10-23). The same poses as the king's AT_Ice_King_Staff (copied entries, same .blockyanim files) WITHOUT their ThirdPersonFace animations (Face_Clench / Face_Shout, made for the king's own face and Mouth attachment). Dackoro lost his third-person body (first person and inventory fine, only a client restart fixed it) after the rain, iceberg and ultimate runes, which all play a face animation; the zap and the old ice ray rune (vanilla Sword anims) never did. Parent Staff (vanilla player staff set) instead of the king's Skeleton_Staff. Regenerate from the king's set with the rune work's mkset.py if his poses change. 2026-10-23 (playtest: use the Snap Wand's first person for the mace): IceMaceSlam and IceMaceSlamLast are the vanilla mace Swing_Down in both views (Swing_Down / _Moving / _FPS, no face; the king's slam pose at Speed 1.6 crouched long before the overlay mace hit), Speed 1.6 (the hit lands ~0.33 s in; the mace cast starts each slam 0.33 s before its wave), as Mob Battle's MobBattle_SnapWand SnapSlam. 2026-10-23 (playtest: the mouth glitched during the burst): FrostBeamFire / FrostBeamFireL / IceShieldBurst key the king's Mouth and eyebrow nodes, which on a player move his own face; here they play PunchR / PunchL / IceNovaBlast instead (no face nodes). Other king poses that key face nodes (not used by the runes): FrostBeamChargingBoth, FrostBeamFireBoth, FrostUltimate*, IceRainCast, IceRainCharging, IceRayThrow(L), ZapCast(L).",
+  "Parent": "Staff",
+  "Animations": {
+    "FrostBeamCharging": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Beam_Charging.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Beam_Charging_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1
+    },
+    "FrostBeamChargingBoth": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Beam_Charging_Both.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Beam_Charging_Both_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1
+    },
+    "FrostBeamChargingL": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Beam_Charging_L.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Beam_Charging_L_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1
+    },
+    "FrostBeamFire": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_R.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_R.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "FrostBeamFireBoth": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Beam_Fire_Both.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Beam_Fire_Both_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 2,
+      "BlendingDuration": 0.05
+    },
+    "FrostBeamFireL": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_L.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_L.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "FrostUltimateCharging": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Ultimate_Charging.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Ultimate_Charging_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1
+    },
+    "FrostUltimateFire": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Ultimate_Fire.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Ultimate_Fire_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0
+    },
+    "FrostUltimateRecovery": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Ultimate_Recovery.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Frost_Ultimate_Recovery_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0
+    },
+    "IceMaceSlam": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Mace/Attacks/Swing_Down/Swing_Down.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Mace/Attacks/Swing_Down/Swing_Down_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Mace/Attacks/Swing_Down/Swing_Down_FPS.blockyanim",
+      "Speed": 1.6,
+      "BlendingDuration": 0.05
+    },
+    "IceMaceSlamLast": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Mace/Attacks/Swing_Down/Swing_Down.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Mace/Attacks/Swing_Down/Swing_Down_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Mace/Attacks/Swing_Down/Swing_Down_FPS.blockyanim",
+      "Speed": 1.6,
+      "BlendingDuration": 0.05
+    },
+    "IceMaceSummon": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Mace_Summon.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Mace_Summon.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "IceNovaBlast": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Nova_Blast.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Nova_Blast_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0
+    },
+    "IceNovaCharging": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Nova_Charging.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Nova_Charging_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1
+    },
+    "IceRainCast": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Rain_Cast.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Rain_Cast_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0
+    },
+    "IceRainCharging": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Rain_Charging.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Rain_Charging_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1
+    },
+    "IceRainVolley": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Rain_Volley.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Rain_Volley.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Looping": false,
+      "Speed": 1,
+      "BlendingDuration": 0.05
+    },
+    "IceRayThrow": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Ray_Throw.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Ray_Throw_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "IceRayThrowL": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Ray_Throw_L.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Ray_Throw_L_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "IceShieldBurst": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Nova_Blast.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Nova_Blast_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0
+    },
+    "IceShieldHold": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Shield_Hold.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Shield_Hold_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1
+    },
+    "IceSwordDive": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Dive.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Dive.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Looping": true,
+      "Speed": 1,
+      "BlendingDuration": 0.15
+    },
+    "IceSwordSlash": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Slash.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Slash.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.05
+    },
+    "IceSwordSummon": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Summon.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Summon.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "IceSwordSwing1": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Swing_1.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Swing_1.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.05
+    },
+    "IceSwordSwing2": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Swing_2.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Ice_Sword_Swing_2.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.05
+    },
+    "IcebergCast": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Iceberg_Cast.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Iceberg_Cast_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0
+    },
+    "IcebergCharging": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Iceberg_Charging.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Iceberg_Charging_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1
+    },
+    "PunchL": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_L.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_L.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "PunchR": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_R.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Punch_R.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "SummonGuntersCast": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Summon_Gunters_Cast.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Summon_Gunters_Cast_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0
+    },
+    "SummonGuntersCharging": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Summon_Gunters_Charging.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Summon_Gunters_Charging_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "Speed": 1
+    },
+    "SwingLeft": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Swing_Left/Swing_Left.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Swing_Left/Swing_Left_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Swing_Left/Swing_Left_FPS.blockyanim",
+      "KeepPreviousFirstPersonAnimation": true,
+      "Speed": 0.75
+    },
+    "ZapCast": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Zap_Throw.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Zap_Throw_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "ZapCastL": {
+      "ThirdPerson": "Characters/Animations/Items/AdventureTime/Ice_King/Zap_Throw_L.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/AdventureTime/Ice_King/Zap_Throw_L_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    }
+  }
+}

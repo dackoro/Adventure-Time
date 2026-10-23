@@ -1,19 +1,7 @@
 {
-  "$Comment": "Ice Mace rune overlay (2026-10-22): the ice mace (the king's Ice_Mace_Held x1.4, two-handed) drawn over the caster through ModelOverride, as the sword overlay. Spawn = Rune_Ice_Mace_Spawn (156 frames = 2.6 s): grows over the head 0-0.5 s, the head hits the ground 1.2 blocks in front at 0.70, 1.37 and 2.04 s (the cast's waves) with a frost ring, bursts 2.33-2.50 s, hidden from 2.5 s. Put on the caster for 2.55 s by AT_Ice_King_Rune_Ice_Mace_Cast. First person: the client draws neither the own body nor a ModelOverride on it, so FirstPersonParticles adds the AT_Ice_King_Rune_Mace_FP (a downward slash before each slam, ice impacts at 0.70/1.37/2.04 s, burst at 2.40 s), as vanilla Ability_ChargedShot_Charge_* pairs its ModelOverride icicle with first-person particles.",
+  "$Comment": "Ice Mace rune overlay (2026-10-22): the ice mace (the king's Ice_Mace_Held x1.4, two-handed) drawn over the caster through ModelOverride, as the sword overlay. Spawn = Rune_Ice_Mace_Spawn (156 frames = 2.6 s): grows over the head 0-0.5 s, the head hits the ground 1.2 blocks in front at 0.70, 1.37 and 2.04 s (the cast's waves) with a frost ring, bursts 2.33-2.50 s, hidden from 2.5 s. Put on the caster for 2.55 s by AT_Ice_King_Rune_Ice_Mace_Cast. First person: nothing of this overlay shows (the client draws neither the own body nor a ModelOverride on it). The first-person particles AT_Ice_King_Rune_Mace_FP were here and were removed 2026-10-23 (playtest: ugly white blasts over the screen); in first person the mace rune shows its shock waves only.",
   "Duration": 2.55,
   "OverlapBehavior": "Overwrite",
-  "ApplicationEffects": {
-    "FirstPersonParticles": [
-      {
-        "SystemId": "AT_Ice_King_Rune_Mace_FP",
-        "PositionOffset": {
-          "X": 0,
-          "Y": 0.05,
-          "Z": 1.2
-        }
-      }
-    ]
-  },
   "ModelOverride": {
     "Model": "NPC/AdventureTime/Ice_King/Runes/Rune_Ice_Mace.blockymodel",
     "Texture": "NPC/AdventureTime/Ice_King/Runes/Rune_Ice_Mace_Texture.png",

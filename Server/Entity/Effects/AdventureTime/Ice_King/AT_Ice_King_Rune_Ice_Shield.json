@@ -1,5 +1,5 @@
 {
-  "$Comment": "Player Ice Shield rune effect (2026-10-22): copy of the king's AT_Ice_King_Ice_Shield (his bubble, tint, snow, 70 % less physical/projectile/elemental damage) with the Despawn set of AT_Ice_King_Ice_Shield_Pulse (swells and vanishes) and HorizontalSpeedMultiplier 0.5 (the king stands still; the player can walk slowly). The rune's cast removes it at the burst.",
+  "$Comment": "Player Ice Shield rune effect (2026-10-22): copy of the king's AT_Ice_King_Ice_Shield (his bubble, tint, snow, 70 % less physical/projectile/elemental damage) with the Despawn set of AT_Ice_King_Ice_Shield_Pulse (swells and vanishes) and HorizontalSpeedMultiplier 0.5 (the king stands still; the player can walk slowly). The rune's cast removes it at the burst. First person (2026-10-23: no feedback at all there, the bubble is a ModelOverride on the own body and the client never draws that in first person): ScreenEffect ScreenEffects/Snow.png (the freeze's screen, the pick; the AT_Ice_King_Rune_Shield.png overlay was tried 2026-10-23 and dropped as too techy; before it, the freeze's icy vignette, placeholder until art makes a shield one; vanilla Immune.png is green) and FirstPersonParticles AT_Ice_King_Slow_Snow_FP (light flakes).",
   "ApplicationEffects": {
     "EntityTopTint": "#e3fbff",
     "EntityBottomTint": "#80ecff",
@@ -8,7 +8,13 @@
         "SystemId": "Effect_Snow"
       }
     ],
-    "HorizontalSpeedMultiplier": 0.5
+    "HorizontalSpeedMultiplier": 0.5,
+    "ScreenEffect": "ScreenEffects/Snow.png",
+    "FirstPersonParticles": [
+      {
+        "SystemId": "AT_Ice_King_Slow_Snow_FP"
+      }
+    ]
   },
   "Duration": 5,
   "OverlapBehavior": "Overwrite",

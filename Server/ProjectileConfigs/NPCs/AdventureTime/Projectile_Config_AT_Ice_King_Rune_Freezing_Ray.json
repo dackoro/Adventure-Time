@@ -1,5 +1,5 @@
 {
-  "$Comment": "Freezing Ray rune bolt (2026-10-22): the king's ice ray flight (LaunchForce 40, Gravity 3) with the freezing hit.",
+  "$Comment": "Ice Ray rune bolt (2026-10-23; made 2026-10-22 for the removed Freezing Ray rune): the king's ice ray flight (LaunchForce 40, Gravity 3) with the freezing hit, plus SplitAbilityProjectile for Fork / Ricochet support runes. Cast by AT_Ice_King_Rune_Ice_Ray_Cast (hand-written file).",
   "Model": "AT_Ice_King_Ray",
   "LaunchForce": 40,
   "Physics": {

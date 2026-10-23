@@ -1,5 +1,5 @@
 {
-  "$Comment": "Frost Burst rune cast (2026-10-22): the king's 5-bolt burst (AT_Ice_King_Frost_Beam): 0.6 s charge, then 5 bolts 0.22 s apart, left/right throws by turns; 5 hits = 5 frost stacks = a freeze, the last one pushes. Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: the king's own AT_Ice_King_Staff animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
+  "$Comment": "Frost Burst rune cast (2026-10-22): the king's bolt burst (AT_Ice_King_Frost_Beam): 0.6 s charge, then 10 bolts 0.22 s apart (2026-10-23: 10, was 5), left / right hand by turns, each from that hand (_L / _R configs); 5 hits = 5 frost stacks = a freeze (then the guard keeps it at Frost_4), the last one pushes. Shot feedback (2026-10-23: no shot effect): an Impact_Ice puff on the throwing hand (third person) and an Impact_Ice trail along each bolt (LaunchAbilityProjectile TrailParticles: world bursts, seen in first person too). Sound (2026-10-23: it sounded once for the whole burst): SFX_AT_Ice_King_Bolt_Shot (the 0.6 s cut of the staff shot, up to 12 at once) on every throw step, 0.22 s apart; the bolt configs have no launch sound (it was not heard, and both would play twice). Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: AT_Ice_King_Rune_Player = the king's AT_Ice_King_Staff poses without their face animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
   "Type": "StatsCondition",
   "Costs": {
     "AT_Ice_Magic": 30
@@ -18,7 +18,7 @@
               "Type": "Simple",
               "RunTime": 0.6,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "FrostBeamChargingL",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
@@ -41,18 +41,29 @@
               "Type": "Simple",
               "RunTime": 0,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "FrostBeamFireL",
                 "WaitForAnimationToFinish": false,
-                "WorldSoundEventId": "SFX_AT_Ice_King_Frost_Beam"
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "L-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
               }
             },
             {
               "Type": "LaunchAbilityProjectile",
-              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt_L",
               "Lifetime": 0.7,
               "ScaleAttribute": "ProjectileSize",
-              "SpeedAttribute": "Speed"
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
             },
             {
               "Type": "Simple",
@@ -62,17 +73,29 @@
               "Type": "Simple",
               "RunTime": 0,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "FrostBeamFire",
-                "WaitForAnimationToFinish": false
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "R-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
               }
             },
             {
               "Type": "LaunchAbilityProjectile",
-              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt_R",
               "Lifetime": 0.7,
               "ScaleAttribute": "ProjectileSize",
-              "SpeedAttribute": "Speed"
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
             },
             {
               "Type": "Simple",
@@ -82,17 +105,29 @@
               "Type": "Simple",
               "RunTime": 0,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "FrostBeamFireL",
-                "WaitForAnimationToFinish": false
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "L-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
               }
             },
             {
               "Type": "LaunchAbilityProjectile",
-              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt_L",
               "Lifetime": 0.7,
               "ScaleAttribute": "ProjectileSize",
-              "SpeedAttribute": "Speed"
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
             },
             {
               "Type": "Simple",
@@ -102,17 +137,29 @@
               "Type": "Simple",
               "RunTime": 0,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "FrostBeamFire",
-                "WaitForAnimationToFinish": false
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "R-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
               }
             },
             {
               "Type": "LaunchAbilityProjectile",
-              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt_R",
               "Lifetime": 0.7,
               "ScaleAttribute": "ProjectileSize",
-              "SpeedAttribute": "Speed"
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
             },
             {
               "Type": "Simple",
@@ -122,9 +169,178 @@
               "Type": "Simple",
               "RunTime": 0,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "FrostBeamFireL",
-                "WaitForAnimationToFinish": false
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "L-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt_L",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
+                "ItemAnimationId": "FrostBeamFire",
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "R-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt_R",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
+                "ItemAnimationId": "FrostBeamFireL",
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "L-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt_L",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
+                "ItemAnimationId": "FrostBeamFire",
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "R-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt_R",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
+                "ItemAnimationId": "FrostBeamFireL",
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "L-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
+              }
+            },
+            {
+              "Type": "LaunchAbilityProjectile",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Bolt_L",
+              "Lifetime": 0.7,
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0.22
+            },
+            {
+              "Type": "Simple",
+              "RunTime": 0,
+              "Effects": {
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
+                "ItemAnimationId": "FrostBeamFire",
+                "WaitForAnimationToFinish": false,
+                "Particles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "R-Hand",
+                    "Scale": 0.7
+                  }
+                ],
+                "WorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot"
               }
             },
             {
@@ -132,7 +348,10 @@
               "Projectile": "Projectile_Config_AT_Ice_King_Rune_Burst_Final",
               "Lifetime": 0.7,
               "ScaleAttribute": "ProjectileSize",
-              "SpeedAttribute": "Speed"
+              "SpeedAttribute": "Speed",
+              "TrailParticles": "Impact_Ice",
+              "TrailInterval": 0.04,
+              "TrailScale": 0.35
             },
             {
               "Type": "Simple",

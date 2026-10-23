@@ -1,5 +1,5 @@
 {
-  "$Comment": "Freezing ray hit of the Freezing Ray and Chain Rays runes (2026-10-22): as AT_Ice_King_Ice_Ray_Hit_Freezing without the shield probe: 15 ice, an instant 1.5 s freeze (guarded: none while AT_Ice_King_Freeze_Guard is on), then 1 frost stack.",
+  "$Comment": "Freezing hit of the Ice Ray rune (2026-10-23: the ice ray should freeze on the first hit; it was the hit of the removed Freezing Ray and Chain Rays runes): as AT_Ice_King_Ice_Ray_Hit_Freezing without the shield probe: 17 ice, an instant 3 s freeze (1.5 until 2026-10-23: longer) (guarded: none while AT_Ice_King_Freeze_Guard is on), then 1 frost stack.",
   "Type": "Serial",
   "Interactions": [
     {
@@ -7,7 +7,7 @@
       "DamageCalculator": {
         "Type": "Absolute",
         "BaseDamage": {
-          "Ice": 15
+          "Ice": 17
         },
         "RandomPercentageModifier": 0.1
       },
@@ -32,18 +32,18 @@
       "Next": {
         "Type": "Serial",
         "Interactions": [
-          "AT_Ice_King_Freeze_Prep",
+          "AT_Ice_King_Rune_Freeze_Prep",
           {
             "Type": "ApplyEffect",
             "EffectId": "AT_Ice_King_Freeze",
             "Entity": "Target",
-            "Duration": 1.5
+            "Duration": 3.0
           },
           {
             "Type": "ApplyEffect",
             "EffectId": "AT_Ice_King_Freeze_Guard",
             "Entity": "Target",
-            "Duration": 6.5
+            "Duration": 8.0
           }
         ]
       },
@@ -52,6 +52,6 @@
         "RunTime": 0
       }
     },
-    "AT_Ice_King_Frost_Hit"
+    "AT_Ice_King_Rune_Frost_Hit"
   ]
 }

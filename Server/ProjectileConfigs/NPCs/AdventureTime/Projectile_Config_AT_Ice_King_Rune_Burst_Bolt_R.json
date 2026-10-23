@@ -1,7 +1,7 @@
 {
-  "$Comment": "Ice Rain rune sky bolt (2026-10-22): cosmetic, as the king's Projectile_Config_AT_Ice_King_Ice_Rain_Up (almost straight up, no hit).",
+  "$Comment": "Frost Burst rune bolt 1-9, right hand (2026-10-23: 10 bolts, alternating hands): the king's frost beam bolt flight (LaunchForce 70, straight), spawned 0.3 to the right of the eyes (vanilla player SpawnOffset otherwise).",
   "Model": "AT_Ice_King_Ray",
-  "LaunchForce": 60,
+  "LaunchForce": 70,
   "Physics": {
     "Type": "Standard",
     "Gravity": 0,
@@ -12,21 +12,20 @@
     "SticksVertically": true
   },
   "SpawnOffset": {
-    "X": 0.15,
+    "X": 0.3,
     "Y": -0.25,
     "Z": -0.5
   },
-  "SpawnRotationOffset": {
-    "Pitch": 80,
-    "Roll": 0
-  },
-  "LaunchWorldSoundEventId": "SFX_AT_Ice_King_Bolt_Shot",
   "Interactions": {
     "ProjectileHit": {
       "Cooldown": {
         "Cooldown": 0
       },
       "Interactions": [
+        {
+          "Type": "SplitAbilityProjectile"
+        },
+        "AT_Ice_King_Rune_Burst_Hit",
         {
           "Type": "RemoveEntity",
           "Entity": "User"

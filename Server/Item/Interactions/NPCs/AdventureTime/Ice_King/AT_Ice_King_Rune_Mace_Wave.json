@@ -1,38 +1,32 @@
 {
-  "$Comment": "Ice Mace rune shock wave (2026-10-22): the king's AT_Ice_King_Ice_Mace_Wave (Donut ring 2 wide, 2 high, jump to clear) out to 15 blocks instead of 50 over the same 2.25 s, and his ring particle at Scale 0.3 so it matches (30 % of 50 = 15). Hits every entity but the caster (Selector IgnoreOwner default).",
-  "Type": "Selector",
-  "RunTime": 2.25,
-  "Effects": {
-    "Particles": [
-      {
-        "SystemId": "AT_Ice_King_Mace_Slam",
-        "TargetEntityPart": "Entity",
-        "TargetNodeName": "Origin",
-        "PositionOffset": {
+  "$Comment": "Ice Mace rune shock wave (2026-10-22): the king's AT_Ice_King_Ice_Mace_Wave (Donut ring 2 wide, 2 high, jump to clear) out to 15 blocks instead of 50 over the same 2.25 s, and his ring particle at Scale 0.3 so it matches (30 % of 50 = 15). Hits every entity but the caster (Selector IgnoreOwner default). 2026-10-23 (playtest: the ring showed in third person but not in first person): the ring is a TriggerAbilityFX world particle at the caster's feet (an attached particle of the caster's own Effects is not drawn in first person), and the Donut is centred on the caster too (Offset 0; it was 1.2 blocks in front, where the king's mace lands).",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "TriggerAbilityFX",
+      "SystemId": "AT_Ice_King_Mace_Slam",
+      "Scale": 0.3,
+      "SoundEventId": "SFX_AT_Ice_King_Mace_Impact"
+    },
+    {
+      "Type": "Selector",
+      "RunTime": 2.25,
+      "Selector": {
+        "Id": "Donut",
+        "Height": 2,
+        "Width": 2,
+        "MaxRadius": 15,
+        "Offset": {
           "X": 0,
           "Y": 0,
-          "Z": 1.2
-        },
-        "DetachedFromModel": true,
-        "Scale": 0.3
+          "Z": 0
+        }
+      },
+      "HitEntity": {
+        "Interactions": [
+          "AT_Ice_King_Rune_Mace_Wave_Hit"
+        ]
       }
-    ],
-    "WorldSoundEventId": "SFX_AT_Ice_King_Mace_Impact"
-  },
-  "Selector": {
-    "Id": "Donut",
-    "Height": 2,
-    "Width": 2,
-    "MaxRadius": 15,
-    "Offset": {
-      "X": 0,
-      "Y": -1,
-      "Z": -1.2
     }
-  },
-  "HitEntity": {
-    "Interactions": [
-      "AT_Ice_King_Rune_Mace_Wave_Hit"
-    ]
-  }
+  ]
 }

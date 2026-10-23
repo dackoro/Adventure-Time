@@ -35,7 +35,10 @@
             },
             {
               "Type": "LaunchAbilityProjectile",
-              "Projectile": "Projectile_Config_AT_Ice_King_Ray",
+              "$Comment": "2026-10-23 (playtest: the ice ray should freeze on the first hit): the rune work's Projectile_Config_AT_Ice_King_Rune_Freezing_Ray (the king's ray flight; hit AT_Ice_King_Rune_Freezing_Hit = 17 ice + guarded 1.5 s freeze + 1 frost stack; SplitAbilityProjectile for Fork / Ricochet support runes) instead of the king's own Projectile_Config_AT_Ice_King_Ray (18 ice + 1 stack). Speed / size bound to the support-rune attributes, as vanilla Ability_Fireball_Cast.",
+              "Projectile": "Projectile_Config_AT_Ice_King_Rune_Freezing_Ray",
+              "ScaleAttribute": "ProjectileSize",
+              "SpeedAttribute": "Speed",
               "Lifetime": 0.5,
               "Effects": {
                 "ItemPlayerAnimationsId": "Sword",

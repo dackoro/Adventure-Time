@@ -43,8 +43,8 @@
           "name": "Mace_Pivot",
           "position": {
             "x": 0,
-            "y": 88,
-            "z": 10
+            "y": 82,
+            "z": 16
           },
           "orientation": {
             "x": 0,
@@ -79,7 +79,7 @@
               "name": "Mace_Hand",
               "position": {
                 "x": 0,
-                "y": 27,
+                "y": 10,
                 "z": 0
               },
               "orientation": {
@@ -4586,7 +4586,7 @@
           "position": {
             "x": 0,
             "y": 3,
-            "z": 77
+            "z": 75
           },
           "orientation": {
             "x": -0.70711,

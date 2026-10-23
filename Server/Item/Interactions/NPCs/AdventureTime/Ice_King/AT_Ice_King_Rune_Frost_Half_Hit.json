@@ -1,0 +1,63 @@
+{
+  "$Comment": "Rune half frost stack (2026-10-23): copy of the king's AT_Ice_King_Frost_Half_Hit that adds the stack through AT_Ice_King_Rune_Frost_Hit. Generated from his file by gen_runes.py.",
+  "Type": "EffectCondition",
+  "Entity": "Target",
+  "EntityEffectIds": [
+    "AT_Ice_King_Frost_Immune"
+  ],
+  "Match": "None",
+  "Next": {
+    "Type": "EffectCondition",
+    "Entity": "Target",
+    "EntityEffectIds": [
+      "AT_Ice_King_Freeze"
+    ],
+    "Match": "All",
+    "Next": {
+      "Type": "Simple",
+      "RunTime": 0
+    },
+    "Failed": {
+      "Type": "EffectCondition",
+      "Entity": "Target",
+      "EntityEffectIds": [
+        "AT_Ice_King_Freeze_Ultimate"
+      ],
+      "Match": "All",
+      "Next": {
+        "Type": "Simple",
+        "RunTime": 0
+      },
+      "Failed": {
+        "Type": "EffectCondition",
+        "Entity": "Target",
+        "EntityEffectIds": [
+          "AT_Ice_King_Frost_Half"
+        ],
+        "Match": "All",
+        "Next": {
+          "Type": "Serial",
+          "Interactions": [
+            {
+              "Type": "ClearEntityEffect",
+              "EntityEffectId": "AT_Ice_King_Frost_Half",
+              "Entity": "Target"
+            },
+            "AT_Ice_King_Rune_Frost_Hit"
+          ]
+        },
+        "Failed": {
+          "Type": "ApplyEffect",
+          "EffectId": "AT_Ice_King_Frost_Half",
+          "Entity": "Target",
+          "Duration": 20
+        }
+      }
+    }
+  },
+  "Failed": {
+    "Type": "Simple",
+    "$Comment": "Frost-immune target (ice pillar): no frost.",
+    "RunTime": 0
+  }
+}

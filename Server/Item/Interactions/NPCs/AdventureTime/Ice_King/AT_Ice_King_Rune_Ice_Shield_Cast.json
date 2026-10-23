@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice Shield rune cast (2026-10-22): the king's Defens-ice for a player: his bubble (AT_Ice_King_Rune_Ice_Shield, 70 % less damage, half speed) for 4 s, pushing everything within 3 blocks out every 0.5 s; his warning circle in the last second; then the burst (AOECircle 5: 8 ice, strong push, 1 s freeze). No hit counter that shortens it (that is the king's fight mechanic). While it holds you can't attack (the rune's chain is running). Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: the king's own AT_Ice_King_Staff animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
+  "$Comment": "Ice Shield rune cast (2026-10-22): the king's Defens-ice for a player: his bubble (AT_Ice_King_Rune_Ice_Shield, 70 % less damage, half speed) for 4 s, pushing everything within 3 blocks out every 0.5 s; his warning circle in the last second; then the burst (AOECircle 5: 8 ice, strong push, 1 s freeze). No hit counter that shortens it (that is the king's fight mechanic). While it holds you can't attack (the rune's chain is running). No red warning circle (removed 2026-10-23: no red zone on the runes). The burst is a TriggerAbilityFX world particle, so it shows in first person too. Crown gate first (StatsCondition Costs 30 AT_Ice_Magic; only the Ice King crown raises its max), then the rune's own mana cost, as AT_Ice_King_Rune_Ice_Ray_Cast. Poses: AT_Ice_King_Rune_Player = the king's AT_Ice_King_Staff poses without their face animations (his skeleton is the player rig; first person falls back to the vanilla staff cast). ",
   "Type": "StatsCondition",
   "Costs": {
     "AT_Ice_Magic": 30
@@ -27,7 +27,7 @@
               "Type": "Selector",
               "RunTime": 0.5,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceShieldHold",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
@@ -59,7 +59,7 @@
               "Type": "Selector",
               "RunTime": 0.5,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceShieldHold",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
@@ -91,7 +91,7 @@
               "Type": "Selector",
               "RunTime": 0.5,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceShieldHold",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
@@ -123,7 +123,7 @@
               "Type": "Selector",
               "RunTime": 0.5,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceShieldHold",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
@@ -155,7 +155,7 @@
               "Type": "Selector",
               "RunTime": 0.5,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceShieldHold",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
@@ -187,7 +187,7 @@
               "Type": "Selector",
               "RunTime": 0.5,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceShieldHold",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
@@ -219,7 +219,7 @@
               "Type": "Selector",
               "RunTime": 0.5,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceShieldHold",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
@@ -234,13 +234,6 @@
                     "TargetEntityPart": "Entity",
                     "TargetNodeName": "L-Hand",
                     "Scale": 1.0
-                  },
-                  {
-                    "SystemId": "AT_Ice_King_Warning_Circle",
-                    "TargetEntityPart": "Entity",
-                    "TargetNodeName": "Origin",
-                    "DetachedFromModel": true,
-                    "Scale": 5
                   }
                 ]
               },
@@ -258,7 +251,7 @@
               "Type": "Selector",
               "RunTime": 0.5,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceShieldHold",
                 "WaitForAnimationToFinish": false,
                 "Particles": [
@@ -292,21 +285,19 @@
               "Entity": "User"
             },
             {
+              "Type": "TriggerAbilityFX",
+              "SystemId": "AT_Ice_King_Nova_Burst",
+              "Scale": 2,
+              "ScaleAttribute": "AoeScale",
+              "SoundEventId": "SFX_AT_Ice_King_Ice_Nova"
+            },
+            {
               "Type": "Selector",
               "RunTime": 0.1,
               "Effects": {
-                "ItemPlayerAnimationsId": "AT_Ice_King_Staff",
+                "ItemPlayerAnimationsId": "AT_Ice_King_Rune_Player",
                 "ItemAnimationId": "IceShieldBurst",
-                "WaitForAnimationToFinish": false,
-                "WorldSoundEventId": "SFX_AT_Ice_King_Ice_Nova",
-                "Particles": [
-                  {
-                    "SystemId": "AT_Ice_King_Nova_Burst",
-                    "TargetEntityPart": "Entity",
-                    "DetachedFromModel": true,
-                    "Scale": 2
-                  }
-                ]
+                "WaitForAnimationToFinish": false
               },
               "Selector": {
                 "Id": "AOECircle",

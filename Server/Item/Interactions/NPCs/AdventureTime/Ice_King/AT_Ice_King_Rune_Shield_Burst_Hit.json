@@ -1,5 +1,5 @@
 {
-  "$Comment": "Ice Shield rune burst (2026-10-22): as AT_Ice_King_Ice_Shield_Burst_Damage: 8 ice, a strong push out and up (Point), 1 s freeze (guarded).",
+  "$Comment": "Ice Shield rune burst (2026-10-22): as AT_Ice_King_Ice_Shield_Burst_Damage: 8 ice, a strong push out and up (Point), 2 s freeze (guarded; 1 s until 2026-10-23: longer).",
   "Type": "Serial",
   "Interactions": [
     {
@@ -41,18 +41,18 @@
       "Next": {
         "Type": "Serial",
         "Interactions": [
-          "AT_Ice_King_Freeze_Prep",
+          "AT_Ice_King_Rune_Freeze_Prep",
           {
             "Type": "ApplyEffect",
             "EffectId": "AT_Ice_King_Freeze",
             "Entity": "Target",
-            "Duration": 1
+            "Duration": 2.0
           },
           {
             "Type": "ApplyEffect",
             "EffectId": "AT_Ice_King_Freeze_Guard",
             "Entity": "Target",
-            "Duration": 6
+            "Duration": 7.0
           }
         ]
       },

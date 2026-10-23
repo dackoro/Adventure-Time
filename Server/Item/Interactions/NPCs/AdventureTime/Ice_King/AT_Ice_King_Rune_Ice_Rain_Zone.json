@@ -1,7 +1,0 @@
-{
-  "$Comment": "Ice Rain rune zone (2026-10-22): the king's warning circle, 5 blocks, where the shards will fall (TriggerAbilityFX, see the iceberg drop; repeated every 1.4 s while it rains, grows with AoeScale).",
-  "Type": "TriggerAbilityFX",
-  "SystemId": "AT_Ice_King_Warning_Circle",
-  "Scale": 5,
-  "ScaleAttribute": "AoeScale"
-}

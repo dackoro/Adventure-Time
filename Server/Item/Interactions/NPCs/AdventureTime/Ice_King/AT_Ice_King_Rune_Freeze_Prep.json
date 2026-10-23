@@ -1,0 +1,44 @@
+{
+  "$Comment": "Rune freeze prep (2026-10-23: rune freezes without the king's laugh): copy of the king's AT_Ice_King_Freeze_Prep (clears the short frost effects, ice sound, waits 0.1 s so the snow shell shows) without its SFX_AT_Ice_King_VO_Freeze_Laugh step. Its SFX_AT_Ice_King_Freeze is a TriggerAbilityFX SoundEventId (2026-10-23: no sound when a rune froze): a rune's hit chain is server-simulated and its Effects never reach a client (TriggerAbilityFX codec doc). Generated from his file by gen_runes.py.",
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_1",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_2",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_3",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_4",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Frost_Half",
+      "Entity": "Target"
+    },
+    {
+      "Type": "ClearEntityEffect",
+      "EntityEffectId": "AT_Ice_King_Slow_Weak",
+      "Entity": "Target"
+    },
+    {
+      "Type": "TriggerAbilityFX",
+      "SoundEventId": "SFX_AT_Ice_King_Freeze"
+    },
+    {
+      "Type": "Simple",
+      "RunTime": 0.1
+    }
+  ]
+}

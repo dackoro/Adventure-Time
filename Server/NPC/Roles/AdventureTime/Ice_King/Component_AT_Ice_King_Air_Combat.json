@@ -1,5 +1,5 @@
 {
-  "$Comment": "2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Phase2 (the laugh) with the PhaseChange when phase 2 starts. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): summons only while 0-4 Gunters are within 30 blocks (was 0-8). 2026-10-22 test logger: a Log action (\"[IceKing] ...\") after every PlaySound / role change, printed to the server log. Log is rate-limited by the server to one line per second for ALL Log actions together (ActionLog atMostEvery 1 s). Sounds played by interactions (attacks) cannot log. 2026-10-22 (playtest: phase 2 too easy, he mostly flew): timers Zap 4->3, Burst 20->14, Burst_Single 16->10, RayBoth 5->4 s; every timed attack waits while he is casting (Not Self IsExecutingInteraction) instead of being lost. 2026-10-22: every Attack action has DamageFriendlies true. The henchmen list the king's group in DisableDamageGroups (so they never fight back at him); with this flag his attacks still land on them as before (ultimate, stray rays), while their Damage sensor still ignores him. 2026-10-22 (harness fight, attack counts per phase): the attack timers are no longer Repeating. A repeating timer restarts by itself at 0, so its rule (Timer TimeRemainingRange [0, 1] + Not IsExecutingInteraction) could only fire during the last second of each cycle; when the king was busy then (Zap and Ray_Both kept him busy most of the time) that attack was skipped for a whole cycle: phase 2 cast Sword_Dive 0 times in 3 min, phase 4 the ultimate once. A non-repeating timer stops at 0 (Timer.tick) and waits there, the rule fires as soon as he is free, and the rule's TimerRestart starts the next cycle. When several are ready, the first rule in file order goes first, so Zap (near the end) fills the gaps instead of starving the rest. Phase 2 Zap every 4 s (was 3): it was 45 % of the casts. Second harness run with non-repeating timers: Ray_Both (4 s, earlier in file order) took every free moment, 55 % of the casts, and Zap got none (10.5 casts/min in total). Ray_Both every 6 s, Zap every 3 s. Third run (player no longer buried by the test): Zap at 3 s was 58 % of the casts (4 in a row once), 28 casts/min; Zap back to 4 s. 2026-10-22 (playtest: switch off friendly-fire avoidance on all his attacks; if he kills his own penguins by mistake, better, a more chaotic team fight): every Attack action has AvoidFriendlyFire false (ActionAttack: with true, an entity of his own damage groups in the line made him drop the attack). 2026-10-22 (playtest: phase 4 only spawned Gunters, no snowmen): the air summon now spawns snowmen too (gunters 2->1, +1 snowmen; count group -> AT_Ice_King_Minions), like the ground summon (Projectile_Config_AT_Ice_King_Summon: Gunters + a snowman); its limit counts both (group AT_Ice_King_Minions, was Gunters only). 2026-10-22 (playtest: a debug report of every attack): a Log '[IceKing][cast][p2] <attack>' after every Attack and summon, read by scripts/ice-king-harness.py watch. The server lets one Log line per second through for all Log actions together, so two casts in the same second count as one.",
+  "$Comment": "2026-10-22 sounds (SFX_AT_Ice_King_* events, rule: each sound on its exact moment): VO_Phase2 (the laugh) with the PhaseChange when phase 2 starts. 2026-10-22 balance (picked after an art review, ice-king-balance-review.md): summons only while 0-4 Gunters are within 30 blocks (was 0-8). 2026-10-22 (playtest: phase 2 too easy, he mostly flew): timers Zap 4->3, Burst 20->14, Burst_Single 16->10, RayBoth 5->4 s; every timed attack waits while he is casting (Not Self IsExecutingInteraction) instead of being lost. 2026-10-22: every Attack action has DamageFriendlies true. The henchmen list the king's group in DisableDamageGroups (so they never fight back at him); with this flag his attacks still land on them as before (ultimate, stray rays), while their Damage sensor still ignores him. 2026-10-22 (harness fight, attack counts per phase): the attack timers are no longer Repeating. A repeating timer restarts by itself at 0, so its rule (Timer TimeRemainingRange [0, 1] + Not IsExecutingInteraction) could only fire during the last second of each cycle; when the king was busy then (Zap and Ray_Both kept him busy most of the time) that attack was skipped for a whole cycle: phase 2 cast Sword_Dive 0 times in 3 min, phase 4 the ultimate once. A non-repeating timer stops at 0 (Timer.tick) and waits there, the rule fires as soon as he is free, and the rule's TimerRestart starts the next cycle. When several are ready, the first rule in file order goes first, so Zap (near the end) fills the gaps instead of starving the rest. Phase 2 Zap every 4 s (was 3): it was 45 % of the casts. Second harness run with non-repeating timers: Ray_Both (4 s, earlier in file order) took every free moment, 55 % of the casts, and Zap got none (10.5 casts/min in total). Ray_Both every 6 s, Zap every 3 s. Third run (player no longer buried by the test): Zap at 3 s was 58 % of the casts (4 in a row once), 28 casts/min; Zap back to 4 s. 2026-10-22 (playtest: switch off friendly-fire avoidance on all his attacks; if he kills his own penguins by mistake, better, a more chaotic team fight): every Attack action has AvoidFriendlyFire false (ActionAttack: with true, an entity of his own damage groups in the line made him drop the attack). 2026-10-22 (playtest: phase 4 only spawned Gunters, no snowmen): the air summon now spawns snowmen too (gunters 2->1, +1 snowmen; count group -> AT_Ice_King_Minions), like the ground summon (Projectile_Config_AT_Ice_King_Summon: Gunters + a snowman); its limit counts both (group AT_Ice_King_Minions, was Gunters only).",
   "Type": "Component",
   "Class": "Instruction",
   "Interface": "Hytale.Instruction.Combat",
@@ -28,10 +28,6 @@
           {
             "Type": "PlaySound",
             "SoundEventId": "SFX_AT_Ice_King_VO_Phase2"
-          },
-          {
-            "Type": "Log",
-            "Message": "[IceKing][phase 2] sound SFX_AT_Ice_King_VO_Phase2"
           },
           {
             "Type": "TimerStart",
@@ -125,10 +121,6 @@
           {
             "Type": "TimerRestart",
             "Name": "AT_Ice_King_Air_Swap"
-          },
-          {
-            "Type": "Log",
-            "Message": "[IceKing][target] attacker"
           }
         ]
       },
@@ -158,10 +150,6 @@
           {
             "Type": "TimerRestart",
             "Name": "AT_Ice_King_Air_Swap"
-          },
-          {
-            "Type": "Log",
-            "Message": "[IceKing][target] swap"
           }
         ]
       },
@@ -203,10 +191,6 @@
           {
             "Type": "PlaySound",
             "SoundEventId": "SFX_AT_Ice_King_VO_Many_Players"
-          },
-          {
-            "Type": "Log",
-            "Message": "[IceKing][phase 2] sound SFX_AT_Ice_King_VO_Many_Players"
           },
           {
             "Type": "TimerRestart",
@@ -918,10 +902,6 @@
             "AvoidFriendlyFire": false
           },
           {
-            "Type": "Log",
-            "Message": "[IceKing][cast][p2] Root_AT_Ice_King_Frost_Beam_Air"
-          },
-          {
             "Type": "TimerRestart",
             "Name": "AT_Ice_King_Air_Burst"
           }
@@ -978,10 +958,6 @@
             ],
             "DamageFriendlies": true,
             "AvoidFriendlyFire": false
-          },
-          {
-            "Type": "Log",
-            "Message": "[IceKing][cast][p2] Root_AT_Ice_King_Frost_Beam_Air_Single"
           },
           {
             "Type": "TimerRestart",
@@ -1042,77 +1018,10 @@
             "AvoidFriendlyFire": false
           },
           {
-            "Type": "Log",
-            "Message": "[IceKing][cast][p2] Root_AT_Ice_King_Ice_Ray_Both"
-          },
-          {
             "Type": "TimerRestart",
             "Name": "AT_Ice_King_Air_RayBoth"
           }
         ]
-      },
-      {
-        "$Comment": "Ice sword dive (2026-10-21, concept attack 5): AT_Ice_King_Ice_Sword_Dive every 20 s (first after 15 s) when the target is within 22 blocks in sight: he summons the sword, swoops at the player and chops. Same pattern as the Zap. 2026-10-21 (playtest: the sword only in the nunchuck phase; in the air it took too long to come down and swung far from the player): Enabled false. 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 44 (were 22). AT_RING (removed the same day) kept him up to 28 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched.",
-        "Continue": true,
-        "Sensor": {
-          "Type": "And",
-          "Sensors": [
-            {
-              "Type": "Target",
-              "Range": 44,
-              "Filters": [
-                {
-                  "Type": "LineOfSight"
-                }
-              ]
-            },
-            {
-              "Type": "Timer",
-              "Name": "AT_Ice_King_Air_Sword",
-              "TimeRemainingRange": [
-                0,
-                1
-              ]
-            },
-            {
-              "Type": "Not",
-              "Sensor": {
-                "Type": "Self",
-                "Filters": [
-                  {
-                    "Type": "IsExecutingInteraction"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "HeadMotion": {
-          "Type": "Aim",
-          "HitProbability": 1,
-          "Spread": 0
-        },
-        "Actions": [
-          {
-            "Type": "Attack",
-            "Attack": "Root_AT_Ice_King_Ice_Sword_Dive",
-            "AimingTimeRange": [
-              0.2,
-              0.3
-            ],
-            "DamageFriendlies": true,
-            "AvoidFriendlyFire": false
-          },
-          {
-            "Type": "Log",
-            "Message": "[IceKing][cast][p2] Root_AT_Ice_King_Ice_Sword_Dive"
-          },
-          {
-            "Type": "TimerRestart",
-            "Name": "AT_Ice_King_Air_Sword"
-          }
-        ],
-        "Enabled": false
       },
       {
         "$Comment": "Zap (2026-10-21): quick weak ice bolt every 4 s (first after 2 s) when the target is within 30 blocks in sight. Same pattern as the enraged freezing ray: And(Target, Timer) + HeadMotion Aim + Attack. The Attack action starts nothing while another attack runs, so it never overlaps the normal ray. 2026-10-22 (playtest: after the AT_RING flight change he only flew and never attacked): attack Target ranges raised to 44 (were 30). AT_RING (removed the same day) kept him up to 28 blocks away in straight-line distance, outside the old ranges, so no attack sensor ever matched.",
@@ -1165,10 +1074,6 @@
             ],
             "DamageFriendlies": true,
             "AvoidFriendlyFire": false
-          },
-          {
-            "Type": "Log",
-            "Message": "[IceKing][cast][p2] Root_AT_Ice_King_Zap"
           },
           {
             "Type": "TimerRestart",
@@ -1248,10 +1153,6 @@
           {
             "Type": "TimerRestart",
             "Name": "AT_Ice_King_Air_Summon"
-          },
-          {
-            "Type": "Log",
-            "Message": "[IceKing][cast][p2] Summon"
           }
         ]
       }

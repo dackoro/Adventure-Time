@@ -23,7 +23,7 @@
   "ItemSoundSetId": "ISS_Items_Gems",
   "Ability": {
     "Slot": "Core",
-    "Cooldown": 0,
+    "Cooldown": 3,
     "Cost": 30,
     "CostType": "Mana",
     "AbilityKeywords": [

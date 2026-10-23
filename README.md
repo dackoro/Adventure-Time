@@ -33,7 +33,7 @@ One health bar, four roles. The encounter watches his health and swaps his role 
 
 | | |
 |---|---|
-| ![The ultimate beam](showcase/ultimate.jpg) "Ice... KING!", phase 1 | ![Takeoff](showcase/takeoff.jpg) Takeoff into phase 2 |
+| ![The ultimate beam](showcase/ultimate.jpg) "Ice... KING!", phase 1 | ![The Ice King flying and firing a frost beam](showcase/air.jpg) In the air, phase 2 |
 | ![Nunchucks](showcase/fridjitzu.jpg) Fridjitzu, phase 3 | ![Rage ultimate](showcase/rage-ultimate.jpg) The rage ultimate, phase 4 |
 
 ## Rules the player learns
